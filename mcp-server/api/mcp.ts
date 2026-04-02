@@ -26,16 +26,6 @@ export default async function handler(
     return;
   }
 
-  if (req.method === "GET" || req.method === "DELETE") {
-    res.writeHead(405, { Allow: "POST" });
-    res.end(JSON.stringify({
-      jsonrpc: "2.0",
-      error: { code: -32000, message: "Method not allowed." },
-      id: null,
-    }));
-    return;
-  }
-
   const server = createServer(skills);
   const transport = new StreamableHTTPServerTransport({
     sessionIdGenerator: undefined, // stateless
