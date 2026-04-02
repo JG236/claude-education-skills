@@ -9,6 +9,11 @@ import {
 } from "./tool-handler.js";
 import type { LoadedSkill } from "./types.js";
 
+const ANNOTATIONS = {
+  readOnlyHint: true as const,
+  destructiveHint: false as const,
+};
+
 export function createServer(skills: LoadedSkill[]): McpServer {
   const skillsByToolName = new Map<string, LoadedSkill>();
   const skillsById = new Map<string, LoadedSkill>();
@@ -22,7 +27,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
     version: "0.3.0",
   });
 
-  // Register 107 skills as prompts (user-invoked, injected into conversation)
+  // Register 108 skills as prompts (user-invoked, injected into conversation)
   for (const skill of skills) {
     const argsSchema: Record<string, z.ZodTypeAny> = {};
 
@@ -61,7 +66,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
     });
   }
 
-  // Register 107 skills as tools (for Claude.ai and orchestrator use)
+  // Register 108 skills as tools (for Claude.ai and orchestrator use)
   for (const skill of skills) {
     const shape: Record<string, z.ZodTypeAny> = {};
 
@@ -87,7 +92,12 @@ export function createServer(skills: LoadedSkill[]): McpServer {
       : "";
     const toolDesc = `${metadata.skill_name} — ${description}${evidenceTag}`;
 
-    server.tool(toolName, toolDesc, shape, async (args) => {
+    server.registerTool(toolName, {
+      title: metadata.skill_name,
+      description: toolDesc,
+      inputSchema: shape,
+      annotations: { title: metadata.skill_name, ...ANNOTATIONS },
+    }, async (args) => {
       const assembled = assemblePrompt(
         skillsByToolName.get(toolName)!,
         args as Record<string, unknown>,
@@ -104,40 +114,40 @@ Generate the complete output now.`;
   }
 
   // Register 4 meta-tools (model-invoked, for discovery)
-  server.tool(
-    "list_skills",
-    "List all available education skills grouped by domain. Returns skill ID, name, evidence strength, tags, and estimated teacher time.",
-    { domain: z.string().optional().describe("Filter to a specific domain") },
-    async (args) => handleListSkills(skills, args),
-  );
+  server.registerTool("list_skills", {
+    title: "List Skills",
+    description: "List all available education skills grouped by domain. Returns skill ID, name, evidence strength, tags, and estimated teacher time.",
+    inputSchema: { domain: z.string().optional().describe("Filter to a specific domain") },
+    annotations: { title: "List Skills", ...ANNOTATIONS },
+  }, async (args) => handleListSkills(skills, args));
 
-  server.tool(
-    "get_skill_details",
-    "Get full metadata for a specific skill including evidence sources, input/output schemas, and chaining information.",
-    { skill_id: z.string().describe("The skill ID (e.g. 'memory-learning-science/cognitive-load-analyser')") },
-    async (args) => handleGetSkillDetails(skillsById, args),
-  );
+  server.registerTool("get_skill_details", {
+    title: "Get Skill Details",
+    description: "Get full metadata for a specific skill including evidence sources, input/output schemas, and chaining information.",
+    inputSchema: { skill_id: z.string().describe("The skill ID (e.g. 'memory-learning-science/cognitive-load-analyser')") },
+    annotations: { title: "Get Skill Details", ...ANNOTATIONS },
+  }, async (args) => handleGetSkillDetails(skillsById, args));
 
-  server.tool(
-    "find_skills",
-    "Search skills by tag, domain, evidence strength, or free text across skill names and descriptions.",
-    {
+  server.registerTool("find_skills", {
+    title: "Find Skills",
+    description: "Search skills by tag, domain, evidence strength, or free text across skill names and descriptions.",
+    inputSchema: {
       query: z.string().optional().describe("Free text search across skill names, descriptions, and tags"),
       domain: z.string().optional().describe("Filter by domain"),
       evidence_strength: z.string().optional().describe("Filter: strong | moderate | emerging | original"),
       tag: z.string().optional().describe("Filter by tag"),
     },
-    async (args) => handleFindSkills(skills, args),
-  );
+    annotations: { title: "Find Skills", ...ANNOTATIONS },
+  }, async (args) => handleFindSkills(skills, args));
 
-  server.tool(
-    "suggest_skills",
-    "Describe what you're trying to do in plain English and get 3-5 relevant skill recommendations. The entry point for users who don't know what skills exist.",
-    {
+  server.registerTool("suggest_skills", {
+    title: "Suggest Skills",
+    description: "Describe what you're trying to do in plain English and get 3-5 relevant skill recommendations. The entry point for users who don't know what skills exist.",
+    inputSchema: {
       problem_description: z.string().describe("Plain English description of what the teacher is trying to do"),
     },
-    async (args) => handleSuggestSkills(skills, args),
-  );
+    annotations: { title: "Suggest Skills", ...ANNOTATIONS },
+  }, async (args) => handleSuggestSkills(skills, args));
 
   return server;
 }
