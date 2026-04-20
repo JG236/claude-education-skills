@@ -3,7 +3,7 @@
 
 import yaml
 import json
-import glob
+import subprocess
 import os
 from datetime import datetime, timezone
 from collections import Counter
@@ -66,9 +66,20 @@ def parse_skill(path):
     }
 
 
+def tracked_skill_paths():
+    """List SKILL.md files tracked by git (honours .gitignore)."""
+    result = subprocess.run(
+        ["git", "ls-files", "--", "skills"],
+        capture_output=True, text=True, check=True,
+    )
+    return sorted(
+        p for p in result.stdout.splitlines() if p.endswith("/SKILL.md")
+    )
+
+
 def main():
     skills = []
-    for path in sorted(glob.glob("skills/**/SKILL.md", recursive=True)):
+    for path in tracked_skill_paths():
         skills.append(parse_skill(path))
 
     domain_counts = Counter(s["domain"] for s in skills)
