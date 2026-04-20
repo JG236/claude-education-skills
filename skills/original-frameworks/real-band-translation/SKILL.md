@@ -78,7 +78,7 @@ tags:
 
 # What This Skill Does
 
-This skill tags an external curriculum — already decomposed by the curriculum harness into KUD items, learning targets, and (optionally) criteria — with REAL School Budapest's six developmental bands: A (ages 5–7), B (8–10), C (10–12), D (11–13), E (13–15), F (15–17). Every item receives a `real_band` value, a confidence level, and diagnostic flags. The source's own band labels are preserved verbatim alongside the new REAL band tags, so the output can always be traced back to, and interpreted against, the original framework.
+This skill tags an external curriculum — already decomposed by the curriculum harness into KUD items, learning targets, and (optionally) criteria — with REAL School Budapest's six developmental bands: A (ages 5–7), B (7–9), C (9–11), D (11–13), E (13–15), F (15–17). Every item receives a `real_band` value, a confidence level, and diagnostic flags. The source's own band labels are preserved verbatim alongside the new REAL band tags, so the output can always be traced back to, and interpreted against, the original framework.
 
 The skill is a metadata operation, not a content operation. It does not rewrite KUDs, LTs, or criteria into REAL prose, and it does not reinterpret the source's intent. Its only job is to answer the question: "If a REAL teacher planning for Band C opened this framework, which of its content is relevant to them?" The skill is deliberately conservative where a source band spans two REAL bands (common for UK Key Stages): it assigns both candidate bands, sets an ambiguity flag, and records a rationale. Downstream skills — especially the REAL Crosswalk skill and the human planning process — resolve these ambiguities with teacher judgement.
 
