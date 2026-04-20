@@ -1,6 +1,6 @@
 ---
-name: REAL Crosswalk
-description: Compare two or more band-tagged frameworks (produced by REAL Band Translation) against REAL's own band-tagged framework to produce a PLC-ready document showing convergence, divergence, unique content, sequencing differences, and open questions. Use when preparing a cross-framework review for a PLC or when integrating an external framework into REAL planning.
+name: real-crosswalk
+description: Compare band-tagged frameworks (output of REAL Band Translation) against REAL's own framework to produce a PLC-ready document showing convergence, divergence, unique content, sequencing differences, and open questions for teacher review.
 disable-model-invocation: false
 user-invocable: true
 effort: high

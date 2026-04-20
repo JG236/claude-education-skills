@@ -1,6 +1,6 @@
 ---
-name: REAL Band Translation
-description: Tag a harness-decomposed external curriculum (KUDs, LTs, progression structure) with REAL developmental-band metadata (A–F) while preserving source voice and source-band labels unchanged. Use when a framework produced by the curriculum harness needs to enter REAL School's internal planning system or be crosswalked against REAL's own framework.
+name: real-band-translation
+description: Tag harness-decomposed curriculum items (KUDs, LTs) with REAL developmental-band metadata (A–F) while preserving source voice and labels unchanged. Use when a harness-produced framework needs to enter REAL School's planning or crosswalk pipeline.
 disable-model-invocation: false
 user-invocable: true
 effort: medium
