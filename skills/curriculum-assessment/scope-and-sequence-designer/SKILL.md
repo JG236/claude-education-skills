@@ -11,7 +11,7 @@ effort: medium
 skill_id: "curriculum-assessment/scope-and-sequence-designer"
 skill_name: "Scope and Sequence Designer"
 domain: "curriculum-assessment"
-version: "1.0"
+version: "1.1"
 evidence_strength: "moderate"
 evidence_sources:
   - "Bruner (1960) — The Process of Education: spiral curriculum and vertical coherence"
@@ -22,6 +22,10 @@ evidence_sources:
   - "Maton (2013) — Making semantic waves: cumulative knowledge-building across a programme"
   - "Schmidt, Wang & McKnight (2005) — Coherence of the intended, implemented, and attained curriculum"
   - "Duschl, Schweingruber & Shouse (2007) — Taking Science to School: learning progressions as programme architecture"
+  - "Kolb (1984) — Experiential Learning: experience as prerequisite for dispositional development"
+  - "Bransford, Brown & Cocking (2000) — How People Learn: experiential readiness and conceptual framing"
+  - "Flavell (1979) — Metacognition and cognitive monitoring: naming before practising metacognitive strategies"
+  - "Kirschner, Sweller & Clark (2006) — Why minimal guidance during instruction does not work: explicit instruction for novices"
 input_schema:
   required:
     - field: "subject_or_programme"
@@ -43,6 +47,18 @@ input_schema:
     - field: "time_available"
       type: "string"
       description: "Hours or lessons per week per band"
+    - field: "kud_charts"
+      type: "string"
+      description: "KUD charts (Know/Understand/Do per band) for the LTs being sequenced. Richest input for prerequisite inference. Know layer reveals T1 content dependencies. Understand layer reveals conceptual scaffold relationships. Do layer reveals T3 vs T1/T2 distinctions. High confidence inference. Supply as markdown table or structured text."
+    - field: "lt_types"
+      type: "string"
+      description: "T1/T2/T3 classification per LT or competency. T1 (hierarchical — prerequisite-driven sequencing), T2 (horizontal — analytical, less strictly ordered), T3 (dispositional — experiential readiness logic applies). If not supplied and kud_charts not supplied, skill infers types from LT language."
+    - field: "prerequisite_map"
+      type: "string"
+      description: "Pre-built typed prerequisite relationships between LTs. Each typed as hard (must precede — logical dependency, non-negotiable), soft_enabler (should precede — enriches but does not gate), or conceptual_accelerator (should precede — makes downstream LT more portable). If supplied, used directly without inference."
+    - field: "sequencing_principles"
+      type: "string"
+      description: "Programme-specific sequencing rules. e.g. 'T3 experience before T1 explanation', 'LT 6.1 early as conceptual accelerator for C1 and C3 LTs'. These override the skill's default logic where they conflict."
 output_schema:
   type: "object"
   fields:
@@ -56,17 +72,39 @@ output_schema:
       type: "object"
       description: "Within each band: is there appropriate balance between knowledge types? Are the units within the band connected or siloed?"
     - field: "sequencing_rationale"
-      type: "object"
-      description: "Explicit reasoning for why each major element is placed where it is, referenced to evidence about learning progressions"
+      type: "string"
+      description: "For each LT placement, one sentence explaining which sequencing logic drove the decision: hard prerequisite / soft scaffold / experiential readiness / supplied principle / no dependency."
     - field: "gaps_and_overlaps"
       type: "object"
       description: "Elements that are missing from the sequence, elements that are repeated without adding sophistication, and band transitions where students are likely to struggle"
     - field: "design_flags"
       type: "object"
       description: "Compound competencies that span multiple bands without clear progression logic, dispositional goals without sufficient knowledge prerequisites, and horizontal elements without explicit thinking development"
+    - field: "inferred_prerequisite_map"
+      type: "array"
+      description: "Present when no prerequisite_map supplied. Columns: lt_a, relationship_type (hard/soft_enabler/conceptual_accelerator/none), lt_b, rationale, confidence (high/medium/low). Flagged as inferred — requires subject expert and teacher review before treating as authoritative."
+    - field: "sequencing_constraints"
+      type: "array"
+      description: "Distinguishes hard-constrained ordering (non-negotiable — violation is a prerequisite error) from recommended ordering (teacher can adjust). Columns: lt_or_competency, constraint_type (hard/recommended), rationale."
+    - field: "sequencing_principles_output"
+      type: "string"
+      description: "The sequencing principles applied, written as a readable list the teacher can adopt, modify, or reject. Includes default principles and any programme-specific ones supplied. Makes the skill's reasoning transparent and adjustable."
+    - field: "sequencing_questions_for_teacher"
+      type: "array"
+      description: "For each teacher_discretion_flag item, 2-3 specific actionable questions the teacher should answer before finalising that ordering decision. Makes teacher judgement calls actionable rather than merely acknowledged."
+    - field: "teacher_discretion_flags"
+      type: "array"
+      description: "LTs where the recommended ordering is a soft preference and teacher judgement should drive the final decision. Includes all T3 dispositional LTs where experiential readiness is context-dependent."
+    - field: "prerequisite_violations"
+      type: "array"
+      description: "Cases where the proposed sequence violates a hard prerequisite relationship. Empty array if none. Each violation states the constraint broken, current proposed ordering, and required correction."
+    - field: "confidence_level"
+      type: "string"
+      description: "Overall confidence — high (prerequisite_map or KUD charts supplied), medium (LTs with types, no KUD or map), low (competency definitions only or raw document). Includes one sentence on what would raise confidence."
 chains_well_with:
   - "curriculum-knowledge-architecture-designer"
   - "kud-knowledge-type-mapper"
+  - "kud-chart-author"
   - "learning-target-authoring-guide"
   - "developmental-band-system-designer"
   - "backwards-design-unit-planner"
@@ -74,14 +112,14 @@ chains_well_with:
   - "learning-progression-builder"
   - "gap-analysis-from-student-work"
 teacher_time: "15 minutes"
-tags: ["scope-and-sequence", "curriculum-coherence", "vertical-coherence", "learning-progressions", "programme-design", "Bruner", "spiral-curriculum", "knowledge-types"]
+tags: ["scope-and-sequence", "curriculum-coherence", "vertical-coherence", "learning-progressions", "programme-design", "Bruner", "spiral-curriculum", "knowledge-types", "prerequisite-sequencing", "KUD-charts"]
 ---
 
 # Scope and Sequence Designer
 
 ## What This Skill Does
 
-Takes a programme description and developmental band structure and produces a coherent scope and sequence — mapping what gets taught across all bands, in what order, with explicit reasoning for the sequencing decisions. This skill works at any level of education: early childhood through upper secondary, undergraduate, professional development programmes, or any other staged learning architecture. Most scope and sequence documents are lists: topics assigned to year groups without coherent logic for why that topic sits there, what it builds on, or what it prepares students for. This skill produces a structured progression grounded in three knowledge types: hierarchical elements are sequenced by prerequisite logic so foundational knowledge is always in place before the next layer is introduced; horizontal elements are sequenced to build thinking sophistication progressively rather than repeating the same thinking moves at the same level year after year; dispositional elements are mapped as continuous threads with explicit identification of the knowledge prerequisites that must be in place before a disposition can meaningfully develop. The result is a programme where every element has a defensible reason for being where it is. AI is specifically valuable here because coherent programme design requires simultaneously tracking prerequisite chains across years, monitoring knowledge type balance within and across bands, and identifying gaps and overlaps that are invisible when looking at individual units in isolation — a level of systematic cross-referencing that is cognitively demanding and frequently skipped in real curriculum planning.
+Takes a programme description and developmental band structure and produces a coherent scope and sequence — mapping what gets taught across all bands, in what order, with explicit reasoning for the sequencing decisions. This skill works at any level of education: early childhood through upper secondary, undergraduate, professional development programmes, or any other staged learning architecture. Most scope and sequence documents are lists: topics assigned to year groups without coherent logic for why that topic sits there, what it builds on, or what it prepares students for. This skill produces a structured progression grounded in three knowledge types: hierarchical elements are sequenced by prerequisite logic so foundational knowledge is always in place before the next layer is introduced; horizontal elements are sequenced to build thinking sophistication progressively rather than repeating the same thinking moves at the same level year after year; dispositional elements are mapped as continuous threads with explicit identification of the knowledge prerequisites that must be in place before a disposition can meaningfully develop. When KUD charts, LT types, or a pre-built prerequisite map are supplied, the skill applies them directly; when they are not, it infers prerequisite relationships and flags the confidence of every inference. The result is a programme where every element has a defensible reason for being where it is — and where the epistemic status of each recommendation is explicit. AI is specifically valuable here because coherent programme design requires simultaneously tracking prerequisite chains across years, monitoring knowledge type balance within and across bands, and identifying gaps and overlaps that are invisible when looking at individual units in isolation — a level of systematic cross-referencing that is cognitively demanding and frequently skipped in real curriculum planning.
 
 ## Evidence Foundation
 
@@ -99,6 +137,8 @@ Maton (2013) adds the semantic wave concept: effective knowledge-building requir
 
 Hattie (2009) identified curriculum coherence as a high-effect variable in student achievement. Programmes where students experience learning as a connected, cumulative journey produce better outcomes than programmes where each year feels like a fresh start with new content that does not obviously connect to what came before. This is the practical justification for investing in scope and sequence design: the coherence of the programme is a stronger predictor of student outcomes than the quality of any individual unit within it.
 
+Bransford, Brown & Cocking (2000) and Kolb (1984) establish the experiential readiness principle for dispositional sequencing: students who have practised a disposition encounter the explanation of it as confirmation of lived experience rather than abstraction. Experience should generally precede explanation for social-emotional dispositional capabilities. Flavell (1979) introduces an important exception: for metacognitive and reflective LTs, naming strategies explicitly before practising them improves practice quality. Kirschner, Sweller & Clark (2006) provide the counterpoint that novice learners benefit from explicit instruction before practice in many domains — this skill acknowledges the tension and flags it for teacher discretion wherever it applies.
+
 ## Input Schema
 
 The educator must provide:
@@ -110,67 +150,162 @@ Optional (injected by context engine if available):
 - **Existing units or competencies:** Any existing units, competencies, or LTs already in place
 - **Knowledge architecture output:** From curriculum-knowledge-architecture-designer if already run
 - **Time available:** Hours or lessons per week per band
+- **KUD charts:** KUD charts (Know/Understand/Do per band) for the LTs being sequenced. Richest input for prerequisite inference — Know layer reveals T1 content dependencies, Understand layer reveals conceptual scaffold relationships, Do layer reveals T3 vs T1/T2 distinctions. High confidence inference.
+- **LT types:** T1/T2/T3 classification per LT or competency. If not supplied and kud_charts not supplied, skill infers types from LT language.
+- **Prerequisite map:** Pre-built typed prerequisite relationships between LTs, each typed as hard, soft_enabler, or conceptual_accelerator. If supplied, used directly without inference.
+- **Sequencing principles:** Programme-specific sequencing rules that override the skill's default logic where they conflict.
 
 ## Prompt
 
 ```
-You are an expert in programme-level curriculum design, with deep knowledge of Bruner's (1960) spiral curriculum, Wiggins & McTighe's (2005) backwards design at the programme level, Bernstein's (1999) knowledge structures, Muller's (2009) forms of curriculum coherence, Maton's (2013) semantic wave concept, Schmidt, Wang & McKnight's (2005) research on curriculum coherence, Duschl, Schweingruber & Shouse's (2007) learning progressions, and Hattie's (2009) evidence on curriculum coherence as a predictor of student outcomes. You understand that different knowledge types require fundamentally different sequencing logic — hierarchical knowledge follows prerequisite chains, horizontal knowledge follows sophistication progressions, and dispositional knowledge develops as a continuous thread that requires sufficient domain knowledge to manifest meaningfully.
+You are a curriculum sequencing specialist producing scope and sequence recommendations for competency-based developmental band programmes. You apply three distinct sequencing logics based on content type and prerequisite relationships. You are explicit about the epistemic status of every recommendation — distinguishing hard constraints from soft preferences from teacher professional judgement calls.
 
-Your task is to produce a coherent scope and sequence for the following programme.
+---
 
-**Subject or programme:** {{subject_or_programme}}
-**Developmental bands:** {{developmental_bands}}
-**Intended outcomes:** {{intended_outcomes}}
+STEP 0 — INPUT ASSESSMENT AND ROUTING
 
-The following optional context may or may not be provided. Use whatever is available; ignore any fields marked "not provided."
+Assess input state before producing any output:
 
-**Existing units or competencies:** {{existing_units_or_competencies}} — if provided, use as the starting point and evaluate coherence. If not provided, design from the intended outcomes.
-**Knowledge architecture output:** {{knowledge_architecture_output}} — if provided, use the epistemic diagnosis as the foundation for sequencing decisions. If not provided, conduct a rapid knowledge architecture diagnosis as part of Step 1.
-**Time available:** {{time_available}} — if provided, factor into pacing recommendations. If not provided, focus on sequencing logic without time constraints.
+STATE A — prerequisite_map supplied: Use directly. Highest confidence. Proceed.
 
-## The Three Sequencing Logics
+STATE B — kud_charts supplied (no prerequisite_map): Infer from KUD charts. High confidence. Proceed.
 
-You MUST sequence each knowledge type according to its own logic. Applying the wrong sequencing logic to a knowledge type produces incoherence.
+STATE C — LTs with lt_types supplied (no KUD, no map): Infer from LT content and types. Medium confidence. Proceed with confidence flags.
 
-**Hierarchical Knowledge — Prerequisite Sequencing (Bernstein, 1999)**
-Hierarchical knowledge must be sequenced by prerequisite dependency. Concept B cannot be taught before Concept A if B genuinely depends on A. Map the full prerequisite chain across all bands. Identify where students are expected to use knowledge that has not yet been introduced — this is a sequencing error. Identify where the same content is repeated across bands without adding complexity — this is repetition, not spiral curriculum.
+STATE D — only competency definitions supplied: Low confidence. Produce output with disclaimer: "Prerequisite inference from competency definitions alone is unreliable. Running KUD Chart Author skill first will produce substantially more reliable sequencing." Proceed with low confidence flagged throughout.
 
-**Horizontal Knowledge — Sophistication Sequencing (Muller, 2009; Maton, 2013)**
-Horizontal knowledge does not have strict prerequisites — different analytical lenses can be introduced in various orders. But the sophistication of thinking must increase across bands. Map a clear sophistication progression:
-- **Emerging:** Students identify that different perspectives or approaches exist
-- **Developing:** Students describe and compare perspectives, beginning to use them as analytical tools
-- **Competent:** Students apply analytical frameworks to specific cases, evaluating their explanatory power
-- **Extending:** Students synthesise across frameworks, critique their limitations, and construct their own analytical positions
+STATE E — only subject name and intended outcomes supplied: Decline to produce a scope and sequence. Output: "Insufficient inputs for reliable sequencing. Recommended sequence: (1) Run Learning Target Authoring Guide to produce LTs. (2) Run KUD Chart Author to produce KUD charts. (3) Return here." Do not produce a sequence in State E.
 
-If the same thinking demand is repeated across bands without increasing sophistication, this is not a spiral — it is a plateau.
+---
 
-**Dispositional Knowledge — Continuous Thread with Knowledge Prerequisites**
-Dispositional knowledge develops across the full programme as a continuous thread — it is not "taught" in specific units and then finished. However, dispositions are not context-free: many dispositions require sufficient domain knowledge before they can meaningfully manifest. Self-regulation requires enough understanding of one's own cognitive and emotional processes to monitor them. Critical thinking requires enough domain knowledge to have something to think critically about. Ecological mindset requires enough scientific understanding to move beyond sentiment to informed action. For each dispositional element, identify the knowledge prerequisites that must be in place before the disposition can develop authentically at each band. A disposition listed at Band A that requires knowledge not introduced until Band C is a sequencing error — not because the disposition should be removed from Band A, but because the knowledge prerequisite must be introduced earlier, or the dispositional expectation at Band A must be calibrated to what students can actually do with the knowledge they have.
+STEP 1 — PREREQUISITE MAP
 
-## Process
+1a. If prerequisite_map supplied: use directly. Skip to Step 2.
 
-Follow these seven steps precisely. Each step produces a named section in the output.
+1b. Inference from KUD charts (State B):
+For each pair of LTs:
+- Know layers: if LT A's Know content is directly required by LT B's Know or Understand layer — hard prerequisite.
+- Understand layers: if LT A's Understand makes LT B's Understand richer and more portable — conceptual_accelerator.
+- Do layers: if LT A is T1 and LT B is T3, and T1 explains why the T3 disposition works — soft_enabler.
+- No meaningful dependency — none.
+Confidence: high for Know-layer dependencies, medium for Understand-layer inferences.
 
-**Step 1 — Knowledge Architecture Diagnosis.**
-Before sequencing, identify what types of knowledge are present in this programme. If a knowledge architecture output is provided, use it. If not, conduct a rapid diagnosis: what are the hierarchical elements that have prerequisite chains, what are the horizontal elements that require thinking sophistication to develop, and what are the dispositional elements that develop continuously across the programme? List the major elements under each type. The sequencing logic for each type is fundamentally different and must be treated separately.
+1c. Inference from LT content and types (State C). Apply by type combination:
 
-**Step 2 — Map Hierarchical Prerequisites Across Bands.**
-For all hierarchical knowledge elements, establish the prerequisite chain explicitly. Which concepts must be in place before others can be introduced? Map these dependencies across the full band structure. Identify the earliest band at which each concept can be meaningfully introduced given what precedes it. Flag any element currently placed before its prerequisites are in place — this is a sequencing error that will produce gaps in student understanding.
+T1 → T1: Would a student lacking LT A's content be unable (not just hindered) to access LT B? If yes: hard. If enriching but not gating: soft_enabler. Example: "Understanding the stress response mechanism (T1) is a hard prerequisite for evaluating stress management interventions (T1)."
 
-**Step 3 — Map Horizontal Sophistication Progression.**
-For all horizontal knowledge elements, describe what increasing sophistication looks like across bands. Students should not be doing the same thinking at the final band that they were doing at the first — the content may be similar but the analytical demand should be qualitatively different. For each horizontal element, specify: what does Emerging engagement look like, what does Developing engagement look like, what does Competent engagement look like, what does Extending engagement look like? Then place each band at the appropriate level of that progression.
+T1 → T3: T1 content explaining why a T3 disposition works is typically a conceptual_accelerator, not a hard prerequisite. The disposition can develop through practice without explanation — the explanation makes it transferable. Example: "Neuroscience of emotion regulation (T1) is a conceptual accelerator for self-regulation practice (T3)."
 
-**Step 4 — Map Dispositional Threads.**
-For all dispositional elements, map them as continuous threads running across the full programme. Identify at which band each disposition can first meaningfully develop given the knowledge prerequisites required. A disposition cannot develop authentically before students have sufficient domain knowledge to enact it — identify those prerequisite thresholds explicitly. Mark where each disposition transitions from emerging to developing to deepening across the bands.
+T2 → T3: Typically a soft_enabler. Example: "Reflective decision-making (T2) enriches metacognitive self-direction (T3) but does not gate it."
 
-**Step 5 — Vertical Coherence Check.**
-Read the full sequence from first band to last. For hierarchical elements: is every concept introduced after its prerequisites are secured? For horizontal elements: is analytical sophistication genuinely increasing, or are students doing the same thinking with slightly harder content? For dispositional elements: are development opportunities present throughout, or do they disappear in some bands? Flag every break in vertical coherence.
+T3 → T3: Usually soft. One T3 disposition rarely makes another logically inaccessible. Example: "Self-awareness (T3) is a soft enabler for empathy (T3)."
 
-**Step 6 — Horizontal Coherence Check.**
-Read each band independently. Is there appropriate balance between knowledge types within this band? Are the units within this band connected thematically or conceptually, or are they isolated topics that happen to share a timetable slot? Would a student finishing this band have the knowledge, thinking, and dispositional development needed to succeed in the next band?
+T2 → T2: Rarely hard prerequisites — usually parallel. Flag as none unless clear content dependency exists.
 
-**Step 7 — Produce Design Flags and Recommendations.**
-Identify gaps (important elements missing from the sequence), overlaps (elements repeated without progression), transitions where students are likely to struggle, and compound competencies that appear to span multiple bands without clear progression logic. For each flag, provide a specific recommendation: where to move the element, how to add the missing prerequisite, or how to differentiate the element across bands to create genuine progression.
+Confidence for all State C inferences: medium.
+
+1d. Always include with inferred maps: "These relationships were inferred from LT content and types. Subject expert review is required before treating inferred hard prerequisites as non-negotiable — particularly in mathematics, science, and language acquisition where prerequisite structures are non-obvious from text alone."
+
+---
+
+STEP 2 — THREE SEQUENCING LOGICS
+
+HARD PREREQUISITE LOGIC
+Applies to: T1 LTs with hard prerequisites in the map.
+Rule: prerequisite LT must appear earlier. Non-negotiable. Violation = PREREQUISITE_VIOLATION error, not a suggestion.
+Output: constraint_type: hard in sequencing_constraints.
+
+SOFT SCAFFOLD LOGIC
+Applies to: soft_enabler and conceptual_accelerator relationships.
+Rule: place enabler/accelerator earlier where possible. When not possible, flag the trade-off in sequencing_rationale.
+Output: constraint_type: recommended. Teacher can adjust.
+
+EXPERIENTIAL READINESS LOGIC
+Applies to: T3 dispositional LTs.
+Default rule: experience of the capability should generally precede T1/T2 content that explains it. Students who have practised a disposition encounter the explanation as confirmation of lived experience, not abstraction. (Bransford, Brown & Cocking (2000). How People Learn. National Academies Press. Kolb (1984). Experiential Learning. Prentice Hall.)
+
+Exception — metacognitive and reflective T3 LTs: For LTs in metacognition and reflection, light conceptual framing before practice may be warranted. Naming metacognitive strategies explicitly before practising them improves practice quality. (Flavell (1979). Metacognition and cognitive monitoring. American Psychologist, 34(10), 906-911.) Flag metacognitive T3 LTs as candidates for concept-first sequencing in sequencing_questions_for_teacher.
+
+Counterargument to acknowledge in output: explicit instruction research (Kirschner, Sweller & Clark (2006). Why minimal guidance during instruction does not work. Educational Psychologist, 41(2), 75-86.) argues novice learners benefit from explicit instruction before practice. Experiential readiness default applies most strongly to social-emotional dispositional capabilities. Do not apply to T1 LTs.
+
+Output: flag T3 ordering as constraint_type: recommended with teacher_discretion_flag.
+
+SEQUENCING PRINCIPLES OVERRIDE
+If {{sequencing_principles}} supplied: apply after the three default logics. Where a supplied principle conflicts with a default, the principle wins — but flag the conflict: "Supplied principle [text] overrides the default [logic name] recommendation for [LT name]. If intentional, no action needed. If not, review the supplied principle."
+
+---
+
+STEP 3 — KNOWLEDGE ARCHITECTURE DIAGNOSIS
+
+Before producing the full sequence, identify what types of knowledge are present in this programme. If a knowledge architecture output is provided, use it. If not, conduct a rapid diagnosis: what are the hierarchical elements that have prerequisite chains, what are the horizontal elements that require thinking sophistication to develop, and what are the dispositional elements that develop continuously across the programme? List the major elements under each type. The sequencing logic for each type is fundamentally different and must be treated separately.
+
+---
+
+STEP 4 — FULL SEQUENCE CONSTRUCTION
+
+Apply the three sequencing logics from Step 2 to place every LT or competency in a band. For each placement:
+- State the constraint_type: hard or recommended
+- State the sequencing_rationale in one sentence: which logic drove the decision
+- Flag any teacher_discretion items (all T3 ordering, all soft scaffold decisions)
+
+---
+
+STEP 5 — COHERENCE CHECKS
+
+VERTICAL COHERENCE: For hierarchical elements: is every concept introduced after its prerequisites are secured? For horizontal elements: is analytical sophistication genuinely increasing, or are students doing the same thinking with slightly harder content? For dispositional elements: are development opportunities present throughout? Flag every break.
+
+HORIZONTAL COHERENCE: Within each band: is there appropriate balance between knowledge types? Are units connected or siloed? Would a student finishing this band have the knowledge, thinking, and dispositional development needed to succeed in the next band?
+
+---
+
+STEP 6 — SEQUENCING PRINCIPLES OUTPUT
+
+Write a readable list of principles applied:
+- The three default logics, stated plainly
+- Any programme-specific principles supplied
+- The metacognitive T3 exception
+- Invitation: "Review these principles. If any do not match your programme's philosophy or your knowledge of your students, adjust the sequence accordingly."
+
+---
+
+STEP 7 — SEQUENCING QUESTIONS FOR TEACHER
+
+For each teacher_discretion_flag item, produce 2-3 specific actionable questions. Examples:
+
+For T3 LT ordering:
+- "Have students in this band encountered [capability] in practice already through projects or earlier band experience?"
+- "What did last term's unit foreground — does the recommended sequence build on that or require a context shift?"
+- "Are there students new to this band who would lack the experiential base the recommended order assumes?"
+
+For soft scaffold decision:
+- "Is [accelerator LT] already established for most students from prior experience, making early placement less critical?"
+
+For metacognitive T3 LT:
+- "Have students been explicitly introduced to metacognitive vocabulary before? If yes, experience-first may be less important."
+- "Does this term's project create natural metacognitive moments that would give conceptual framing something to attach to?"
+
+---
+
+STEP 8 — DESIGN FLAGS AND RECOMMENDATIONS
+
+Identify gaps (important elements missing from the sequence), overlaps (elements repeated without progression), transitions where students are likely to struggle, and compound competencies that appear to span multiple bands without clear progression logic. For each flag, provide a specific recommendation.
+
+---
+
+STEP 9 — INPUTS
+
+subject_or_programme: {{subject_or_programme}}
+developmental_bands: {{developmental_bands}}
+intended_outcomes: {{intended_outcomes}}
+existing_units_or_competencies: {{existing_units_or_competencies}}
+kud_charts: {{kud_charts}}
+lt_types: {{lt_types}}
+prerequisite_map: {{prerequisite_map}}
+sequencing_principles: {{sequencing_principles}}
+time_available: {{time_available}}
+knowledge_architecture_output: {{knowledge_architecture_output}}
+
+---
 
 Return your output in this exact format:
 
@@ -180,6 +315,17 @@ Return your output in this exact format:
 **Developmental bands:** [Band structure]
 **Intended outcomes:** [Summarised]
 **Time available:** [If provided; otherwise "Not specified"]
+**Input state:** [A/B/C/D — one sentence on what was supplied and confidence level]
+
+### Confidence Level
+
+[Overall confidence — high/medium/low — with one sentence on what would raise confidence]
+
+### 0. Prerequisite Map
+
+[If prerequisite_map supplied: "Using supplied map." List relationships.]
+[If inferred: table with columns lt_a | relationship_type | lt_b | rationale | confidence]
+[Always include inferred-map disclaimer if applicable]
 
 ### 1. Knowledge Architecture Diagnosis
 
@@ -195,80 +341,46 @@ Return your output in this exact format:
 **Architecture summary:**
 [Overall profile — what proportion of the programme is hierarchical, horizontal, and dispositional, and what does this mean for sequencing]
 
-### 2. Hierarchical Prerequisite Map
+### 2. Sequencing Constraints
 
-| Concept | Prerequisites | Earliest Viable Band | Sequencing Notes |
-|---|---|---|---|
-| [Concept] | [What must come first] | [Band] | [Why here] |
+| LT or Competency | Constraint Type | Rationale |
+|---|---|---|
+| [LT] | hard / recommended | [One sentence] |
 
-**Prerequisite chain visualization:**
-[Show the dependency chain across bands — which concepts build on which, and where the critical transitions are]
+### 3. Recommended Sequence with Rationale
 
-**Sequencing errors in existing curriculum:**
-[If existing units/competencies provided: where elements are placed before their prerequisites. If not provided: "No existing curriculum provided for comparison."]
+[For each LT or competency: band placement, sequencing_rationale (one sentence per item), teacher_discretion_flag if applicable]
 
-### 3. Horizontal Sophistication Progression
+### 4. Prerequisite Violations
 
-| Horizontal Element | Emerging (Band [first]) | Developing (Band [second]) | Competent (Band [third]) | Extending (Band [fourth]) |
-|---|---|---|---|---|
-| [Element] | [What thinking looks like] | [What thinking looks like] | [What thinking looks like] | [What thinking looks like] |
+[Empty if none: "No prerequisite violations detected."]
+[If present: violation, current proposed ordering, required correction]
 
-**Sophistication check:**
-[Where is the progression genuinely increasing in analytical demand? Where is it repeating the same thinking with different content — plateau rather than spiral?]
+### 5. Coherence Checks
 
-### 4. Dispositional Threads
-
-| Disposition | Knowledge Prerequisites | Earliest Meaningful Band | Progression Across Bands |
-|---|---|---|---|
-| [Disposition] | [What knowledge must be in place] | [Band] | [How it develops from emerging to deepening] |
-
-**Knowledge-contingency flags:**
-[Dispositions that require knowledge not yet introduced at the band where they are expected to develop]
-
-### 5. Vertical Coherence Check
-
-**Hierarchical coherence:**
-[Are prerequisites in place at every transition? Flag breaks.]
+**Vertical coherence:**
+[Hierarchical / horizontal / dispositional — flag breaks]
 
 **Horizontal coherence:**
-[Is sophistication increasing? Flag plateaus.]
+[Per band — balance, connections, readiness for next band]
 
-**Dispositional coherence:**
-[Are development opportunities present throughout? Flag gaps.]
+### 6. Sequencing Principles
 
-**Overall vertical coherence assessment:**
-[Summary judgment: where is the programme coherent, and where does it break?]
+[Readable list — default logics, programme-specific principles, metacognitive T3 exception, invitation to adjust]
 
-### 6. Horizontal Coherence Check
+### 7. Teacher Discretion Flags and Questions
 
-**[Band name]:**
-- Knowledge type balance: [Hierarchical / Horizontal / Dispositional proportions]
-- Internal connections: [Are units within this band connected or siloed?]
-- Readiness for next band: [Does this band prepare students for what follows?]
+[For each flagged item: the flag, then 2-3 specific actionable questions]
 
-[Repeat for each band]
+### 8. Design Flags and Recommendations
 
-**Overall horizontal coherence assessment:**
-[Summary judgment: which bands are well-balanced and connected, which are fragmented or imbalanced?]
+**Gaps:** [Missing elements — with recommendation]
+**Overlaps:** [Repeated without progression — with recommendation]
+**Difficult transitions:** [With recommendation]
+**Compound competencies:** [With recommendation]
+**Priority actions:** [3–5 highest-impact changes, in order]
 
-### 7. Design Flags and Recommendations
-
-**Gaps:**
-[Elements missing from the sequence — with recommendation for where to add them]
-
-**Overlaps:**
-[Elements repeated without progression — with recommendation for how to differentiate across bands]
-
-**Difficult transitions:**
-[Band transitions where students are likely to struggle — with recommendation for bridging]
-
-**Compound competencies:**
-[Competencies that span multiple bands without clear progression logic — with recommendation for decomposition]
-
-**Priority actions:**
-[The 3–5 most important changes to make to improve programme coherence, in order of impact]
-
-**Self-check before returning output:** Verify that (a) every hierarchical element has its prerequisites mapped explicitly, (b) every horizontal element has a four-level sophistication progression using the Emerging / Developing / Competent / Extending scale, (c) every dispositional element has its knowledge prerequisites identified, (d) the vertical coherence check flags specific breaks rather than offering generic assurance, (e) the horizontal coherence check examines each band independently, (f) design flags include specific recommendations not just identifications, and (g) the sequencing rationale references evidence about why elements are placed where they are.
+**Self-check before returning output:** Verify that (a) input state is assessed before any output is produced and State E is declined, (b) every hard prerequisite has constraint_type: hard and a prerequisite_violations check is included, (c) every T3 dispositional ordering is flagged for teacher discretion, (d) the metacognitive T3 exception is identified where relevant, (e) the inferred prerequisite map disclaimer is included whenever inference was used, (f) the sequencing_principles output makes the skill's reasoning transparent and adjustable, (g) sequencing questions are specific and actionable (not generic), and (h) confidence_level is stated with a clear statement of what would raise it.
 ```
 
 ## Example Output
@@ -283,6 +395,26 @@ Return your output in this exact format:
 **Developmental bands:** Bands A–D (approximately ages 5–15)
 **Intended outcomes:** Students develop self-regulation, agency, care for others, and the scientific literacy to understand their own wellbeing
 **Time available:** Not specified
+**Input state:** State D — competency definitions supplied without KUD charts, LT types, or prerequisite map. Medium-low confidence. Supplying KUD charts via KUD Chart Author would substantially improve sequencing reliability.
+
+### Confidence Level
+
+Medium-low. Prerequisite relationships inferred from competency definitions and knowledge domain conventions. Supplying KUD charts (Know/Understand/Do per band) would raise confidence to high for hierarchical relationships. Subject expert review required for all inferred hard prerequisites before treating them as non-negotiable.
+
+### 0. Prerequisite Map
+
+*Inferred from competency definitions and knowledge domain. Subject expert review required — particularly for neuroscience prerequisites, which are non-obvious from competency text alone.*
+
+| LT / Concept | Relationship | LT / Concept | Rationale | Confidence |
+|---|---|---|---|---|
+| Body awareness | hard | Fight-flight-freeze | Cannot understand automatic physical stress responses without first noticing physical sensations | High |
+| Fight-flight-freeze | hard | Autonomic nervous system | ANS content assumes the concept of automatic stress responses is established | High |
+| Autonomic nervous system | hard | HPA axis | HPA axis extends the ANS model — cannot teach neuroendocrine pathway without the ANS concept | High |
+| Basic brain awareness | hard | Amygdala & threat detection | Amygdala content requires prior concept that brain structures underlie emotional responses | High |
+| Habits science | conceptual_accelerator | Health Literacy & Habits (dispositional) | Habits science makes dispositional habit practice more portable and self-directed | Medium |
+| Autonomic nervous system | conceptual_accelerator | Self-Awareness & Regulation | Knowing WHY calming techniques work makes strategy selection more transferable | Medium |
+| Reflective Thinking & Decision-Making | soft_enabler | Agency | Reflective capacity enriches agentic decision-making but does not gate early agency expression | Medium |
+| Self-Awareness & Regulation | soft_enabler | Care for others | Developed self-awareness makes noticing others' states more reliable, but care can begin before regulation is mature | Medium |
 
 ### 1. Knowledge Architecture Diagnosis
 
@@ -302,131 +434,142 @@ Return your output in this exact format:
 - **Health Literacy & Habits** (existing competency, partially dispositional): The habit dimension — actually maintaining routines that support wellbeing, as distinct from knowing what the routines should be
 
 **Architecture summary:**
-This programme is a **mixed architecture with a significant dispositional core and a new hierarchical strand**. The five existing competencies are primarily dispositional and horizontal — they describe ways of being and ways of thinking, not factual knowledge to be acquired. The addition of Wellbeing Science & Literacy introduces a genuinely hierarchical strand with prerequisite chains that must be respected. The central design challenge is connecting the hierarchical knowledge (neuroscience, stress science, habits science) to the dispositional goals (self-regulation, agency, care) — the science is not an end in itself but the knowledge foundation that makes the dispositions more informed, more intentional, and more effective. The sequencing must ensure that relevant science knowledge is in place at each band before the corresponding dispositional expectations assume students can draw on it.
+This programme is a **mixed architecture with a significant dispositional core and a new hierarchical strand**. The five existing competencies are primarily dispositional and horizontal — they describe ways of being and ways of thinking, not factual knowledge to be acquired. The addition of Wellbeing Science & Literacy introduces a genuinely hierarchical strand with prerequisite chains that must be respected. The central design challenge is connecting the hierarchical knowledge (neuroscience, stress science, habits science) to the dispositional goals (self-regulation, agency, care) — the science is not an end in itself but the knowledge foundation that makes the dispositions more informed, more intentional, and more effective.
 
-### 2. Hierarchical Prerequisite Map
+### 2. Sequencing Constraints
 
-| Concept | Prerequisites | Earliest Viable Band | Sequencing Notes |
-|---|---|---|---|
-| Body awareness — identifying physical sensations associated with emotions (heart rate, breathing, muscle tension) | None — directly observable | Band A | Entry point for all wellbeing science. Children as young as 5 can learn to notice and name physical sensations. This is concrete, experiential knowledge that requires no abstract understanding. |
-| Basic brain awareness — "the brain helps us feel emotions and make decisions" | Body awareness | Band A (late) | Age-appropriate simplification. Not neuroscience — just the concept that emotions have a physical basis in the brain. Prerequisite for later, more accurate models. |
-| Emotions vocabulary — naming and distinguishing emotional states beyond basic categories | Body awareness | Band A–B | Builds on ability to notice physical sensations. Moves from "I feel bad" to "I feel frustrated because I expected to succeed." Vocabulary development is hierarchical — more nuanced terms build on basic ones. |
-| Fight-flight-freeze response — the concept that the body has automatic responses to perceived threat | Body awareness, basic brain awareness | Band B | Requires understanding that the body responds physically to emotions. Introduces the idea of automatic (non-chosen) responses, which is prerequisite for understanding regulation as choosing a different response. |
-| The amygdala and threat detection — the brain structure that detects potential threats rapidly | Fight-flight-freeze, basic brain awareness | Band C | Requires the concept of automatic threat responses. Introduces specific brain structures. Must be taught carefully to avoid the "amygdala controls emotions" misconception — the amygdala detects, it does not control. |
-| The autonomic nervous system — sympathetic (activation) vs parasympathetic (recovery) | Fight-flight-freeze | Band C | Prerequisite for understanding why calming techniques work. Without this, techniques are just recipes — "breathe deeply because the teacher says so" rather than "diaphragmatic breathing activates the parasympathetic branch, which counteracts the stress response." |
-| HPA axis — hypothalamus → pituitary → adrenal glands → cortisol | Amygdala and threat detection, autonomic nervous system | Band D | The full neuroendocrine pathway. Requires the concepts of threat detection and autonomic activation to make sense. This is the point at which students can understand the difference between acute stress (adrenaline, fast, adaptive) and chronic stress (cortisol, slow, harmful). |
-| Acute vs chronic stress — different hormonal profiles, different physiological effects, different health implications | HPA axis | Band D | Requires the full pathway to understand why acute and chronic stress are physiologically different — not just "some stress is OK and some is bad" but the mechanism that makes them different. |
-| Habits science — cue-routine-reward loop, neuroplasticity, habit formation and change | Basic brain awareness, body awareness | Band C | The cue-routine-reward loop is accessible at Band C. Neuroplasticity as a concept (the brain changes in response to repeated experience) provides the scientific basis for why habits form and can change. Prerequisite for informed habit design at Band D. |
-| Sleep science — circadian rhythms, melatonin, sleep stages, impact of sleep on memory consolidation and emotional regulation | Autonomic nervous system, basic brain awareness | Band D | Requires understanding of the nervous system to explain why sleep is not just "rest" but an active physiological process. Connects to emotional regulation: sleep deprivation impairs prefrontal cortex function, reducing regulatory capacity. |
+| LT or Competency | Constraint Type | Rationale |
+|---|---|---|
+| Body awareness → Fight-flight-freeze | hard | Physical sensation awareness is logically required to understand automatic physical stress responses |
+| Fight-flight-freeze → Autonomic nervous system | hard | ANS content builds directly on the established concept of automatic arousal |
+| Autonomic nervous system → HPA axis | hard | Neuroendocrine pathway requires ANS concept as foundation |
+| Basic brain awareness → Amygdala content | hard | Brain structure content requires the prior concept that emotions have a neural basis |
+| Self-Awareness & Regulation (experiential, early bands) before ANS content | recommended | Experiential readiness logic — practised regulation encounters the explanation as confirmation, not abstraction |
+| Habits science before Health Literacy & Habits (informed practice, Band D) | recommended | Conceptual accelerator — habits science makes dispositional practice more self-directed |
+| Reflective Thinking before meta-reflective Agency | recommended | Soft enabler — reflective capacity enriches but does not gate early agency |
 
-**Prerequisite chain visualization:**
-
-```
-Band A: Body awareness → Basic brain awareness → Emotions vocabulary
-                                    ↓
-Band B: Fight-flight-freeze response → [Emotions vocabulary continues developing]
-                    ↓                           ↓
-Band C: Amygdala & threat detection    Autonomic nervous system    Habits science
-                    ↓                           ↓                       ↓
-Band D: HPA axis ← ─ ─ ─ ─ ─ ─ ─ ─ ┘          Sleep science     [Habits deepens]
-            ↓
-        Acute vs chronic stress
-```
-
-**Sequencing errors in existing curriculum:**
-The existing competencies do not include the Wellbeing Science & Literacy strand, so there is no existing hierarchical sequence to evaluate. However, the existing dispositional competencies (Self-Awareness & Regulation, Health Literacy & Habits) implicitly assume knowledge that is not currently taught. Students at Band C are expected to "select and apply strategies to manage emotional responses" (from existing LTs), but the science of why those strategies work (autonomic nervous system, parasympathetic activation) is not yet in the curriculum. This means students are selecting strategies based on teacher recommendation rather than scientific understanding — the strategy works, but the student does not know why, which limits their ability to adapt it to new situations. The addition of Wellbeing Science & Literacy addresses this gap.
-
-### 3. Horizontal Sophistication Progression
-
-| Horizontal Element | Emerging (Band A) | Developing (Band B) | Competent (Band C) | Extending (Band D) |
-|---|---|---|---|---|
-| Reflective Thinking & Decision-Making | **Identifies choices:** "I could do this or that." Describes what happened and what they chose. Reflection is descriptive and concrete — what I did, what happened next. | **Considers consequences:** "If I choose this, then..." Begins to think forward from choices. Reflection includes cause-effect reasoning — why something happened, not just what. | **Weighs competing considerations:** "This is better for X but worse for Y." Evaluates trade-offs. Reflection includes multiple perspectives and recognises that good decisions involve managing tensions, not finding perfect answers. | **Evaluates the quality of reasoning itself:** "My thinking was influenced by..." Analyses own reasoning processes, identifies biases and assumptions, and can articulate what would change their mind. Meta-reflective — thinking about thinking. |
-| Social Awareness & Empathy (horizontal dimension) | **Recognises emotions in others:** "She looks sad." Identifies basic emotional states from observable cues. Perspective-taking is concrete — "how would I feel if that happened to me?" | **Understands that others may feel differently:** "He might feel differently about this than I do." Begins to recognise that emotional responses are shaped by individual experience and context — the same event does not produce the same emotion in everyone. | **Analyses how context shapes emotional response:** "She might be reacting that way because of what happened earlier." Understands that emotional responses have histories and contexts. Can consider how cultural, personal, and situational factors influence how people experience events. | **Evaluates the limits of empathy and perspective-taking:** "I can try to understand her perspective, but I can't fully know what it's like to be in her situation." Recognises that empathetic understanding is always partial, that projection of one's own experience onto others is a risk, and that genuine care sometimes means asking rather than assuming. |
-| Communication & Collaboration (horizontal dimension) | **Takes turns, shares, listens when prompted:** Collaborative behaviour is present but requires teacher scaffolding. Communication is expressing needs and ideas — "I want..." / "I think..." | **Adjusts communication to the situation:** Begins to distinguish between contexts — how I talk to a friend vs how I present to the class. Collaboration includes role awareness — "in this group, I'm doing X." | **Navigates disagreement productively:** Can disagree with a peer's idea without personal conflict. Uses reasoning to support positions. Collaboration includes monitoring group dynamics — "we're getting stuck because we haven't heard from everyone." | **Facilitates and evaluates collaboration itself:** Can lead collaborative processes, identify when a group is dysfunctional and why, and adjust strategy. Evaluates the quality of collaborative outcomes — "we reached a decision, but did we consider all perspectives?" Communication includes audience awareness and rhetorical choice. |
-
-**Sophistication check:**
-The progressions above represent genuine increases in analytical demand, not just repetition with harder content. The key transitions to monitor:
-- **Band A → B transition** for Reflective Thinking: moving from describing what happened to reasoning about causes and consequences. This is the shift from narrative to analytical, and some students will need explicit scaffolding to make it.
-- **Band B → C transition** for Social Awareness: moving from "others feel differently" to "context explains why they feel differently." This requires enough psychological and social knowledge to reason about context — if the horizontal thinking outpaces the knowledge base, students will produce superficial contextual reasoning.
-- **Band C → D transition** for all three elements: the shift to meta-level thinking (thinking about thinking, evaluating the quality of empathy, evaluating the quality of collaboration) is qualitatively demanding and requires explicit teaching of what meta-level reasoning looks like. Without modelling, students will stay at the Band C level with more complex content — a plateau, not a progression.
-
-### 4. Dispositional Threads
-
-| Disposition | Knowledge Prerequisites | Earliest Meaningful Band | Progression Across Bands |
-|---|---|---|---|
-| Self-Awareness & Regulation | **Band A:** Body awareness (can notice physical sensations). **Band B:** Fight-flight-freeze (understands that reactions are automatic, not chosen). **Band C:** Autonomic nervous system (understands WHY calming techniques work). **Band D:** HPA axis, acute vs chronic stress (can distinguish between adaptive and harmful stress and calibrate response accordingly). | Band A (in emergent form — with body awareness only) | **Band A:** Notices emotions through physical sensations; begins to use simple calming strategies (deep breaths, counting) because the teacher taught them. **Band B:** Understands that some reactions are automatic; begins to recognise the moment between trigger and response as a choice point. **Band C:** Understands the physiological basis of regulation strategies; selects techniques based on the type of arousal (parasympathetic activation for anxiety, movement for frustration). Regulation becomes informed, not just practised. **Band D:** Distinguishes between acute stress (useful — can be reframed) and chronic stress (harmful — requires systemic change, not just technique). Regulation includes recognising when individual strategies are insufficient and seeking support or changing the situation. |
-| Agency | **Band A:** None — agency begins as "I can make choices." **Band B:** Reflective thinking at the Developing level (can consider consequences of choices). **Band C:** Reflective thinking at the Competent level (can weigh competing considerations). **Band D:** Meta-reflective capacity (can evaluate own decision-making processes). | Band A (in emergent form) | **Band A:** Makes choices within structured options provided by the teacher. Experiences the connection between choice and outcome. **Band B:** Initiates action on self-identified goals within a supported framework. Begins to plan and adjust. **Band C:** Designs and pursues self-directed projects with increasing independence. Navigates setbacks with developing resilience — can identify what went wrong and adjust approach. **Band D:** Takes purposeful action on self-identified problems with sustained commitment. Evaluates own agency patterns — recognises when they are defaulting to compliance or avoidance and can redirect. Agency is reflective and self-aware, not just active. |
-| Care for others | **Band A:** Basic emotions vocabulary (can recognise when others are upset). **Band B:** Understanding that others feel differently (can recognise that their response may differ from what the other person needs). **Band C:** Contextual understanding of emotional responses (can consider why someone is struggling, not just that they are). **Band D:** Understanding the limits of empathy (can offer care without assuming they know what the other person needs). | Band A (in emergent form) | **Band A:** Notices when peers are upset and responds with simple kindness — offering comfort, including someone who is left out. Prompted by teacher modelling. **Band B:** Begins to ask what others need rather than assuming. Recognises that care sometimes means giving space, not just giving attention. **Band C:** Considers the context behind others' struggles. Care becomes more nuanced — responds differently to a friend who is upset about a grade vs a friend who is upset about a family situation. **Band D:** Offers care while respecting others' autonomy. Recognises that wanting to help is not the same as being helpful. Can identify when care requires action, when it requires presence, and when it requires stepping back. |
-| Health Literacy & Habits (dispositional dimension) | **Band A:** Body awareness, basic understanding that some actions help you feel well. **Band B:** Basic health knowledge (sleep, nutrition, exercise). **Band C:** Habits science (cue-routine-reward, neuroplasticity). **Band D:** Sleep science, stress science — understanding the physiological basis of habits and their connection to emotional and cognitive function. | Band A (in emergent form — "things that help me feel good") | **Band A:** Identifies activities that make them feel well or unwell. Begins simple routines with teacher support (morning check-in, movement breaks). **Band B:** Understands the connection between health behaviours and how they feel and learn. Begins to maintain personal routines with decreasing teacher prompting. **Band C:** Designs personal wellbeing routines based on habits science — can identify the cue, routine, and reward structure of their own habits and deliberately modify them. **Band D:** Maintains and adjusts wellbeing practices based on self-monitoring. Understands why habits are physiologically powerful (neuroplasticity) and why they are difficult to change. Can distinguish between evidence-based wellbeing practices and wellness industry claims that lack evidence. |
-
-**Knowledge-contingency flags:**
-- **Self-Awareness & Regulation at Band C** currently expects students to "select and apply strategies to manage emotional responses in different situations." This is only meaningful if the autonomic nervous system content (why techniques work) has been taught. If Wellbeing Science & Literacy is introduced at Band C but regulation expectations already exist at Band C, there is a timing question: the science must precede the expectation, not run in parallel. **Recommendation:** Introduce autonomic nervous system content in the first term of Band C; adjust regulation expectations to reflect informed strategy selection from the second term onward.
-- **Health Literacy & Habits at Band D** expects students to evaluate wellness claims against evidence. This requires not just habits science (Band C) but also basic scientific reasoning about evidence — controlled studies, correlation vs causation, sample size. If this scientific reasoning is not taught elsewhere in the curriculum, it must be included in the Wellbeing Science & Literacy strand. **Recommendation:** Check whether the science curriculum covers basic experimental design and evidence evaluation by Band D. If not, add a brief unit on "evaluating health claims" to the Wellbeing Science & Literacy strand at Band D.
-- **Agency at Band D** expects meta-reflective capacity — evaluating one's own decision-making processes. This requires the Reflective Thinking & Decision-Making competency to be at the Extending level. If a student's reflective thinking is still at the Competent level (Band C), their agency at Band D will be enacted but not reflective. **Recommendation:** This is a horizontal-to-dispositional dependency. Ensure that the Reflective Thinking progression is on track before assuming Agency at Band D can be fully meta-reflective.
-
-### 5. Vertical Coherence Check
-
-**Hierarchical coherence:**
-The proposed Wellbeing Science & Literacy prerequisite chain is coherent: body awareness (A) → fight-flight-freeze (B) → amygdala, autonomic nervous system, habits science (C) → HPA axis, acute vs chronic stress, sleep science (D). Each concept builds on the previous, and no concept is introduced before its prerequisites are in place. The one risk is **density at Band C**: three new hierarchical concepts (amygdala, autonomic nervous system, habits science) are introduced simultaneously. If time is limited, the autonomic nervous system should be prioritised over the other two, because it is the prerequisite for understanding why calming techniques work — which directly supports the Self-Awareness & Regulation competency at Band C.
-
-**Horizontal coherence:**
-Reflective Thinking, Social Awareness (horizontal dimension), and Communication & Collaboration all show genuine sophistication increases across bands. The critical transition to monitor is **Band C → D**, where all three shift to meta-level thinking. If this transition is not explicitly taught — if teachers assume students will naturally begin thinking about their thinking — it will not happen for most students. **Recommendation:** Include explicit teaching of meta-reflective skills at the start of Band D, modelling what it looks like to evaluate one's own reasoning, empathetic responses, and collaborative contributions.
-
-**Dispositional coherence:**
-All four dispositional threads (Self-Regulation, Agency, Care, Habits) are present across all four bands with increasing expectations. No dispositional thread disappears at any band. However, there is a risk at **Band B** that the dispositional threads are developing based on teacher modelling and practice alone, without sufficient knowledge support. Band B introduces fight-flight-freeze but the other hierarchical content is minimal. This means Self-Regulation at Band B is largely practice-based ("use these techniques because they work") rather than knowledge-informed ("use these techniques because they activate the parasympathetic nervous system"). This is developmentally appropriate for Band B — the knowledge base will arrive at Band C — but teachers must understand that Band B regulation is experiential, not scientific, and that the transition to informed regulation happens at Band C.
-
-**Overall vertical coherence assessment:**
-The programme is vertically coherent with two areas requiring attention: (1) the density of new hierarchical content at Band C, which may require careful pacing, and (2) the Band C → D transition for horizontal elements, which requires explicit teaching of meta-level thinking rather than assuming it will emerge.
-
-### 6. Horizontal Coherence Check
+### 3. Recommended Sequence with Rationale
 
 **Band A:**
-- Knowledge type balance: Primarily dispositional and concrete experiential. Hierarchical content is minimal (body awareness, basic brain awareness, emotions vocabulary). Horizontal content is at the Emerging level (identifying choices, recognising emotions in others). This balance is developmentally appropriate — Band A students learn primarily through experience and practice.
-- Internal connections: Strong. Body awareness connects to emotions vocabulary connects to noticing others' emotions connects to simple regulation strategies. The competencies are naturally linked through the embodied experience of emotions.
-- Readiness for next band: Students leaving Band A should be able to name emotions, notice physical sensations associated with them, and use simple calming strategies. This prepares them for the fight-flight-freeze concept at Band B.
+- Body awareness — *Hard prerequisite foundation: no prior concept required; directly observable; entry point for all wellbeing science*
+- Basic brain awareness — *Hard prerequisite: follows body awareness; age-appropriate framing that prepares amygdala content*
+- Emotions vocabulary — *Hard prerequisite chain: builds on body awareness; more nuanced vocabulary requires basic awareness*
+- Self-Awareness & Regulation (emergent, experiential) — *Experiential readiness: disposition practice begins before explanation; experience-first is correct for T3 social-emotional LTs* ⚑ teacher discretion
+- Care for others (emergent) — *Experiential readiness: enacted care begins as prompted kindness before contextual understanding* ⚑ teacher discretion
+- Agency (emergent) — *Experiential readiness: early choice-making experience precedes reflective framing* ⚑ teacher discretion
 
 **Band B:**
-- Knowledge type balance: Dispositional threads continue. Hierarchical content adds fight-flight-freeze. Horizontal content moves to Developing level. Balance is appropriate but the hierarchical strand is thin — only one new concept. This is acceptable if the concept is taught with sufficient depth.
-- Internal connections: Moderate. The fight-flight-freeze concept connects to Self-Regulation (understanding that reactions are automatic) and to Social Awareness (understanding that others' reactions are also automatic). But the connection between the scientific concept and the dispositional practice needs to be made explicit by teachers — it is not self-evident to Band B students.
-- Readiness for next band: Students leaving Band B should understand that emotional reactions have an automatic physiological component, should be able to consider consequences of choices, and should be beginning to recognise that others experience situations differently. This prepares them for the more demanding content at Band C.
+- Fight-flight-freeze response — *Hard prerequisite logic: body awareness secured at Band A; fight-flight-freeze concept requires it*
+- Reflective Thinking (Developing level) — *Sophistication progression: moves from identifying choices (A) to reasoning about consequences (B)*
+- Social Awareness & Empathy (Developing level) — *Sophistication progression: from recognising emotions in others (A) to recognising others feel differently (B)*
+- Self-Awareness & Regulation (understanding automatic reactions) — *Conceptual accelerator from fight-flight-freeze: practice becomes more informed; still recommended not hard* ⚑ teacher discretion
 
 **Band C:**
-- Knowledge type balance: The most demanding band. Three new hierarchical concepts (amygdala, autonomic nervous system, habits science), horizontal elements at Competent level (weighing competing considerations, analysing contextual influences on emotion, navigating disagreement), and dispositional expectations that now assume informed, science-based practice. Risk of overload.
-- Internal connections: Potentially strong but complex. The autonomic nervous system content directly supports informed self-regulation. Habits science directly supports the habits competency. The horizontal progression in Reflective Thinking supports the agency competency. But these connections span competencies — if competencies are taught in isolation (one unit on regulation, one on habits, one on reflective thinking), students may not see the connections. **Recommendation:** Design at least one cross-competency unit at Band C that explicitly connects the science to the dispositions — e.g. a project where students design a personal regulation toolkit based on their understanding of the autonomic nervous system.
-- Readiness for next band: Students leaving Band C should have the scientific foundation for Band D's more advanced content and should be practising informed self-regulation and evidence-based habits. The gap to Band D is primarily in the shift to meta-level thinking (horizontal) and in the advanced neuroscience (HPA axis, acute vs chronic stress).
+- Amygdala & threat detection — *Hard prerequisite logic: fight-flight-freeze and basic brain awareness both secured; introduces specific neural structure*
+- Autonomic nervous system — *Hard prerequisite logic: fight-flight-freeze secured; ANS content explains why techniques work — must precede informed regulation expectations*
+- Habits science — *Hard prerequisite logic: basic brain awareness secured; neuroplasticity concept accessible at this band*
+- Self-Awareness & Regulation (science-informed, strategy selection) — *Conceptual accelerator activated: ANS content must precede this expectation — teach ANS first in Band C, then move to informed strategy selection*
+- Reflective Thinking (Competent level) — *Sophistication progression: weighing competing considerations*
+- Social Awareness (Competent level) — *Sophistication progression: contextual analysis of emotional responses*
 
 **Band D:**
-- Knowledge type balance: All three types at their most demanding levels. Hierarchical content reaches full complexity (HPA axis, acute vs chronic stress, sleep science). Horizontal content reaches Extending level (meta-reflective thinking, evaluating limits of empathy, facilitating collaboration). Dispositional expectations require fully informed, self-directed practice. This band has the most cognitive demand and the most content.
-- Internal connections: The strongest potential connections in the programme. Understanding the HPA axis connects directly to understanding why chronic stress is harmful, which connects to the habits competency (maintaining wellbeing routines), which connects to agency (taking purposeful action to protect one's own wellbeing), which connects to care for others (recognising when others are experiencing chronic stress and responding appropriately). If these connections are made explicit, Band D is a powerful synthesis. If they are taught as separate units, it fragments.
-- Readiness for programme completion: Students completing Band D should be able to explain the neuroscience of their own stress response, regulate using science-informed strategies, maintain evidence-based wellbeing practices, exercise reflective agency, and care for others with nuance and respect for autonomy. This meets the programme's intended outcomes.
+- HPA axis and acute vs chronic stress — *Hard prerequisite logic: ANS and amygdala both secured; completes the neuroendocrine pathway*
+- Sleep science — *Hard prerequisite logic: ANS concept required to explain sleep as active physiological process*
+- Self-Awareness & Regulation (distinguishing acute from chronic stress) — *Hard prerequisite logic: HPA axis content must precede this capability*
+- Agency (meta-reflective) — *Soft enabler activated: Reflective Thinking at Extending level enriches but does not fully gate this* ⚑ teacher discretion
+- Reflective Thinking (Extending level — meta-reflective) — *Sophistication progression: thinking about thinking; explicit teaching required* ⚑ teacher discretion
 
-**Overall horizontal coherence assessment:**
-Bands A and B are well-balanced with manageable content loads. Band C is the critical pressure point — high content density with complex cross-competency connections. Band D is demanding but potentially the most coherent if the connections between science, thinking, and dispositions are made explicit. The primary recommendation is to ensure Band C has sufficient time allocation and that at least one unit at Band C explicitly bridges the science-to-disposition connection.
+### 4. Prerequisite Violations
 
-### 7. Design Flags and Recommendations
+No prerequisite violations detected in the recommended sequence above. **Risk to monitor:** If the autonomic nervous system content at Band C is scheduled after the regulation expectation for "informed strategy selection" — within the same band — this would constitute a hard prerequisite violation. Teach ANS content in Term 1 of Band C before moving to science-informed regulation expectations in Term 2.
+
+### 5. Coherence Checks
+
+**Vertical coherence:**
+
+*Hierarchical:* The proposed Wellbeing Science & Literacy prerequisite chain is coherent: body awareness (A) → fight-flight-freeze (B) → amygdala, autonomic nervous system, habits science (C) → HPA axis, acute vs chronic stress, sleep science (D). Each concept builds on the previous. Risk: density at Band C — three new hierarchical concepts introduced simultaneously. If time is limited, prioritise autonomic nervous system (it is the prerequisite for the largest number of downstream capabilities).
+
+*Horizontal:* Reflective Thinking, Social Awareness, and Communication & Collaboration show genuine sophistication increases. The critical transition to monitor is Band C → D: all three shift to meta-level thinking. Without explicit teaching of what meta-reflection looks like, students will stay at Band C sophistication with harder content — a plateau, not a spiral.
+
+*Dispositional:* All four dispositional threads are present across all four bands with increasing expectations. Band B risk: dispositional threads develop through practice alone, without knowledge support. Self-Regulation at Band B is practice-based ("use these techniques because they work"), not science-informed. This is developmentally appropriate — the knowledge arrives at Band C — but teachers must understand that the transition to informed regulation happens at Band C, not before.
+
+**Horizontal coherence:**
+
+*Band A:* Primarily dispositional and concrete experiential. Hierarchical content minimal. Horizontal at Emerging level. Balance is developmentally appropriate. Internal connections are strong — body awareness, emotions vocabulary, noticing others' emotions, and simple regulation strategies are naturally linked through embodied experience.
+
+*Band B:* Dispositional threads continue. One new hierarchical concept (fight-flight-freeze). Horizontal at Developing level. Balance appropriate but hierarchical strand is thin — one concept must be taught with sufficient depth to justify its placement. Connection between scientific concept and dispositional practice needs to be made explicit by teachers.
+
+*Band C:* Most demanding band. Three new hierarchical concepts, horizontal at Competent level, dispositional expectations now science-informed. Risk of overload. Internal connections are potentially strong but span competencies — if competencies are taught in isolation, students will not see the connections. Recommend at least one cross-competency unit explicitly connecting ANS science to regulation practice.
+
+*Band D:* All three types at maximum demand. Internal connections are strongest if made explicit: HPA axis → chronic stress → habits → agency → care for others with respect for autonomy forms a coherent synthesis. If taught as separate units, it fragments.
+
+### 6. Sequencing Principles
+
+The following principles were applied in producing this sequence. Review them. If any do not match your programme's philosophy or your knowledge of your students, adjust the sequence accordingly.
+
+**Default principles applied:**
+
+1. **Hard prerequisite logic (T1):** Where LT B genuinely cannot be accessed without LT A's content, LT A is placed earlier. These constraints are non-negotiable — reordering them produces prerequisite violations.
+
+2. **Soft scaffold logic:** Where LT A enriches or makes LT B more transferable without fully gating it, LT A is placed earlier as a recommendation. Teachers can adjust soft scaffold ordering based on student readiness.
+
+3. **Experiential readiness logic (T3):** For social-emotional dispositional capabilities, experience of the capability generally precedes the T1/T2 content that explains it. Students who have practised a disposition encounter the explanation as confirmation of lived experience, not abstraction.
+
+**Exception applied:**
+
+4. **Metacognitive T3 exception:** For metacognitive and reflective LTs, light conceptual framing before practice may improve practice quality (Flavell, 1979). These LTs are flagged for teacher discretion in Section 7.
+
+**Note on the counterargument:** Explicit instruction research (Kirschner et al., 2006) argues novice learners benefit from explanation before practice in many domains. The experiential readiness default applies most strongly to social-emotional dispositions. For hierarchical knowledge LTs, explicit instruction first is assumed.
+
+### 7. Teacher Discretion Flags and Questions
+
+**Self-Awareness & Regulation — experiential practice beginning at Band A before ANS science**
+
+This placement follows the experiential readiness default: students practise regulation before they can explain why techniques work. This is recommended, not hard-constrained.
+
+- Have students in this band had previous school or home experience with regulation practice? If so, the experiential base is already established and science-first may be a reasonable alternative.
+- Is there a programme-specific reason to introduce the neuroscience concept earlier (e.g. a schoolwide emphasis on body-based learning that would make ANS accessible at Band B)? If yes, supply this as a sequencing principle.
+- Does this school's Band A population include students with significant trauma histories? If so, experience-first regulation practice may be more important, not less — the science can wait.
+
+**Agency and Care for others — beginning at Band A**
+
+Both are recommended to begin as emergent experiential practice at Band A before reflective framing is introduced.
+
+- What does "agency" look like in this school's Band A context — structured choice? student-led projects? If the programme already foregrounds student choice, the experiential base is established.
+- For Care for others: do Band A students already show prosocial behaviour in unstructured settings? If the disposition is already present, the focus is on naming and developing it, not on introducing it from scratch.
+
+**Meta-reflective Reflective Thinking and Agency at Band D**
+
+The shift to thinking-about-thinking is flagged as requiring explicit teaching rather than natural emergence.
+
+- Have students in Band D been explicitly introduced to metacognitive vocabulary before? If yes, the transition to meta-reflection may require less scaffolding.
+- Does this term's project create natural moments for students to observe their own reasoning processes? If so, concept-before-practice may be appropriate — introduce meta-reflection vocabulary before the project begins, then practise it in the project itself.
+- Are there students entering Band D from outside this programme who lack the Band C experiential base? If so, the recommended sequence assumes continuity that may not be present for some students.
+
+### 8. Design Flags and Recommendations
 
 **Gaps:**
 - **Scientific reasoning about evidence** is required at Band D (evaluating wellness claims) but is not included in the Wellbeing Science & Literacy strand. Students need to understand what counts as evidence for a health claim — controlled studies, sample size, correlation vs causation. Either add this to the wellbeing programme or verify it is covered in the science curriculum by Band D.
-- **Agency is not currently a named competency.** The intended outcomes include agency, and the dispositional thread analysis maps it across all four bands, but it does not appear in the existing competency structure. **Recommendation:** Either add Agency as a sixth competency or ensure it is explicitly embedded within Self-Awareness & Regulation and Reflective Thinking & Decision-Making — but if embedded, it must be named and tracked, not assumed.
-- **Care for others is not currently a named competency.** Same issue as agency. The Social Awareness & Empathy competency covers the horizontal knowledge dimension (understanding perspectives) but not the dispositional dimension (enacted care). **Recommendation:** Either add Care as a competency or split Social Awareness & Empathy into a horizontal strand (analytical) and a dispositional strand (enacted).
+- **Agency is not currently a named competency.** The intended outcomes include agency, and it is mapped across all four bands, but it does not appear in the existing competency structure. **Recommendation:** Either add Agency as a sixth competency or ensure it is explicitly embedded within Self-Awareness & Regulation and Reflective Thinking — but if embedded, it must be named and tracked.
+- **Care for others is not currently a named competency.** The Social Awareness & Empathy competency covers the horizontal knowledge dimension but not the dispositional dimension of enacted care. **Recommendation:** Either add Care as a competency or split Social Awareness & Empathy into an analytical strand (horizontal) and an enacted strand (dispositional).
 
 **Overlaps:**
-- **Self-Awareness & Regulation** and **Health Literacy & Habits** overlap in the area of "strategies for managing wellbeing." Both competencies include elements of recognising what works for you and applying it. The distinction — regulation is about emotional responses in the moment, habits are about sustained routines — must be made explicit to teachers, or the same content will be taught twice under different competency names. **Recommendation:** Define the boundary clearly: Self-Awareness & Regulation covers in-the-moment emotional response; Health Literacy & Habits covers ongoing routines and practices. Where they overlap (e.g. a breathing technique used both as an in-the-moment strategy and as a daily practice), name the overlap explicitly.
-- **Reflective Thinking & Decision-Making** and the meta-reflective dimension of **Self-Awareness & Regulation** at Band D overlap. Reflecting on one's own emotional regulation patterns IS reflective thinking. **Recommendation:** At Band D, design assessment tasks that integrate both competencies rather than assessing them separately — a reflective portfolio on personal regulation development would serve both.
+- **Self-Awareness & Regulation** and **Health Literacy & Habits** overlap in the area of "strategies for managing wellbeing." The distinction — regulation is about emotional responses in the moment, habits are about sustained routines — must be made explicit to teachers. **Recommendation:** Define the boundary clearly and where they overlap (e.g. a breathing technique used both in-the-moment and as a daily practice), name the overlap explicitly.
+- **Reflective Thinking** and the meta-reflective dimension of **Self-Awareness & Regulation** at Band D overlap. **Recommendation:** At Band D, design assessment tasks that integrate both competencies — a reflective portfolio on personal regulation development would serve both.
 
 **Difficult transitions:**
-- **Band B → C** is the most significant transition in the programme. Students move from experiential, practice-based wellbeing learning to science-informed, analytically demanding learning. Three new hierarchical concepts, a step up in horizontal thinking sophistication, and the expectation of informed rather than practised dispositional engagement. Students who were confident at Band B may struggle at Band C if the transition is abrupt. **Recommendation:** Begin Band C with a bridging unit that connects Band B's experiential knowledge to the new scientific content — e.g. "You already know that deep breathing calms you down. Now we're going to learn WHY it works — and that understanding will help you choose the right technique for different situations."
-- **Band C → D** for horizontal elements: the shift to meta-level thinking (thinking about thinking, evaluating empathy, evaluating collaboration) is a qualitative leap that many students will not make spontaneously. **Recommendation:** Explicit modelling of meta-reflective thinking at the start of Band D. Show students what it looks like to evaluate one's own reasoning process, not just one's conclusions.
+- **Band B → C** is the most significant transition: from experiential, practice-based learning to science-informed, analytically demanding content. Three new hierarchical concepts, a step up in horizontal sophistication, and informed rather than practised dispositional expectations. **Recommendation:** Begin Band C with a bridging unit connecting Band B experiential knowledge to new scientific content — "You already know deep breathing calms you down. Now we're going to learn WHY — and that understanding will help you choose the right technique for different situations."
+- **Band C → D** for horizontal elements: the shift to meta-level thinking will not happen spontaneously for most students. **Recommendation:** Explicit modelling of meta-reflective thinking at the start of Band D.
 
 **Compound competencies:**
-- **Health Literacy & Habits** is compound across knowledge types: it includes hierarchical knowledge (nutrition, sleep, exercise science), horizontal thinking (evaluating health claims), and dispositional practice (maintaining routines). The same competency is being sequenced by three different logics simultaneously. **Recommendation:** Consider splitting into Health Knowledge (hierarchical — assessed by knowledge tests and structured responses) and Wellbeing Practice (dispositional — assessed through self-reflection and developmental conversation). Alternatively, keep it as one competency but ensure that the assessment approach is differentiated by knowledge type — the factual knowledge is assessed differently from the enacted habits.
+- **Health Literacy & Habits** is compound across knowledge types: hierarchical knowledge (nutrition, sleep, exercise science), horizontal thinking (evaluating health claims), and dispositional practice (maintaining routines). The same competency is being sequenced by three different logics simultaneously. **Recommendation:** Consider splitting into Health Knowledge (hierarchical — assessed by structured responses) and Wellbeing Practice (dispositional — assessed through self-reflection and developmental conversation).
 
 **Priority actions (in order of impact):**
-1. **Ensure autonomic nervous system content is taught at the START of Band C** before regulation expectations assume students understand why techniques work. This is the highest-impact sequencing decision because it transforms regulation from practice-based to science-informed.
-2. **Design a cross-competency bridging unit at the start of Band C** that connects experiential Band B learning to scientific Band C content. This manages the most difficult transition in the programme.
-3. **Add scientific reasoning about evidence** (what counts as a valid health claim) to the Wellbeing Science & Literacy strand at Band D, or verify it is covered in the science curriculum.
-4. **Make Agency and Care for Others explicitly named and tracked** — either as separate competencies or as clearly identified strands within existing competencies. Unnamed intended outcomes are not assessed and tend to be neglected.
-5. **Define the boundary between Self-Awareness & Regulation and Health Literacy & Habits** explicitly for teachers, so both competencies are taught with clear scope rather than overlapping coverage.
+1. **Ensure autonomic nervous system content is taught at the START of Band C** before regulation expectations assume students understand why techniques work. This is the highest-impact sequencing decision.
+2. **Design a cross-competency bridging unit at the start of Band C** connecting experiential Band B learning to scientific Band C content.
+3. **Add scientific reasoning about evidence** to the Wellbeing Science & Literacy strand at Band D, or verify it is covered in the science curriculum.
+4. **Make Agency and Care for Others explicitly named and tracked** — unnamed intended outcomes are not assessed and tend to be neglected.
+5. **Define the boundary between Self-Awareness & Regulation and Health Literacy & Habits** explicitly for teachers, so both competencies are taught with clear scope.
 
 ---
 
@@ -441,3 +584,11 @@ Bands A and B are well-balanced with manageable content loads. Band C is the cri
 4. **The three-type knowledge framework used for sequencing is a simplification.** Real knowledge elements often sit on boundaries between types, and the sequencing logic for boundary cases requires professional judgment that this skill can prompt but not replace. Where elements are classified as primarily one type for sequencing purposes, the classification should be made explicit so teachers understand the reasoning.
 
 5. **Scope and sequence design is never finished.** As students move through the programme, assessment data will reveal where the sequence is working and where it is producing gaps or struggles. The scope and sequence designer produces the best available plan given current knowledge — it should be reviewed and revised at least annually using real student outcome data. The gap-analysis-from-student-work skill is the natural tool for feeding that data back into sequence revision.
+
+6. **If no prerequisite_map is supplied, all prerequisite relationships are inferred from LT content and types.** Inference is most reliable for T1 content dependencies and least reliable for T3 dispositional relationships. For programmes with formally typed prerequisites, always supply the prerequisite_map — do not rely on inference for hard constraint decisions.
+
+7. **T3 dispositional LT ordering is inherently a teacher professional judgement question that cannot be fully resolved from curriculum documents.** The skill provides principles and flags decisions for review. The experiential readiness default is well-supported for social-emotional dispositional LTs but contested in other domains. Use sequencing_principles to override.
+
+8. **Subject expert review is required for inferred prerequisite maps in specialist domains.** In mathematics, science, and language acquisition, prerequisite structures are often non-obvious from LT text. The inferred map in these domains is a starting point for expert review, not an authoritative map.
+
+9. **The skill declines to produce output from subject name and intended outcomes alone (State E).** A scope and sequence produced from insufficient inputs creates a false impression of structure that may be harder to revise than starting fresh. Run Learning Target Authoring Guide and KUD Chart Author first.
