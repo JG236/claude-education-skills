@@ -8819,6 +8819,120 @@
   },
   {
     "metadata": {
+      "name": "single-point-rubric-designer",
+      "description": "Design a single-point rubric for a learning target, self-assessment goal, or assessment task. Use when you want a focused criterion statement with space for evidence of growth and strength — for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with or without a developmental band system.",
+      "disable-model-invocation": true,
+      "user-invocable": true,
+      "effort": "low",
+      "skill_id": "original-frameworks/single-point-rubric-designer",
+      "skill_name": "Single-Point Rubric Designer",
+      "domain": "original-frameworks",
+      "version": "1.0",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Fluckiger (2010) — Single point rubric: A tool for responsible student self-assessment",
+        "Sadler (1989) — Formative assessment and the design of instructional systems (evaluative expertise; students must understand quality before they can self-assess)",
+        "Andrade (2000, 2013) — Using rubrics to promote thinking and learning (student self-assessment improves learning when students help generate criteria)",
+        "Boud (1995) — Enhancing Learning Through Self-Assessment (self-assessment as a core academic skill)",
+        "Panadero & Jonsson (2013) — The use of scoring rubrics for formative assessment purposes revisited"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "learning_target",
+            "type": "string",
+            "description": "The learning target, goal, or assessment focus the rubric is for — an 'I can...' statement, a competency description, or any clear statement of what the student is working toward"
+          },
+          {
+            "field": "purpose",
+            "type": "string",
+            "description": "Who will use this rubric and for what — e.g. 'student self-assessment before submission', 'peer feedback during drafting', 'teacher formative feedback', 'pre-task planning to clarify quality'"
+          }
+        ],
+        "optional": [
+          {
+            "field": "band",
+            "type": "string",
+            "description": "Developmental band (A–F) if using a band-based progression system. Defaults to three-column format and calibrates language to student_level if supplied. Two-column format only applies when band A or B is explicitly specified."
+          },
+          {
+            "field": "format",
+            "type": "string",
+            "description": "'three-column' or 'two-column' — overrides the band-based default if provided"
+          },
+          {
+            "field": "student_generated",
+            "type": "string",
+            "description": "If 'yes', produces a prompt for the student to write their own criterion statement rather than providing one"
+          },
+          {
+            "field": "task_description",
+            "type": "string",
+            "description": "What the student will produce or do — helps calibrate the criterion statement"
+          },
+          {
+            "field": "student_level",
+            "type": "string",
+            "description": "Age or year group for language calibration — used when band is not provided"
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "fields": [
+          {
+            "field": "rubric",
+            "type": "object",
+            "description": "The single-point rubric in the appropriate format with a precise criterion statement"
+          },
+          {
+            "field": "criterion_design_notes",
+            "type": "object",
+            "description": "Why the criterion was written this way; what it captures and what it deliberately excludes"
+          },
+          {
+            "field": "usage_guidance",
+            "type": "object",
+            "description": "How to use this rubric for the specified purpose; what the teacher or student does with the completed columns"
+          },
+          {
+            "field": "student_generated_prompt",
+            "type": "object",
+            "description": "Only when student_generated is 'yes' — a prompt and scaffolding for the student to write their own criterion"
+          },
+          {
+            "field": "known_limitations",
+            "type": "object",
+            "description": "Where professional judgment is still needed"
+          }
+        ]
+      },
+      "chains_well_with": [
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "criterion-referenced-rubric-generator",
+        "dispositional-knowledge-assessment-designer",
+        "kud-chart-author"
+      ],
+      "teacher_time": "3 minutes",
+      "tags": [
+        "single-point-rubric",
+        "self-assessment",
+        "peer-assessment",
+        "formative-assessment",
+        "criterion",
+        "reflection",
+        "Manning",
+        "Sadler",
+        "Fluckiger"
+      ]
+    },
+    "prompt": "You are designing a single-point rubric using the principles established by Fluckiger (2010) and Sadler (1989). Follow these rules PRECISELY — they are the quality standard for every rubric produced.\n\nCRITICAL DESIGN PRINCIPLE:\nCriterion precision determines evidence quality. A vague criterion produces vague column entries and the rubric fails. Write the criterion first — what does meeting this learning target actually look like as a specific, observable quality? Every other decision follows from that.\n\n---\n\nSTEP 1 — FORMAT DECISION:\n\nApply this logic in order:\n- If student_generated is \"yes\": skip to the STUDENT-GENERATED MODE section below. Do not produce a criterion.\n- If format is explicitly provided as \"two-column\": use two-column format.\n- If format is explicitly provided as \"three-column\": use three-column format.\n- If band is A or B: use two-column format.\n- If student_level suggests ages 5–9 (e.g. \"Year 1\", \"age 6\", \"Kindergarten\"): use two-column format.\n- Default: use three-column format. Calibrate language to student_level if provided; otherwise write for a general secondary audience.\n\n---\n\nSTEP 2 — CRITERION WRITING RULES (non-negotiable):\n\nThe criterion is a single precise statement of what quality looks like. Apply every rule:\n\n1. **One integrated quality, not a checklist.** Do not list components. \"A claim that is supported by evidence and addresses a counterargument\" is one integrated quality. \"Has a claim, has evidence, has a counterargument\" is a checklist — it fails.\n2. **Descriptive language, not evaluative language.** Describe what the work or behaviour looks like. Never use: good, excellent, thorough, adequate, appropriate, strong, clear (without specifying what clarity means). Instead: specify the observable feature.\n3. **Specific enough to generate concrete evidence.** A student reading this criterion must be able to point to a specific moment, sentence, example, or action that belongs in each column. If they could only write \"I did well\" or \"I need to improve,\" the criterion is too vague.\n4. **Calibrated to the audience.** Neither too simple (patronising) nor too demanding (inaccessible). If band is provided, calibrate to band expectations. If student_level is provided, calibrate language to that level.\n5. **Scoped to the learning target.** Does not add requirements the learning target does not contain. Does not drop requirements it does contain.\n6. **Single sentence where possible.** Never more than two sentences.\n\nWrite the criterion BEFORE constructing the rubric table. State it explicitly and apply the quality check:\n- Is it one integrated quality, not a list?\n- Is the language descriptive not evaluative?\n- Would a student know exactly what kind of evidence to write in each column?\n- Is it calibrated to the audience?\n- Does it match what the learning target requires, no more and no less?\n\nIf it fails any check, rewrite before continuing.\n\n---\n\nSTEP 3 — RUBRIC OUTPUT:\n\n**Three-column format:**\n\nPresent the rubric as a markdown table. The criterion goes in the centre column header. The outer columns contain the guidance text as a standing instruction for whoever completes the rubric — these are NOT filled in by you.\n\n| Areas for growth | [Criterion statement] | Areas of strength |\n|---|---|---|\n| Record specific evidence here — moments, examples, or observations that show progress toward the criterion but do not yet fully meet it | [Criterion statement repeated] | Record specific evidence here — moments, examples, or observations that demonstrate or go beyond the criterion |\n\nDo not fill in the evidence columns. They are left blank for the user to complete.\n\n**Two-column format:**\n\n| [Criterion statement] | My reflection |\n|---|---|\n| [Criterion statement repeated] | Describe a specific moment or example that shows where you are with this right now. |\n\n---\n\nSTUDENT-GENERATED MODE:\n\nWhen student_generated is \"yes\", do not produce a criterion statement. Instead produce:\n\n**Framing sentence for the student:**\n\"Think about what doing this really well looks like for you personally. Write one sentence that describes it.\"\n\n**Scaffolding prompts (provide 2–3):**\n- \"What would someone watching you be able to see or hear?\"\n- \"What is the difference between doing this well and doing it adequately — what's the specific thing that changes?\"\n- \"If you were helping a friend get better at this, what would you tell them to focus on?\"\n\n**Note to teacher:**\nThe student-generated criterion is personal and specific to this student. Do not correct, standardise, or replace it with your own language. The value is in the student's own articulation of quality — even if it is imperfect. With younger learners (Band A–B or ages 5–9), co-generate the criterion through conversation rather than expecting independent writing.\n\n---\n\nSTEP 4 — USAGE GUIDANCE:\n\nIdentify which of the following purposes applies, apply the closest match if exact match is not found, and note the adaptation.\n\n- **Student self-assessment before submission:** Student completes both outer columns independently using their own work as evidence. They then decide whether to revise based on what they wrote. The teacher does not complete the rubric — the student's evidence is the formative data.\n- **Peer feedback:** The peer completes the columns based on their reading of the work. The owner reads the completed rubric and decides what to act on. The peer does not give a grade or level — only evidence.\n- **Teacher formative feedback:** Teacher completes the columns with specific observations from the work. Shares with student as the basis for a feedback conversation, not as a verdict or grade. The evidence in the columns IS the feedback.\n- **Pre-task planning:** Student completes only the \"areas of strength\" column as a planning tool — what specific evidence do I want to be able to put here by the end? The left column remains blank until after the task.\n- **Personal reflection:** Student completes the rubric in relation to their own experience, behaviour, or growth over time — not a specific product. Evidence is drawn from memory, observation, or journal entries.\n\n---\n\nSTEP 5 — CRITERION DESIGN NOTES:\n\nExplain:\n- Why the criterion was written this way\n- What it deliberately includes and what it deliberately excludes\n- What made it difficult to write precisely, if anything\n\n---\n\nSTEP 6 — KNOWN LIMITATIONS:\n\nApply these standing limitations, plus any specific to the learning target provided:\n\n1. The criterion statement requires judgment to write well — too broad produces vague evidence, too narrow becomes a checklist. If the output criterion feels like either of these, flag it to the user.\n2. Single-point rubrics work best when students have already been introduced to the learning target and have some experience with the domain — they are formative tools, not introductory ones.\n3. The student-generated version is only as useful as the quality of the student's self-knowledge. With younger learners the teacher may need to co-generate the criterion through conversation.\n4. This skill does not produce grades or summative levels. If a summative judgment is needed, use coherent-rubric-logic-builder or criterion-referenced-rubric-generator instead.\n\n---\n\nYour task is to design a single-point rubric for:\n\n**Learning target:** {{learning_target}}\n**Purpose:** {{purpose}}\n\nThe following optional context may or may not be provided. Use whatever is available; ignore any fields marked \"not provided.\"\n\n**Band:** {{band}} — if not provided, use three-column format unless student_level indicates ages 5–9.\n**Format:** {{format}} — if provided, overrides band-based default.\n**Student generated:** {{student_generated}} — if \"yes\", produce the student-generated prompt instead of a criterion.\n**Task description:** {{task_description}} — if provided, use to calibrate criterion precision.\n**Student level:** {{student_level}} — if provided, use to calibrate language.\n\nReturn your output in this exact format:\n\n## Single-Point Rubric: [Learning Target Summary]\n\n**Learning target:** [The exact learning target as provided]\n**Purpose:** [The stated purpose]\n**Format selected:** [Three-column / Two-column / Student-generated] — [brief reason]\n\n### Criterion\n\n[State the criterion here before the table. One sentence, two maximum.]\n\n**Quality check:**\n- One integrated quality, not a list: [Yes / No — if No, explain and rewrite]\n- Descriptive not evaluative: [Yes / No — if No, explain and rewrite]\n- Generates concrete evidence: [Yes / No — if No, explain and rewrite]\n- Calibrated to audience: [Yes / brief note]\n- Scoped to learning target: [Yes / brief note]\n\n### Rubric\n\n[Insert the appropriate format table here]\n\n### Criterion Design Notes\n\n[Why this criterion; what it includes and excludes; what was difficult to make precise]\n\n### Usage Guidance\n\n[How to use this rubric for the specified purpose — what the student, peer, or teacher does with the completed columns]\n\n### Known Limitations\n\n[Standing limitations plus any specific to this learning target]",
+    "description": "Design a single-point rubric for a learning target, self-assessment goal, or assessment task. Use when you want a focused criterion statement with space for evidence of growth and strength — for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with or without a developmental band system.",
+    "toolName": "single-point-rubric-designer"
+  },
+  {
+    "metadata": {
       "name": "competency-framework-translator",
       "description": "Translate an external competency framework like DigComp, GreenComp, or ISTE into classroom-ready activities. Use when implementing framework standards in specific teaching contexts.",
       "disable-model-invocation": false,

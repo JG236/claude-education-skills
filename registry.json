@@ -1,8 +1,8 @@
 {
   "version": "2.0",
-  "generated": "2026-04-22T17:52:10.090352+00:00",
+  "generated": "2026-04-22T18:06:18.944201+00:00",
   "standard": "agent-skills-1.0",
-  "total_skills": 111,
+  "total_skills": 112,
   "domains": [
     {
       "id": "ai-learning-science",
@@ -57,7 +57,7 @@
     {
       "id": "original-frameworks",
       "label": "Original Frameworks",
-      "skill_count": 6
+      "skill_count": 7
     },
     {
       "id": "professional-learning",
@@ -2705,6 +2705,41 @@
         "input_field": null
       },
       "path": "skills/original-frameworks/self-determined-project-design-protocol/SKILL.md"
+    },
+    {
+      "id": "original-frameworks/single-point-rubric-designer",
+      "name": "single-point-rubric-designer",
+      "display_name": "Single-Point Rubric Designer",
+      "domain": "original-frameworks",
+      "description": "Design a single-point rubric for a learning target, self-assessment goal, or assessment task. Use when you want a focused criterion statement with space for evidence of growth and strength \u2014 for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with or without a developmental band system.",
+      "disable_model_invocation": true,
+      "evidence_strength": "moderate",
+      "tags": [
+        "single-point-rubric",
+        "self-assessment",
+        "peer-assessment",
+        "formative-assessment",
+        "criterion",
+        "reflection",
+        "Manning",
+        "Sadler",
+        "Fluckiger"
+      ],
+      "teacher_time": "3 minutes",
+      "chains_with": [
+        "learning-target-authoring-guide",
+        "coherent-rubric-logic-builder",
+        "criterion-referenced-rubric-generator",
+        "dispositional-knowledge-assessment-designer",
+        "kud-chart-author"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/original-frameworks/single-point-rubric-designer/SKILL.md"
     },
     {
       "id": "professional-learning/competency-framework-translator",
