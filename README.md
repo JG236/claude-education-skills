@@ -66,7 +66,7 @@ Add the MCP server URL under Settings → Connectors:
 https://mcp-server-sigma-sooty.vercel.app/mcp
 ```
 
-That's it. On first use, open a new chat, click the tools icon (the plug or ⚙️ icon depending on your interface), and confirm Claude Education Skills is enabled. After that, all 111 skills are available in every conversation — they activate automatically when your topic matches, no manual activation needed.
+That's it. On first use, open a new chat, click the + icon in the message bar, and confirm Claude Education Skills is enabled. After that, all 111 skills are available in every conversation — they activate automatically when your topic matches, no manual activation needed.
 
 ### Claude Code (local via npx)
 
