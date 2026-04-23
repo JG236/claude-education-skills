@@ -225,6 +225,14 @@ Band D indicators — the teacher notices:
 - The student [specific observable behaviour]
 - The student [specific observable behaviour]
 
+Band E indicators — the teacher notices:
+- The student [specific observable behaviour]
+- The student [specific observable behaviour]
+
+Band F indicators — the teacher notices:
+- The student [specific observable behaviour]
+- The student [specific observable behaviour]
+
 Knowledge-contingent prerequisites: [Name the Type 1/2 LTs, if applicable]
 ```
 
@@ -237,6 +245,8 @@ Type 3 evidence pathway:
   - Band B: describe one pattern you noticed in yourself this term
   - Band C: compare what you noticed with what your teacher observed
   - Band D: analyse a pattern across contexts and explain what shifted
+  - Band E: evaluate how your capacity has developed over the past year — what has changed, what conditions made change possible, and what has remained resistant to change
+  - Band F: construct an account of your development across high-stakes real-world contexts over an extended period — what patterns hold, what conditions still challenge you, and what remains unresolved
 - Parent/caregiver noticing prompts (optional): three plain-language "what do you notice?" questions sent home two weeks before developmental conversations.
 - Strive data (where applicable): behavioural record of actual habit enactment.
 - Synthesised in the developmental conversation. NOT a summative grade.
@@ -528,6 +538,8 @@ Authoring Mode: Mode 2
 | B | I can compare information from more than one source and identify differences | Complexity: multiple sources; Reasoning: comparison |
 | C | I can evaluate the reliability of sources and explain why some evidence is stronger than others | Reasoning: evaluative judgment; Precision: explaining why |
 | D | I can analyse competing evidence, identify assumptions and bias, and justify which evidence is most credible for a given purpose | Transfer: applying analysis to novel contexts; Complexity: competing evidence, multiple criteria |
+| E | I can evaluate a body of evidence, identify systemic gaps or biases in what is available, and justify which interpretive framework best fits the purpose | Reasoning: evaluating the evidence base as a whole, not just individual sources; Scope: systemic pattern across a body, not a single comparison |
+| F | I can construct a critical account of a body of evidence that accounts for the conditions under which it was produced, the interests it serves, and the limits of what it can show | Independence: self-directed critical construction; Reasoning: second-order analysis of the evidence base itself |
 
 **LT2: Reasoned Argument**
 Knowledge Type: Type 2
@@ -540,6 +552,8 @@ Authoring Mode: Mode 2
 | B | I can present a claim supported by more than one piece of evidence | Complexity: multiple evidence points |
 | C | I can construct an argument with a clear claim, supporting evidence, and acknowledgement of a different viewpoint | Scope: includes counter-position; Reasoning: structural awareness |
 | D | I can build a sustained argument that integrates evidence, addresses counterarguments, and evaluates the strength of my own position | Transfer: self-evaluation of argument; Precision: sustained and integrated |
+| E | I can construct a sustained argument that integrates competing perspectives, anticipates likely objections, and addresses the strongest version of the counter-position | Complexity: integrating competing perspectives; Reasoning: steelmanning the counter-position |
+| F | I can evaluate the limits of my own argument — identifying where evidence is insufficient, where assumptions are load-bearing, and what it would take to shift my position | Independence: self-critical evaluation of own argument; Reasoning: identifying epistemic limits |
 
 ### Quality Check
 
@@ -631,6 +645,8 @@ Authoring Mode: Mode 2
 | B | I can describe what happens in the body during a stress response and name strategies that help | Reasoning: describing mechanisms; Complexity: connecting response to strategy |
 | C | I can explain how the stress response affects thinking and behaviour, and compare how different strategies target different aspects of the response | Reasoning: explaining cause-effect; Complexity: comparing strategies against mechanisms |
 | D | I can analyse how individual and contextual factors influence the stress response and evaluate which regulation approaches are supported by evidence | Transfer: applying to varied contexts; Reasoning: evaluative judgment about evidence |
+| E | I can critically evaluate explanations of the stress response, identify where the evidence is strong and where it is contested, and explain how individual and contextual variation affects which regulation principles apply | Transfer: applying critical evaluation to the evidence base itself; Reasoning: identifying limits of general principles |
+| F | I can construct an account of the mechanisms underlying my own stress-regulation profile, drawing on the evidence base, and evaluate the conditions under which general regulation principles apply less reliably to me specifically | Independence: self-authored theoretical account; Transfer: generalising from evidence to personal profile |
 
 **LT2: Regulation Strategy Analysis**
 Knowledge Type: Type 2
@@ -643,6 +659,8 @@ Authoring Mode: Mode 1
 | B | I can consider more than one strategy for a given situation and explain why I chose one | Complexity: multiple options; Reasoning: justifying choice |
 | C | I can analyse a situation through more than one lens and select a strategy that fits the context and the people involved | Scope: considering context and others; Reasoning: multi-lens analysis |
 | D | I can evaluate competing strategies for a complex situation, identify tensions between them, and justify my approach across more than one context | Transfer: cross-context application; Complexity: competing strategies with tensions |
+| E | I can construct a regulation plan for a sustained high-stakes situation, anticipate the conditions under which my preferred strategies are likely to break down, and identify contingency approaches | Reasoning: anticipatory and contingency planning; Scope: sustained high-stakes situations |
+| F | I can design a regulation approach for a novel high-stakes context, justify my design with reference to mechanism and evidence, and evaluate its effectiveness with reference to observed outcomes over time | Independence: self-designed approach; Transfer: applying principles to novel design problem; Reasoning: evaluating own design against evidence |
 
 **LT3: Self-Regulation as Practice**
 Knowledge Type: Type 3
@@ -665,11 +683,23 @@ Band D indicators — the teacher notices:
 - The student maintains regulation across sustained periods of challenge without external scaffolding
 - The student can name and explain their own regulation patterns when asked, including what has shifted over time
 
+Band E indicators — the teacher notices:
+- The student recognises early signs of dysregulation before full activation and initiates a strategy without adult prompting, including in high-stakes situations
+- The student adjusts their strategy during a situation based on real-time assessment of what is and is not working
+- The student reflects after an event with specificity about what shifted their state and what they would do differently
+
+Band F indicators — the teacher notices:
+- The student demonstrates consistent regulation across sustained high-stakes real-world contexts without scaffolding or post-hoc adult intervention
+- The student can construct an account of their own regulation profile across multiple years, identifying what has changed and what conditions still challenge them
+- The student takes responsibility for arranging conditions — environmental, social, or temporal — that support their own regulation ahead of demanding situations
+
 Student self-reflection prompts:
 - Band A: Tell me about a time this week when something was hard and what you did
 - Band B: Describe one pattern you noticed about how you handle difficult moments this term
 - Band C: Compare what you noticed about your regulation with what your teacher observed — where do you agree and disagree?
 - Band D: Analyse how your regulation works across different settings and explain what has changed over the past term
+- Band E: Evaluate how your regulation has changed over the past year — what has shifted, what conditions made the shift possible, and where you still lose hold
+- Band F: Construct an account of how you regulate across different high-stakes contexts over time — what your profile looks like, what remains unresolved, and what you would need to work on next
 
 ### Quality Check
 
