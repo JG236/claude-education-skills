@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: socratic-questioning-sequence-generator
 description: "Generate a Socratic questioning sequence that develops conceptual understanding through guided inquiry. Use when facilitating philosophical discussions, concept exploration, or critical examination."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "questioning-discussion/socratic-questioning-sequence-generator"
-skill_name: "Socratic Questioning Sequence Generator"
-domain: "questioning-discussion"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Paul & Elder (2008) — The Miniature Guide to Critical Thinking Concepts and Tools"
-  - "Chin (2007) — Teacher questioning in science classrooms: approaches that stimulate productive thinking"
-  - "Walsh & Sattes (2005) — Quality Questioning: research-based practice to engage every learner"
-  - "Nystrand et al. (1997) — Opening Dialogue: authentic questions and their effects on student engagement"
-  - "Dillon (1988) — Questioning and Teaching: a manual of practice"
-input_schema:
-  required:
-    - field: "concept_to_develop"
-      type: "string"
-      description: "The concept, idea, or understanding to develop through questioning"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and familiarity with the concept"
-    - field: "starting_point"
-      type: "string"
-      description: "What students currently understand or believe about this concept"
-  optional:
-    - field: "target_understanding"
-      type: "string"
-      description: "The specific understanding or realisation the sequence should lead toward"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: verbal confidence levels, cultural factors around questioning"
-    - field: "time_available"
-      type: "string"
-      description: "Minutes available for the questioning sequence"
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context for discipline-appropriate questioning"
-output_schema:
-  type: "object"
-  fields:
-    - field: "question_sequence"
-      type: "array"
-      description: "Ordered sequence of questions with type labels and anticipated responses"
-    - field: "follow_up_branches"
-      type: "object"
-      description: "Contingent follow-up questions based on likely student responses"
-    - field: "facilitation_notes"
-      type: "string"
-      description: "How to manage the dialogue — wait time, handling wrong answers, keeping momentum"
-    - field: "socratic_vs_leading"
-      type: "string"
-      description: "Notes distinguishing Socratic from leading questions in this sequence"
-chains_well_with:
-  - "discussion-protocol-selector"
-  - "dialogic-teaching-move-generator"
-  - "hinge-question-designer"
-  - "elaborative-interrogation-generator"
-teacher_time: "4 minutes"
-tags: ["questioning", "Socratic", "critical-thinking", "dialogue", "reasoning"]
 ---
 
 # Socratic Questioning Sequence Generator
@@ -259,3 +195,82 @@ For each question:
 2. **The sequence is a prepared script, but real Socratic dialogue is improvisational.** The branching follow-ups cover likely responses, but students will say things that aren't anticipated. The teacher must be able to improvise follow-up questions in real time. This skill provides a framework and starting points, not a complete script for every possible dialogue path.
 
 3. **Socratic questioning is not appropriate for all learning objectives.** If students need to learn specific factual content (dates, formulas, procedures), Socratic questioning is an inefficient method. It is most valuable for developing conceptual understanding, ethical reasoning, and critical thinking — tasks where the process of reasoning matters as much as the conclusion. Use explicit instruction for facts and procedures; use Socratic questioning for contested concepts and complex judgments.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: questioning-discussion/socratic-questioning-sequence-generator
+skill_name: Socratic Questioning Sequence Generator
+domain: questioning-discussion
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Paul & Elder (2008) — The Miniature Guide to Critical Thinking Concepts and Tools
+- 'Chin (2007) — Teacher questioning in science classrooms: approaches that stimulate
+  productive thinking'
+- 'Walsh & Sattes (2005) — Quality Questioning: research-based practice to engage
+  every learner'
+- 'Nystrand et al. (1997) — Opening Dialogue: authentic questions and their effects
+  on student engagement'
+- 'Dillon (1988) — Questioning and Teaching: a manual of practice'
+input_schema:
+  required:
+  - field: concept_to_develop
+    type: string
+    description: The concept, idea, or understanding to develop through questioning
+  - field: student_level
+    type: string
+    description: Age/year group and familiarity with the concept
+  - field: starting_point
+    type: string
+    description: What students currently understand or believe about this concept
+  optional:
+  - field: target_understanding
+    type: string
+    description: The specific understanding or realisation the sequence should lead
+      toward
+  - field: student_profiles
+    type: array
+    description: 'From context engine: verbal confidence levels, cultural factors
+      around questioning'
+  - field: time_available
+    type: string
+    description: Minutes available for the questioning sequence
+  - field: subject_area
+    type: string
+    description: Subject context for discipline-appropriate questioning
+output_schema:
+  type: object
+  fields:
+  - field: question_sequence
+    type: array
+    description: Ordered sequence of questions with type labels and anticipated responses
+  - field: follow_up_branches
+    type: object
+    description: Contingent follow-up questions based on likely student responses
+  - field: facilitation_notes
+    type: string
+    description: How to manage the dialogue — wait time, handling wrong answers, keeping
+      momentum
+  - field: socratic_vs_leading
+    type: string
+    description: Notes distinguishing Socratic from leading questions in this sequence
+chains_well_with:
+- discussion-protocol-selector
+- dialogic-teaching-move-generator
+- hinge-question-designer
+- elaborative-interrogation-generator
+teacher_time: 4 minutes
+tags:
+- questioning
+- Socratic
+- critical-thinking
+- dialogue
+- reasoning
+```

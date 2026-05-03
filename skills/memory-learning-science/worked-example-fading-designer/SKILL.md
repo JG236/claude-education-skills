@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: worked-example-fading-designer
 description: "Design a worked example fading sequence from fully worked examples through to independent practice. Use when teaching procedures, algorithms, or multi-step processes to novice learners."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/worked-example-fading-designer"
-skill_name: "Worked Example Designer with Completion Fading"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Sweller & Cooper (1985) — The use of worked examples as a substitute for problem solving in learning algebra"
-  - "Atkinson et al. (2000) — Learning from examples: instructional principles from the worked examples research"
-  - "Renkl (2014) — Toward an instructionally oriented theory of example-based learning"
-  - "Kalyuga et al. (2003) — The expertise reversal effect (when worked examples become counterproductive)"
-  - "van Merriënboer & Kirschner (2018) — Ten Steps to Complex Learning: fading and scaffolding principles"
-input_schema:
-  required:
-    - field: "skill_to_teach"
-      type: "string"
-      description: "The specific procedure or skill students need to learn"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and expertise level (novice/developing/advanced)"
-    - field: "steps_in_procedure"
-      type: "integer"
-      description: "Approximate number of steps in the complete procedure"
-  optional:
-    - field: "common_errors"
-      type: "array"
-      description: "Known errors students typically make with this procedure"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: individual student readiness data"
-    - field: "prior_knowledge"
-      type: "string"
-      description: "What students already know that this skill builds on"
-output_schema:
-  type: "object"
-  fields:
-    - field: "worked_example"
-      type: "object"
-      description: "A complete worked example with annotated steps and self-explanation prompts"
-    - field: "completion_problems"
-      type: "array"
-      description: "A sequence of 3–4 completion problems with progressive fading"
-    - field: "independent_problems"
-      type: "array"
-      description: "2–3 fully independent practice problems"
-    - field: "fading_rationale"
-      type: "string"
-      description: "Explanation of what is faded at each stage and why"
-chains_well_with:
-  - "cognitive-load-analyser"
-  - "explicit-instruction-sequence-builder"
-  - "practice-problem-sequence-designer"
-  - "checking-for-understanding-protocol-designer"
-teacher_time: "4 minutes"
-tags: ["worked-examples", "scaffolding", "fading", "cognitive-load", "novice-learning"]
 ---
 
 # Worked Example Designer with Completion Fading
@@ -321,3 +260,78 @@ If students are completing Completion Problem 2 accurately and confidently, skip
 2. **The fading sequence assumes relatively homogeneous student readiness.** In a mixed-ability class, some students will need more fading stages and some fewer. Teachers should use Completion Problem 2 as a checkpoint — if a student is accurate, move them forward faster. If they're struggling, provide an additional worked example with different numbers before continuing the fade.
 
 3. **Surface feature variation in independent practice is crucial but hard to fully anticipate.** If all practice problems look too similar to the worked example, students may develop inflexible knowledge that only works for problems that look like the example. The skill attempts to vary surface features, but teachers should add further variations based on their knowledge of what problem formats appear in assessments.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/worked-example-fading-designer
+skill_name: Worked Example Designer with Completion Fading
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Sweller & Cooper (1985) — The use of worked examples as a substitute for problem
+  solving in learning algebra
+- 'Atkinson et al. (2000) — Learning from examples: instructional principles from
+  the worked examples research'
+- Renkl (2014) — Toward an instructionally oriented theory of example-based learning
+- Kalyuga et al. (2003) — The expertise reversal effect (when worked examples become
+  counterproductive)
+- 'van Merriënboer & Kirschner (2018) — Ten Steps to Complex Learning: fading and
+  scaffolding principles'
+input_schema:
+  required:
+  - field: skill_to_teach
+    type: string
+    description: The specific procedure or skill students need to learn
+  - field: student_level
+    type: string
+    description: Age/year group and expertise level (novice/developing/advanced)
+  - field: steps_in_procedure
+    type: integer
+    description: Approximate number of steps in the complete procedure
+  optional:
+  - field: common_errors
+    type: array
+    description: Known errors students typically make with this procedure
+  - field: student_profiles
+    type: array
+    description: 'From context engine: individual student readiness data'
+  - field: prior_knowledge
+    type: string
+    description: What students already know that this skill builds on
+output_schema:
+  type: object
+  fields:
+  - field: worked_example
+    type: object
+    description: A complete worked example with annotated steps and self-explanation
+      prompts
+  - field: completion_problems
+    type: array
+    description: A sequence of 3–4 completion problems with progressive fading
+  - field: independent_problems
+    type: array
+    description: 2–3 fully independent practice problems
+  - field: fading_rationale
+    type: string
+    description: Explanation of what is faded at each stage and why
+chains_well_with:
+- cognitive-load-analyser
+- explicit-instruction-sequence-builder
+- practice-problem-sequence-designer
+- checking-for-understanding-protocol-designer
+teacher_time: 4 minutes
+tags:
+- worked-examples
+- scaffolding
+- fading
+- cognitive-load
+- novice-learning
+```

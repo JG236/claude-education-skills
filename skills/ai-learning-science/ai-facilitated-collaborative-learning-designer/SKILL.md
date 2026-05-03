@@ -1,69 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: ai-facilitated-collaborative-learning-designer
 description: "Design AI-supported collaborative tasks that structure group interaction and address participation problems. Use when students struggle to collaborate effectively on group tasks."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/ai-facilitated-collaborative-learning-designer"
-skill_name: "AI-Facilitated Collaborative Learning Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Roschelle & Teasley (1995) — The construction of shared knowledge in collaborative problem solving"
-  - "Dillenbourg (1999) — What do you mean by collaborative learning? (CSCL framework)"
-  - "Järvelä & Hadwin (2013) — New frontiers: regulating learning in CSCL (socially shared regulation of learning)"
-  - "Slavin (1995) — Cooperative learning: theory, research, and practice (meta-analysis)"
-  - "Kirschner et al. (2018) — From cognitive load theory to collaborative cognitive load theory"
-input_schema:
-  required:
-    - field: "collaborative_task"
-      type: "string"
-      description: "The specific learning task that students will work on together — what they need to produce or solve as a group"
-    - field: "collaboration_challenge"
-      type: "string"
-      description: "The specific collaboration problem to address — what goes wrong when students work together on this task"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "group_size"
-      type: "string"
-      description: "How many students per group"
-    - field: "ai_capabilities"
-      type: "string"
-      description: "What AI tools are available — chatbot, collaborative workspace, real-time monitoring, or other"
-    - field: "time_available"
-      type: "string"
-      description: "How long students have for the collaborative task"
-output_schema:
-  type: "object"
-  fields:
-    - field: "collaboration_design"
-      type: "object"
-      description: "The structure of the collaborative task — roles, phases, and the specific points where AI facilitates"
-    - field: "ai_facilitation_moves"
-      type: "array"
-      description: "The specific things the AI does during collaboration — prompts, monitoring, scaffolding, and interventions"
-    - field: "regulation_scaffolds"
-      type: "object"
-      description: "How the AI supports socially shared regulation — planning, monitoring, and reflecting on the group process"
-    - field: "equity_mechanisms"
-      type: "object"
-      description: "How the design ensures all group members participate meaningfully — preventing free-riding and dominance"
-chains_well_with:
-  - "intelligent-tutoring-dialogue-designer"
-  - "ai-feedback-design-principles"
-  - "metacognitive-monitoring-ai-contexts"
-teacher_time: "5 minutes"
-tags: ["collaboration", "CSCL", "Dillenbourg", "Järvelä", "cooperative-learning", "Slavin", "group-work", "AI-facilitation", "regulation"]
 ---
 
 # AI-Facilitated Collaborative Learning Designer
@@ -261,3 +198,89 @@ Selected member presents. Teacher asks questions. This is the individual account
 3. **Collaborative cognitive load can be high.** Kirschner et al. (2018) note that coordination costs (communicating, negotiating, managing different perspectives) consume cognitive resources. For students who are already struggling with the content, the additional load of structured collaboration may be overwhelming. The teacher should monitor whether the collaboration structure is helping or hindering learning.
 
 4. **Cultural norms affect collaboration.** Dillenbourg's (1999) framework was developed primarily in Western educational contexts. In some cultural contexts, direct disagreement, challenging peers' ideas, or speaking before someone of higher perceived status may be uncomfortable or inappropriate. The AI facilitation prompts may need cultural adaptation.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/ai-facilitated-collaborative-learning-designer
+skill_name: AI-Facilitated Collaborative Learning Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Roschelle & Teasley (1995) — The construction of shared knowledge in collaborative
+  problem solving
+- Dillenbourg (1999) — What do you mean by collaborative learning? (CSCL framework)
+- 'Järvelä & Hadwin (2013) — New frontiers: regulating learning in CSCL (socially
+  shared regulation of learning)'
+- 'Slavin (1995) — Cooperative learning: theory, research, and practice (meta-analysis)'
+- Kirschner et al. (2018) — From cognitive load theory to collaborative cognitive
+  load theory
+input_schema:
+  required:
+  - field: collaborative_task
+    type: string
+    description: The specific learning task that students will work on together —
+      what they need to produce or solve as a group
+  - field: collaboration_challenge
+    type: string
+    description: The specific collaboration problem to address — what goes wrong when
+      students work together on this task
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: group_size
+    type: string
+    description: How many students per group
+  - field: ai_capabilities
+    type: string
+    description: What AI tools are available — chatbot, collaborative workspace, real-time
+      monitoring, or other
+  - field: time_available
+    type: string
+    description: How long students have for the collaborative task
+output_schema:
+  type: object
+  fields:
+  - field: collaboration_design
+    type: object
+    description: The structure of the collaborative task — roles, phases, and the
+      specific points where AI facilitates
+  - field: ai_facilitation_moves
+    type: array
+    description: The specific things the AI does during collaboration — prompts, monitoring,
+      scaffolding, and interventions
+  - field: regulation_scaffolds
+    type: object
+    description: How the AI supports socially shared regulation — planning, monitoring,
+      and reflecting on the group process
+  - field: equity_mechanisms
+    type: object
+    description: How the design ensures all group members participate meaningfully
+      — preventing free-riding and dominance
+chains_well_with:
+- intelligent-tutoring-dialogue-designer
+- ai-feedback-design-principles
+- metacognitive-monitoring-ai-contexts
+teacher_time: 5 minutes
+tags:
+- collaboration
+- CSCL
+- Dillenbourg
+- Järvelä
+- cooperative-learning
+- Slavin
+- group-work
+- AI-facilitation
+- regulation
+```

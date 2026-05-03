@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: biophilic-learning-environment-designer
 description: "Redesign a learning space using biophilic design principles to improve focus, calm, and wellbeing. Use when classroom environment contributes to restlessness, poor attention, or stress."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "environmental-experiential-learning/biophilic-learning-environment-designer"
-skill_name: "Biophilic Learning Environment Designer"
-domain: "environmental-experiential-learning"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Kellert (2005) — Building for Life: designing and understanding the human-nature connection"
-  - "Kellert, Heerwagen & Mador (2008) — Biophilic Design: the theory, science, and practice of bringing buildings to life"
-  - "Kaplan & Kaplan (1989) — The Experience of Nature: a psychological perspective (Attention Restoration Theory)"
-  - "Wells (2000) — At home with nature: effects of 'greenness' on children's cognitive functioning"
-  - "Browning, Ryan & Clancy (2014) — 14 Patterns of Biophilic Design: improving health and well-being in the built environment"
-input_schema:
-  required:
-    - field: "current_space"
-      type: "string"
-      description: "Description of the current learning space — size, layout, windows, lighting, surfaces, current natural elements"
-    - field: "design_goal"
-      type: "string"
-      description: "What the teacher wants to achieve — better focus, calmer atmosphere, more engagement, stress reduction"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age group using the space"
-    - field: "budget_level"
-      type: "string"
-      description: "Available budget — zero cost, low cost (under £100), moderate (under £500), or able to invest"
-    - field: "space_constraints"
-      type: "string"
-      description: "Restrictions — no live plants allowed, limited wall space, shared classroom, landlord restrictions"
-    - field: "existing_nature_access"
-      type: "string"
-      description: "Current access to nature — window views, proximity to outdoor spaces"
-    - field: "sensory_needs"
-      type: "string"
-      description: "Whether students have specific sensory needs — e.g., autism spectrum, sensory processing differences"
-output_schema:
-  type: "object"
-  fields:
-    - field: "biophilic_design"
-      type: "object"
-      description: "The complete design proposal — specific changes to the space, organised by biophilic design pattern"
-    - field: "priority_changes"
-      type: "array"
-      description: "The 3–5 highest-impact changes ranked by evidence strength, cost, and ease of implementation"
-    - field: "implementation_plan"
-      type: "object"
-      description: "How to implement the changes — phased if budget-constrained, immediate if possible"
-    - field: "evidence_rationale"
-      type: "object"
-      description: "Why each change matters — linking the specific design element to the research evidence"
-chains_well_with:
-  - "outdoor-learning-sequence-designer"
-  - "flow-state-condition-designer"
-  - "belonging-classroom-culture-designer"
-  - "ecological-inquiry-anchor-designer"
-teacher_time: "3 minutes"
-tags: ["biophilic-design", "Kellert", "Kaplan", "attention-restoration", "classroom-environment", "nature", "wellbeing"]
 ---
 
 # Biophilic Learning Environment Designer
@@ -254,3 +190,92 @@ For each change (3–5):
 2. **School policies may restrict implementation.** Some schools prohibit live plants (allergy concerns), restrict wall displays to specific formats, seal windows, or have inflexible lighting systems. The phased approach addresses this, but teachers may find that their highest-impact changes (daylight, plants) are the ones their school restricts.
 
 3. **Biophilic design is a complement to good teaching, not a substitute.** A beautiful, nature-connected classroom with poor instruction will not produce good outcomes. A sterile classroom with excellent instruction will. Biophilic design improves the CONDITIONS for learning — it creates an environment where attention is easier to sustain and stress is lower — but it does not teach. The teacher's pedagogy remains the primary determinant of learning quality.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: environmental-experiential-learning/biophilic-learning-environment-designer
+skill_name: Biophilic Learning Environment Designer
+domain: environmental-experiential-learning
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- 'Kellert (2005) — Building for Life: designing and understanding the human-nature
+  connection'
+- 'Kellert, Heerwagen & Mador (2008) — Biophilic Design: the theory, science, and
+  practice of bringing buildings to life'
+- 'Kaplan & Kaplan (1989) — The Experience of Nature: a psychological perspective
+  (Attention Restoration Theory)'
+- 'Wells (2000) — At home with nature: effects of ''greenness'' on children''s cognitive
+  functioning'
+- 'Browning, Ryan & Clancy (2014) — 14 Patterns of Biophilic Design: improving health
+  and well-being in the built environment'
+input_schema:
+  required:
+  - field: current_space
+    type: string
+    description: Description of the current learning space — size, layout, windows,
+      lighting, surfaces, current natural elements
+  - field: design_goal
+    type: string
+    description: What the teacher wants to achieve — better focus, calmer atmosphere,
+      more engagement, stress reduction
+  optional:
+  - field: student_level
+    type: string
+    description: Age group using the space
+  - field: budget_level
+    type: string
+    description: Available budget — zero cost, low cost (under £100), moderate (under
+      £500), or able to invest
+  - field: space_constraints
+    type: string
+    description: Restrictions — no live plants allowed, limited wall space, shared
+      classroom, landlord restrictions
+  - field: existing_nature_access
+    type: string
+    description: Current access to nature — window views, proximity to outdoor spaces
+  - field: sensory_needs
+    type: string
+    description: Whether students have specific sensory needs — e.g., autism spectrum,
+      sensory processing differences
+output_schema:
+  type: object
+  fields:
+  - field: biophilic_design
+    type: object
+    description: The complete design proposal — specific changes to the space, organised
+      by biophilic design pattern
+  - field: priority_changes
+    type: array
+    description: The 3–5 highest-impact changes ranked by evidence strength, cost,
+      and ease of implementation
+  - field: implementation_plan
+    type: object
+    description: How to implement the changes — phased if budget-constrained, immediate
+      if possible
+  - field: evidence_rationale
+    type: object
+    description: Why each change matters — linking the specific design element to
+      the research evidence
+chains_well_with:
+- outdoor-learning-sequence-designer
+- flow-state-condition-designer
+- belonging-classroom-culture-designer
+- ecological-inquiry-anchor-designer
+teacher_time: 3 minutes
+tags:
+- biophilic-design
+- Kellert
+- Kaplan
+- attention-restoration
+- classroom-environment
+- nature
+- wellbeing
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: digital-worked-example-sequence
 description: "Create an interactive digital worked example sequence with fading for online or blended delivery. Use when building e-learning modules, LMS content, or app-based instruction."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/digital-worked-example-sequence"
-skill_name: "Digital Worked Example Sequence"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Sweller, van Merriënboer & Paas (2019) — Cognitive Architecture and Instructional Design: 20 Years Later"
-  - "Renkl (2014) — Toward an instructionally oriented theory of example-based learning"
-  - "Atkinson, Derry, Renkl & Wortham (2000) — Learning from examples: instructional principles from the worked examples research"
-  - "Renkl, Atkinson & Große (2004) — How fading worked-out solution steps works — a cognitive load perspective"
-  - "Wylie & Chi (2014) — The self-explanation principle in multimedia learning"
-input_schema:
-  required:
-    - field: "skill_to_teach"
-      type: "string"
-      description: "The specific procedure or skill the worked examples will teach"
-    - field: "target_platform"
-      type: "string"
-      description: "Where the examples will be delivered — learning management system, app, interactive PDF, web page"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current proficiency"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "sequence_length"
-      type: "integer"
-      description: "How many examples in the sequence — typically 4-8"
-    - field: "interactivity_level"
-      type: "string"
-      description: "How interactive the platform allows — passive display, clickable steps, fill-in blanks, drag-and-drop"
-    - field: "student_data_available"
-      type: "string"
-      description: "Whether the system can track student responses and adapt"
-output_schema:
-  type: "object"
-  fields:
-    - field: "example_sequence"
-      type: "array"
-      description: "The full sequence from complete worked example through faded examples to independent problem"
-    - field: "self_explanation_prompts"
-      type: "array"
-      description: "Prompts embedded at each step that require students to explain the reasoning"
-    - field: "fading_schedule"
-      type: "object"
-      description: "The precise schedule for removing steps — which steps fade first, which last"
-    - field: "digital_design_specs"
-      type: "object"
-      description: "How to implement in the digital environment — pacing, interactivity, feedback"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "erroneous-example-designer"
-  - "worked-example-to-problem-solving-transition-designer"
-  - "cognitive-load-analyser"
-teacher_time: "4 minutes"
-tags: ["worked-examples", "fading", "digital-learning", "CLT", "Sweller", "Renkl", "self-explanation", "multimedia"]
 ---
 
 # Digital Worked Example Sequence
@@ -273,3 +209,88 @@ If the platform tracks student responses:
 2. **Digital self-explanation prompts can become perfunctory.** Students may learn to type the minimum response to unlock the next step without genuinely engaging. The design mitigates this (minimum character count, the prompt appears before the answer) but cannot fully prevent gaming behaviour. In classroom use, the teacher should periodically review students' self-explanation responses to check for genuine engagement.
 
 3. **The fading schedule above is a fixed sequence.** Truly adaptive fading would adjust the pace based on each student's performance — fading faster for students who demonstrate mastery and slower for those who struggle. The fixed schedule is a practical default for platforms without adaptive capability. Platforms with tracking should use the adaptation notes to personalise the pace.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/digital-worked-example-sequence
+skill_name: Digital Worked Example Sequence
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Sweller, van Merriënboer & Paas (2019) — Cognitive Architecture and Instructional
+  Design: 20 Years Later'
+- Renkl (2014) — Toward an instructionally oriented theory of example-based learning
+- 'Atkinson, Derry, Renkl & Wortham (2000) — Learning from examples: instructional
+  principles from the worked examples research'
+- Renkl, Atkinson & Große (2004) — How fading worked-out solution steps works — a
+  cognitive load perspective
+- Wylie & Chi (2014) — The self-explanation principle in multimedia learning
+input_schema:
+  required:
+  - field: skill_to_teach
+    type: string
+    description: The specific procedure or skill the worked examples will teach
+  - field: target_platform
+    type: string
+    description: Where the examples will be delivered — learning management system,
+      app, interactive PDF, web page
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and current proficiency
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: sequence_length
+    type: integer
+    description: How many examples in the sequence — typically 4-8
+  - field: interactivity_level
+    type: string
+    description: How interactive the platform allows — passive display, clickable
+      steps, fill-in blanks, drag-and-drop
+  - field: student_data_available
+    type: string
+    description: Whether the system can track student responses and adapt
+output_schema:
+  type: object
+  fields:
+  - field: example_sequence
+    type: array
+    description: The full sequence from complete worked example through faded examples
+      to independent problem
+  - field: self_explanation_prompts
+    type: array
+    description: Prompts embedded at each step that require students to explain the
+      reasoning
+  - field: fading_schedule
+    type: object
+    description: The precise schedule for removing steps — which steps fade first,
+      which last
+  - field: digital_design_specs
+    type: object
+    description: How to implement in the digital environment — pacing, interactivity,
+      feedback
+chains_well_with:
+- adaptive-hint-sequence-designer
+- erroneous-example-designer
+- worked-example-to-problem-solving-transition-designer
+- cognitive-load-analyser
+teacher_time: 4 minutes
+tags:
+- worked-examples
+- fading
+- digital-learning
+- CLT
+- Sweller
+- Renkl
+- self-explanation
+- multimedia
+```

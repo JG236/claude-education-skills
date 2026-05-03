@@ -1,74 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: phenomenon-based-unit-anchor
 description: "Anchor a multidisciplinary unit in a real-world phenomenon that requires multiple subject lenses to understand. Use when designing integrated or phenomenon-based units across disciplines."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/phenomenon-based-unit-anchor"
-skill_name: "Phenomenon-Based Unit Anchor"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Finnish National Agency for Education (2016) — National Core Curriculum for Basic Education (POPS 2016)"
-  - "Lonka (2018) — Phenomenal Learning from Finland"
-  - "Symeonidis & Schwarz (2016) — Phenomenon-based teaching and learning through the pedagogical lenses of phenomenology"
-  - "Halinen (2018) — The new educational curriculum in Finland"
-  - "Silander (2015) — Phenomenon-based learning in Espoo"
-input_schema:
-  required:
-    - field: "phenomenon"
-      type: "string"
-      description: "The real-world phenomenon that anchors the unit — a complex, authentic situation that requires multiple subject lenses to understand"
-    - field: "subjects_involved"
-      type: "string"
-      description: "Which subject areas or disciplines the phenomenon draws on"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "curriculum_links"
-      type: "string"
-      description: "Specific curriculum objectives the unit must address"
-    - field: "unit_duration"
-      type: "string"
-      description: "How long the unit will last — 1 week, 2 weeks, a half-term module"
-    - field: "school_context"
-      type: "string"
-      description: "Whether the school supports cross-curricular planning, timetable flexibility, team teaching"
-    - field: "local_relevance"
-      type: "string"
-      description: "How the phenomenon connects to students' local community or lived experience"
-output_schema:
-  type: "object"
-  fields:
-    - field: "unit_design"
-      type: "object"
-      description: "The complete phenomenon-based unit — anchor phenomenon, driving questions, subject contributions, integration points"
-    - field: "subject_contributions"
-      type: "array"
-      description: "What each subject area contributes to understanding the phenomenon — specific knowledge and skills"
-    - field: "integration_points"
-      type: "array"
-      description: "Where and how the subjects connect — genuine integration, not just proximity"
-    - field: "student_inquiry_pathway"
-      type: "object"
-      description: "How students investigate the phenomenon — questions, activities, evidence gathering"
-    - field: "assessment_design"
-      type: "object"
-      description: "How to assess understanding of the phenomenon — demonstrating integrated understanding, not subject-by-subject testing"
-chains_well_with:
-  - "project-brief-designer"
-  - "culturally-responsive-teaching-designer"
-  - "place-based-inquiry-anchor"
-  - "agency-scaffold-generator"
-  - "curriculum-knowledge-architecture-designer"
-teacher_time: "5 minutes"
-tags: ["phenomenon-based-learning", "Finland", "POPS-2016", "Lonka", "cross-curricular", "interdisciplinary", "transversal-competences"]
 ---
 
 # Phenomenon-Based Unit Anchor
@@ -264,3 +196,92 @@ Each contributing subject teacher assesses the accuracy of their disciplinary co
 2. **Not all subjects integrate naturally with all phenomena.** The fast fashion example integrates Geography, Science, Maths, and Ethics convincingly — each subject contributes something genuinely necessary. But forced integration ("Let's include Art by having students design a sustainable fashion collection") weakens the unit. It is better to have three genuinely integrated subjects than five artificially connected ones.
 
 3. **Phenomenon-based learning complements subject teaching; it does not replace it.** The Finnish model includes phenomenon-based modules alongside subject-specific teaching — not instead of it. Students still need dedicated subject lessons to build the disciplinary knowledge and skills they bring to the phenomenon. A school that replaced all subject teaching with phenomenon-based learning would likely produce students with broad awareness but shallow disciplinary understanding.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/phenomenon-based-unit-anchor
+skill_name: Phenomenon-Based Unit Anchor
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Finnish National Agency for Education (2016) — National Core Curriculum for Basic
+  Education (POPS 2016)
+- Lonka (2018) — Phenomenal Learning from Finland
+- Symeonidis & Schwarz (2016) — Phenomenon-based teaching and learning through the
+  pedagogical lenses of phenomenology
+- Halinen (2018) — The new educational curriculum in Finland
+- Silander (2015) — Phenomenon-based learning in Espoo
+input_schema:
+  required:
+  - field: phenomenon
+    type: string
+    description: The real-world phenomenon that anchors the unit — a complex, authentic
+      situation that requires multiple subject lenses to understand
+  - field: subjects_involved
+    type: string
+    description: Which subject areas or disciplines the phenomenon draws on
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: curriculum_links
+    type: string
+    description: Specific curriculum objectives the unit must address
+  - field: unit_duration
+    type: string
+    description: How long the unit will last — 1 week, 2 weeks, a half-term module
+  - field: school_context
+    type: string
+    description: Whether the school supports cross-curricular planning, timetable
+      flexibility, team teaching
+  - field: local_relevance
+    type: string
+    description: How the phenomenon connects to students' local community or lived
+      experience
+output_schema:
+  type: object
+  fields:
+  - field: unit_design
+    type: object
+    description: The complete phenomenon-based unit — anchor phenomenon, driving questions,
+      subject contributions, integration points
+  - field: subject_contributions
+    type: array
+    description: What each subject area contributes to understanding the phenomenon
+      — specific knowledge and skills
+  - field: integration_points
+    type: array
+    description: Where and how the subjects connect — genuine integration, not just
+      proximity
+  - field: student_inquiry_pathway
+    type: object
+    description: How students investigate the phenomenon — questions, activities,
+      evidence gathering
+  - field: assessment_design
+    type: object
+    description: How to assess understanding of the phenomenon — demonstrating integrated
+      understanding, not subject-by-subject testing
+chains_well_with:
+- project-brief-designer
+- culturally-responsive-teaching-designer
+- place-based-inquiry-anchor
+- agency-scaffold-generator
+- curriculum-knowledge-architecture-designer
+teacher_time: 5 minutes
+tags:
+- phenomenon-based-learning
+- Finland
+- POPS-2016
+- Lonka
+- cross-curricular
+- interdisciplinary
+- transversal-competences
+```

@@ -1,81 +1,6 @@
 ---
 name: developmental-band-translator
-description: Tags harness-decomposed curriculum items (KUDs, LTs, criteria) with a school's developmental band metadata while preserving source voice and labels. Supply the band schema; the skill derives mapping rules from it.
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-skill_id: curriculum-alignment/developmental-band-translator
-skill_name: Developmental Band Translator
-domain: curriculum-alignment
-version: "1.0"
-evidence_strength: moderate
-evidence_sources:
-  - "Wiggins, G. & McTighe, J. (2005) — Understanding by Design (2nd ed.), ASCD: backward design establishes the principle that curriculum alignment begins from stated outcomes and works backward through learning targets; band-tagging is an alignment operation on that model."
-  - "Wiggins, G. & McTighe, J. (2011) — The Understanding by Design Guide to Creating High-Quality Units, ASCD: KUD as the canonical unit of translation between frameworks."
-  - "Vygotsky, L. S. (1978) — Mind in Society: The Development of Higher Psychological Processes, Harvard University Press: the Zone of Proximal Development provides the theoretical basis for developmental banding as an age-and-readiness construct rather than a pure age construct."
-  - "Heritage, M. (2008) — Learning Progressions: Supporting Instruction and Formative Assessment, CCSSO: progressions are developmental rather than age-deterministic; band mappings must preserve this."
-  - "Webb, N. L. (1997) — Criteria for Alignment of Expectations and Assessments in Mathematics and Science Education, CCSSO Research Monograph No. 6: alignment is multi-dimensional (categorical concurrence, depth-of-knowledge, range, balance) — band translation addresses only the age-range dimension and must not be mistaken for full alignment."
-input_schema:
-  required:
-    - field: band_schema
-      type: string
-      description: "The school or programme's developmental band definitions. Must include band labels, approximate age or grade ranges, and any named groupings. Example: REAL School Budapest uses Bands A-F — A (Water+Air Dragons, K-2, ages 5-7), B (Earth Dragons, G3-4, ages 7-9), C (Fire Dragons, G5-6, ages 9-11), D (Metal+Light Dragons, G7-8, ages 11-13), E (G9-10, ages 13-15), F (G11-12, ages 15-17)."
-    - field: kud_json
-      type: string
-      description: The harness-produced KUD file (kud.json). Each item must include at minimum item_id, content_statement, knowledge_type, and source_block_id.
-    - field: lts_json
-      type: string
-      description: The harness-produced LT file (lts.json). Each LT must include lt_id, lt_name, lt_definition, kud_item_ids, and knowledge_type.
-    - field: progression_structure_json
-      type: string
-      description: The harness-produced progression_structure.json for the source. Must include band_labels, source_type, and age_range_hint (or per-band approximate_age_range). If both age-range fields are absent, the skill returns request_age_range_context in skill_flags and halts.
-  optional:
-    - field: criterion_bank_json
-      type: string
-      description: The harness-produced criterion_bank.json if criterion-level band tagging is also required. Optional — if omitted the skill tags only KUD items and LTs.
-    - field: source_name
-      type: string
-      description: Human-readable source name (e.g. "UK DfE Statutory RSHE, July 2025") for output provenance. Defaults to progression_structure.source_slug if omitted.
-    - field: user_age_range_override
-      type: string
-      description: Explicit age-range mapping supplied by the user when a source has no native band structure (flat list). Required only when the skill emits a request_age_range_context error.
-output_schema:
-  type: object
-  fields:
-    - field: source_metadata
-      type: object
-      description: Source name, source_type, source_band_labels (unchanged), and skill run provenance (version, timestamp, invoker).
-    - field: band_tagged_kud
-      type: array
-      description: Every KUD item with school_band (string or array), band_confidence, source_band_preserved, source_voice_preserved (always true), ambiguity_flag, teacher_review_flag, and band_rationale.
-    - field: band_tagged_lts
-      type: array
-      description: Every LT with school_band (string or array), band_confidence, source_band_preserved, source_voice_preserved (always true), ambiguity_flag, teacher_review_flag, and band_rationale. Band is assigned from the LT's constituent KUD items using the aggregation rule described in the prompt.
-    - field: band_tagged_criteria
-      type: array
-      description: Present only if criterion_bank_json was supplied. Same field set as LTs. Inherit band from parent LT unless a criterion explicitly narrows the age range.
-    - field: summary_counts
-      type: object
-      description: Counts of items per school band, ambiguity flags, teacher review flags, and low-confidence tags. For rapid quality scanning.
-    - field: skill_flags
-      type: array
-      description: Any skill-level warnings (missing age range, CASEL-style frameworks requiring full teacher review, source-voice preservation warnings if any rewriting was detected).
-chains_well_with:
-  - curriculum-crosswalk
-  - kud-knowledge-type-mapper
-  - learning-progression-builder
-  - competency-framework-translator
-  - scope-and-sequence-designer
-teacher_time: 10 minutes
-tags:
-  - developmental-bands
-  - curriculum-alignment
-  - band-mapping
-  - source-voice-preservation
-  - Wiggins-McTighe
-  - Vygotsky
-  - ZPD
-  - framework-translation
+description: "Tags harness-decomposed curriculum items (KUDs, LTs, criteria) with a school's developmental band metadata while preserving source voice and labels. Supply the band schema; the skill derives mapping rules from it."
 ---
 
 # What This Skill Does
@@ -262,3 +187,125 @@ Produce the band-tagged output as a single JSON object conforming to the output 
 **Developmental-descriptor inference (CASEL case) is approximate.** When a framework has no age-banding, the skill maps by descriptor using the supplied `band_schema` as a guide — early-developmental descriptors → earliest bands in the schema; systems-level descriptors → later bands. These are defensible starting points drawn from developmental-psychology consensus, but they are not framework-specific determinations. Content tagged this way should be treated as a scaffold for teacher review, not a validated mapping.
 
 **The skill assumes harness-validated input.** It does not re-validate the source decomposition. If the upstream harness produced a broken KUD or LT file (cycles in prerequisite graph, content_statement missing, etc.), the skill will pass those errors through as band-tagged nonsense. Run the harness's own validation gates before invoking this skill.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-alignment/developmental-band-translator
+skill_name: Developmental Band Translator
+domain: curriculum-alignment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Wiggins, G. & McTighe, J. (2005) — Understanding by Design (2nd ed.), ASCD: backward
+  design establishes the principle that curriculum alignment begins from stated outcomes
+  and works backward through learning targets; band-tagging is an alignment operation
+  on that model.'
+- 'Wiggins, G. & McTighe, J. (2011) — The Understanding by Design Guide to Creating
+  High-Quality Units, ASCD: KUD as the canonical unit of translation between frameworks.'
+- 'Vygotsky, L. S. (1978) — Mind in Society: The Development of Higher Psychological
+  Processes, Harvard University Press: the Zone of Proximal Development provides the
+  theoretical basis for developmental banding as an age-and-readiness construct rather
+  than a pure age construct.'
+- 'Heritage, M. (2008) — Learning Progressions: Supporting Instruction and Formative
+  Assessment, CCSSO: progressions are developmental rather than age-deterministic;
+  band mappings must preserve this.'
+- 'Webb, N. L. (1997) — Criteria for Alignment of Expectations and Assessments in
+  Mathematics and Science Education, CCSSO Research Monograph No. 6: alignment is
+  multi-dimensional (categorical concurrence, depth-of-knowledge, range, balance)
+  — band translation addresses only the age-range dimension and must not be mistaken
+  for full alignment.'
+input_schema:
+  required:
+  - field: band_schema
+    type: string
+    description: 'The school or programme''s developmental band definitions. Must
+      include band labels, approximate age or grade ranges, and any named groupings.
+      Example: REAL School Budapest uses Bands A-F — A (Water+Air Dragons, K-2, ages
+      5-7), B (Earth Dragons, G3-4, ages 7-9), C (Fire Dragons, G5-6, ages 9-11),
+      D (Metal+Light Dragons, G7-8, ages 11-13), E (G9-10, ages 13-15), F (G11-12,
+      ages 15-17).'
+  - field: kud_json
+    type: string
+    description: The harness-produced KUD file (kud.json). Each item must include
+      at minimum item_id, content_statement, knowledge_type, and source_block_id.
+  - field: lts_json
+    type: string
+    description: The harness-produced LT file (lts.json). Each LT must include lt_id,
+      lt_name, lt_definition, kud_item_ids, and knowledge_type.
+  - field: progression_structure_json
+    type: string
+    description: The harness-produced progression_structure.json for the source. Must
+      include band_labels, source_type, and age_range_hint (or per-band approximate_age_range).
+      If both age-range fields are absent, the skill returns request_age_range_context
+      in skill_flags and halts.
+  optional:
+  - field: criterion_bank_json
+    type: string
+    description: The harness-produced criterion_bank.json if criterion-level band
+      tagging is also required. Optional — if omitted the skill tags only KUD items
+      and LTs.
+  - field: source_name
+    type: string
+    description: Human-readable source name (e.g. "UK DfE Statutory RSHE, July 2025")
+      for output provenance. Defaults to progression_structure.source_slug if omitted.
+  - field: user_age_range_override
+    type: string
+    description: Explicit age-range mapping supplied by the user when a source has
+      no native band structure (flat list). Required only when the skill emits a request_age_range_context
+      error.
+output_schema:
+  type: object
+  fields:
+  - field: source_metadata
+    type: object
+    description: Source name, source_type, source_band_labels (unchanged), and skill
+      run provenance (version, timestamp, invoker).
+  - field: band_tagged_kud
+    type: array
+    description: Every KUD item with school_band (string or array), band_confidence,
+      source_band_preserved, source_voice_preserved (always true), ambiguity_flag,
+      teacher_review_flag, and band_rationale.
+  - field: band_tagged_lts
+    type: array
+    description: Every LT with school_band (string or array), band_confidence, source_band_preserved,
+      source_voice_preserved (always true), ambiguity_flag, teacher_review_flag, and
+      band_rationale. Band is assigned from the LT's constituent KUD items using the
+      aggregation rule described in the prompt.
+  - field: band_tagged_criteria
+    type: array
+    description: Present only if criterion_bank_json was supplied. Same field set
+      as LTs. Inherit band from parent LT unless a criterion explicitly narrows the
+      age range.
+  - field: summary_counts
+    type: object
+    description: Counts of items per school band, ambiguity flags, teacher review
+      flags, and low-confidence tags. For rapid quality scanning.
+  - field: skill_flags
+    type: array
+    description: Any skill-level warnings (missing age range, CASEL-style frameworks
+      requiring full teacher review, source-voice preservation warnings if any rewriting
+      was detected).
+chains_well_with:
+- curriculum-crosswalk
+- kud-knowledge-type-mapper
+- learning-progression-builder
+- competency-framework-translator
+- scope-and-sequence-designer
+teacher_time: 10 minutes
+tags:
+- developmental-bands
+- curriculum-alignment
+- band-mapping
+- source-voice-preservation
+- Wiggins-McTighe
+- Vygotsky
+- ZPD
+- framework-translation
+```

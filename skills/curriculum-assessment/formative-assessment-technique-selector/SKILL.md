@@ -1,71 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: formative-assessment-technique-selector
 description: "Select the right formative assessment technique for a specific learning moment, purpose, and age group. Use when choosing how to check understanding during, between, or after lessons."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/formative-assessment-technique-selector"
-skill_name: "Formative Assessment Technique Selector"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Black & Wiliam (1998) — Assessment and Classroom Learning"
-  - "Wiliam (2011) — Embedded Formative Assessment"
-  - "Leahy et al. (2005) — Classroom Assessment: minute by minute, day by day"
-  - "Heritage (2010) — Formative Assessment: making it happen in the classroom"
-  - "Wiliam & Leahy (2015) — Embedding Formative Assessment: practical techniques for K–12 classrooms"
-input_schema:
-  required:
-    - field: "learning_moment"
-      type: "string"
-      description: "When in the lesson/sequence the assessment happens — e.g. during teacher explanation, after guided practice, end of lesson, between lessons, start of next lesson"
-    - field: "what_to_assess"
-      type: "string"
-      description: "The specific understanding, skill, or knowledge to check"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "class_size"
-      type: "integer"
-      description: "Number of students — affects technique practicality"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: EAL students, confidence levels, specific needs"
-    - field: "available_resources"
-      type: "string"
-      description: "Mini-whiteboards, technology, exit ticket slips, etc."
-output_schema:
-  type: "object"
-  fields:
-    - field: "recommended_techniques"
-      type: "array"
-      description: "2–3 techniques ranked by suitability, with implementation guide for each"
-    - field: "technique_rationale"
-      type: "string"
-      description: "Why each technique is appropriate for this specific moment and purpose"
-    - field: "response_interpretation"
-      type: "object"
-      description: "How to interpret responses — what patterns mean and what to do next"
-    - field: "common_mistakes"
-      type: "string"
-      description: "How the technique can go wrong and how to avoid it"
-chains_well_with:
-  - "hinge-question-designer"
-  - "checking-for-understanding-protocol-designer"
-  - "exit-ticket-designer"
-  - "explicit-instruction-sequence-builder"
-  - "kud-knowledge-type-mapper"
-teacher_time: "2 minutes"
-tags: ["formative-assessment", "checking-understanding", "AfL", "feedback", "responsive-teaching"]
 ---
 
 # Formative Assessment Technique Selector
@@ -251,3 +186,81 @@ For each technique (2–3, ranked):
 2. **The response interpretation thresholds (80%, 50–80%, below 50%) are guidelines, not rules.** A class that is 78% correct may be ready to proceed if the 22% who got it wrong all made the same correctable error. A class that is 82% correct may need to pause if the errors suggest a deep misconception. The teacher's professional judgement must interpret the data in context.
 
 3. **Formative assessment only works if the teacher is prepared to adapt.** The technique provides data, but the value is in the response. A teacher who checks whiteboards, sees 60% correct, and proceeds anyway because they need to "get through the lesson" has conducted a formative check but not formative assessment. The willingness to adapt the lesson in response to data is the essential ingredient that no technique can provide.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/formative-assessment-technique-selector
+skill_name: Formative Assessment Technique Selector
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Black & Wiliam (1998) — Assessment and Classroom Learning
+- Wiliam (2011) — Embedded Formative Assessment
+- 'Leahy et al. (2005) — Classroom Assessment: minute by minute, day by day'
+- 'Heritage (2010) — Formative Assessment: making it happen in the classroom'
+- 'Wiliam & Leahy (2015) — Embedding Formative Assessment: practical techniques for
+  K–12 classrooms'
+input_schema:
+  required:
+  - field: learning_moment
+    type: string
+    description: When in the lesson/sequence the assessment happens — e.g. during
+      teacher explanation, after guided practice, end of lesson, between lessons,
+      start of next lesson
+  - field: what_to_assess
+    type: string
+    description: The specific understanding, skill, or knowledge to check
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: class_size
+    type: integer
+    description: Number of students — affects technique practicality
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_profiles
+    type: array
+    description: 'From context engine: EAL students, confidence levels, specific needs'
+  - field: available_resources
+    type: string
+    description: Mini-whiteboards, technology, exit ticket slips, etc.
+output_schema:
+  type: object
+  fields:
+  - field: recommended_techniques
+    type: array
+    description: 2–3 techniques ranked by suitability, with implementation guide for
+      each
+  - field: technique_rationale
+    type: string
+    description: Why each technique is appropriate for this specific moment and purpose
+  - field: response_interpretation
+    type: object
+    description: How to interpret responses — what patterns mean and what to do next
+  - field: common_mistakes
+    type: string
+    description: How the technique can go wrong and how to avoid it
+chains_well_with:
+- hinge-question-designer
+- checking-for-understanding-protocol-designer
+- exit-ticket-designer
+- explicit-instruction-sequence-builder
+- kud-knowledge-type-mapper
+teacher_time: 2 minutes
+tags:
+- formative-assessment
+- checking-understanding
+- AfL
+- feedback
+- responsive-teaching
+```

@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: interdisciplinary-real-world-connection-mapper
 description: "Map curriculum connections across multiple subjects for a real-world problem or authentic context. Use when planning cross-curricular projects or connecting content to real issues."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "environmental-experiential-learning/interdisciplinary-real-world-connection-mapper"
-skill_name: "Interdisciplinary Real-World Connection Mapper"
-domain: "environmental-experiential-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Barron & Darling-Hammond (2008) — Teaching for Meaningful Learning: a review of research on inquiry-based and cooperative learning"
-  - "Drake & Burns (2004) — Meeting Standards Through Integrated Curriculum"
-  - "Beane (1997) — Curriculum Integration: designing the core of democratic education"
-  - "Rennie, Venville & Wallace (2012) — Integrating Science, Technology, Engineering, and Mathematics"
-  - "Czerniak, Weber, Sandmann & Ahern (1999) — Literature review of science and mathematics integration"
-input_schema:
-  required:
-    - field: "real_world_problem"
-      type: "string"
-      description: "The real-world problem, issue, or situation that requires multiple disciplines to address"
-    - field: "primary_subject"
-      type: "string"
-      description: "The teacher's own subject — the discipline from which this connection is being initiated"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "available_subjects"
-      type: "string"
-      description: "Which other subject departments are willing or available to collaborate"
-    - field: "curriculum_constraints"
-      type: "string"
-      description: "What curriculum content must be covered in each subject"
-    - field: "time_frame"
-      type: "string"
-      description: "Duration of the integrated unit"
-    - field: "school_timetable"
-      type: "string"
-      description: "Whether the timetable allows for cross-curricular collaboration or subjects are fully siloed"
-output_schema:
-  type: "object"
-  fields:
-    - field: "connection_map"
-      type: "object"
-      description: "A visual and descriptive map of how the real-world problem connects to multiple disciplines"
-    - field: "disciplinary_contributions"
-      type: "array"
-      description: "What each subject contributes — specific knowledge and skills, with curriculum alignment"
-    - field: "integration_points"
-      type: "array"
-      description: "Where and how subjects genuinely connect — not parallel teaching but actual integration"
-    - field: "implementation_plan"
-      type: "object"
-      description: "How to implement — from single-teacher connections to full cross-curricular collaboration"
-    - field: "assessment_approach"
-      type: "object"
-      description: "How to assess integrated understanding — not subject-by-subject but the ability to draw on multiple disciplines"
-chains_well_with:
-  - "phenomenon-based-unit-anchor"
-  - "project-brief-designer"
-  - "service-learning-project-designer"
-  - "ecological-inquiry-anchor-designer"
-teacher_time: "4 minutes"
-tags: ["interdisciplinary", "cross-curricular", "Barron", "Drake", "integrated-curriculum", "real-world", "PBL"]
 ---
 
 # Interdisciplinary Real-World Connection Mapper
@@ -291,3 +224,92 @@ The proposal is assessed on: accuracy of evidence, quality of analysis, depth of
 2. **Integration can dilute individual subjects if poorly designed (Czerniak et al., 1999).** The most common failure mode is that subjects contribute superficially to the shared problem rather than substantively. "Let's do energy percentages in Maths" (one lesson, low challenge) is weaker than "analyse real school energy data using percentage change, statistical representation, and financial modelling" (multiple lessons, genuine mathematical thinking). Each subject must maintain its own standards within the integrated context.
 
 3. **Not all real-world problems connect equally to all subjects.** The energy problem above connects naturally to Science, Maths, Geography, DT, and English. It does not connect well to Music, PE, or MFL. Forcing connections to subjects that don't naturally contribute weakens the integration. It is better to have four subjects genuinely integrated than eight subjects artificially connected.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: environmental-experiential-learning/interdisciplinary-real-world-connection-mapper
+skill_name: Interdisciplinary Real-World Connection Mapper
+domain: environmental-experiential-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Barron & Darling-Hammond (2008) — Teaching for Meaningful Learning: a review of
+  research on inquiry-based and cooperative learning'
+- Drake & Burns (2004) — Meeting Standards Through Integrated Curriculum
+- 'Beane (1997) — Curriculum Integration: designing the core of democratic education'
+- Rennie, Venville & Wallace (2012) — Integrating Science, Technology, Engineering,
+  and Mathematics
+- Czerniak, Weber, Sandmann & Ahern (1999) — Literature review of science and mathematics
+  integration
+input_schema:
+  required:
+  - field: real_world_problem
+    type: string
+    description: The real-world problem, issue, or situation that requires multiple
+      disciplines to address
+  - field: primary_subject
+    type: string
+    description: The teacher's own subject — the discipline from which this connection
+      is being initiated
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: available_subjects
+    type: string
+    description: Which other subject departments are willing or available to collaborate
+  - field: curriculum_constraints
+    type: string
+    description: What curriculum content must be covered in each subject
+  - field: time_frame
+    type: string
+    description: Duration of the integrated unit
+  - field: school_timetable
+    type: string
+    description: Whether the timetable allows for cross-curricular collaboration or
+      subjects are fully siloed
+output_schema:
+  type: object
+  fields:
+  - field: connection_map
+    type: object
+    description: A visual and descriptive map of how the real-world problem connects
+      to multiple disciplines
+  - field: disciplinary_contributions
+    type: array
+    description: What each subject contributes — specific knowledge and skills, with
+      curriculum alignment
+  - field: integration_points
+    type: array
+    description: Where and how subjects genuinely connect — not parallel teaching
+      but actual integration
+  - field: implementation_plan
+    type: object
+    description: How to implement — from single-teacher connections to full cross-curricular
+      collaboration
+  - field: assessment_approach
+    type: object
+    description: How to assess integrated understanding — not subject-by-subject but
+      the ability to draw on multiple disciplines
+chains_well_with:
+- phenomenon-based-unit-anchor
+- project-brief-designer
+- service-learning-project-designer
+- ecological-inquiry-anchor-designer
+teacher_time: 4 minutes
+tags:
+- interdisciplinary
+- cross-curricular
+- Barron
+- Drake
+- integrated-curriculum
+- real-world
+- PBL
+```

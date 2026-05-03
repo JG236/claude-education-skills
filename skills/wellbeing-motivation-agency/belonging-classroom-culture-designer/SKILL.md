@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: belonging-classroom-culture-designer
 description: "Design targeted interventions that strengthen belonging and inclusion for specific classroom dynamics. Use when students feel isolated, cliques form, or new students need integrating."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/belonging-classroom-culture-designer"
-skill_name: "Belonging & Classroom Culture Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Walton & Cohen (2011) — A brief social-belonging intervention improves academic and health outcomes of minority students"
-  - "Yeager & Walton (2011) — Social-psychological interventions in education"
-  - "Baumeister & Leary (1995) — The need to belong: desire for interpersonal attachments as a fundamental human motivation"
-  - "Goodenow (1993) — Classroom belonging among early adolescent students"
-  - "Murphy & Zirkel (2015) — Race and belonging in school: how anticipated and experienced belonging affect choice, persistence, and performance"
-input_schema:
-  required:
-    - field: "classroom_context"
-      type: "string"
-      description: "Description of the class — subject, year group, and any relevant features of the group dynamic"
-    - field: "belonging_concern"
-      type: "string"
-      description: "The specific belonging issue — e.g. isolated students, cliques, marginalised groups, new students, post-transition anxiety"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class composition, social dynamics, SEN, EAL, Pupil Premium"
-    - field: "current_practices"
-      type: "string"
-      description: "What the teacher already does to build belonging — so recommendations don't duplicate"
-    - field: "time_available"
-      type: "string"
-      description: "How much time can be allocated to belonging-building practices"
-output_schema:
-  type: "object"
-  fields:
-    - field: "belonging_practices"
-      type: "array"
-      description: "Specific, named classroom practices that build belonging — not generic advice but implementable actions"
-    - field: "routine_integration"
-      type: "object"
-      description: "How to embed belonging practices into existing routines rather than adding extra activities"
-    - field: "language_guide"
-      type: "object"
-      description: "Specific teacher language that signals belonging vs. language that inadvertently threatens it"
-    - field: "monitoring_indicators"
-      type: "array"
-      description: "Observable signs that belonging is improving — what to watch for"
-chains_well_with:
-  - "motivation-diagnostic-task-redesign"
-  - "trauma-informed-practice-designer"
-  - "ruler-emotional-literacy-sequence"
-  - "restorative-practice-protocol-designer"
-teacher_time: "3 minutes"
-tags: ["belonging", "inclusion", "classroom-culture", "relationships", "equity", "marginalisation"]
 ---
 
 # Belonging & Classroom Culture Designer
@@ -263,3 +199,87 @@ Watch for these changes over 4–6 weeks:
 2. **Some belonging threats originate outside the classroom.** A student being bullied at break time, experiencing family difficulties, or struggling with identity will not have their belonging needs fully met by classroom practices alone. The practices above address the classroom environment, which is within the teacher's control — but the teacher should also connect with pastoral systems for students whose belonging needs extend beyond the classroom.
 
 3. **Belonging practices must be genuine.** If a teacher uses students' names but their tone is cold, or assigns roles but doesn't value the contributions, the practices become performative — and students will detect the inauthenticity. The practices work because they communicate genuine regard. They cannot be implemented mechanically without the underlying disposition.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/belonging-classroom-culture-designer
+skill_name: Belonging & Classroom Culture Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Walton & Cohen (2011) — A brief social-belonging intervention improves academic
+  and health outcomes of minority students
+- Yeager & Walton (2011) — Social-psychological interventions in education
+- 'Baumeister & Leary (1995) — The need to belong: desire for interpersonal attachments
+  as a fundamental human motivation'
+- Goodenow (1993) — Classroom belonging among early adolescent students
+- 'Murphy & Zirkel (2015) — Race and belonging in school: how anticipated and experienced
+  belonging affect choice, persistence, and performance'
+input_schema:
+  required:
+  - field: classroom_context
+    type: string
+    description: Description of the class — subject, year group, and any relevant
+      features of the group dynamic
+  - field: belonging_concern
+    type: string
+    description: The specific belonging issue — e.g. isolated students, cliques, marginalised
+      groups, new students, post-transition anxiety
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class composition, social dynamics, SEN, EAL,
+      Pupil Premium'
+  - field: current_practices
+    type: string
+    description: What the teacher already does to build belonging — so recommendations
+      don't duplicate
+  - field: time_available
+    type: string
+    description: How much time can be allocated to belonging-building practices
+output_schema:
+  type: object
+  fields:
+  - field: belonging_practices
+    type: array
+    description: Specific, named classroom practices that build belonging — not generic
+      advice but implementable actions
+  - field: routine_integration
+    type: object
+    description: How to embed belonging practices into existing routines rather than
+      adding extra activities
+  - field: language_guide
+    type: object
+    description: Specific teacher language that signals belonging vs. language that
+      inadvertently threatens it
+  - field: monitoring_indicators
+    type: array
+    description: Observable signs that belonging is improving — what to watch for
+chains_well_with:
+- motivation-diagnostic-task-redesign
+- trauma-informed-practice-designer
+- ruler-emotional-literacy-sequence
+- restorative-practice-protocol-designer
+teacher_time: 3 minutes
+tags:
+- belonging
+- inclusion
+- classroom-culture
+- relationships
+- equity
+- marginalisation
+```

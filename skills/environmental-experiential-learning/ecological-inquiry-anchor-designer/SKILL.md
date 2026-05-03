@@ -1,74 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: ecological-inquiry-anchor-designer
 description: "Design an inquiry sequence anchored in a local ecosystem that embeds science or geography curriculum content. Use when teaching through local living systems like gardens, ponds, or hedgerows."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "environmental-experiential-learning/ecological-inquiry-anchor-designer"
-skill_name: "Ecological Inquiry Anchor Designer"
-domain: "environmental-experiential-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Sobel (1996) — Beyond Ecophobia: reclaiming the heart in nature education"
-  - "Sobel (2004) — Place-Based Education: connecting classrooms and communities"
-  - "Orr (1992) — Ecological Literacy: education and the transition to a postmodern world"
-  - "Kimmerer (2013) — Braiding Sweetgrass: Indigenous wisdom, scientific knowledge, and the teachings of plants"
-  - "Chawla (1998) — Significant life experiences revisited: a review of research on sources of environmental sensitivity"
-input_schema:
-  required:
-    - field: "local_ecosystem"
-      type: "string"
-      description: "The specific local ecosystem or living system that anchors the inquiry — a garden, pond, hedgerow, tree, patch of waste ground, window box"
-    - field: "curriculum_objective"
-      type: "string"
-      description: "The science or geography curriculum content the inquiry must address"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "time_frame"
-      type: "string"
-      description: "How long the inquiry runs — single lesson, a week, a term, a year"
-    - field: "school_grounds"
-      type: "string"
-      description: "What outdoor or growing spaces the school has"
-    - field: "community_expertise"
-      type: "string"
-      description: "Local experts — gardeners, ecologists, farmers, park rangers"
-    - field: "student_prior_experience"
-      type: "string"
-      description: "Students' existing relationship with nature and outdoor environments"
-output_schema:
-  type: "object"
-  fields:
-    - field: "ecological_inquiry"
-      type: "object"
-      description: "The complete inquiry design — anchored in a specific local ecosystem, addressing curriculum objectives through direct ecological investigation"
-    - field: "inquiry_question"
-      type: "string"
-      description: "The driving question that emerges from the ecosystem and connects to the curriculum"
-    - field: "investigation_activities"
-      type: "array"
-      description: "What students do — direct observation, data collection, long-term monitoring, ecological interventions"
-    - field: "ecological_literacy_outcomes"
-      type: "object"
-      description: "What students understand about ecological systems — beyond curriculum objectives, the deeper ecological literacy"
-    - field: "stewardship_dimension"
-      type: "object"
-      description: "How the inquiry leads to caring for the ecosystem — knowledge creates responsibility"
-chains_well_with:
-  - "outdoor-learning-sequence-designer"
-  - "place-based-inquiry-anchor"
-  - "phenomenon-based-unit-anchor"
-  - "biophilic-learning-environment-designer"
-  - "critical-thinking-task-designer"
-teacher_time: "4 minutes"
-tags: ["ecological-literacy", "Sobel", "Orr", "place-based", "environmental-education", "inquiry", "stewardship"]
 ---
 
 # Ecological Inquiry Anchor Designer
@@ -286,3 +218,91 @@ Students design their intervention based on evidence:
 2. **The evidence base for ecological education is primarily qualitative.** Chawla (1998) and Sobel (1996, 2004) draw on qualitative research traditions — significant life experience narratives, case studies, and practitioner accounts. There are fewer RCTs or large-scale quantitative studies demonstrating academic attainment gains from ecological inquiry. The evidence for engagement, environmental awareness, and stewardship behaviours is stronger than the evidence for science test performance.
 
 3. **Long-term inquiry requires institutional support.** A term-long weekly investigation needs timetable protection, outdoor access in all weather, and support from school leadership. If the inquiry is cancelled every time it rains or the field is muddy, the sustained observation principle is undermined. Teachers need to advocate for the time and conditions that make ecological inquiry possible.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: environmental-experiential-learning/ecological-inquiry-anchor-designer
+skill_name: Ecological Inquiry Anchor Designer
+domain: environmental-experiential-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Sobel (1996) — Beyond Ecophobia: reclaiming the heart in nature education'
+- 'Sobel (2004) — Place-Based Education: connecting classrooms and communities'
+- 'Orr (1992) — Ecological Literacy: education and the transition to a postmodern
+  world'
+- 'Kimmerer (2013) — Braiding Sweetgrass: Indigenous wisdom, scientific knowledge,
+  and the teachings of plants'
+- 'Chawla (1998) — Significant life experiences revisited: a review of research on
+  sources of environmental sensitivity'
+input_schema:
+  required:
+  - field: local_ecosystem
+    type: string
+    description: The specific local ecosystem or living system that anchors the inquiry
+      — a garden, pond, hedgerow, tree, patch of waste ground, window box
+  - field: curriculum_objective
+    type: string
+    description: The science or geography curriculum content the inquiry must address
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: time_frame
+    type: string
+    description: How long the inquiry runs — single lesson, a week, a term, a year
+  - field: school_grounds
+    type: string
+    description: What outdoor or growing spaces the school has
+  - field: community_expertise
+    type: string
+    description: Local experts — gardeners, ecologists, farmers, park rangers
+  - field: student_prior_experience
+    type: string
+    description: Students' existing relationship with nature and outdoor environments
+output_schema:
+  type: object
+  fields:
+  - field: ecological_inquiry
+    type: object
+    description: The complete inquiry design — anchored in a specific local ecosystem,
+      addressing curriculum objectives through direct ecological investigation
+  - field: inquiry_question
+    type: string
+    description: The driving question that emerges from the ecosystem and connects
+      to the curriculum
+  - field: investigation_activities
+    type: array
+    description: What students do — direct observation, data collection, long-term
+      monitoring, ecological interventions
+  - field: ecological_literacy_outcomes
+    type: object
+    description: What students understand about ecological systems — beyond curriculum
+      objectives, the deeper ecological literacy
+  - field: stewardship_dimension
+    type: object
+    description: How the inquiry leads to caring for the ecosystem — knowledge creates
+      responsibility
+chains_well_with:
+- outdoor-learning-sequence-designer
+- place-based-inquiry-anchor
+- phenomenon-based-unit-anchor
+- biophilic-learning-environment-designer
+- critical-thinking-task-designer
+teacher_time: 4 minutes
+tags:
+- ecological-literacy
+- Sobel
+- Orr
+- place-based
+- environmental-education
+- inquiry
+- stewardship
+```

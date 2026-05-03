@@ -1,75 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: professional-development-session-designer
 description: "Design a professional development session using adult learning principles with active teacher engagement. Use when planning INSET days, CPD workshops, or staff training sessions."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/professional-development-session-designer"
-skill_name: "Professional Development Session Designer"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Timperley et al. (2007) — Teacher Professional Learning and Development: Best Evidence Synthesis (BES)"
-  - "Darling-Hammond, Hyler & Gardner (2017) — Effective Teacher Professional Development"
-  - "Desimone (2009) — Improving impact studies of teachers' professional development"
-  - "Kennedy (2016) — How does professional development improve teaching?"
-  - "Knowles (1984) — Andragogy: adult learning theory"
-input_schema:
-  required:
-    - field: "pd_topic"
-      type: "string"
-      description: "The teaching practice or knowledge the session aims to develop"
-    - field: "audience"
-      type: "string"
-      description: "Who will attend — number of teachers, experience range, subjects, roles"
-    - field: "session_duration"
-      type: "string"
-      description: "How long the session lasts — 1 hour, 2 hours, half day, full day"
-  optional:
-    - field: "session_purpose"
-      type: "string"
-      description: "Why this session is happening — new initiative, improvement priority, teacher request"
-    - field: "current_practice"
-      type: "string"
-      description: "What teachers currently do in this area — the starting point"
-    - field: "school_context"
-      type: "string"
-      description: "Relevant school features — improvement priorities, Ofsted, staff morale"
-    - field: "follow_up_plan"
-      type: "string"
-      description: "What happens after the session — coaching, peer observation, further sessions"
-    - field: "facilitator_expertise"
-      type: "string"
-      description: "Who is leading the session and their level of expertise in the topic"
-output_schema:
-  type: "object"
-  fields:
-    - field: "session_plan"
-      type: "object"
-      description: "A time-structured session plan using adult learning principles"
-    - field: "active_learning_tasks"
-      type: "array"
-      description: "Hands-on tasks that require teachers to DO, not just listen"
-    - field: "practice_application"
-      type: "object"
-      description: "How teachers will apply the learning in their own classroom — specific commitments"
-    - field: "follow_through"
-      type: "object"
-      description: "What happens after the session to sustain the learning — accountability, support, review"
-chains_well_with:
-  - "instructional-coaching-conversation-guide"
-  - "lesson-study-cycle-designer"
-  - "teacher-inquiry-cycle-designer"
-  - "reflective-practice-prompt-generator"
-  - "pedagogical-content-knowledge-developer"
-  - "technological-pedagogical-content-knowledge-developer"
-teacher_time: "4 minutes"
-tags: ["CPD", "professional-development", "Timperley", "adult-learning", "INSET", "staff-training"]
 ---
 
 # Professional Development Session Designer
@@ -261,3 +192,89 @@ Every teacher leaves with:
 2. **The session assumes basic facilitator competence.** The plan provides structure, but the facilitation — managing group dynamics, handling resistance, calibrating pace, responding to questions — requires skill. A facilitator who reads the plan like a script will not produce the same outcomes as one who understands the principles and can adapt in the moment.
 
 3. **School culture affects PD effectiveness.** In schools with low trust, high accountability pressure, or a history of initiative fatigue, even well-designed PD faces resistance. The session design addresses this (starting from experience, offering choice, respecting time), but it cannot fully compensate for a toxic professional culture. Leadership must create the conditions for professional learning to thrive.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/professional-development-session-designer
+skill_name: Professional Development Session Designer
+domain: professional-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Timperley et al. (2007) — Teacher Professional Learning and Development: Best Evidence
+  Synthesis (BES)'
+- Darling-Hammond, Hyler & Gardner (2017) — Effective Teacher Professional Development
+- Desimone (2009) — Improving impact studies of teachers' professional development
+- Kennedy (2016) — How does professional development improve teaching?
+- 'Knowles (1984) — Andragogy: adult learning theory'
+input_schema:
+  required:
+  - field: pd_topic
+    type: string
+    description: The teaching practice or knowledge the session aims to develop
+  - field: audience
+    type: string
+    description: Who will attend — number of teachers, experience range, subjects,
+      roles
+  - field: session_duration
+    type: string
+    description: How long the session lasts — 1 hour, 2 hours, half day, full day
+  optional:
+  - field: session_purpose
+    type: string
+    description: Why this session is happening — new initiative, improvement priority,
+      teacher request
+  - field: current_practice
+    type: string
+    description: What teachers currently do in this area — the starting point
+  - field: school_context
+    type: string
+    description: Relevant school features — improvement priorities, Ofsted, staff
+      morale
+  - field: follow_up_plan
+    type: string
+    description: What happens after the session — coaching, peer observation, further
+      sessions
+  - field: facilitator_expertise
+    type: string
+    description: Who is leading the session and their level of expertise in the topic
+output_schema:
+  type: object
+  fields:
+  - field: session_plan
+    type: object
+    description: A time-structured session plan using adult learning principles
+  - field: active_learning_tasks
+    type: array
+    description: Hands-on tasks that require teachers to DO, not just listen
+  - field: practice_application
+    type: object
+    description: How teachers will apply the learning in their own classroom — specific
+      commitments
+  - field: follow_through
+    type: object
+    description: What happens after the session to sustain the learning — accountability,
+      support, review
+chains_well_with:
+- instructional-coaching-conversation-guide
+- lesson-study-cycle-designer
+- teacher-inquiry-cycle-designer
+- reflective-practice-prompt-generator
+- pedagogical-content-knowledge-developer
+- technological-pedagogical-content-knowledge-developer
+teacher_time: 4 minutes
+tags:
+- CPD
+- professional-development
+- Timperley
+- adult-learning
+- INSET
+- staff-training
+```

@@ -1,69 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: individual-spacing-algorithm-explainer
 description: "Explain and configure individual spacing algorithms using student performance data and forgetting curves. Use when personalising retention schedules in adaptive learning platforms."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/individual-spacing-algorithm-explainer"
-skill_name: "Individual Spacing Algorithm Explainer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Ebbinghaus (1885/1913) — Memory: A contribution to experimental psychology (forgetting curve)"
-  - "Cepeda et al. (2006) — Distributed practice in verbal recall tasks: A review and quantitative synthesis (meta-analysis)"
-  - "Lindsey et al. (2014) — Improving students' long-term knowledge retention through personalized review"
-  - "Settles & Meeder (2016) — A trainable spaced repetition model for language learning (Duolingo half-life regression)"
-  - "Pashler et al. (2007) — Organizing instruction and study to improve student learning (IES practice guide)"
-input_schema:
-  required:
-    - field: "content_to_space"
-      type: "string"
-      description: "The specific knowledge or skills that need to be retained over time — what students need to remember"
-    - field: "performance_data"
-      type: "string"
-      description: "What is known about the students' current retention — test scores, quiz results, recall accuracy, or informal observations of what they remember and forget"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "time_horizon"
-      type: "string"
-      description: "How long the knowledge needs to be retained — until an exam, end of year, or permanently"
-    - field: "available_review_slots"
-      type: "string"
-      description: "How many review sessions per week are realistically available"
-    - field: "system_context"
-      type: "string"
-      description: "Whether the spacing will be implemented by a teacher manually, embedded in an AI system, or managed through a tool like Anki or Quizlet"
-output_schema:
-  type: "object"
-  fields:
-    - field: "spacing_schedule"
-      type: "object"
-      description: "The personalised review schedule — when each item should be reviewed and why"
-    - field: "algorithm_explanation"
-      type: "object"
-      description: "A teacher-friendly explanation of how the spacing algorithm works and why these intervals were chosen"
-    - field: "priority_ranking"
-      type: "array"
-      description: "Items ranked by forgetting risk — which items need review most urgently"
-    - field: "implementation_guidance"
-      type: "object"
-      description: "Practical advice for implementing the schedule in a real classroom or system"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "formative-assessment-loop-designer"
-  - "retrieval-practice-designer"
-teacher_time: "5 minutes"
-tags: ["spacing", "spaced-repetition", "forgetting-curve", "Ebbinghaus", "Lindsey", "Duolingo", "retention", "memory", "algorithm"]
 ---
 
 # Individual Spacing Algorithm Explainer
@@ -255,3 +192,92 @@ Here's the logic behind this schedule, in plain terms:
 3. **Spacing works for factual and conceptual knowledge but is less studied for procedural skills.** The evidence base is strongest for vocabulary, factual recall, and conceptual understanding. For complex procedural skills (essay writing, mathematical problem-solving), the spacing effect still applies to the component knowledge, but the skill as a whole may need different practice structures.
 
 4. **Student compliance is the binding constraint.** The best spacing algorithm in the world fails if students don't actually do the review. In a classroom, the teacher controls the review schedule. In homework or self-study contexts, many students will mass their practice (cramming) because it FEELS more effective, even though it isn't (Pashler et al., 2007). The schedule must be implemented, not just designed.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/individual-spacing-algorithm-explainer
+skill_name: Individual Spacing Algorithm Explainer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Ebbinghaus (1885/1913) — Memory: A contribution to experimental psychology (forgetting
+  curve)'
+- 'Cepeda et al. (2006) — Distributed practice in verbal recall tasks: A review and
+  quantitative synthesis (meta-analysis)'
+- Lindsey et al. (2014) — Improving students' long-term knowledge retention through
+  personalized review
+- Settles & Meeder (2016) — A trainable spaced repetition model for language learning
+  (Duolingo half-life regression)
+- Pashler et al. (2007) — Organizing instruction and study to improve student learning
+  (IES practice guide)
+input_schema:
+  required:
+  - field: content_to_space
+    type: string
+    description: The specific knowledge or skills that need to be retained over time
+      — what students need to remember
+  - field: performance_data
+    type: string
+    description: What is known about the students' current retention — test scores,
+      quiz results, recall accuracy, or informal observations of what they remember
+      and forget
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: time_horizon
+    type: string
+    description: How long the knowledge needs to be retained — until an exam, end
+      of year, or permanently
+  - field: available_review_slots
+    type: string
+    description: How many review sessions per week are realistically available
+  - field: system_context
+    type: string
+    description: Whether the spacing will be implemented by a teacher manually, embedded
+      in an AI system, or managed through a tool like Anki or Quizlet
+output_schema:
+  type: object
+  fields:
+  - field: spacing_schedule
+    type: object
+    description: The personalised review schedule — when each item should be reviewed
+      and why
+  - field: algorithm_explanation
+    type: object
+    description: A teacher-friendly explanation of how the spacing algorithm works
+      and why these intervals were chosen
+  - field: priority_ranking
+    type: array
+    description: Items ranked by forgetting risk — which items need review most urgently
+  - field: implementation_guidance
+    type: object
+    description: Practical advice for implementing the schedule in a real classroom
+      or system
+chains_well_with:
+- adaptive-hint-sequence-designer
+- formative-assessment-loop-designer
+- retrieval-practice-designer
+teacher_time: 5 minutes
+tags:
+- spacing
+- spaced-repetition
+- forgetting-curve
+- Ebbinghaus
+- Lindsey
+- Duolingo
+- retention
+- memory
+- algorithm
+```

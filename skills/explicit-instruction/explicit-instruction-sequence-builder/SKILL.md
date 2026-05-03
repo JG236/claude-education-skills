@@ -1,74 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: explicit-instruction-sequence-builder
 description: "Build a complete explicit instruction sequence from teacher modelling through guided practice to independent work. Use when teaching new skills, procedures, or concepts through direct instruction."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "explicit-instruction/explicit-instruction-sequence-builder"
-skill_name: "Explicit Instruction Sequence Builder (I Do / We Do / You Do)"
-domain: "explicit-instruction"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Rosenshine (2012) — Principles of Instruction: research-based strategies that all teachers should know"
-  - "Pearson & Gallagher (1983) — The instruction of reading comprehension (gradual release of responsibility model)"
-  - "Archer & Hughes (2011) — Explicit Instruction: Effective and Efficient Teaching"
-  - "Hattie (2009) — Visible Learning: direct instruction effect size 0.59"
-  - "Engelmann & Carnine (1982) — Theory of Instruction: principles and applications"
-input_schema:
-  required:
-    - field: "skill_to_teach"
-      type: "string"
-      description: "The specific skill or concept to be taught through explicit instruction"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and prior knowledge level"
-    - field: "lesson_time"
-      type: "string"
-      description: "Available lesson time in minutes"
-  optional:
-    - field: "common_misconceptions"
-      type: "array"
-      description: "Known misconceptions or errors students make with this skill"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: ability range, EAL needs, SEND profiles"
-    - field: "prior_knowledge"
-      type: "string"
-      description: "What students already know that this builds on"
-    - field: "success_criteria"
-      type: "string"
-      description: "From context engine: how success will be measured"
-output_schema:
-  type: "object"
-  fields:
-    - field: "i_do"
-      type: "object"
-      description: "Teacher modelling phase with scripted explanation and think-aloud"
-    - field: "we_do"
-      type: "object"
-      description: "Guided practice phase with structured teacher-student interaction"
-    - field: "you_do"
-      type: "object"
-      description: "Independent practice phase with monitoring checkpoints"
-    - field: "cfu_points"
-      type: "array"
-      description: "Checking for understanding moments embedded throughout"
-    - field: "timing_guide"
-      type: "string"
-      description: "Suggested time allocation across the three phases"
-chains_well_with:
-  - "checking-for-understanding-protocol-designer"
-  - "worked-example-fading-designer"
-  - "think-aloud-script-generator"
-  - "practice-problem-sequence-designer"
-  - "pedagogical-content-knowledge-developer"
-teacher_time: "5 minutes"
-tags: ["explicit-instruction", "gradual-release", "modelling", "direct-instruction", "scaffolding"]
 ---
 
 # Explicit Instruction Sequence Builder (I Do / We Do / You Do)
@@ -284,3 +216,82 @@ Write a topic sentence for a subject of your choice (History, Science, Geography
 2. **The quality of the I Do phase depends entirely on the teacher's ability to articulate their thinking.** The script provides a model, but the teacher must deliver it in their own voice and adapt to their students' responses. A robotically read script is worse than a slightly less polished but authentic think-aloud. Teachers should rehearse the think-aloud, not read it.
 
 3. **There is a risk of over-scaffolding in the We Do phase.** If the teacher does too much and students contribute too little, the "guided practice" becomes a second demonstration. The interaction plan specifies where students take over, but teachers must resist the urge to jump in when students hesitate — productive struggle during We Do is appropriate as long as the success rate stays above 80%.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: explicit-instruction/explicit-instruction-sequence-builder
+skill_name: Explicit Instruction Sequence Builder (I Do / We Do / You Do)
+domain: explicit-instruction
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Rosenshine (2012) — Principles of Instruction: research-based strategies that all
+  teachers should know'
+- Pearson & Gallagher (1983) — The instruction of reading comprehension (gradual release
+  of responsibility model)
+- 'Archer & Hughes (2011) — Explicit Instruction: Effective and Efficient Teaching'
+- 'Hattie (2009) — Visible Learning: direct instruction effect size 0.59'
+- 'Engelmann & Carnine (1982) — Theory of Instruction: principles and applications'
+input_schema:
+  required:
+  - field: skill_to_teach
+    type: string
+    description: The specific skill or concept to be taught through explicit instruction
+  - field: student_level
+    type: string
+    description: Age/year group and prior knowledge level
+  - field: lesson_time
+    type: string
+    description: Available lesson time in minutes
+  optional:
+  - field: common_misconceptions
+    type: array
+    description: Known misconceptions or errors students make with this skill
+  - field: student_profiles
+    type: array
+    description: 'From context engine: ability range, EAL needs, SEND profiles'
+  - field: prior_knowledge
+    type: string
+    description: What students already know that this builds on
+  - field: success_criteria
+    type: string
+    description: 'From context engine: how success will be measured'
+output_schema:
+  type: object
+  fields:
+  - field: i_do
+    type: object
+    description: Teacher modelling phase with scripted explanation and think-aloud
+  - field: we_do
+    type: object
+    description: Guided practice phase with structured teacher-student interaction
+  - field: you_do
+    type: object
+    description: Independent practice phase with monitoring checkpoints
+  - field: cfu_points
+    type: array
+    description: Checking for understanding moments embedded throughout
+  - field: timing_guide
+    type: string
+    description: Suggested time allocation across the three phases
+chains_well_with:
+- checking-for-understanding-protocol-designer
+- worked-example-fading-designer
+- think-aloud-script-generator
+- practice-problem-sequence-designer
+- pedagogical-content-knowledge-developer
+teacher_time: 5 minutes
+tags:
+- explicit-instruction
+- gradual-release
+- modelling
+- direct-instruction
+- scaffolding
+```

@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: outdoor-learning-sequence-designer
 description: "Design a structured outdoor learning sequence embedding curriculum objectives in an available outdoor space. Use when planning lessons in school grounds, parks, or local natural environments."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "environmental-experiential-learning/outdoor-learning-sequence-designer"
-skill_name: "Outdoor Learning Sequence Designer"
-domain: "environmental-experiential-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Education Endowment Foundation (2019) — Outdoor Adventure Learning systematic review"
-  - "Rickinson, Dillon, Teamey, Morris, Choi, Sanders & Benefield (2004) — A Review of Research on Outdoor Learning"
-  - "Waite (2011) — Children learning outside the classroom: from birth to eleven"
-  - "Beames, Higgins & Nicol (2012) — Learning Outside the Classroom: theory and guidelines for practice"
-  - "Mannion, Mattu & Wilson (2015) — Teaching, learning and play in the outdoors"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The specific curriculum content or skill students will learn — what the outdoor activity is FOR, educationally"
-    - field: "outdoor_space"
-      type: "string"
-      description: "The available outdoor space — school grounds, local park, woodland, field, playground, garden"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "class_size"
-      type: "string"
-      description: "Number of students and available adult support"
-    - field: "time_available"
-      type: "string"
-      description: "How long the outdoor session lasts"
-    - field: "weather_constraints"
-      type: "string"
-      description: "Season, typical weather, any constraints"
-    - field: "risk_factors"
-      type: "string"
-      description: "Known risks — traffic, water, terrain, student needs"
-output_schema:
-  type: "object"
-  fields:
-    - field: "outdoor_sequence"
-      type: "object"
-      description: "The complete outdoor learning sequence — indoor preparation, outdoor activity, indoor follow-up"
-    - field: "learning_design"
-      type: "object"
-      description: "How the outdoor element serves the learning objective — what can be learned outside that cannot be learned inside"
-    - field: "safety_framework"
-      type: "object"
-      description: "Risk-benefit assessment, safety procedures, adult roles"
-    - field: "indoor_outdoor_continuity"
-      type: "object"
-      description: "How the indoor and outdoor elements connect — the outdoor learning is not a separate activity but part of a coherent sequence"
-chains_well_with:
-  - "ecological-inquiry-anchor-designer"
-  - "place-based-inquiry-anchor"
-  - "biophilic-learning-environment-designer"
-  - "awe-wonder-experience-designer"
-teacher_time: "4 minutes"
-tags: ["outdoor-learning", "EEF", "Rickinson", "outside-classroom", "fieldwork", "nature", "experiential"]
 ---
 
 # Outdoor Learning Sequence Designer
@@ -264,3 +197,88 @@ The outdoor session is not "a fun trip" with writing attached. The writing depen
 2. **Weather genuinely limits some activities.** While the skill argues that rain is a feature, not a bug (and for descriptive writing, this is true), some outdoor learning objectives are weather-dependent. Science fieldwork requiring dry conditions, art requiring steady hands, or PE activities on waterlogged grass all face genuine weather constraints. The skill's rain-positive framing applies to THIS example — not universally.
 
 3. **The EEF review found moderate, not large, effects on academic outcomes.** Outdoor learning consistently improves engagement, motivation, and wellbeing — but the evidence for direct academic attainment gains is moderate. The strongest case for outdoor learning is that it provides learning experiences that cannot be replicated indoors (authentic sensory input, real specimens, spatial scale), not that it universally produces higher test scores. Teachers should use outdoor learning when the outdoor environment adds something the classroom cannot, not as a general strategy for raising attainment.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: environmental-experiential-learning/outdoor-learning-sequence-designer
+skill_name: Outdoor Learning Sequence Designer
+domain: environmental-experiential-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Education Endowment Foundation (2019) — Outdoor Adventure Learning systematic review
+- Rickinson, Dillon, Teamey, Morris, Choi, Sanders & Benefield (2004) — A Review of
+  Research on Outdoor Learning
+- 'Waite (2011) — Children learning outside the classroom: from birth to eleven'
+- 'Beames, Higgins & Nicol (2012) — Learning Outside the Classroom: theory and guidelines
+  for practice'
+- Mannion, Mattu & Wilson (2015) — Teaching, learning and play in the outdoors
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The specific curriculum content or skill students will learn — what
+      the outdoor activity is FOR, educationally
+  - field: outdoor_space
+    type: string
+    description: The available outdoor space — school grounds, local park, woodland,
+      field, playground, garden
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: class_size
+    type: string
+    description: Number of students and available adult support
+  - field: time_available
+    type: string
+    description: How long the outdoor session lasts
+  - field: weather_constraints
+    type: string
+    description: Season, typical weather, any constraints
+  - field: risk_factors
+    type: string
+    description: Known risks — traffic, water, terrain, student needs
+output_schema:
+  type: object
+  fields:
+  - field: outdoor_sequence
+    type: object
+    description: The complete outdoor learning sequence — indoor preparation, outdoor
+      activity, indoor follow-up
+  - field: learning_design
+    type: object
+    description: How the outdoor element serves the learning objective — what can
+      be learned outside that cannot be learned inside
+  - field: safety_framework
+    type: object
+    description: Risk-benefit assessment, safety procedures, adult roles
+  - field: indoor_outdoor_continuity
+    type: object
+    description: How the indoor and outdoor elements connect — the outdoor learning
+      is not a separate activity but part of a coherent sequence
+chains_well_with:
+- ecological-inquiry-anchor-designer
+- place-based-inquiry-anchor
+- biophilic-learning-environment-designer
+- awe-wonder-experience-designer
+teacher_time: 4 minutes
+tags:
+- outdoor-learning
+- EEF
+- Rickinson
+- outside-classroom
+- fieldwork
+- nature
+- experiential
+```

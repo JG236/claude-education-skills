@@ -1,68 +1,6 @@
 ---
 name: panel-review
-description: Seven-role depersonalised panel review of framework artefacts (KUD, criterion bank, LT definition, crosswalk, scope-and-sequence) in sequential-isolation mode. Gate rule mean>=88 AND no role<70.
-disable-model-invocation: true
-user-invocable: true
-effort: high
-skill_id: professional-learning/panel-review
-skill_name: Panel review — seven-role independent-mode review of framework artefacts
-domain: professional-learning
-version: "1.0.0"
-evidence_strength: medium
-evidence_sources:
-  - "Wiliam, D. (2011) — Embedded Formative Assessment, Solution Tree: formative feedback architecture, inter-rater reliability, scoreability as the test of a criterion."
-  - "Claxton, G. (2002) — Building Learning Power, TLO: dispositions as ongoing stance rather than episodic performance; cultivation over training."
-  - "Roffey, S. (2014) — Circle Solutions for Student Wellbeing (2nd ed.), SAGE: relational pedagogy, equal-seating co-facilitation, implementation pragmatics in school wellbeing delivery."
-  - "Christodoulou, D. (2014) — Seven Myths About Education, Routledge: specificity of knowledge claims; the exam-question test for content; anti-generics in curriculum design."
-  - "Perry, B. D. & Szalavitz, M. (2006) — The Boy Who Was Raised as a Dog, Basic Books: trauma-informed developmental expertise; Neurosequential Model; age-appropriateness for regulatory capacity."
-  - "Furedi, F. (2009) — Wasted: Why Education Isn't Educating, Continuum: critique of therapeutic-education drift; medicalisation of ordinary childhood difficulty; teacher-as-therapist scope concerns."
-  - "Sweller, J. (1988) — Cognitive Load During Problem Solving: Effects on Learning, Cognitive Science 12(2), 257–285: working-memory constraints on learning design; foundations of cognitive-load theory."
-input_schema:
-  required:
-    - field: artefact
-      type: string
-      description: The framework artefact to be reviewed. Plain text or JSON. Paste the full artefact.
-    - field: artefact_type
-      type: string
-      description: "One of: kud, criterion_bank, lt_definition, crosswalk, scope_and_sequence. Determines which dimension set the panel scores on."
-  optional:
-    - field: artefact_context
-      type: string
-      description: Surrounding framework context — parent competency, related LTs, band range, prerequisite LTs. Improves reviewer calibration. Omit if artefact is self-contained.
-output_schema:
-  type: object
-  fields:
-    - field: artefact_type
-      type: string
-      description: Echoed from input.
-    - field: timestamp
-      type: string
-      description: ISO-8601 timestamp of the review.
-    - field: per_role
-      type: array
-      description: Array of seven role objects — one per reviewer. Each contains role name, model used, per-dimension scores, mean_role, prose critique, and flags.
-    - field: aggregate
-      type: object
-      description: Computed aggregation — mean_overall, mean_per_dimension, below_floor_roles, unanimous_flags, gate_verdict, gate_reasoning.
-    - field: caveats
-      type: array
-      description: Artefact-type-specific caveats surfaced during review (e.g. scope-and-sequence panel-weakness note).
-chains_well_with:
-  - kud-chart-author
-  - learning-target-authoring-guide
-  - curriculum-crosswalk
-  - coverage-audit
-  - coherent-rubric-logic-builder
-  - criterion-referenced-rubric-generator
-  - scope-and-sequence-designer
-  - developmental-progression-synthesis
-teacher_time: 30 minutes
-tags:
-  - panel-review
-  - quality-assurance
-  - framework-validation
-  - professional-learning
-  - curriculum-review
+description: "Seven-role depersonalised panel review of framework artefacts (KUD, criterion bank, LT definition, crosswalk, scope-and-sequence) in sequential-isolation mode. Gate rule mean>=88 AND no role<70."
 ---
 
 # What This Skill Does
@@ -622,3 +560,92 @@ The example below reviews **LT 4.5 KUD v2** from the curriculum-harness reposito
 5. **The skill has not been empirically validated against known-high-quality and known-flawed artefacts.** Phase 0.5 of the curriculum-harness project is the validation step: run the skill on LT 4.5 KUD v2 (commit ab4705c, known high-quality) and on LT 4.4 KUD v1 (known to have specificity and observability weaknesses) and check whether the gate verdict distinguishes them correctly. Until Phase 0.5 completes, the skill's discriminative validity is asserted, not demonstrated.
 
 6. **The 88 threshold is convention pending Phase 0.5 validation.** The mean_overall >= 88 threshold and the mean_role >= 70 floor are convention at v1.0.0. Phase 0.5 will check whether these thresholds produce the correct PASS/FAIL split on the known-quality corpus; if not, the thresholds may be tuned and this skill version-bumped accordingly.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: high
+skill_id: professional-learning/panel-review
+skill_name: Panel review — seven-role independent-mode review of framework artefacts
+domain: professional-learning
+version: 1.0.0
+evidence_strength: medium
+evidence_sources:
+- 'Wiliam, D. (2011) — Embedded Formative Assessment, Solution Tree: formative feedback
+  architecture, inter-rater reliability, scoreability as the test of a criterion.'
+- 'Claxton, G. (2002) — Building Learning Power, TLO: dispositions as ongoing stance
+  rather than episodic performance; cultivation over training.'
+- 'Roffey, S. (2014) — Circle Solutions for Student Wellbeing (2nd ed.), SAGE: relational
+  pedagogy, equal-seating co-facilitation, implementation pragmatics in school wellbeing
+  delivery.'
+- 'Christodoulou, D. (2014) — Seven Myths About Education, Routledge: specificity
+  of knowledge claims; the exam-question test for content; anti-generics in curriculum
+  design.'
+- 'Perry, B. D. & Szalavitz, M. (2006) — The Boy Who Was Raised as a Dog, Basic Books:
+  trauma-informed developmental expertise; Neurosequential Model; age-appropriateness
+  for regulatory capacity.'
+- 'Furedi, F. (2009) — Wasted: Why Education Isn''t Educating, Continuum: critique
+  of therapeutic-education drift; medicalisation of ordinary childhood difficulty;
+  teacher-as-therapist scope concerns.'
+- 'Sweller, J. (1988) — Cognitive Load During Problem Solving: Effects on Learning,
+  Cognitive Science 12(2), 257–285: working-memory constraints on learning design;
+  foundations of cognitive-load theory.'
+input_schema:
+  required:
+  - field: artefact
+    type: string
+    description: The framework artefact to be reviewed. Plain text or JSON. Paste
+      the full artefact.
+  - field: artefact_type
+    type: string
+    description: 'One of: kud, criterion_bank, lt_definition, crosswalk, scope_and_sequence.
+      Determines which dimension set the panel scores on.'
+  optional:
+  - field: artefact_context
+    type: string
+    description: Surrounding framework context — parent competency, related LTs, band
+      range, prerequisite LTs. Improves reviewer calibration. Omit if artefact is
+      self-contained.
+output_schema:
+  type: object
+  fields:
+  - field: artefact_type
+    type: string
+    description: Echoed from input.
+  - field: timestamp
+    type: string
+    description: ISO-8601 timestamp of the review.
+  - field: per_role
+    type: array
+    description: Array of seven role objects — one per reviewer. Each contains role
+      name, model used, per-dimension scores, mean_role, prose critique, and flags.
+  - field: aggregate
+    type: object
+    description: Computed aggregation — mean_overall, mean_per_dimension, below_floor_roles,
+      unanimous_flags, gate_verdict, gate_reasoning.
+  - field: caveats
+    type: array
+    description: Artefact-type-specific caveats surfaced during review (e.g. scope-and-sequence
+      panel-weakness note).
+chains_well_with:
+- kud-chart-author
+- learning-target-authoring-guide
+- curriculum-crosswalk
+- coverage-audit
+- coherent-rubric-logic-builder
+- criterion-referenced-rubric-generator
+- scope-and-sequence-designer
+- developmental-progression-synthesis
+teacher_time: 30 minutes
+tags:
+- panel-review
+- quality-assurance
+- framework-validation
+- professional-learning
+- curriculum-review
+```

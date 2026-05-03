@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: competency-unpacker
 description: "Unpack a broad standard or competency descriptor into specific, assessable success criteria and sub-skills. Use when interpreting curriculum standards or writing learning objectives."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/competency-unpacker"
-skill_name: "Competency Unpacker"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Wiggins & McTighe (1998, 2005) — Understanding by Design: backward design from desired results"
-  - "Marzano & Kendall (2007) — The New Taxonomy of Educational Objectives"
-  - "Heritage (2008) — Learning progressions: supporting instruction and formative assessment"
-  - "Popham (2007) — The lowdown on learning progressions"
-  - "Hattie (2009) — Visible Learning: success criteria and learning intentions"
-input_schema:
-  required:
-    - field: "competency_descriptor"
-      type: "string"
-      description: "The standard, learning objective, or competency descriptor to unpack"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "curriculum_framework"
-      type: "string"
-      description: "From context engine: the specific curriculum or standards framework"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: prior attainment data, common gaps"
-    - field: "assessment_purpose"
-      type: "string"
-      description: "Why the competency is being unpacked — for planning, for assessment design, for reporting"
-output_schema:
-  type: "object"
-  fields:
-    - field: "observable_indicators"
-      type: "array"
-      description: "Specific, observable behaviours that demonstrate the competency"
-    - field: "prerequisite_knowledge"
-      type: "array"
-      description: "What students must already know or be able to do before attempting this"
-    - field: "common_misconceptions"
-      type: "array"
-      description: "Typical misunderstandings that interfere with demonstrating this competency"
-    - field: "success_criteria"
-      type: "object"
-      description: "Success criteria at multiple levels — beginning, developing, secure, extending"
-chains_well_with:
-  - "backwards-design-unit-planner"
-  - "criterion-referenced-rubric-generator"
-  - "learning-progression-builder"
-  - "formative-assessment-technique-selector"
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-  - "scope-and-sequence-designer"
-teacher_time: "3 minutes"
-tags: ["competency", "standards", "success-criteria", "unpacking", "curriculum"]
 ---
 
 # Competency Unpacker
@@ -241,3 +177,81 @@ A student who has achieved this competency:
 2. **Success criteria at four levels necessarily simplify a continuum.** Student work exists on a spectrum, not in neat categories. Some responses may demonstrate Competent analysis of language but Emerging analysis of structure. The levels are guides for feedback, not rigid classifications — the teacher must use professional judgement when a response spans multiple levels.
 
 3. **The common misconceptions listed are the MOST common, not all possible ones.** Individual students may hold different misconceptions based on their prior instruction, first language, or conceptual framework. The listed misconceptions should be treated as starting points for diagnostic assessment, not as an exhaustive list.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/competency-unpacker
+skill_name: Competency Unpacker
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Wiggins & McTighe (1998, 2005) — Understanding by Design: backward design from
+  desired results'
+- Marzano & Kendall (2007) — The New Taxonomy of Educational Objectives
+- 'Heritage (2008) — Learning progressions: supporting instruction and formative assessment'
+- Popham (2007) — The lowdown on learning progressions
+- 'Hattie (2009) — Visible Learning: success criteria and learning intentions'
+input_schema:
+  required:
+  - field: competency_descriptor
+    type: string
+    description: The standard, learning objective, or competency descriptor to unpack
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: curriculum_framework
+    type: string
+    description: 'From context engine: the specific curriculum or standards framework'
+  - field: student_profiles
+    type: array
+    description: 'From context engine: prior attainment data, common gaps'
+  - field: assessment_purpose
+    type: string
+    description: Why the competency is being unpacked — for planning, for assessment
+      design, for reporting
+output_schema:
+  type: object
+  fields:
+  - field: observable_indicators
+    type: array
+    description: Specific, observable behaviours that demonstrate the competency
+  - field: prerequisite_knowledge
+    type: array
+    description: What students must already know or be able to do before attempting
+      this
+  - field: common_misconceptions
+    type: array
+    description: Typical misunderstandings that interfere with demonstrating this
+      competency
+  - field: success_criteria
+    type: object
+    description: Success criteria at multiple levels — beginning, developing, secure,
+      extending
+chains_well_with:
+- backwards-design-unit-planner
+- criterion-referenced-rubric-generator
+- learning-progression-builder
+- formative-assessment-technique-selector
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+- scope-and-sequence-designer
+teacher_time: 3 minutes
+tags:
+- competency
+- standards
+- success-criteria
+- unpacking
+- curriculum
+```

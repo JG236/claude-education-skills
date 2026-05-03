@@ -1,68 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: ai-feedback-design-principles
 description: "Audit and redesign AI-generated feedback for pedagogical quality, timing, and learning impact. Use when building or reviewing automated feedback in digital learning tools."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/ai-feedback-design-principles"
-skill_name: "AI Feedback Design Principles"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Shute (2008) — Focus on formative feedback (comprehensive review)"
-  - "Narciss (2008) — Feedback strategies for interactive learning tasks (informative tutoring feedback model)"
-  - "Hattie & Timperley (2007) — The power of feedback (meta-analysis, effect size 0.73)"
-  - "Dai et al. (2023) — Can large language models provide useful feedback on research papers? A large-scale empirical analysis"
-  - "Kluger & DeNisi (1996) — The effects of feedback interventions on performance: A historical review and a meta-analysis"
-input_schema:
-  required:
-    - field: "feedback_scenario"
-      type: "string"
-      description: "The specific context in which AI will deliver feedback — what the student has done and what kind of feedback is needed"
-    - field: "current_feedback_design"
-      type: "string"
-      description: "The current or proposed AI feedback approach — what the system currently says or plans to say in response to student work"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "feedback_goals"
-      type: "string"
-      description: "What the feedback should achieve — error correction, motivation, deeper thinking, self-regulation, or something else"
-    - field: "system_constraints"
-      type: "string"
-      description: "Technical or practical constraints on the feedback — character limits, timing requirements, or format restrictions"
-output_schema:
-  type: "object"
-  fields:
-    - field: "feedback_evaluation"
-      type: "object"
-      description: "Analysis of the current feedback design against research criteria — what works and what doesn't"
-    - field: "improved_feedback"
-      type: "object"
-      description: "A redesigned version of the feedback that addresses identified weaknesses"
-    - field: "feedback_type_analysis"
-      type: "object"
-      description: "Classification of the feedback by type (verification, elaboration, strategic) with recommendations for the optimal mix"
-    - field: "implementation_guidance"
-      type: "object"
-      description: "Practical advice for deploying the improved feedback in the target system"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "formative-assessment-loop-designer"
-  - "intelligent-tutoring-dialogue-designer"
-  - "self-explanation-prompt-designer"
-  - "technological-pedagogical-content-knowledge-developer"
-teacher_time: "4 minutes"
-tags: ["feedback", "AI-feedback", "formative", "Shute", "Narciss", "Hattie", "LLM", "automated-feedback"]
 ---
 
 # AI Feedback Design Principles
@@ -229,3 +167,87 @@ The redesigned feedback makes five key changes:
 3. **Cultural context affects feedback norms.** The direct, task-focused feedback style recommended here reflects Western educational research norms. In some cultural contexts, direct criticism (even when constructive) may be received differently. Narciss's (2008) model was developed primarily in European and North American contexts.
 
 4. **Feedback interacts with student self-efficacy in complex ways.** Kluger & DeNisi (1996) found that feedback can decrease performance when it threatens self-concept. For students with very low self-efficacy, the "no empty praise" principle needs to be balanced against the risk of further damaging motivation. This skill does not model the individual student's motivational state.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/ai-feedback-design-principles
+skill_name: AI Feedback Design Principles
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Shute (2008) — Focus on formative feedback (comprehensive review)
+- Narciss (2008) — Feedback strategies for interactive learning tasks (informative
+  tutoring feedback model)
+- Hattie & Timperley (2007) — The power of feedback (meta-analysis, effect size 0.73)
+- Dai et al. (2023) — Can large language models provide useful feedback on research
+  papers? A large-scale empirical analysis
+- 'Kluger & DeNisi (1996) — The effects of feedback interventions on performance:
+  A historical review and a meta-analysis'
+input_schema:
+  required:
+  - field: feedback_scenario
+    type: string
+    description: The specific context in which AI will deliver feedback — what the
+      student has done and what kind of feedback is needed
+  - field: current_feedback_design
+    type: string
+    description: The current or proposed AI feedback approach — what the system currently
+      says or plans to say in response to student work
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: feedback_goals
+    type: string
+    description: What the feedback should achieve — error correction, motivation,
+      deeper thinking, self-regulation, or something else
+  - field: system_constraints
+    type: string
+    description: Technical or practical constraints on the feedback — character limits,
+      timing requirements, or format restrictions
+output_schema:
+  type: object
+  fields:
+  - field: feedback_evaluation
+    type: object
+    description: Analysis of the current feedback design against research criteria
+      — what works and what doesn't
+  - field: improved_feedback
+    type: object
+    description: A redesigned version of the feedback that addresses identified weaknesses
+  - field: feedback_type_analysis
+    type: object
+    description: Classification of the feedback by type (verification, elaboration,
+      strategic) with recommendations for the optimal mix
+  - field: implementation_guidance
+    type: object
+    description: Practical advice for deploying the improved feedback in the target
+      system
+chains_well_with:
+- adaptive-hint-sequence-designer
+- formative-assessment-loop-designer
+- intelligent-tutoring-dialogue-designer
+- self-explanation-prompt-designer
+- technological-pedagogical-content-knowledge-developer
+teacher_time: 4 minutes
+tags:
+- feedback
+- AI-feedback
+- formative
+- Shute
+- Narciss
+- Hattie
+- LLM
+- automated-feedback
+```

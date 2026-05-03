@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: uninterrupted-work-cycle-designer
 description: "Design an uninterrupted work cycle with choice-based activities structured within a realistic time block. Use when planning Montessori-style independent work periods or extended choice time."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "montessori-alternative-approaches/uninterrupted-work-cycle-designer"
-skill_name: "Uninterrupted Work Cycle Designer"
-domain: "montessori-alternative-approaches"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Lillard (2005) — Montessori: The Science Behind the Genius"
-  - "Lillard & Else-Quest (2006) — Evaluating Montessori education (Science)"
-  - "Rosenshine (2012) — Principles of instruction: research-based strategies that all teachers should know (time-on-task)"
-  - "Csikszentmihalyi (1990) — Flow: the psychology of optimal experience"
-  - "Diamond & Lee (2011) — Interventions shown to aid executive function development in children 4-12 years old"
-input_schema:
-  required:
-    - field: "available_time"
-      type: "string"
-      description: "The actual time block available — the realistic length of uninterrupted time the timetable allows"
-    - field: "learning_activities"
-      type: "string"
-      description: "The range of activities students can choose from during the work cycle — what is available on the shelves, at the stations, or in the environment"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and developmental stage"
-    - field: "class_size"
-      type: "string"
-      description: "How many students in the room"
-    - field: "current_routines"
-      type: "string"
-      description: "How the classroom currently operates — how often transitions happen, how long students typically work before switching tasks"
-    - field: "teacher_concerns"
-      type: "string"
-      description: "What the teacher is worried about — off-task behaviour, some students not choosing challenging work, accountability concerns"
-    - field: "environment_setup"
-      type: "string"
-      description: "How the room is organised — whether materials are accessible, whether work areas are defined"
-output_schema:
-  type: "object"
-  fields:
-    - field: "work_cycle_design"
-      type: "object"
-      description: "The complete work cycle structure — opening, work period, and closing, with the teacher's role at each phase"
-    - field: "materials_rotation"
-      type: "object"
-      description: "How materials are organised, rotated, and refreshed — what is available and how students choose"
-    - field: "teacher_observation_protocol"
-      type: "object"
-      description: "What the teacher does during the work cycle — how to observe, when to intervene, and how to record observations"
-    - field: "transition_management"
-      type: "object"
-      description: "How students enter and exit the work cycle — the routines that support smooth transitions"
-chains_well_with:
-  - "prepared-environment-designer"
-  - "three-part-lesson-designer"
-  - "mixed-age-learning-task-designer"
-  - "self-regulated-learning-designer"
-teacher_time: "5 minutes"
-tags: ["Montessori", "work-cycle", "uninterrupted", "flow", "Csikszentmihalyi", "time-on-task", "Rosenshine", "executive-function", "choice"]
 ---
 
 # Uninterrupted Work Cycle Designer
@@ -339,3 +275,91 @@ It will feel chaotic in Week 1. It will feel busy in Week 2. It will feel produc
 4. **Executive function development varies by age and individual.** The self-regulation demands of the work cycle (choosing, initiating, sustaining, completing) require executive function skills that develop throughout childhood. Younger children (ages 3-5) may need shorter work periods and more structured choice. Children with executive function difficulties (including many children with ADHD) may need modified work plans and additional scaffolding. The gradual introduction plan (Week 1-5) addresses this to some extent, but some students will need ongoing support beyond the introductory period.
 
 5. **Teacher anxiety is a real barrier.** Teachers accustomed to whole-class instruction may experience genuine anxiety during the work cycle — the silence (or productive hum) feels unfamiliar, and the lack of direct control is uncomfortable. Cossentino (2006) found that Montessori teachers described a deliberate process of "stepping back" that required practice and trust. This is not a trivial mindset shift, and it should not be dismissed. The phased introduction helps the teacher build confidence alongside the students.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: montessori-alternative-approaches/uninterrupted-work-cycle-designer
+skill_name: Uninterrupted Work Cycle Designer
+domain: montessori-alternative-approaches
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Lillard (2005) — Montessori: The Science Behind the Genius'
+- Lillard & Else-Quest (2006) — Evaluating Montessori education (Science)
+- 'Rosenshine (2012) — Principles of instruction: research-based strategies that all
+  teachers should know (time-on-task)'
+- 'Csikszentmihalyi (1990) — Flow: the psychology of optimal experience'
+- Diamond & Lee (2011) — Interventions shown to aid executive function development
+  in children 4-12 years old
+input_schema:
+  required:
+  - field: available_time
+    type: string
+    description: The actual time block available — the realistic length of uninterrupted
+      time the timetable allows
+  - field: learning_activities
+    type: string
+    description: The range of activities students can choose from during the work
+      cycle — what is available on the shelves, at the stations, or in the environment
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and developmental stage
+  - field: class_size
+    type: string
+    description: How many students in the room
+  - field: current_routines
+    type: string
+    description: How the classroom currently operates — how often transitions happen,
+      how long students typically work before switching tasks
+  - field: teacher_concerns
+    type: string
+    description: What the teacher is worried about — off-task behaviour, some students
+      not choosing challenging work, accountability concerns
+  - field: environment_setup
+    type: string
+    description: How the room is organised — whether materials are accessible, whether
+      work areas are defined
+output_schema:
+  type: object
+  fields:
+  - field: work_cycle_design
+    type: object
+    description: The complete work cycle structure — opening, work period, and closing,
+      with the teacher's role at each phase
+  - field: materials_rotation
+    type: object
+    description: How materials are organised, rotated, and refreshed — what is available
+      and how students choose
+  - field: teacher_observation_protocol
+    type: object
+    description: What the teacher does during the work cycle — how to observe, when
+      to intervene, and how to record observations
+  - field: transition_management
+    type: object
+    description: How students enter and exit the work cycle — the routines that support
+      smooth transitions
+chains_well_with:
+- prepared-environment-designer
+- three-part-lesson-designer
+- mixed-age-learning-task-designer
+- self-regulated-learning-designer
+teacher_time: 5 minutes
+tags:
+- Montessori
+- work-cycle
+- uninterrupted
+- flow
+- Csikszentmihalyi
+- time-on-task
+- Rosenshine
+- executive-function
+- choice
+```

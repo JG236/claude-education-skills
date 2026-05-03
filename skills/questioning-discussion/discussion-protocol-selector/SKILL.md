@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: discussion-protocol-selector
 description: "Select and configure a structured discussion protocol matched to the purpose, topic, and group readiness. Use when planning classroom discussions, Socratic seminars, or structured debate."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "questioning-discussion/discussion-protocol-selector"
-skill_name: "Discussion Protocol Selector & Facilitation Guide"
-domain: "questioning-discussion"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Resnick et al. (2015) — Accountable Talk: instructional dialogue that builds the mind"
-  - "Michaels et al. (2008) — Deliberative discourse idealized and realized: accountable talk in the classroom"
-  - "Howe & Abedin (2013) — Classroom dialogue: a systematic review across four decades of research"
-  - "Mercer & Dawes (2014) — The study of talk between teachers and students, from the 1970s to the 2010s"
-  - "Alexander (2008) — Towards Dialogic Teaching: rethinking classroom talk (4th edition)"
-input_schema:
-  required:
-    - field: "discussion_purpose"
-      type: "string"
-      description: "What the discussion should achieve — explore, argue, build consensus, analyse"
-    - field: "topic_or_question"
-      type: "string"
-      description: "The specific topic or driving question for discussion"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and experience with structured discussion"
-  optional:
-    - field: "class_size"
-      type: "integer"
-      description: "Number of students — affects protocol suitability"
-    - field: "time_available"
-      type: "string"
-      description: "Minutes available for the discussion"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: verbal confidence levels, dominance patterns, EAL needs"
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context"
-output_schema:
-  type: "object"
-  fields:
-    - field: "recommended_protocol"
-      type: "string"
-      description: "The selected discussion protocol with rationale for selection"
-    - field: "facilitation_guide"
-      type: "object"
-      description: "Step-by-step guide including setup, teacher moves, timing, and debrief"
-    - field: "sentence_stems"
-      type: "array"
-      description: "Talk frames for students to use during the discussion"
-    - field: "common_pitfalls"
-      type: "array"
-      description: "What typically goes wrong with this protocol and how to prevent it"
-chains_well_with:
-  - "socratic-questioning-sequence-generator"
-  - "dialogic-teaching-move-generator"
-  - "academic-language-sentence-frame-generator"
-  - "hinge-question-designer"
-teacher_time: "4 minutes"
-tags: ["discussion", "dialogue", "accountable-talk", "protocols", "oracy"]
 ---
 
 # Discussion Protocol Selector & Facilitation Guide
@@ -311,3 +247,82 @@ Cold-call 3 students.
 2. **Physical movement can be socially risky for some students.** Publicly changing position means publicly admitting you've been "wrong." For students with social anxiety or in classes with bullying dynamics, this can be threatening. Mitigate by repeatedly normalising movement: "Moving is the smartest thing you can do in this activity." For classes where this remains a barrier, use a written position shift (students update a card privately) instead of physical movement.
 
 3. **The protocol develops oracy and reasoning but does not guarantee content accuracy.** Students may articulate persuasive but factually wrong arguments. The debrief is the moment to address factual errors — not during the discussion itself, where correction shuts down dialogue. After the debrief, the teacher should clarify any factual inaccuracies: "During the discussion, someone said X. The historical evidence actually shows Y. But the reasoning process you used was exactly right."
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: questioning-discussion/discussion-protocol-selector
+skill_name: Discussion Protocol Selector & Facilitation Guide
+domain: questioning-discussion
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Resnick et al. (2015) — Accountable Talk: instructional dialogue that builds the
+  mind'
+- 'Michaels et al. (2008) — Deliberative discourse idealized and realized: accountable
+  talk in the classroom'
+- 'Howe & Abedin (2013) — Classroom dialogue: a systematic review across four decades
+  of research'
+- Mercer & Dawes (2014) — The study of talk between teachers and students, from the
+  1970s to the 2010s
+- 'Alexander (2008) — Towards Dialogic Teaching: rethinking classroom talk (4th edition)'
+input_schema:
+  required:
+  - field: discussion_purpose
+    type: string
+    description: What the discussion should achieve — explore, argue, build consensus,
+      analyse
+  - field: topic_or_question
+    type: string
+    description: The specific topic or driving question for discussion
+  - field: student_level
+    type: string
+    description: Age/year group and experience with structured discussion
+  optional:
+  - field: class_size
+    type: integer
+    description: Number of students — affects protocol suitability
+  - field: time_available
+    type: string
+    description: Minutes available for the discussion
+  - field: student_profiles
+    type: array
+    description: 'From context engine: verbal confidence levels, dominance patterns,
+      EAL needs'
+  - field: subject_area
+    type: string
+    description: Subject context
+output_schema:
+  type: object
+  fields:
+  - field: recommended_protocol
+    type: string
+    description: The selected discussion protocol with rationale for selection
+  - field: facilitation_guide
+    type: object
+    description: Step-by-step guide including setup, teacher moves, timing, and debrief
+  - field: sentence_stems
+    type: array
+    description: Talk frames for students to use during the discussion
+  - field: common_pitfalls
+    type: array
+    description: What typically goes wrong with this protocol and how to prevent it
+chains_well_with:
+- socratic-questioning-sequence-generator
+- dialogic-teaching-move-generator
+- academic-language-sentence-frame-generator
+- hinge-question-designer
+teacher_time: 4 minutes
+tags:
+- discussion
+- dialogue
+- accountable-talk
+- protocols
+- oracy
+```

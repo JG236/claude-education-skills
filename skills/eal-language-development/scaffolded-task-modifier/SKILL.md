@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: scaffolded-task-modifier
 description: "Modify a classroom task with language scaffolds that preserve cognitive demand for EAL learners. Use when adapting existing tasks for students at different English proficiency levels."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "eal-language-development/scaffolded-task-modifier"
-skill_name: "Scaffolded Task Modifier"
-domain: "eal-language-development"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Gibbons (2002, 2015) — Scaffolding Language, Scaffolding Learning: scaffolding that challenges rather than simplifies"
-  - "Cummins (2000) — Language, Power and Pedagogy: the BICS/CALP and quadrant frameworks"
-  - "Hammond & Gibbons (2005) — Putting scaffolding to work: the contribution of scaffolding in articulating ESL education"
-  - "Vygotsky (1978) — Mind in Society: the zone of proximal development"
-  - "Walqui (2006) — Scaffolding instruction for English language learners: a conceptual framework"
-input_schema:
-  required:
-    - field: "original_task"
-      type: "string"
-      description: "The task as originally designed for the class"
-    - field: "target_proficiency"
-      type: "string"
-      description: "The language proficiency level of the students being scaffolded for — e.g. New to English, Early Acquisition, Developing, Consolidating"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: first languages, specific language needs, cognitive ability"
-    - field: "learning_objective"
-      type: "string"
-      description: "The learning objective — what ALL students should understand, regardless of language level"
-    - field: "task_materials"
-      type: "string"
-      description: "Description of texts, worksheets, or resources used in the original task"
-output_schema:
-  type: "object"
-  fields:
-    - field: "modified_task"
-      type: "object"
-      description: "The scaffolded version of the task with language supports added and cognitive demand maintained"
-    - field: "cognitive_demand_check"
-      type: "string"
-      description: "Explicit verification that the modification maintains cognitive challenge"
-    - field: "scaffold_types_used"
-      type: "array"
-      description: "List of scaffolding strategies applied, with rationale for each"
-    - field: "removal_plan"
-      type: "string"
-      description: "How and when to remove scaffolds as proficiency increases"
-chains_well_with:
-  - "language-demand-analyser"
-  - "vocabulary-tiering-tool"
-  - "academic-language-sentence-frame-generator"
-  - "cognitive-load-analyser"
-teacher_time: "4 minutes"
-tags: ["scaffolding", "EAL", "differentiation", "cognitive-demand", "task-modification"]
 ---
 
 # Scaffolded Task Modifier
@@ -275,3 +211,84 @@ Priestley uses the dramatic irony to undermine Birling's authority so that when 
 2. **Scaffold removal requires consistent, longitudinal planning.** This skill designs scaffolds for a single task, but effective scaffold removal happens across weeks and months. A teacher who uses this skill for every task will get well-scaffolded individual tasks, but the progressive removal across tasks requires the teacher to plan the trajectory. Chain with a spaced-practice approach to scaffold reduction.
 
 3. **The modification assumes the original task is well-designed.** If the original task is poorly structured, unclear, or misaligned with the learning objective, scaffolding it will not help — the original task needs redesigning first. Scaffolding is not a fix for bad task design; it's a way to make a good task accessible to students at different language proficiency levels.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: eal-language-development/scaffolded-task-modifier
+skill_name: Scaffolded Task Modifier
+domain: eal-language-development
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Gibbons (2002, 2015) — Scaffolding Language, Scaffolding Learning: scaffolding
+  that challenges rather than simplifies'
+- 'Cummins (2000) — Language, Power and Pedagogy: the BICS/CALP and quadrant frameworks'
+- 'Hammond & Gibbons (2005) — Putting scaffolding to work: the contribution of scaffolding
+  in articulating ESL education'
+- 'Vygotsky (1978) — Mind in Society: the zone of proximal development'
+- 'Walqui (2006) — Scaffolding instruction for English language learners: a conceptual
+  framework'
+input_schema:
+  required:
+  - field: original_task
+    type: string
+    description: The task as originally designed for the class
+  - field: target_proficiency
+    type: string
+    description: The language proficiency level of the students being scaffolded for
+      — e.g. New to English, Early Acquisition, Developing, Consolidating
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: student_profiles
+    type: array
+    description: 'From context engine: first languages, specific language needs, cognitive
+      ability'
+  - field: learning_objective
+    type: string
+    description: The learning objective — what ALL students should understand, regardless
+      of language level
+  - field: task_materials
+    type: string
+    description: Description of texts, worksheets, or resources used in the original
+      task
+output_schema:
+  type: object
+  fields:
+  - field: modified_task
+    type: object
+    description: The scaffolded version of the task with language supports added and
+      cognitive demand maintained
+  - field: cognitive_demand_check
+    type: string
+    description: Explicit verification that the modification maintains cognitive challenge
+  - field: scaffold_types_used
+    type: array
+    description: List of scaffolding strategies applied, with rationale for each
+  - field: removal_plan
+    type: string
+    description: How and when to remove scaffolds as proficiency increases
+chains_well_with:
+- language-demand-analyser
+- vocabulary-tiering-tool
+- academic-language-sentence-frame-generator
+- cognitive-load-analyser
+teacher_time: 4 minutes
+tags:
+- scaffolding
+- EAL
+- differentiation
+- cognitive-demand
+- task-modification
+```

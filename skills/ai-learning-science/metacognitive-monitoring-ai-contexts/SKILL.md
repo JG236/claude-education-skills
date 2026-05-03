@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: metacognitive-monitoring-ai-contexts
 description: "Design metacognitive checkpoints that prevent AI-assisted learning from bypassing genuine understanding. Use when students use AI tools and may overestimate their own comprehension."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/metacognitive-monitoring-ai-contexts"
-skill_name: "Metacognitive Monitoring in AI Contexts"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Thiede et al. (2003) — Summarizing can improve metacomprehension accuracy"
-  - "Winne & Hadwin (1998) — Studying as self-regulated learning (SRL model)"
-  - "Dunning et al. (2003) — Why people fail to recognize their own incompetence (Dunning-Kruger)"
-  - "Bjork et al. (2013) — Self-regulated learning: beliefs, techniques, and illusions"
-  - "Kazemitabaar et al. (2023) — Studying the effect of AI code generators on supporting novice learners in introductory programming"
-input_schema:
-  required:
-    - field: "ai_learning_context"
-      type: "string"
-      description: "The specific context in which students are using AI tools for learning — what they are doing with AI and what they are supposed to be learning"
-    - field: "metacognitive_risk"
-      type: "string"
-      description: "The specific metacognitive risk to address — how AI use might distort students' self-assessment of their own understanding"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "ai_tool"
-      type: "string"
-      description: "Which AI tool students are using — ChatGPT, Copilot, a custom tutoring system, or other"
-    - field: "assessment_context"
-      type: "string"
-      description: "How student learning will be assessed — exam, project, practical demonstration, or other"
-output_schema:
-  type: "object"
-  fields:
-    - field: "metacognitive_diagnosis"
-      type: "object"
-      description: "Analysis of how AI use in this context might distort metacognitive monitoring — the specific risks and mechanisms"
-    - field: "monitoring_interventions"
-      type: "array"
-      description: "Specific strategies to improve metacognitive accuracy — prompts, calibration tasks, and self-assessment tools"
-    - field: "ai_usage_guidelines"
-      type: "object"
-      description: "When and how to use AI in this context to support rather than undermine metacognition"
-    - field: "assessment_alignment"
-      type: "object"
-      description: "How to align assessment with metacognitive goals — testing what students actually know, not what the AI knows"
-chains_well_with:
-  - "self-explanation-prompt-designer"
-  - "ai-feedback-design-principles"
-  - "productive-failure-desirable-difficulty-designer"
-  - "formative-assessment-loop-designer"
-teacher_time: "4 minutes"
-tags: ["metacognition", "self-regulation", "Dunning-Kruger", "overconfidence", "AI-literacy", "Winne", "Thiede", "calibration"]
 ---
 
 # Metacognitive Monitoring in AI Contexts
@@ -251,3 +190,85 @@ Watch for these signs that metacognitive distortion is occurring:
 3. **Individual differences in metacognitive ability are large.** Some students are naturally good at monitoring their own understanding; others are not. The Dunning-Kruger effect suggests that the students who most need metacognitive support are the least likely to recognise that they need it. Interventions must be STRUCTURAL (built into the workflow for all students) rather than ADVISORY ("you should check your understanding").
 
 4. **The relationship between AI use and metacognition may be more nuanced than "AI harms metacognition."** Some uses of AI (e.g., using AI to generate practice questions, then attempting them without AI) might actually IMPROVE metacognitive accuracy by creating retrieval opportunities. The risk is context-dependent, not absolute. The diagnosis above applies specifically to the "AI generates, student edits" workflow — other workflows may have different metacognitive profiles.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/metacognitive-monitoring-ai-contexts
+skill_name: Metacognitive Monitoring in AI Contexts
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Thiede et al. (2003) — Summarizing can improve metacomprehension accuracy
+- Winne & Hadwin (1998) — Studying as self-regulated learning (SRL model)
+- Dunning et al. (2003) — Why people fail to recognize their own incompetence (Dunning-Kruger)
+- 'Bjork et al. (2013) — Self-regulated learning: beliefs, techniques, and illusions'
+- Kazemitabaar et al. (2023) — Studying the effect of AI code generators on supporting
+  novice learners in introductory programming
+input_schema:
+  required:
+  - field: ai_learning_context
+    type: string
+    description: The specific context in which students are using AI tools for learning
+      — what they are doing with AI and what they are supposed to be learning
+  - field: metacognitive_risk
+    type: string
+    description: The specific metacognitive risk to address — how AI use might distort
+      students' self-assessment of their own understanding
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: ai_tool
+    type: string
+    description: Which AI tool students are using — ChatGPT, Copilot, a custom tutoring
+      system, or other
+  - field: assessment_context
+    type: string
+    description: How student learning will be assessed — exam, project, practical
+      demonstration, or other
+output_schema:
+  type: object
+  fields:
+  - field: metacognitive_diagnosis
+    type: object
+    description: Analysis of how AI use in this context might distort metacognitive
+      monitoring — the specific risks and mechanisms
+  - field: monitoring_interventions
+    type: array
+    description: Specific strategies to improve metacognitive accuracy — prompts,
+      calibration tasks, and self-assessment tools
+  - field: ai_usage_guidelines
+    type: object
+    description: When and how to use AI in this context to support rather than undermine
+      metacognition
+  - field: assessment_alignment
+    type: object
+    description: How to align assessment with metacognitive goals — testing what students
+      actually know, not what the AI knows
+chains_well_with:
+- self-explanation-prompt-designer
+- ai-feedback-design-principles
+- productive-failure-desirable-difficulty-designer
+- formative-assessment-loop-designer
+teacher_time: 4 minutes
+tags:
+- metacognition
+- self-regulation
+- Dunning-Kruger
+- overconfidence
+- AI-literacy
+- Winne
+- Thiede
+- calibration
+```

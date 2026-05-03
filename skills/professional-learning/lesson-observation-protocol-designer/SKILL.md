@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: lesson-observation-protocol-designer
 description: "Design a focused lesson observation protocol with specific look-fors and evidence collection methods. Use when planning peer observations, coaching visits, or developmental classroom visits."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/lesson-observation-protocol-designer"
-skill_name: "Lesson Observation Protocol Designer"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Darling-Hammond (2010) — Evaluating Teacher Effectiveness: how teacher performance assessments can measure and improve teaching"
-  - "Hill, Charalambous & Kraft (2012) — When rater reliability is not enough: teacher observation systems and a case for the generalizability study"
-  - "Wragg (2012) — An Introduction to Classroom Observation"
-  - "O'Leary (2014) — Classroom Observation: a guide to the effective observation of teaching and learning"
-  - "Coe et al. (2014) — What Makes Great Teaching? Review of the underpinning research"
-input_schema:
-  required:
-    - field: "observation_focus"
-      type: "string"
-      description: "The specific teaching practice or aspect of learning to observe — not 'everything' but a focused lens"
-    - field: "observation_purpose"
-      type: "string"
-      description: "Why the observation is happening — developmental, coaching, peer learning, quality assurance, research"
-  optional:
-    - field: "teacher_context"
-      type: "string"
-      description: "Experience level, subject, any relevant background"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group being taught"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "observation_duration"
-      type: "string"
-      description: "Full lesson, drop-in (15 minutes), or learning walk (5 minutes)"
-    - field: "school_context"
-      type: "string"
-      description: "Observation culture in the school — supportive, high-stakes, new initiative"
-output_schema:
-  type: "object"
-  fields:
-    - field: "observation_protocol"
-      type: "object"
-      description: "The complete protocol — what to look for, how to record, what to ignore"
-    - field: "look_fors"
-      type: "array"
-      description: "Specific, observable indicators linked to the focus — what 'good' looks like in practice"
-    - field: "recording_format"
-      type: "object"
-      description: "How to capture evidence during the observation — structured notes, tally, time-sampling"
-    - field: "feedback_framework"
-      type: "object"
-      description: "How to structure the post-observation conversation — evidence-based, specific, forward-looking"
-chains_well_with:
-  - "instructional-coaching-conversation-guide"
-  - "lesson-study-cycle-designer"
-  - "reflective-practice-prompt-generator"
-  - "explicit-instruction-sequence-builder"
-  - "pedagogical-content-knowledge-developer"
-  - "technological-pedagogical-content-knowledge-developer"
-teacher_time: "3 minutes"
-tags: ["observation", "look-fors", "feedback", "professional-development", "evidence-based"]
 ---
 
 # Lesson Observation Protocol Designer
@@ -253,3 +187,88 @@ Staying focused on ONE aspect produces deep, useful evidence. Spreading attentio
 2. **The quality of feedback depends on the observer's skill.** A well-designed protocol in the hands of an observer who delivers feedback judgementally will produce defensiveness, not growth. The feedback framework guides the conversation, but the observer must be trained to deliver feedback as evidence-based dialogue, not evaluation.
 
 3. **Developmental observation and performance management observation require different approaches.** This protocol is designed for developmental purposes. If the same protocol is used for high-stakes performance management, teachers will perform for the observer rather than teach naturally, and the data will be unreliable. Schools should separate developmental observation from accountability observation.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/lesson-observation-protocol-designer
+skill_name: Lesson Observation Protocol Designer
+domain: professional-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Darling-Hammond (2010) — Evaluating Teacher Effectiveness: how teacher performance
+  assessments can measure and improve teaching'
+- 'Hill, Charalambous & Kraft (2012) — When rater reliability is not enough: teacher
+  observation systems and a case for the generalizability study'
+- Wragg (2012) — An Introduction to Classroom Observation
+- 'O''Leary (2014) — Classroom Observation: a guide to the effective observation of
+  teaching and learning'
+- Coe et al. (2014) — What Makes Great Teaching? Review of the underpinning research
+input_schema:
+  required:
+  - field: observation_focus
+    type: string
+    description: The specific teaching practice or aspect of learning to observe —
+      not 'everything' but a focused lens
+  - field: observation_purpose
+    type: string
+    description: Why the observation is happening — developmental, coaching, peer
+      learning, quality assurance, research
+  optional:
+  - field: teacher_context
+    type: string
+    description: Experience level, subject, any relevant background
+  - field: student_level
+    type: string
+    description: Age/year group being taught
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: observation_duration
+    type: string
+    description: Full lesson, drop-in (15 minutes), or learning walk (5 minutes)
+  - field: school_context
+    type: string
+    description: Observation culture in the school — supportive, high-stakes, new
+      initiative
+output_schema:
+  type: object
+  fields:
+  - field: observation_protocol
+    type: object
+    description: The complete protocol — what to look for, how to record, what to
+      ignore
+  - field: look_fors
+    type: array
+    description: Specific, observable indicators linked to the focus — what 'good'
+      looks like in practice
+  - field: recording_format
+    type: object
+    description: How to capture evidence during the observation — structured notes,
+      tally, time-sampling
+  - field: feedback_framework
+    type: object
+    description: How to structure the post-observation conversation — evidence-based,
+      specific, forward-looking
+chains_well_with:
+- instructional-coaching-conversation-guide
+- lesson-study-cycle-designer
+- reflective-practice-prompt-generator
+- explicit-instruction-sequence-builder
+- pedagogical-content-knowledge-developer
+- technological-pedagogical-content-knowledge-developer
+teacher_time: 3 minutes
+tags:
+- observation
+- look-fors
+- feedback
+- professional-development
+- evidence-based
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: lesson-opening-designer
 description: "Design a lesson opening that activates prior knowledge and connects previous learning to today's content. Use when planning lesson starters, retrieval openers, or advance organisers."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "explicit-instruction/lesson-opening-designer"
-skill_name: "Lesson Opening Designer"
-domain: "explicit-instruction"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Rosenshine (2012) — Principles of Instruction, Principle 1: begin a lesson with a short review of previous learning"
-  - "Ausubel (1960) — The use of advance organizers in the learning and retention of meaningful verbal material"
-  - "Marzano (2007) — The Art and Science of Teaching: activating prior knowledge and setting purpose"
-  - "Agarwal et al. (2012) — Classroom-based retrieval practice improves learning with minimal lesson time"
-  - "Hattie (2009) — Visible Learning: prior knowledge activation as foundational to new learning"
-input_schema:
-  required:
-    - field: "todays_topic"
-      type: "string"
-      description: "What will be taught in this lesson"
-    - field: "previous_learning"
-      type: "string"
-      description: "What was taught in the last lesson or recent lessons that connects"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "opening_time"
-      type: "string"
-      description: "Minutes available for the lesson opening (default: 10 minutes)"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: retention data, common gaps from last lesson"
-    - field: "lesson_objectives"
-      type: "string"
-      description: "Specific learning objectives for today's lesson"
-    - field: "assessment_data"
-      type: "string"
-      description: "From context engine: exit ticket data from last lesson"
-output_schema:
-  type: "object"
-  fields:
-    - field: "retrieval_starter"
-      type: "object"
-      description: "A retrieval practice activity reviewing previous learning"
-    - field: "prior_knowledge_bridge"
-      type: "string"
-      description: "How to connect previous learning to today's new content"
-    - field: "learning_intention"
-      type: "string"
-      description: "How to frame today's learning purpose"
-    - field: "opening_script"
-      type: "string"
-      description: "A complete, timed script for the lesson opening"
-chains_well_with:
-  - "retrieval-practice-generator"
-  - "explicit-instruction-sequence-builder"
-  - "spaced-practice-scheduler"
-  - "checking-for-understanding-protocol-designer"
-teacher_time: "3 minutes"
-tags: ["lesson-opening", "retrieval", "prior-knowledge", "advance-organiser", "lesson-planning"]
 ---
 
 # Lesson Opening Designer
@@ -241,3 +177,81 @@ Let's go."
 2. **"Do Now" starters require consistent classroom routines.** If students are not trained to begin working immediately on entry, the first 2–3 minutes are lost to settling, instructions, and reminders. The lesson opening design assumes an established routine. Building that routine is a classroom management task, not a lesson design task.
 
 3. **The prior knowledge bridge is scripted for this specific content connection.** If the teacher has not followed the assumed teaching sequence (equivalent fractions → like-denominator addition → unlike-denominator addition), the bridge won't land. Teachers must verify that the "previous learning" field accurately reflects what was taught, not what was planned.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: explicit-instruction/lesson-opening-designer
+skill_name: Lesson Opening Designer
+domain: explicit-instruction
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Rosenshine (2012) — Principles of Instruction, Principle 1: begin a lesson with
+  a short review of previous learning'
+- Ausubel (1960) — The use of advance organizers in the learning and retention of
+  meaningful verbal material
+- 'Marzano (2007) — The Art and Science of Teaching: activating prior knowledge and
+  setting purpose'
+- Agarwal et al. (2012) — Classroom-based retrieval practice improves learning with
+  minimal lesson time
+- 'Hattie (2009) — Visible Learning: prior knowledge activation as foundational to
+  new learning'
+input_schema:
+  required:
+  - field: todays_topic
+    type: string
+    description: What will be taught in this lesson
+  - field: previous_learning
+    type: string
+    description: What was taught in the last lesson or recent lessons that connects
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: opening_time
+    type: string
+    description: 'Minutes available for the lesson opening (default: 10 minutes)'
+  - field: student_profiles
+    type: array
+    description: 'From context engine: retention data, common gaps from last lesson'
+  - field: lesson_objectives
+    type: string
+    description: Specific learning objectives for today's lesson
+  - field: assessment_data
+    type: string
+    description: 'From context engine: exit ticket data from last lesson'
+output_schema:
+  type: object
+  fields:
+  - field: retrieval_starter
+    type: object
+    description: A retrieval practice activity reviewing previous learning
+  - field: prior_knowledge_bridge
+    type: string
+    description: How to connect previous learning to today's new content
+  - field: learning_intention
+    type: string
+    description: How to frame today's learning purpose
+  - field: opening_script
+    type: string
+    description: A complete, timed script for the lesson opening
+chains_well_with:
+- retrieval-practice-generator
+- explicit-instruction-sequence-builder
+- spaced-practice-scheduler
+- checking-for-understanding-protocol-designer
+teacher_time: 3 minutes
+tags:
+- lesson-opening
+- retrieval
+- prior-knowledge
+- advance-organiser
+- lesson-planning
+```

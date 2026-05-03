@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: assessment-validity-checker
 description: "Audit a proposed assessment for construct validity, reliability, and alignment to learning objectives. Use when reviewing or quality-assuring assessments before deployment."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/assessment-validity-checker"
-skill_name: "Assessment Validity Checker"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Wiliam (2011) — Embedded Formative Assessment"
-  - "Messick (1989) — Validity in educational measurement: a unified validity framework"
-  - "Kane (2006) — Validation as argument-based approach"
-  - "Brookhart (2003) — Developing measurement theory for classroom assessment purposes and uses"
-  - "Stobart (2008) — Testing Times: the uses and abuses of assessment"
-input_schema:
-  required:
-    - field: "assessment_description"
-      type: "string"
-      description: "Description of the proposed assessment — what students do, how it is marked"
-    - field: "intended_learning"
-      type: "string"
-      description: "What the assessment claims to measure"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "assessment_purpose"
-      type: "string"
-      description: "Formative, summative, diagnostic, or evaluative"
-    - field: "marking_approach"
-      type: "string"
-      description: "How the assessment will be marked — rubric, mark scheme, holistic judgement"
-    - field: "stakes"
-      type: "string"
-      description: "The consequences of the assessment — low stakes (informing teaching), high stakes (grading, reporting)"
-output_schema:
-  type: "object"
-  fields:
-    - field: "validity_analysis"
-      type: "object"
-      description: "Analysis of construct validity, content validity, and consequential validity"
-    - field: "reliability_analysis"
-      type: "string"
-      description: "Analysis of inter-rater reliability and internal consistency"
-    - field: "threats_identified"
-      type: "array"
-      description: "Specific threats to validity with explanations"
-    - field: "recommendations"
-      type: "array"
-      description: "Specific modifications to address identified threats"
-chains_well_with:
-  - "criterion-referenced-rubric-generator"
-  - "formative-assessment-technique-selector"
-  - "competency-unpacker"
-  - "backwards-design-unit-planner"
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-teacher_time: "3 minutes"
-tags: ["validity", "reliability", "assessment-design", "quality-assurance", "measurement"]
 ---
 
 # Assessment Validity Checker
@@ -246,3 +180,83 @@ As currently designed, this assessment is **not fit for purpose**. It claims to 
 2. **Validity is always relative to purpose.** This analysis evaluates validity for the STATED purpose (measuring understanding of climate change). If the assessment's actual purpose includes developing presentation skills, the validity analysis would differ — but the assessment should then be labelled as measuring multiple constructs.
 
 3. **Some validity threats are trade-offs, not errors.** Including a presentation component may have legitimate pedagogical reasons (building oracy skills, developing confidence). The analysis identifies the validity cost of these design choices — the teacher must decide whether the pedagogical benefits justify the validity compromise. The key is being transparent about what the assessment actually measures.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/assessment-validity-checker
+skill_name: Assessment Validity Checker
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Wiliam (2011) — Embedded Formative Assessment
+- 'Messick (1989) — Validity in educational measurement: a unified validity framework'
+- Kane (2006) — Validation as argument-based approach
+- Brookhart (2003) — Developing measurement theory for classroom assessment purposes
+  and uses
+- 'Stobart (2008) — Testing Times: the uses and abuses of assessment'
+input_schema:
+  required:
+  - field: assessment_description
+    type: string
+    description: Description of the proposed assessment — what students do, how it
+      is marked
+  - field: intended_learning
+    type: string
+    description: What the assessment claims to measure
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: assessment_purpose
+    type: string
+    description: Formative, summative, diagnostic, or evaluative
+  - field: marking_approach
+    type: string
+    description: How the assessment will be marked — rubric, mark scheme, holistic
+      judgement
+  - field: stakes
+    type: string
+    description: The consequences of the assessment — low stakes (informing teaching),
+      high stakes (grading, reporting)
+output_schema:
+  type: object
+  fields:
+  - field: validity_analysis
+    type: object
+    description: Analysis of construct validity, content validity, and consequential
+      validity
+  - field: reliability_analysis
+    type: string
+    description: Analysis of inter-rater reliability and internal consistency
+  - field: threats_identified
+    type: array
+    description: Specific threats to validity with explanations
+  - field: recommendations
+    type: array
+    description: Specific modifications to address identified threats
+chains_well_with:
+- criterion-referenced-rubric-generator
+- formative-assessment-technique-selector
+- competency-unpacker
+- backwards-design-unit-planner
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+teacher_time: 3 minutes
+tags:
+- validity
+- reliability
+- assessment-design
+- quality-assurance
+- measurement
+```

@@ -1,71 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: criterion-referenced-rubric-generator
 description: "Generate a criterion-referenced rubric with descriptive performance levels for a task or objective. Use for marking guides and general curriculum contexts. For Manning programmes where Competent = success, use coherent-rubric-logic-builder instead."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/criterion-referenced-rubric-generator"
-skill_name: "Criterion-Referenced Rubric Generator"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Brookhart (2013) — How to Create and Use Rubrics for Formative Assessment and Grading"
-  - "Andrade (2000, 2013) — Using rubrics to promote thinking and learning"
-  - "Jonsson & Svingby (2007) — The use of scoring rubrics: reliability, validity and educational consequences"
-  - "Sadler (1989) — Formative assessment and the design of instructional systems"
-  - "Panadero & Jonsson (2013) — The use of scoring rubrics for formative assessment purposes revisited"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The learning objective the rubric assesses"
-    - field: "task_description"
-      type: "string"
-      description: "The specific task students will complete"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "criteria_count"
-      type: "integer"
-      description: "Number of criteria (default: 4)"
-    - field: "performance_levels"
-      type: "integer"
-      description: "Number of performance levels (default: 4)"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "existing_criteria"
-      type: "string"
-      description: "Any criteria the teacher wants included — the rubric will build around these"
-output_schema:
-  type: "object"
-  fields:
-    - field: "rubric"
-      type: "object"
-      description: "Complete rubric with criteria, performance level descriptors, and scoring guidance"
-    - field: "design_rationale"
-      type: "string"
-      description: "Why these criteria were chosen and how descriptors were differentiated"
-    - field: "student_friendly_version"
-      type: "string"
-      description: "A simplified version students can use for self and peer assessment"
-    - field: "calibration_notes"
-      type: "string"
-      description: "Notes to help multiple markers apply the rubric consistently"
-chains_well_with:
-  - "competency-unpacker"
-  - "backwards-design-unit-planner"
-  - "gap-analysis-from-student-work"
-  - "feedback-quality-analyser"
-  - "kud-knowledge-type-mapper"
-teacher_time: "3 minutes"
-tags: ["rubric", "assessment", "criteria", "descriptive-language", "formative-assessment"]
 ---
 
 # Criterion-Referenced Rubric Generator
@@ -248,3 +183,81 @@ Return your output in this exact format:
 2. **Four levels is a practical compromise.** Some tasks would benefit from more levels (to distinguish fine gradations) or fewer (to simplify assessment). Four levels balance reliability (enough levels to be informative) with usability (few enough to be practical). If the rubric is being used for high-stakes grading, additional level descriptors may be needed.
 
 3. **Descriptive language is harder to write but more useful than evaluative language.** The rubric avoids "good," "excellent," and "poor," which makes each cell longer and more specific. This is a deliberate trade-off — evaluative rubrics are shorter but less useful for feedback. Teachers may need time to become comfortable with descriptive rubric language.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/criterion-referenced-rubric-generator
+skill_name: Criterion-Referenced Rubric Generator
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Brookhart (2013) — How to Create and Use Rubrics for Formative Assessment and Grading
+- Andrade (2000, 2013) — Using rubrics to promote thinking and learning
+- 'Jonsson & Svingby (2007) — The use of scoring rubrics: reliability, validity and
+  educational consequences'
+- Sadler (1989) — Formative assessment and the design of instructional systems
+- Panadero & Jonsson (2013) — The use of scoring rubrics for formative assessment
+  purposes revisited
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The learning objective the rubric assesses
+  - field: task_description
+    type: string
+    description: The specific task students will complete
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: criteria_count
+    type: integer
+    description: 'Number of criteria (default: 4)'
+  - field: performance_levels
+    type: integer
+    description: 'Number of performance levels (default: 4)'
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: existing_criteria
+    type: string
+    description: Any criteria the teacher wants included — the rubric will build around
+      these
+output_schema:
+  type: object
+  fields:
+  - field: rubric
+    type: object
+    description: Complete rubric with criteria, performance level descriptors, and
+      scoring guidance
+  - field: design_rationale
+    type: string
+    description: Why these criteria were chosen and how descriptors were differentiated
+  - field: student_friendly_version
+    type: string
+    description: A simplified version students can use for self and peer assessment
+  - field: calibration_notes
+    type: string
+    description: Notes to help multiple markers apply the rubric consistently
+chains_well_with:
+- competency-unpacker
+- backwards-design-unit-planner
+- gap-analysis-from-student-work
+- feedback-quality-analyser
+- kud-knowledge-type-mapper
+teacher_time: 3 minutes
+tags:
+- rubric
+- assessment
+- criteria
+- descriptive-language
+- formative-assessment
+```

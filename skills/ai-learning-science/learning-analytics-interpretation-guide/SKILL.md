@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: learning-analytics-interpretation-guide
 description: "Interpret learning analytics data and translate dashboard findings into actionable teaching decisions. Use when reviewing LMS data, quiz patterns, or engagement metrics."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/learning-analytics-interpretation-guide"
-skill_name: "Learning Analytics Interpretation Guide"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Siemens & Long (2011) — Penetrating the fog: analytics in learning and education"
-  - "Bienkowski et al. (2012) — Enhancing teaching and learning through educational data mining and learning analytics (US DoE report)"
-  - "Wiliam (2011) — Embedded formative assessment (data use for formative purposes)"
-  - "Mandinach & Gummer (2016) — What does it mean for teachers to be data literate?"
-  - "Wise (2014) — Designing pedagogical interventions to support student use of learning analytics"
-input_schema:
-  required:
-    - field: "dataset_description"
-      type: "string"
-      description: "The specific learning data to be interpreted — what was measured, how, and what the raw numbers show"
-    - field: "decision_context"
-      type: "string"
-      description: "What decision the teacher needs to make based on this data — what they are trying to figure out or what action they are considering"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "comparison_data"
-      type: "string"
-      description: "Any baseline or comparison data available — previous year's results, national averages, or prior assessment data for the same students"
-    - field: "time_constraints"
-      type: "string"
-      description: "How quickly the teacher needs to act on the data — immediate, this week, this term"
-output_schema:
-  type: "object"
-  fields:
-    - field: "data_interpretation"
-      type: "object"
-      description: "What the data actually shows — patterns, outliers, and trends explained in teacher-friendly terms"
-    - field: "actionable_patterns"
-      type: "array"
-      description: "The specific patterns in the data that suggest a teaching action — ranked by urgency and confidence"
-    - field: "recommended_actions"
-      type: "array"
-      description: "Concrete teaching actions linked to specific data patterns — what to do and why"
-    - field: "cautions"
-      type: "array"
-      description: "What the data does NOT show — the interpretive pitfalls and alternative explanations the teacher should consider"
-chains_well_with:
-  - "formative-assessment-loop-designer"
-  - "ai-feedback-design-principles"
-  - "retrieval-practice-designer"
-  - "diagnostic-question-designer"
-teacher_time: "5 minutes"
-tags: ["analytics", "data", "formative", "Siemens", "Wiliam", "data-literacy", "assessment", "interpretation"]
 ---
 
 # Learning Analytics Interpretation Guide
@@ -234,3 +173,86 @@ Return your output in this exact format:
 3. **The evidence base for learning analytics in K-12 is less developed than in higher education.** Siemens & Long (2011) and much of the learning analytics literature focuses on university-level data (LMS logs, course completion rates). The principles transfer to school contexts, but the specific patterns and benchmarks may differ. Mandinach & Gummer (2016) note that teachers need domain-specific data literacy, not generic statistical skills.
 
 4. **Analytics can inadvertently narrow the curriculum.** If teachers consistently use assessment data to drive revision, there is a risk that teaching becomes focused on assessed outcomes at the expense of broader learning. Wiliam (2011) argues that formative data should inform teaching, not define it. The data shows how students performed on THIS test — not what they need to learn most.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/learning-analytics-interpretation-guide
+skill_name: Learning Analytics Interpretation Guide
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Siemens & Long (2011) — Penetrating the fog: analytics in learning and education'
+- Bienkowski et al. (2012) — Enhancing teaching and learning through educational data
+  mining and learning analytics (US DoE report)
+- Wiliam (2011) — Embedded formative assessment (data use for formative purposes)
+- Mandinach & Gummer (2016) — What does it mean for teachers to be data literate?
+- Wise (2014) — Designing pedagogical interventions to support student use of learning
+  analytics
+input_schema:
+  required:
+  - field: dataset_description
+    type: string
+    description: The specific learning data to be interpreted — what was measured,
+      how, and what the raw numbers show
+  - field: decision_context
+    type: string
+    description: What decision the teacher needs to make based on this data — what
+      they are trying to figure out or what action they are considering
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: comparison_data
+    type: string
+    description: Any baseline or comparison data available — previous year's results,
+      national averages, or prior assessment data for the same students
+  - field: time_constraints
+    type: string
+    description: How quickly the teacher needs to act on the data — immediate, this
+      week, this term
+output_schema:
+  type: object
+  fields:
+  - field: data_interpretation
+    type: object
+    description: What the data actually shows — patterns, outliers, and trends explained
+      in teacher-friendly terms
+  - field: actionable_patterns
+    type: array
+    description: The specific patterns in the data that suggest a teaching action
+      — ranked by urgency and confidence
+  - field: recommended_actions
+    type: array
+    description: Concrete teaching actions linked to specific data patterns — what
+      to do and why
+  - field: cautions
+    type: array
+    description: What the data does NOT show — the interpretive pitfalls and alternative
+      explanations the teacher should consider
+chains_well_with:
+- formative-assessment-loop-designer
+- ai-feedback-design-principles
+- retrieval-practice-designer
+- diagnostic-question-designer
+teacher_time: 5 minutes
+tags:
+- analytics
+- data
+- formative
+- Siemens
+- Wiliam
+- data-literacy
+- assessment
+- interpretation
+```

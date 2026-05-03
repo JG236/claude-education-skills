@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: differentiation-adapter
 description: "Adapt a classroom task for specific learner needs while preserving the core learning objective intact. Use when differentiating for SEND, EAL, gifted, ADHD, dyslexia, or anxiety."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/differentiation-adapter"
-skill_name: "Differentiation Adapter"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Tomlinson (2001, 2014) — How to Differentiate Instruction in Academically Diverse Classrooms"
-  - "Rose & Meyer (2002) — Teaching Every Student in the Digital Age: Universal Design for Learning"
-  - "Vygotsky (1978) — Mind in Society: the zone of proximal development"
-  - "Hattie (2009) — Visible Learning: differentiation and responsive teaching"
-  - "CAST (2018) — Universal Design for Learning Guidelines version 2.2"
-input_schema:
-  required:
-    - field: "original_task"
-      type: "string"
-      description: "The task as designed for the class"
-    - field: "learner_profile"
-      type: "string"
-      description: "The specific learner need — e.g. extension, support, EAL, ADHD, dyslexia, anxiety, gifted"
-    - field: "learning_objective"
-      type: "string"
-      description: "The learning objective — must remain the same across all differentiated versions"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: specific diagnoses, support plans, prior attainment"
-    - field: "available_support"
-      type: "string"
-      description: "TA availability, technology, specialist resources"
-output_schema:
-  type: "object"
-  fields:
-    - field: "adapted_task"
-      type: "object"
-      description: "The differentiated version with specific modifications"
-    - field: "what_changed"
-      type: "string"
-      description: "Explicit statement of what was modified and what was maintained"
-    - field: "objective_check"
-      type: "string"
-      description: "Verification that the learning objective is maintained"
-    - field: "implementation_notes"
-      type: "string"
-      description: "Practical notes for the teacher on implementing the adaptation"
-chains_well_with:
-  - "scaffolded-task-modifier"
-  - "cognitive-load-analyser"
-  - "formative-assessment-technique-selector"
-  - "practice-problem-sequence-designer"
-teacher_time: "3 minutes"
-tags: ["differentiation", "UDL", "inclusion", "SEND", "adaptation"]
 ---
 
 # Differentiation Adapter
@@ -238,3 +174,80 @@ The adapted task still requires the student to **analyse how Dickens presents ch
 2. **Differentiation by learning style is explicitly excluded.** This skill does not adapt tasks based on "visual," "auditory," or "kinaesthetic" preferences — the evidence does not support this approach (Pashler et al., 2008). Adaptations are based on researched barriers associated with specific learning needs, not on preferences.
 
 3. **Adapted tasks can inadvertently signal low expectations.** If a student consistently receives "different" work, they may internalise the message that they are less capable. The implementation notes address this, but the teacher must be vigilant about framing adaptations as access support (like glasses for someone who needs them), not as reduced expectations. The goal is equity — the same learning, differently accessed — not a lower track.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/differentiation-adapter
+skill_name: Differentiation Adapter
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Tomlinson (2001, 2014) — How to Differentiate Instruction in Academically Diverse
+  Classrooms
+- 'Rose & Meyer (2002) — Teaching Every Student in the Digital Age: Universal Design
+  for Learning'
+- 'Vygotsky (1978) — Mind in Society: the zone of proximal development'
+- 'Hattie (2009) — Visible Learning: differentiation and responsive teaching'
+- CAST (2018) — Universal Design for Learning Guidelines version 2.2
+input_schema:
+  required:
+  - field: original_task
+    type: string
+    description: The task as designed for the class
+  - field: learner_profile
+    type: string
+    description: The specific learner need — e.g. extension, support, EAL, ADHD, dyslexia,
+      anxiety, gifted
+  - field: learning_objective
+    type: string
+    description: The learning objective — must remain the same across all differentiated
+      versions
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_profiles
+    type: array
+    description: 'From context engine: specific diagnoses, support plans, prior attainment'
+  - field: available_support
+    type: string
+    description: TA availability, technology, specialist resources
+output_schema:
+  type: object
+  fields:
+  - field: adapted_task
+    type: object
+    description: The differentiated version with specific modifications
+  - field: what_changed
+    type: string
+    description: Explicit statement of what was modified and what was maintained
+  - field: objective_check
+    type: string
+    description: Verification that the learning objective is maintained
+  - field: implementation_notes
+    type: string
+    description: Practical notes for the teacher on implementing the adaptation
+chains_well_with:
+- scaffolded-task-modifier
+- cognitive-load-analyser
+- formative-assessment-technique-selector
+- practice-problem-sequence-designer
+teacher_time: 3 minutes
+tags:
+- differentiation
+- UDL
+- inclusion
+- SEND
+- adaptation
+```

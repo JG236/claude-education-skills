@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: reggio-documentation-protocol
 description: "Design a pedagogical documentation protocol for making children's learning processes visible and shareable. Use when documenting learning, communicating with families, or planning next steps."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/reggio-documentation-protocol"
-skill_name: "Reggio Documentation Protocol"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Rinaldi (2006) — In Dialogue with Reggio Emilia: listening, researching and learning"
-  - "Malaguzzi (1993) — For an education based on relationships"
-  - "Krechevsky, Mardell, Rivard & Wilson (2013) — Visible Learners: promoting Reggio-inspired approaches in all schools"
-  - "Edwards, Gandini & Forman (2012) — The Hundred Languages of Children: the Reggio Emilia experience in transformation (3rd edition)"
-  - "Giudici, Rinaldi & Krechevsky (2001) — Making Learning Visible: children as individual and group learners"
-input_schema:
-  required:
-    - field: "learning_experience"
-      type: "string"
-      description: "The learning activity, project, or investigation to be documented — what children are doing and exploring"
-    - field: "documentation_purpose"
-      type: "string"
-      description: "Why the documentation is being created — making learning visible, informing next steps, communicating with families, professional reflection"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age group — early years, primary, or adapted for secondary"
-    - field: "documentation_format"
-      type: "string"
-      description: "How the documentation will be displayed — wall panel, learning journal, digital portfolio, class book"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum area, if applicable"
-    - field: "team_context"
-      type: "string"
-      description: "Whether the teacher is documenting alone or as part of a team"
-    - field: "available_tools"
-      type: "string"
-      description: "Documentation tools available — camera, video, audio recorder, iPad, paper and pen"
-output_schema:
-  type: "object"
-  fields:
-    - field: "documentation_protocol"
-      type: "object"
-      description: "The complete protocol — what to observe, how to record, how to interpret, how to share"
-    - field: "observation_focus"
-      type: "object"
-      description: "What to watch and listen for — specific aspects of children's thinking, theory-building, and meaning-making"
-    - field: "recording_strategies"
-      type: "array"
-      description: "How to capture evidence — photographs, transcriptions of dialogue, video, children's work samples"
-    - field: "interpretation_framework"
-      type: "object"
-      description: "How to interpret what was documented — what the evidence reveals about children's thinking and learning"
-    - field: "sharing_plan"
-      type: "object"
-      description: "How to share the documentation — with children (revisiting and extending learning), with families, with colleagues"
-chains_well_with:
-  - "emergent-project-design-scaffold"
-  - "awe-wonder-experience-designer"
-  - "reflective-practice-prompt-generator"
-  - "lesson-observation-protocol-designer"
-teacher_time: "3 minutes"
-tags: ["Reggio-Emilia", "documentation", "Rinaldi", "Malaguzzi", "visible-learning-processes", "early-years", "primary", "observation"]
 ---
 
 # Reggio Documentation Protocol
@@ -257,3 +190,94 @@ Based on the documentation, the teacher plans the NEXT provocation (not the next
 2. **The Reggio approach was developed for early childhood and primary education.** While Krechevsky et al. (2013) have shown it can be adapted for older students, the documentation practices described here are most naturally suited to early years and primary settings where children's learning is more visible and less constrained by subject timetables. Adaptation for secondary contexts requires rethinking what "children's theories" look like in subject-specific learning.
 
 3. **Documentation is a pedagogical stance, not a technique.** The protocol provides practical guidance, but Reggio documentation requires a fundamental belief in the child as a capable, competent theory-builder. A teacher who documents children's words while privately dismissing them as "cute mistakes" has missed the point. The documentation is only as powerful as the respect with which it treats children's thinking.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/reggio-documentation-protocol
+skill_name: Reggio Documentation Protocol
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Rinaldi (2006) — In Dialogue with Reggio Emilia: listening, researching and learning'
+- Malaguzzi (1993) — For an education based on relationships
+- 'Krechevsky, Mardell, Rivard & Wilson (2013) — Visible Learners: promoting Reggio-inspired
+  approaches in all schools'
+- 'Edwards, Gandini & Forman (2012) — The Hundred Languages of Children: the Reggio
+  Emilia experience in transformation (3rd edition)'
+- 'Giudici, Rinaldi & Krechevsky (2001) — Making Learning Visible: children as individual
+  and group learners'
+input_schema:
+  required:
+  - field: learning_experience
+    type: string
+    description: The learning activity, project, or investigation to be documented
+      — what children are doing and exploring
+  - field: documentation_purpose
+    type: string
+    description: Why the documentation is being created — making learning visible,
+      informing next steps, communicating with families, professional reflection
+  optional:
+  - field: student_level
+    type: string
+    description: Age group — early years, primary, or adapted for secondary
+  - field: documentation_format
+    type: string
+    description: How the documentation will be displayed — wall panel, learning journal,
+      digital portfolio, class book
+  - field: subject_area
+    type: string
+    description: The curriculum area, if applicable
+  - field: team_context
+    type: string
+    description: Whether the teacher is documenting alone or as part of a team
+  - field: available_tools
+    type: string
+    description: Documentation tools available — camera, video, audio recorder, iPad,
+      paper and pen
+output_schema:
+  type: object
+  fields:
+  - field: documentation_protocol
+    type: object
+    description: The complete protocol — what to observe, how to record, how to interpret,
+      how to share
+  - field: observation_focus
+    type: object
+    description: What to watch and listen for — specific aspects of children's thinking,
+      theory-building, and meaning-making
+  - field: recording_strategies
+    type: array
+    description: How to capture evidence — photographs, transcriptions of dialogue,
+      video, children's work samples
+  - field: interpretation_framework
+    type: object
+    description: How to interpret what was documented — what the evidence reveals
+      about children's thinking and learning
+  - field: sharing_plan
+    type: object
+    description: How to share the documentation — with children (revisiting and extending
+      learning), with families, with colleagues
+chains_well_with:
+- emergent-project-design-scaffold
+- awe-wonder-experience-designer
+- reflective-practice-prompt-generator
+- lesson-observation-protocol-designer
+teacher_time: 3 minutes
+tags:
+- Reggio-Emilia
+- documentation
+- Rinaldi
+- Malaguzzi
+- visible-learning-processes
+- early-years
+- primary
+- observation
+```

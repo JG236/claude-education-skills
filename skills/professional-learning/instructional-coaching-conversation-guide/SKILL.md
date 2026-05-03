@@ -1,71 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: instructional-coaching-conversation-guide
 description: "Generate a coaching conversation guide with questions, protocols, and follow-up actions for a teaching focus. Use when preparing for coaching sessions, mentoring, or peer feedback conversations."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/instructional-coaching-conversation-guide"
-skill_name: "Instructional Coaching Conversation Guide"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Knight (2007) — Instructional Coaching: a partnership approach to improving instruction"
-  - "Knight (2018) — The Impact Cycle: what instructional coaches should do to foster powerful improvements in teaching"
-  - "Kraft, Blazar & Hogan (2018) — The effect of teacher coaching on instruction and achievement: a meta-analysis"
-  - "Costa & Garmston (2016) — Cognitive Coaching: developing self-directed leaders and learners"
-  - "Aguilar (2013) — The Art of Coaching: effective strategies for school transformation"
-input_schema:
-  required:
-    - field: "coaching_focus"
-      type: "string"
-      description: "The specific teaching practice or challenge being worked on — what the teacher wants to improve"
-    - field: "teacher_context"
-      type: "string"
-      description: "Brief context about the teacher — experience level, subject, current situation"
-  optional:
-    - field: "observation_data"
-      type: "string"
-      description: "Data from a lesson observation, student work, or video — evidence to ground the conversation"
-    - field: "coaching_phase"
-      type: "string"
-      description: "Where in the coaching cycle — initial goal-setting, mid-cycle check-in, or reflection on impact"
-    - field: "relationship_stage"
-      type: "string"
-      description: "New coaching relationship, established trust, or challenging dynamic"
-    - field: "teacher_disposition"
-      type: "string"
-      description: "The teacher's current stance — eager, resistant, overwhelmed, confident, uncertain"
-    - field: "school_context"
-      type: "string"
-      description: "Relevant school features — coaching programme structure, leadership expectations"
-output_schema:
-  type: "object"
-  fields:
-    - field: "conversation_plan"
-      type: "object"
-      description: "A structured coaching conversation with specific questions, anticipated responses, and facilitator moves"
-    - field: "questioning_sequence"
-      type: "array"
-      description: "Questions sequenced from reflective to analytical to action-planning"
-    - field: "dialogue_strategies"
-      type: "object"
-      description: "Specific strategies for the coach — pausing, paraphrasing, probing, providing data"
-    - field: "next_steps"
-      type: "string"
-      description: "Clear, specific next steps with accountability — what the teacher will try and when the coach will follow up"
-chains_well_with:
-  - "lesson-study-cycle-designer"
-  - "lesson-observation-protocol-designer"
-  - "reflective-practice-prompt-generator"
-  - "teacher-inquiry-cycle-designer"
-  - "pedagogical-content-knowledge-developer"
-teacher_time: "4 minutes"
-tags: ["coaching", "instructional-coaching", "Knight", "professional-learning", "feedback", "dialogue"]
 ---
 
 # Instructional Coaching Conversation Guide
@@ -283,3 +218,90 @@ Question 8: "Here's what I'd suggest. In your next lesson, pick 3 moments where 
 2. **Coaching is most effective as part of a sustained cycle.** One coaching conversation produces limited change. The meta-analysis by Kraft et al. (2018) found that coaching effects come from sustained cycles of goal-setting, observation, feedback, and adjustment. This conversation plan is one step in what should be an ongoing cycle.
 
 3. **The coach needs coaching skills, not just the conversation plan.** Reading a script of questions is not the same as facilitating a genuine coaching dialogue. The pausing, paraphrasing, probing, and responsive facilitation described above require practice. Coaches should receive training and, ideally, coaching on their own coaching practice.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/instructional-coaching-conversation-guide
+skill_name: Instructional Coaching Conversation Guide
+domain: professional-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Knight (2007) — Instructional Coaching: a partnership approach to improving instruction'
+- 'Knight (2018) — The Impact Cycle: what instructional coaches should do to foster
+  powerful improvements in teaching'
+- 'Kraft, Blazar & Hogan (2018) — The effect of teacher coaching on instruction and
+  achievement: a meta-analysis'
+- 'Costa & Garmston (2016) — Cognitive Coaching: developing self-directed leaders
+  and learners'
+- 'Aguilar (2013) — The Art of Coaching: effective strategies for school transformation'
+input_schema:
+  required:
+  - field: coaching_focus
+    type: string
+    description: The specific teaching practice or challenge being worked on — what
+      the teacher wants to improve
+  - field: teacher_context
+    type: string
+    description: Brief context about the teacher — experience level, subject, current
+      situation
+  optional:
+  - field: observation_data
+    type: string
+    description: Data from a lesson observation, student work, or video — evidence
+      to ground the conversation
+  - field: coaching_phase
+    type: string
+    description: Where in the coaching cycle — initial goal-setting, mid-cycle check-in,
+      or reflection on impact
+  - field: relationship_stage
+    type: string
+    description: New coaching relationship, established trust, or challenging dynamic
+  - field: teacher_disposition
+    type: string
+    description: The teacher's current stance — eager, resistant, overwhelmed, confident,
+      uncertain
+  - field: school_context
+    type: string
+    description: Relevant school features — coaching programme structure, leadership
+      expectations
+output_schema:
+  type: object
+  fields:
+  - field: conversation_plan
+    type: object
+    description: A structured coaching conversation with specific questions, anticipated
+      responses, and facilitator moves
+  - field: questioning_sequence
+    type: array
+    description: Questions sequenced from reflective to analytical to action-planning
+  - field: dialogue_strategies
+    type: object
+    description: Specific strategies for the coach — pausing, paraphrasing, probing,
+      providing data
+  - field: next_steps
+    type: string
+    description: Clear, specific next steps with accountability — what the teacher
+      will try and when the coach will follow up
+chains_well_with:
+- lesson-study-cycle-designer
+- lesson-observation-protocol-designer
+- reflective-practice-prompt-generator
+- teacher-inquiry-cycle-designer
+- pedagogical-content-knowledge-developer
+teacher_time: 4 minutes
+tags:
+- coaching
+- instructional-coaching
+- Knight
+- professional-learning
+- feedback
+- dialogue
+```

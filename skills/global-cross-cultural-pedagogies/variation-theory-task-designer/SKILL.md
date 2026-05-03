@@ -1,68 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: variation-theory-task-designer
 description: "Design a variation theory task using contrast, separation, and fusion to teach critical features of a concept. Use when students confuse similar concepts or fail to discern key distinctions."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/variation-theory-task-designer"
-skill_name: "Variation Theory Task Designer"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Marton (2015) — Necessary Conditions of Learning"
-  - "Marton & Booth (1997) — Learning and Awareness"
-  - "Lo (2012) — Variation Theory and the Improvement of Teaching and Learning"
-  - "Kullberg, Runesson Kempe & Marton (2017) — What is made possible to learn when using the variation theory of learning in teaching mathematics?"
-  - "Gu, Huang & Marton (2004) — Teaching with variation: a Chinese way of promoting effective Mathematics learning"
-input_schema:
-  required:
-    - field: "object_of_learning"
-      type: "string"
-      description: "The specific concept, skill, or distinction students need to learn — what they should be able to discern after the task"
-    - field: "common_confusion"
-      type: "string"
-      description: "What students typically confuse, conflate, or fail to distinguish — the critical feature they miss"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and prior knowledge"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "current_task"
-      type: "string"
-      description: "The existing task or activity that could be redesigned using variation theory"
-    - field: "lesson_context"
-      type: "string"
-      description: "Where this fits in the sequence — introduction, consolidation, revision"
-output_schema:
-  type: "object"
-  fields:
-    - field: "variation_analysis"
-      type: "object"
-      description: "Analysis of the object of learning — what must vary and what must remain invariant for students to discern the critical feature"
-    - field: "task_sequence"
-      type: "array"
-      description: "A sequence of examples/tasks using systematic variation — contrast, separation, generalisation, fusion"
-    - field: "teacher_guidance"
-      type: "object"
-      description: "How to present the variation — what to draw attention to, what questions to ask"
-    - field: "assessment_check"
-      type: "string"
-      description: "How to verify that students can now discern the critical feature"
-chains_well_with:
-  - "explicit-instruction-sequence-builder"
-  - "worked-example-fading-designer"
-  - "cpa-sequence-designer"
-  - "diagnostic-question-generator"
-  - "curriculum-knowledge-architecture-designer"
-teacher_time: "3 minutes"
-tags: ["variation-theory", "Marton", "discernment", "contrast", "critical-features", "Hong-Kong", "Sweden", "mathematics-education"]
 ---
 
 # Variation Theory Task Designer
@@ -289,3 +227,85 @@ If students can do this, they have discerned the critical feature: area and peri
 2. **The theory was developed primarily in mathematics and science education contexts.** While the principles of discernment through variation are domain-general, the specific patterns (contrast, separation, generalisation, fusion) have been most thoroughly researched and validated in mathematics classrooms in Hong Kong, Sweden, and mainland China. Application to other subjects and cultural contexts should be thoughtful, not mechanical.
 
 3. **Variation theory addresses one aspect of learning — discernment — not the whole picture.** Students also need motivation, practice, feedback, and application. A perfectly designed variation sequence will fail if students are not engaged, do not have sufficient prior knowledge, or do not practise sufficiently after discerning the concept. Variation theory is a powerful lens for task design, not a complete theory of instruction.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/variation-theory-task-designer
+skill_name: Variation Theory Task Designer
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Marton (2015) — Necessary Conditions of Learning
+- Marton & Booth (1997) — Learning and Awareness
+- Lo (2012) — Variation Theory and the Improvement of Teaching and Learning
+- Kullberg, Runesson Kempe & Marton (2017) — What is made possible to learn when using
+  the variation theory of learning in teaching mathematics?
+- 'Gu, Huang & Marton (2004) — Teaching with variation: a Chinese way of promoting
+  effective Mathematics learning'
+input_schema:
+  required:
+  - field: object_of_learning
+    type: string
+    description: The specific concept, skill, or distinction students need to learn
+      — what they should be able to discern after the task
+  - field: common_confusion
+    type: string
+    description: What students typically confuse, conflate, or fail to distinguish
+      — the critical feature they miss
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and prior knowledge
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: current_task
+    type: string
+    description: The existing task or activity that could be redesigned using variation
+      theory
+  - field: lesson_context
+    type: string
+    description: Where this fits in the sequence — introduction, consolidation, revision
+output_schema:
+  type: object
+  fields:
+  - field: variation_analysis
+    type: object
+    description: Analysis of the object of learning — what must vary and what must
+      remain invariant for students to discern the critical feature
+  - field: task_sequence
+    type: array
+    description: A sequence of examples/tasks using systematic variation — contrast,
+      separation, generalisation, fusion
+  - field: teacher_guidance
+    type: object
+    description: How to present the variation — what to draw attention to, what questions
+      to ask
+  - field: assessment_check
+    type: string
+    description: How to verify that students can now discern the critical feature
+chains_well_with:
+- explicit-instruction-sequence-builder
+- worked-example-fading-designer
+- cpa-sequence-designer
+- diagnostic-question-generator
+- curriculum-knowledge-architecture-designer
+teacher_time: 3 minutes
+tags:
+- variation-theory
+- Marton
+- discernment
+- contrast
+- critical-features
+- Hong-Kong
+- Sweden
+- mathematics-education
+```

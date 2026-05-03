@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: agency-scaffold-generator
 description: "Generate scaffolds that gradually increase student choice, voice, and ownership within a learning task. Use when students depend heavily on teacher direction and need to develop autonomy."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/agency-scaffold-generator"
-skill_name: "Agency Scaffold Generator"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Zimmerman (2002) — Becoming a self-regulated learner: an overview"
-  - "Deci & Ryan (2000) — The 'what' and 'why' of goal pursuits: human needs and self-determination"
-  - "Reeve & Tseng (2011) — Agency as a fourth aspect of student engagement"
-  - "Manyukhina & Wyse (2019) — Learner agency and the curriculum: a critical realist perspective"
-  - "Mercer (2011) — Understanding learner agency as a complex dynamic system"
-input_schema:
-  required:
-    - field: "current_task"
-      type: "string"
-      description: "The learning task or activity where agency will be scaffolded"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "current_agency_level"
-      type: "string"
-      description: "Where students currently are — e.g. dependent on teacher direction, some independence, mostly self-directed"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "learning_objective"
-      type: "string"
-      description: "What students should learn"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class data, prior independence levels, specific needs"
-    - field: "agency_dimension"
-      type: "string"
-      description: "Which dimension of agency to focus on — choice of topic, process, product, criteria, or timeline"
-output_schema:
-  type: "object"
-  fields:
-    - field: "agency_scaffold"
-      type: "object"
-      description: "A progressive release scaffold from teacher-directed to student-directed in specific, named steps"
-    - field: "choice_architecture"
-      type: "object"
-      description: "Structured choices at each level — not open-ended but increasingly open"
-    - field: "safety_nets"
-      type: "array"
-      description: "What happens when students make poor choices — how to recover without removing agency"
-    - field: "teacher_role_shifts"
-      type: "array"
-      description: "How the teacher's role changes at each level — from director to facilitator to consultant"
-chains_well_with:
-  - "motivation-diagnostic-task-redesign"
-  - "self-efficacy-builder-sequence"
-  - "self-regulated-learning-strategy-selector"
-  - "metacognitive-prompt-generator"
-teacher_time: "3 minutes"
-tags: ["agency", "student-voice", "choice", "autonomy", "self-regulation", "gradual-release"]
 ---
 
 # Agency Scaffold Generator
@@ -251,3 +187,86 @@ The long-term goal is not permanent Level 4 in all contexts. Some tasks are appr
 2. **Agency scaffolding takes multiple cycles to show results.** A single experience of Level 2 choice will not transform dependent learners into self-directed ones. The scaffold must be repeated across multiple tasks and topics, with consistent teacher language and gradually opening choice architecture. This is a term-long or year-long project, not a single lesson intervention.
 
 3. **Some curriculum contexts constrain agency.** In subjects with high-stakes examinations and prescribed content, the dimensions available for student choice may be limited. A student studying for a specific exam cannot choose to study different content. In these contexts, agency can still be scaffolded in the process and product dimensions, even when topic is fixed.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/agency-scaffold-generator
+skill_name: Agency Scaffold Generator
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Zimmerman (2002) — Becoming a self-regulated learner: an overview'
+- 'Deci & Ryan (2000) — The ''what'' and ''why'' of goal pursuits: human needs and
+  self-determination'
+- Reeve & Tseng (2011) — Agency as a fourth aspect of student engagement
+- 'Manyukhina & Wyse (2019) — Learner agency and the curriculum: a critical realist
+  perspective'
+- Mercer (2011) — Understanding learner agency as a complex dynamic system
+input_schema:
+  required:
+  - field: current_task
+    type: string
+    description: The learning task or activity where agency will be scaffolded
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: current_agency_level
+    type: string
+    description: Where students currently are — e.g. dependent on teacher direction,
+      some independence, mostly self-directed
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: learning_objective
+    type: string
+    description: What students should learn
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class data, prior independence levels, specific
+      needs'
+  - field: agency_dimension
+    type: string
+    description: Which dimension of agency to focus on — choice of topic, process,
+      product, criteria, or timeline
+output_schema:
+  type: object
+  fields:
+  - field: agency_scaffold
+    type: object
+    description: A progressive release scaffold from teacher-directed to student-directed
+      in specific, named steps
+  - field: choice_architecture
+    type: object
+    description: Structured choices at each level — not open-ended but increasingly
+      open
+  - field: safety_nets
+    type: array
+    description: What happens when students make poor choices — how to recover without
+      removing agency
+  - field: teacher_role_shifts
+    type: array
+    description: How the teacher's role changes at each level — from director to facilitator
+      to consultant
+chains_well_with:
+- motivation-diagnostic-task-redesign
+- self-efficacy-builder-sequence
+- self-regulated-learning-strategy-selector
+- metacognitive-prompt-generator
+teacher_time: 3 minutes
+tags:
+- agency
+- student-voice
+- choice
+- autonomy
+- self-regulation
+- gradual-release
+```

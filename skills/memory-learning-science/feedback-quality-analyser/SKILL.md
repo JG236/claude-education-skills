@@ -1,65 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: feedback-quality-analyser
 description: "Analyse existing written feedback for quality, specificity, actionability, and impact on student learning. Use when reviewing teacher or peer feedback to improve feedback practices."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/feedback-quality-analyser"
-skill_name: "Feedback Quality Analyser & Rewriter"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Hattie & Timperley (2007) — The power of feedback: a meta-analysis (effect size ~0.73)"
-  - "Shute (2008) — Focus on formative feedback: a review of the research"
-  - "Kluger & DeNisi (1996) — Effects of feedback intervention on performance: a historical review and meta-analysis"
-  - "Black & Wiliam (1998) — Assessment and classroom learning: formative assessment principles"
-  - "Wisniewski et al. (2020) — The power of feedback revisited: a meta-analysis of educational feedback research"
-input_schema:
-  required:
-    - field: "feedback_text"
-      type: "string"
-      description: "The existing feedback to analyse (teacher-written or peer-written)"
-    - field: "task_context"
-      type: "string"
-      description: "What the student was asked to do and the learning objective"
-  optional:
-    - field: "student_work_summary"
-      type: "string"
-      description: "Brief summary of the student work the feedback refers to"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and ability profile"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: self-regulation level, language proficiency, sensitivity factors"
-    - field: "rubric"
-      type: "string"
-      description: "From context engine: the rubric or success criteria used for this task"
-output_schema:
-  type: "object"
-  fields:
-    - field: "analysis"
-      type: "object"
-      description: "Diagnosis of feedback level, specificity, and actionability using Hattie & Timperley's model"
-    - field: "rewritten_feedback"
-      type: "string"
-      description: "Improved version addressing identified weaknesses"
-    - field: "improvement_rationale"
-      type: "string"
-      description: "What was changed and why, referencing evidence"
-chains_well_with:
-  - "gap-analysis-from-student-work"
-  - "criterion-referenced-rubric-generator"
-  - "self-regulation-scaffold-generator"
-  - "metacognitive-prompt-library"
-  - "kud-knowledge-type-mapper"
-teacher_time: "3 minutes"
-tags: ["feedback", "formative-assessment", "metacognition", "writing", "assessment"]
 ---
 
 # Feedback Quality Analyser & Rewriter
@@ -227,3 +168,78 @@ Your quotation choices are effective, but your analysis stays at the surface. Fo
 2. **Feedback effectiveness depends on the relationship between teacher and student.** Wisniewski et al. (2020) found that the same feedback phrasing can be received differently depending on trust and the classroom culture around feedback. The rewrite assumes a supportive classroom environment. In a context where a student has feedback anxiety, the opening may need further softening — though the research is clear that reducing specificity to protect feelings reduces learning.
 
 3. **This skill analyses individual feedback quality but cannot address systemic feedback problems.** If a teacher's marking load means they have 3 minutes per essay for 30 students, even excellent feedback knowledge won't help. Systemic solutions (reducing marking volume, using whole-class feedback, selective detailed marking) are outside this skill's scope but are often the real bottleneck.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/feedback-quality-analyser
+skill_name: Feedback Quality Analyser & Rewriter
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Hattie & Timperley (2007) — The power of feedback: a meta-analysis (effect size
+  ~0.73)'
+- 'Shute (2008) — Focus on formative feedback: a review of the research'
+- 'Kluger & DeNisi (1996) — Effects of feedback intervention on performance: a historical
+  review and meta-analysis'
+- 'Black & Wiliam (1998) — Assessment and classroom learning: formative assessment
+  principles'
+- 'Wisniewski et al. (2020) — The power of feedback revisited: a meta-analysis of
+  educational feedback research'
+input_schema:
+  required:
+  - field: feedback_text
+    type: string
+    description: The existing feedback to analyse (teacher-written or peer-written)
+  - field: task_context
+    type: string
+    description: What the student was asked to do and the learning objective
+  optional:
+  - field: student_work_summary
+    type: string
+    description: Brief summary of the student work the feedback refers to
+  - field: student_level
+    type: string
+    description: Age/year group and ability profile
+  - field: student_profiles
+    type: array
+    description: 'From context engine: self-regulation level, language proficiency,
+      sensitivity factors'
+  - field: rubric
+    type: string
+    description: 'From context engine: the rubric or success criteria used for this
+      task'
+output_schema:
+  type: object
+  fields:
+  - field: analysis
+    type: object
+    description: Diagnosis of feedback level, specificity, and actionability using
+      Hattie & Timperley's model
+  - field: rewritten_feedback
+    type: string
+    description: Improved version addressing identified weaknesses
+  - field: improvement_rationale
+    type: string
+    description: What was changed and why, referencing evidence
+chains_well_with:
+- gap-analysis-from-student-work
+- criterion-referenced-rubric-generator
+- self-regulation-scaffold-generator
+- metacognitive-prompt-library
+- kud-knowledge-type-mapper
+teacher_time: 3 minutes
+tags:
+- feedback
+- formative-assessment
+- metacognition
+- writing
+- assessment
+```

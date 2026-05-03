@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: place-based-inquiry-anchor
 description: "Anchor curriculum learning in a specific local place with connections to community, culture, and identity. Use when connecting academic content to students' local environment and heritage."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/place-based-inquiry-anchor"
-skill_name: "Place-Based Inquiry Anchor"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Castagno & Brayboy (2008) — Culturally responsive schooling for Indigenous youth: a review of the literature"
-  - "Gruenewald (2003) — The best of both worlds: a critical pedagogy of place"
-  - "Sobel (2004) — Place-Based Education: connecting classrooms and communities"
-  - "Smith (2002) — Place-based education: learning to be where we are"
-  - "Bang, Medin & Atran (2007) — Cultural mosaics and mental models of nature"
-input_schema:
-  required:
-    - field: "curriculum_content"
-      type: "string"
-      description: "The academic content or skills to be taught"
-    - field: "local_place"
-      type: "string"
-      description: "The specific place that anchors the inquiry — a local river, park, neighbourhood, building, or landscape feature"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "indigenous_connections"
-      type: "string"
-      description: "Whether the local place has Indigenous history or cultural significance"
-    - field: "community_knowledge_holders"
-      type: "string"
-      description: "People in the community with deep knowledge of the place — farmers, historians, elders, environmental groups"
-    - field: "access_constraints"
-      type: "string"
-      description: "Whether students can visit the place, or whether the inquiry must be conducted from the classroom"
-output_schema:
-  type: "object"
-  fields:
-    - field: "place_based_inquiry"
-      type: "object"
-      description: "The complete inquiry design — anchored in a specific local place, connecting academic content to place-based knowledge"
-    - field: "place_knowledge"
-      type: "object"
-      description: "What the place itself teaches — what can be learned from direct engagement with this specific location"
-    - field: "multiple_knowledge_systems"
-      type: "object"
-      description: "How the inquiry honours multiple ways of knowing the place — scientific, historical, cultural, Indigenous, experiential"
-    - field: "action_dimension"
-      type: "object"
-      description: "How the inquiry leads to responsible action in relation to the place — stewardship, advocacy, or service"
-chains_well_with:
-  - "culturally-responsive-teaching-designer"
-  - "ubuntu-collective-knowledge-task-designer"
-  - "phenomenon-based-unit-anchor"
-  - "awe-wonder-experience-designer"
-teacher_time: "4 minutes"
-tags: ["place-based", "Indigenous-education", "Castagno-Brayboy", "Gruenewald", "local", "land", "stewardship", "decolonising"]
 ---
 
 # Place-Based Inquiry Anchor
@@ -262,3 +198,87 @@ The report is shared with the canal trust at a presentation session. Students pr
 2. **Place-based inquiry takes more time than textbook-based teaching.** The canal inquiry above takes 8 lessons — more than a typical ecosystems unit. The depth of understanding is greater, and students develop fieldwork skills alongside conceptual knowledge. But teachers under curriculum time pressure may struggle to justify the additional time. Where time is limited, a single field visit with focused inquiry can provide some of the benefits.
 
 3. **Honouring multiple knowledge systems requires cultural competence.** The teacher must be comfortable inviting and valuing community knowledge alongside scientific knowledge — and must handle situations where knowledge systems may appear to conflict. This requires cultural sensitivity, a willingness to sit with complexity, and an understanding that "different ways of knowing" is not relativism but epistemological pluralism.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/place-based-inquiry-anchor
+skill_name: Place-Based Inquiry Anchor
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Castagno & Brayboy (2008) — Culturally responsive schooling for Indigenous youth:
+  a review of the literature'
+- 'Gruenewald (2003) — The best of both worlds: a critical pedagogy of place'
+- 'Sobel (2004) — Place-Based Education: connecting classrooms and communities'
+- 'Smith (2002) — Place-based education: learning to be where we are'
+- Bang, Medin & Atran (2007) — Cultural mosaics and mental models of nature
+input_schema:
+  required:
+  - field: curriculum_content
+    type: string
+    description: The academic content or skills to be taught
+  - field: local_place
+    type: string
+    description: The specific place that anchors the inquiry — a local river, park,
+      neighbourhood, building, or landscape feature
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: indigenous_connections
+    type: string
+    description: Whether the local place has Indigenous history or cultural significance
+  - field: community_knowledge_holders
+    type: string
+    description: People in the community with deep knowledge of the place — farmers,
+      historians, elders, environmental groups
+  - field: access_constraints
+    type: string
+    description: Whether students can visit the place, or whether the inquiry must
+      be conducted from the classroom
+output_schema:
+  type: object
+  fields:
+  - field: place_based_inquiry
+    type: object
+    description: The complete inquiry design — anchored in a specific local place,
+      connecting academic content to place-based knowledge
+  - field: place_knowledge
+    type: object
+    description: What the place itself teaches — what can be learned from direct engagement
+      with this specific location
+  - field: multiple_knowledge_systems
+    type: object
+    description: How the inquiry honours multiple ways of knowing the place — scientific,
+      historical, cultural, Indigenous, experiential
+  - field: action_dimension
+    type: object
+    description: How the inquiry leads to responsible action in relation to the place
+      — stewardship, advocacy, or service
+chains_well_with:
+- culturally-responsive-teaching-designer
+- ubuntu-collective-knowledge-task-designer
+- phenomenon-based-unit-anchor
+- awe-wonder-experience-designer
+teacher_time: 4 minutes
+tags:
+- place-based
+- Indigenous-education
+- Castagno-Brayboy
+- Gruenewald
+- local
+- land
+- stewardship
+- decolonising
+```

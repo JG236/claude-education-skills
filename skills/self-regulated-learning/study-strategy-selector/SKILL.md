@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: study-strategy-selector
 description: "Select evidence-based study strategies matched to material type, learning goal, and student habits. Use when advising students on revision techniques, homework, or independent study approaches."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "self-regulated-learning/study-strategy-selector"
-skill_name: "Study Strategy Selector & Guide"
-domain: "self-regulated-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Dunlosky et al. (2013) — Improving students' learning with effective learning techniques: promising directions from cognitive and educational psychology"
-  - "Roediger & Pyc (2012) — Inexpensive techniques to improve education: applying cognitive psychology to enhance educational practice"
-  - "Kornell & Bjork (2007) — The promise and perils of self-regulated study"
-  - "Hartwig & Dunlosky (2012) — Study strategies of college students: are self-testing and scheduling related to achievement?"
-  - "Miyatsu et al. (2018) — Five popular study strategies: their pitfalls and optimal implementations"
-input_schema:
-  required:
-    - field: "learning_task"
-      type: "string"
-      description: "The specific study task or learning goal"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current study habits"
-    - field: "material_type"
-      type: "string"
-      description: "Type of material: factual/conceptual/procedural/mixed"
-  optional:
-    - field: "time_available"
-      type: "string"
-      description: "How much study time the student has"
-    - field: "assessment_type"
-      type: "string"
-      description: "What they're studying for: exam, essay, presentation, practical"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: current study habits, academic performance data"
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context for domain-specific strategy adaptations"
-output_schema:
-  type: "object"
-  fields:
-    - field: "recommended_strategies"
-      type: "array"
-      description: "Ranked list of strategies with evidence rating, implementation guide, and time allocation"
-    - field: "strategies_to_avoid"
-      type: "array"
-      description: "Common but ineffective strategies students should replace"
-    - field: "study_plan"
-      type: "string"
-      description: "A concrete study plan applying the recommended strategies to this specific task"
-    - field: "student_guide"
-      type: "string"
-      description: "Copy-pasteable student-facing strategy guide"
-chains_well_with:
-  - "retrieval-practice-generator"
-  - "spaced-practice-scheduler"
-  - "metacognitive-prompt-library"
-  - "goal-setting-protocol-designer"
-teacher_time: "3 minutes"
-tags: ["study-skills", "learning-strategies", "revision", "self-regulation", "metacognition"]
 ---
 
 # Study Strategy Selector & Guide
@@ -292,3 +228,83 @@ Highlighting marks text but doesn't process it. You're deciding what's important
 2. **The strategy recommendations assume students have access to accurate study materials.** If a student's notes contain errors, retrieval practice may reinforce those errors. The "check and correct" step is essential but relies on having a reliable source to check against.
 
 3. **Dunlosky et al.'s (2013) utility ratings are based primarily on studies of verbal learning (text comprehension, factual recall).** Transfer to highly practical subjects (PE, music performance, art, design technology) is less well-established. For procedural skills, interleaved practice is well-evidenced, but the "close your notes and retrieve" approach needs adaptation — physical rehearsal and deliberate practice may be more appropriate.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: self-regulated-learning/study-strategy-selector
+skill_name: Study Strategy Selector & Guide
+domain: self-regulated-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Dunlosky et al. (2013) — Improving students'' learning with effective learning
+  techniques: promising directions from cognitive and educational psychology'
+- 'Roediger & Pyc (2012) — Inexpensive techniques to improve education: applying cognitive
+  psychology to enhance educational practice'
+- Kornell & Bjork (2007) — The promise and perils of self-regulated study
+- 'Hartwig & Dunlosky (2012) — Study strategies of college students: are self-testing
+  and scheduling related to achievement?'
+- 'Miyatsu et al. (2018) — Five popular study strategies: their pitfalls and optimal
+  implementations'
+input_schema:
+  required:
+  - field: learning_task
+    type: string
+    description: The specific study task or learning goal
+  - field: student_level
+    type: string
+    description: Age/year group and current study habits
+  - field: material_type
+    type: string
+    description: 'Type of material: factual/conceptual/procedural/mixed'
+  optional:
+  - field: time_available
+    type: string
+    description: How much study time the student has
+  - field: assessment_type
+    type: string
+    description: 'What they''re studying for: exam, essay, presentation, practical'
+  - field: student_profiles
+    type: array
+    description: 'From context engine: current study habits, academic performance
+      data'
+  - field: subject_area
+    type: string
+    description: Subject context for domain-specific strategy adaptations
+output_schema:
+  type: object
+  fields:
+  - field: recommended_strategies
+    type: array
+    description: Ranked list of strategies with evidence rating, implementation guide,
+      and time allocation
+  - field: strategies_to_avoid
+    type: array
+    description: Common but ineffective strategies students should replace
+  - field: study_plan
+    type: string
+    description: A concrete study plan applying the recommended strategies to this
+      specific task
+  - field: student_guide
+    type: string
+    description: Copy-pasteable student-facing strategy guide
+chains_well_with:
+- retrieval-practice-generator
+- spaced-practice-scheduler
+- metacognitive-prompt-library
+- goal-setting-protocol-designer
+teacher_time: 3 minutes
+tags:
+- study-skills
+- learning-strategies
+- revision
+- self-regulation
+- metacognition
+```

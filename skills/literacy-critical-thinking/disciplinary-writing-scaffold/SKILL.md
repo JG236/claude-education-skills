@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: disciplinary-writing-scaffold
 description: "Create a writing scaffold teaching the genre conventions specific to an academic discipline. Use when students write lab reports, historical essays, or other discipline-specific text types."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "literacy-critical-thinking/disciplinary-writing-scaffold"
-skill_name: "Disciplinary Writing Scaffold"
-domain: "literacy-critical-thinking"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Halliday (1993) — Towards a language-based theory of learning"
-  - "Martin & Rose (2008) — Genre Relations: mapping culture"
-  - "Christie & Derewianka (2008) — School Discourse: learning to write across the years of schooling"
-  - "Graham & Perin (2007) — Writing Next: effective strategies to improve writing of adolescents"
-  - "Shanahan & Shanahan (2008) — Teaching disciplinary literacy to adolescents"
-input_schema:
-  required:
-    - field: "writing_task"
-      type: "string"
-      description: "The specific writing task students must complete"
-    - field: "discipline"
-      type: "string"
-      description: "The subject area — e.g. Science, History, English Literature, Mathematics, Geography"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current writing competence in this discipline"
-  optional:
-    - field: "genre"
-      type: "string"
-      description: "The specific genre — e.g. lab report, historical explanation, literary analysis, mathematical proof, geographical case study"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: writing levels, language proficiency, EAL status"
-    - field: "assessment_criteria"
-      type: "string"
-      description: "Marking criteria or rubric the writing will be assessed against"
-    - field: "model_text"
-      type: "string"
-      description: "An exemplar or model text students have seen"
-output_schema:
-  type: "object"
-  fields:
-    - field: "scaffold"
-      type: "object"
-      description: "Structured writing scaffold with discipline-specific sections, purpose of each section, and language features"
-    - field: "language_toolkit"
-      type: "object"
-      description: "Discipline-specific vocabulary, sentence starters, connectives, and hedging language"
-    - field: "annotated_model"
-      type: "string"
-      description: "A brief annotated example showing the scaffold in use with discipline-specific language features labelled"
-    - field: "differentiation"
-      type: "object"
-      description: "Support and extension modifications"
-chains_well_with:
-  - "argument-structure-scaffold-generator"
-  - "vocabulary-tiering-tool"
-  - "academic-language-sentence-frame-generator"
-  - "text-complexity-analyser"
-  - "pedagogical-content-knowledge-developer"
-  - "critical-thinking-task-designer"
-teacher_time: "3 minutes"
-tags: ["disciplinary-literacy", "writing", "genre-pedagogy", "scaffold", "academic-language"]
 ---
 
 # Disciplinary Writing Scaffold
@@ -285,3 +219,85 @@ Sentence starters:
 2. **Disciplinary writing conventions exist on a spectrum, not in rigid categories.** The scaffold presents clear genre structures, but real disciplinary writing is more fluid — a historical argument might include scientific evidence, a literary analysis might draw on historical context. The scaffold teaches the core genre conventions first; blending genres is an advanced skill that should come after students have mastered the basic structures.
 
 3. **Writing scaffolds cannot replace content knowledge.** A student who doesn't understand why enzymes denature at high temperatures cannot write a good science conclusion, no matter how strong the scaffold. The scaffold structures the expression of understanding — it cannot create understanding where none exists. Teachers should ensure the science (or history, or literary understanding) is secure before asking students to write about it.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: literacy-critical-thinking/disciplinary-writing-scaffold
+skill_name: Disciplinary Writing Scaffold
+domain: literacy-critical-thinking
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Halliday (1993) — Towards a language-based theory of learning
+- 'Martin & Rose (2008) — Genre Relations: mapping culture'
+- 'Christie & Derewianka (2008) — School Discourse: learning to write across the years
+  of schooling'
+- 'Graham & Perin (2007) — Writing Next: effective strategies to improve writing of
+  adolescents'
+- Shanahan & Shanahan (2008) — Teaching disciplinary literacy to adolescents
+input_schema:
+  required:
+  - field: writing_task
+    type: string
+    description: The specific writing task students must complete
+  - field: discipline
+    type: string
+    description: The subject area — e.g. Science, History, English Literature, Mathematics,
+      Geography
+  - field: student_level
+    type: string
+    description: Age/year group and current writing competence in this discipline
+  optional:
+  - field: genre
+    type: string
+    description: The specific genre — e.g. lab report, historical explanation, literary
+      analysis, mathematical proof, geographical case study
+  - field: student_profiles
+    type: array
+    description: 'From context engine: writing levels, language proficiency, EAL status'
+  - field: assessment_criteria
+    type: string
+    description: Marking criteria or rubric the writing will be assessed against
+  - field: model_text
+    type: string
+    description: An exemplar or model text students have seen
+output_schema:
+  type: object
+  fields:
+  - field: scaffold
+    type: object
+    description: Structured writing scaffold with discipline-specific sections, purpose
+      of each section, and language features
+  - field: language_toolkit
+    type: object
+    description: Discipline-specific vocabulary, sentence starters, connectives, and
+      hedging language
+  - field: annotated_model
+    type: string
+    description: A brief annotated example showing the scaffold in use with discipline-specific
+      language features labelled
+  - field: differentiation
+    type: object
+    description: Support and extension modifications
+chains_well_with:
+- argument-structure-scaffold-generator
+- vocabulary-tiering-tool
+- academic-language-sentence-frame-generator
+- text-complexity-analyser
+- pedagogical-content-knowledge-developer
+- critical-thinking-task-designer
+teacher_time: 3 minutes
+tags:
+- disciplinary-literacy
+- writing
+- genre-pedagogy
+- scaffold
+- academic-language
+```

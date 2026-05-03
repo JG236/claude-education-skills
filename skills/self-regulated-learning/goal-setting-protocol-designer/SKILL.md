@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: goal-setting-protocol-designer
 description: "Design a structured goal-setting protocol using SMART or implementation-intention frameworks for students. Use when launching units, projects, or developing student self-direction habits."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "self-regulated-learning/goal-setting-protocol-designer"
-skill_name: "Goal-Setting Protocol Designer"
-domain: "self-regulated-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Locke & Latham (1990) — A Theory of Goal Setting and Task Performance"
-  - "Locke & Latham (2002) — Building a practically useful theory of goal setting and task motivation"
-  - "Zimmerman & Bandura (1994) — Impact of self-regulatory influences on writing course attainment"
-  - "Schunk (1990) — Goal setting and self-efficacy during self-regulated learning"
-  - "Morisano et al. (2010) — Setting, elaborating, and reflecting on personal goals improves academic performance"
-input_schema:
-  required:
-    - field: "learning_context"
-      type: "string"
-      description: "The unit, project, or task students are setting goals for"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and goal-setting experience level"
-    - field: "timeframe"
-      type: "string"
-      description: "Duration over which goals will be pursued"
-  optional:
-    - field: "goal_type"
-      type: "string"
-      description: "Process goals, outcome goals, or both"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: self-efficacy levels, previous goal-setting data"
-    - field: "success_criteria"
-      type: "string"
-      description: "From context engine: rubric or assessment criteria for the task"
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context"
-output_schema:
-  type: "object"
-  fields:
-    - field: "protocol"
-      type: "object"
-      description: "Step-by-step goal-setting protocol with teacher script and student templates"
-    - field: "goal_examples"
-      type: "array"
-      description: "Modelled examples of weak vs. strong goals for this context"
-    - field: "monitoring_checkpoints"
-      type: "array"
-      description: "Scheduled check-in points for goal progress review"
-    - field: "student_template"
-      type: "string"
-      description: "Copy-pasteable goal-setting template for students"
-chains_well_with:
-  - "self-regulation-scaffold-generator"
-  - "metacognitive-prompt-library"
-  - "agency-scaffold-generator"
-  - "self-efficacy-builder-sequence"
-teacher_time: "4 minutes"
-tags: ["goal-setting", "motivation", "self-regulation", "planning", "self-efficacy"]
 ---
 
 # Goal-Setting Protocol Designer
@@ -258,3 +194,81 @@ How I'd prove it: _______________
 2. **Process goals require teachers to value process, not just outcomes.** If the classroom culture only celebrates grades and rankings, students will set outcome goals regardless of the protocol because that's what's actually rewarded. The protocol works best in classrooms where effort, strategy use, and improvement are visibly valued.
 
 3. **Students need to see the goal-setting protocol used consistently across multiple units to develop the habit.** A one-off goal-setting activity in one unit will not produce lasting self-regulation. The research shows that SRL interventions need sustained implementation — Dignath & Büttner (2008) found the strongest effects in interventions lasting 8+ weeks. Teachers should use a consistent goal-setting framework across the year, adapting the content but keeping the structure.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: self-regulated-learning/goal-setting-protocol-designer
+skill_name: Goal-Setting Protocol Designer
+domain: self-regulated-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Locke & Latham (1990) — A Theory of Goal Setting and Task Performance
+- Locke & Latham (2002) — Building a practically useful theory of goal setting and
+  task motivation
+- Zimmerman & Bandura (1994) — Impact of self-regulatory influences on writing course
+  attainment
+- Schunk (1990) — Goal setting and self-efficacy during self-regulated learning
+- Morisano et al. (2010) — Setting, elaborating, and reflecting on personal goals
+  improves academic performance
+input_schema:
+  required:
+  - field: learning_context
+    type: string
+    description: The unit, project, or task students are setting goals for
+  - field: student_level
+    type: string
+    description: Age/year group and goal-setting experience level
+  - field: timeframe
+    type: string
+    description: Duration over which goals will be pursued
+  optional:
+  - field: goal_type
+    type: string
+    description: Process goals, outcome goals, or both
+  - field: student_profiles
+    type: array
+    description: 'From context engine: self-efficacy levels, previous goal-setting
+      data'
+  - field: success_criteria
+    type: string
+    description: 'From context engine: rubric or assessment criteria for the task'
+  - field: subject_area
+    type: string
+    description: Subject context
+output_schema:
+  type: object
+  fields:
+  - field: protocol
+    type: object
+    description: Step-by-step goal-setting protocol with teacher script and student
+      templates
+  - field: goal_examples
+    type: array
+    description: Modelled examples of weak vs. strong goals for this context
+  - field: monitoring_checkpoints
+    type: array
+    description: Scheduled check-in points for goal progress review
+  - field: student_template
+    type: string
+    description: Copy-pasteable goal-setting template for students
+chains_well_with:
+- self-regulation-scaffold-generator
+- metacognitive-prompt-library
+- agency-scaffold-generator
+- self-efficacy-builder-sequence
+teacher_time: 4 minutes
+tags:
+- goal-setting
+- motivation
+- self-regulation
+- planning
+- self-efficacy
+```

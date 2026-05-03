@@ -1,74 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: lesson-study-cycle-designer
 description: "Design a complete lesson study cycle from research question through collaborative planning to research lesson. Use when planning jugyou kenkyuu or collaborative teacher inquiry into practice."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/lesson-study-cycle-designer"
-skill_name: "Lesson Study Cycle Designer"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Stigler & Hiebert (1999) — The Teaching Gap: best ideas from the world's teachers for improving education in the classroom"
-  - "Lewis, Perry & Murata (2006) — How should research contribute to instructional improvement? The case of lesson study"
-  - "Dudley (2014) — Lesson Study: a handbook"
-  - "Takahashi & McDougal (2016) — Collaborative lesson research: maximizing the impact of lesson study"
-  - "Fernandez & Yoshida (2004) — Lesson Study: a Japanese approach to improving mathematics teaching and learning"
-input_schema:
-  required:
-    - field: "teaching_challenge"
-      type: "string"
-      description: "The specific teaching problem or student learning difficulty the lesson study will investigate"
-    - field: "subject_and_topic"
-      type: "string"
-      description: "The subject, topic, and year group for the research lesson"
-    - field: "team_composition"
-      type: "string"
-      description: "Who is in the lesson study group — number of teachers, experience levels, subjects"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group of the students"
-    - field: "available_time"
-      type: "string"
-      description: "How much time the team has — number of meetings, release time available"
-    - field: "previous_lesson_study"
-      type: "string"
-      description: "Whether the team has done lesson study before"
-    - field: "school_context"
-      type: "string"
-      description: "Relevant features of the school — phase, demographics, improvement priorities"
-    - field: "case_students"
-      type: "string"
-      description: "The 3 'case students' who will be the focus of observation — their profiles"
-output_schema:
-  type: "object"
-  fields:
-    - field: "research_theme"
-      type: "string"
-      description: "The overarching question the lesson study investigates"
-    - field: "cycle_plan"
-      type: "object"
-      description: "The complete lesson study cycle — planning, teaching, observing, reflecting, revising"
-    - field: "research_lesson_plan"
-      type: "object"
-      description: "A detailed lesson plan designed for collaborative observation"
-    - field: "observation_protocol"
-      type: "object"
-      description: "What observers should watch for, how to record observations, and how to structure the post-lesson discussion"
-chains_well_with:
-  - "instructional-coaching-conversation-guide"
-  - "lesson-observation-protocol-designer"
-  - "reflective-practice-prompt-generator"
-  - "teacher-inquiry-cycle-designer"
-  - "pedagogical-content-knowledge-developer"
-teacher_time: "5 minutes"
-tags: ["lesson-study", "jugyou-kenkyuu", "collaborative-planning", "research-lesson", "professional-learning"]
 ---
 
 # Lesson Study Cycle Designer
@@ -320,3 +252,90 @@ One final compound shape, done independently. No discussion, no partner help. Th
 2. **Lesson study requires a culture of trust.** Being observed by colleagues is vulnerable. If the school culture is evaluative (observations are judgements, not learning), teachers will not feel safe enough for genuine lesson study. The facilitator (typically the most experienced team member) must actively protect the discussion norms: research, not evaluation.
 
 3. **Lesson study builds knowledge slowly.** One cycle produces modest insights. The power of lesson study is cumulative — repeated cycles over years build deep professional knowledge about how students learn. Schools should commit to lesson study as an ongoing practice, not a one-off event.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/lesson-study-cycle-designer
+skill_name: Lesson Study Cycle Designer
+domain: professional-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Stigler & Hiebert (1999) — The Teaching Gap: best ideas from the world''s teachers
+  for improving education in the classroom'
+- Lewis, Perry & Murata (2006) — How should research contribute to instructional improvement?
+  The case of lesson study
+- 'Dudley (2014) — Lesson Study: a handbook'
+- 'Takahashi & McDougal (2016) — Collaborative lesson research: maximizing the impact
+  of lesson study'
+- 'Fernandez & Yoshida (2004) — Lesson Study: a Japanese approach to improving mathematics
+  teaching and learning'
+input_schema:
+  required:
+  - field: teaching_challenge
+    type: string
+    description: The specific teaching problem or student learning difficulty the
+      lesson study will investigate
+  - field: subject_and_topic
+    type: string
+    description: The subject, topic, and year group for the research lesson
+  - field: team_composition
+    type: string
+    description: Who is in the lesson study group — number of teachers, experience
+      levels, subjects
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group of the students
+  - field: available_time
+    type: string
+    description: How much time the team has — number of meetings, release time available
+  - field: previous_lesson_study
+    type: string
+    description: Whether the team has done lesson study before
+  - field: school_context
+    type: string
+    description: Relevant features of the school — phase, demographics, improvement
+      priorities
+  - field: case_students
+    type: string
+    description: The 3 'case students' who will be the focus of observation — their
+      profiles
+output_schema:
+  type: object
+  fields:
+  - field: research_theme
+    type: string
+    description: The overarching question the lesson study investigates
+  - field: cycle_plan
+    type: object
+    description: The complete lesson study cycle — planning, teaching, observing,
+      reflecting, revising
+  - field: research_lesson_plan
+    type: object
+    description: A detailed lesson plan designed for collaborative observation
+  - field: observation_protocol
+    type: object
+    description: What observers should watch for, how to record observations, and
+      how to structure the post-lesson discussion
+chains_well_with:
+- instructional-coaching-conversation-guide
+- lesson-observation-protocol-designer
+- reflective-practice-prompt-generator
+- teacher-inquiry-cycle-designer
+- pedagogical-content-knowledge-developer
+teacher_time: 5 minutes
+tags:
+- lesson-study
+- jugyou-kenkyuu
+- collaborative-planning
+- research-lesson
+- professional-learning
+```

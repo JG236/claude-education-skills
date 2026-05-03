@@ -1,64 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: metacognitive-prompt-library
 description: "Build a library of metacognitive prompts targeting planning, monitoring, or evaluation for a specific task. Use when developing students' thinking-about-thinking during independent work."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "self-regulated-learning/metacognitive-prompt-library"
-skill_name: "Metacognitive Prompt Library"
-domain: "self-regulated-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Flavell (1979) — Metacognition and cognitive monitoring: a new area of cognitive-developmental inquiry"
-  - "Veenman et al. (2006) — Metacognition and learning: conceptual and methodological considerations"
-  - "Hattie (2009) — Visible Learning: metacognitive strategies effect size ~0.69"
-  - "Schraw (1998) — Promoting general metacognitive awareness"
-  - "Tanner (2012) — Promoting student metacognition in the sciences"
-input_schema:
-  required:
-    - field: "task_description"
-      type: "string"
-      description: "The specific learning task students are completing"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and metacognitive development level"
-    - field: "metacognitive_focus"
-      type: "string"
-      description: "Which metacognitive skill to target: monitoring, evaluating, planning, or debugging"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context for domain-specific metacognitive prompts"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: individual metacognitive profiles, common stuck points"
-    - field: "task_phase"
-      type: "string"
-      description: "When prompts will be used: before, during, or after the task"
-output_schema:
-  type: "object"
-  fields:
-    - field: "prompts"
-      type: "array"
-      description: "Ordered set of metacognitive prompts with type labels and usage timing"
-    - field: "teacher_script"
-      type: "string"
-      description: "How to introduce and model metacognitive prompting"
-    - field: "student_card"
-      type: "string"
-      description: "Copy-pasteable prompt card for student use"
-chains_well_with:
-  - "self-regulation-scaffold-generator"
-  - "study-strategy-selector"
-  - "error-analysis-protocol"
-  - "elaborative-interrogation-generator"
-teacher_time: "3 minutes"
-tags: ["metacognition", "monitoring", "thinking-about-thinking", "self-regulation", "comprehension"]
 ---
 
 # Metacognitive Prompt Library
@@ -238,3 +180,74 @@ That process — estimating first, checking against context, asking whether my a
 2. **Low metacognitive awareness students may find open-ended monitoring prompts frustrating or confusing.** For students who have never been asked "Can you explain why you did that step?", the initial experience is uncomfortable. Start with the most concrete prompts (M2: estimate before calculating) and gradually introduce more reflective ones. Do not launch all prompts simultaneously.
 
 3. **Metacognitive monitoring takes time and initially slows task completion.** Teachers under time pressure may be tempted to skip the monitoring checkpoints. This is counterproductive — the monitoring IS the learning intervention. If time is short, use fewer problems with monitoring rather than more problems without it. Quality of processing beats quantity of practice.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: self-regulated-learning/metacognitive-prompt-library
+skill_name: Metacognitive Prompt Library
+domain: self-regulated-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Flavell (1979) — Metacognition and cognitive monitoring: a new area of cognitive-developmental
+  inquiry'
+- 'Veenman et al. (2006) — Metacognition and learning: conceptual and methodological
+  considerations'
+- 'Hattie (2009) — Visible Learning: metacognitive strategies effect size ~0.69'
+- Schraw (1998) — Promoting general metacognitive awareness
+- Tanner (2012) — Promoting student metacognition in the sciences
+input_schema:
+  required:
+  - field: task_description
+    type: string
+    description: The specific learning task students are completing
+  - field: student_level
+    type: string
+    description: Age/year group and metacognitive development level
+  - field: metacognitive_focus
+    type: string
+    description: 'Which metacognitive skill to target: monitoring, evaluating, planning,
+      or debugging'
+  optional:
+  - field: subject_area
+    type: string
+    description: Subject context for domain-specific metacognitive prompts
+  - field: student_profiles
+    type: array
+    description: 'From context engine: individual metacognitive profiles, common stuck
+      points'
+  - field: task_phase
+    type: string
+    description: 'When prompts will be used: before, during, or after the task'
+output_schema:
+  type: object
+  fields:
+  - field: prompts
+    type: array
+    description: Ordered set of metacognitive prompts with type labels and usage timing
+  - field: teacher_script
+    type: string
+    description: How to introduce and model metacognitive prompting
+  - field: student_card
+    type: string
+    description: Copy-pasteable prompt card for student use
+chains_well_with:
+- self-regulation-scaffold-generator
+- study-strategy-selector
+- error-analysis-protocol
+- elaborative-interrogation-generator
+teacher_time: 3 minutes
+tags:
+- metacognition
+- monitoring
+- thinking-about-thinking
+- self-regulation
+- comprehension
+```

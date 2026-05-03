@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: media-literacy-deconstruction-protocol
 description: "Design a media deconstruction protocol analysing persuasion, bias, or representation in media texts. Use when teaching students to critically read advertisements, news, or social media content."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "literacy-critical-thinking/media-literacy-deconstruction-protocol"
-skill_name: "Media Literacy Deconstruction Protocol"
-domain: "literacy-critical-thinking"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Hobbs (2010) — Digital and Media Literacy: a plan of action"
-  - "Buckingham (2003) — Media Education: literacy, learning and contemporary culture"
-  - "Kellner & Share (2007) — Critical media literacy, democracy, and the reconstruction of education"
-  - "Aufderheide (1993) — Media Literacy: a report of the national leadership conference on media literacy"
-  - "Hobbs & Jensen (2009) — The past, present, and future of media literacy education"
-input_schema:
-  required:
-    - field: "media_type"
-      type: "string"
-      description: "The type of media text being analysed — e.g. advertisement, news article, social media post, political campaign material, film clip, infographic, podcast"
-    - field: "analysis_focus"
-      type: "string"
-      description: "What the teacher wants students to notice — e.g. persuasive techniques, representation, bias, audience targeting, omission"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "specific_text"
-      type: "string"
-      description: "Description of the specific media text being analysed"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: prior media literacy experience, cultural background"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject context — e.g. English, PSHE, Media Studies, Citizenship"
-    - field: "learning_objectives"
-      type: "string"
-      description: "Specific learning objectives for this analysis"
-output_schema:
-  type: "object"
-  fields:
-    - field: "deconstruction_protocol"
-      type: "object"
-      description: "Structured analysis framework with media-type-specific questions organised by analytical category"
-    - field: "teacher_modelling"
-      type: "string"
-      description: "Script showing the teacher modelling the analysis with a specific example"
-    - field: "student_activity"
-      type: "object"
-      description: "Structured activity students complete using the protocol"
-    - field: "extension_questions"
-      type: "array"
-      description: "Deeper analytical questions for students who complete the basic protocol"
-chains_well_with:
-  - "source-credibility-evaluation-protocol"
-  - "critical-thinking-task-designer"
-  - "argument-structure-scaffold-generator"
-  - "socratic-questioning-sequence-generator"
-teacher_time: "3 minutes"
-tags: ["media-literacy", "critical-thinking", "representation", "persuasion", "deconstruction"]
 ---
 
 # Media Literacy Deconstruction Protocol
@@ -293,3 +229,84 @@ Students swap advertisements with a partner and compare analyses. Focus question
 2. **The protocol reflects a primarily Western media analysis tradition.** Media conventions, advertising techniques, and audience expectations vary across cultures. Students from different cultural backgrounds may read the same media text differently — these differences should be treated as enriching the analysis, not as errors. The protocol should be adapted when analysing media from non-Western contexts.
 
 3. **Analysing media critically is not the same as rejecting all media.** A risk of media literacy instruction is that students become cynical rather than critical — distrusting everything rather than evaluating specifically. The protocol should help students distinguish between legitimate persuasion (which is transparent about its purpose) and manipulation (which disguises its purpose), not teach them that all media is deceptive.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: literacy-critical-thinking/media-literacy-deconstruction-protocol
+skill_name: Media Literacy Deconstruction Protocol
+domain: literacy-critical-thinking
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Hobbs (2010) — Digital and Media Literacy: a plan of action'
+- 'Buckingham (2003) — Media Education: literacy, learning and contemporary culture'
+- Kellner & Share (2007) — Critical media literacy, democracy, and the reconstruction
+  of education
+- 'Aufderheide (1993) — Media Literacy: a report of the national leadership conference
+  on media literacy'
+- Hobbs & Jensen (2009) — The past, present, and future of media literacy education
+input_schema:
+  required:
+  - field: media_type
+    type: string
+    description: The type of media text being analysed — e.g. advertisement, news
+      article, social media post, political campaign material, film clip, infographic,
+      podcast
+  - field: analysis_focus
+    type: string
+    description: What the teacher wants students to notice — e.g. persuasive techniques,
+      representation, bias, audience targeting, omission
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: specific_text
+    type: string
+    description: Description of the specific media text being analysed
+  - field: student_profiles
+    type: array
+    description: 'From context engine: prior media literacy experience, cultural background'
+  - field: subject_area
+    type: string
+    description: The curriculum subject context — e.g. English, PSHE, Media Studies,
+      Citizenship
+  - field: learning_objectives
+    type: string
+    description: Specific learning objectives for this analysis
+output_schema:
+  type: object
+  fields:
+  - field: deconstruction_protocol
+    type: object
+    description: Structured analysis framework with media-type-specific questions
+      organised by analytical category
+  - field: teacher_modelling
+    type: string
+    description: Script showing the teacher modelling the analysis with a specific
+      example
+  - field: student_activity
+    type: object
+    description: Structured activity students complete using the protocol
+  - field: extension_questions
+    type: array
+    description: Deeper analytical questions for students who complete the basic protocol
+chains_well_with:
+- source-credibility-evaluation-protocol
+- critical-thinking-task-designer
+- argument-structure-scaffold-generator
+- socratic-questioning-sequence-generator
+teacher_time: 3 minutes
+tags:
+- media-literacy
+- critical-thinking
+- representation
+- persuasion
+- deconstruction
+```

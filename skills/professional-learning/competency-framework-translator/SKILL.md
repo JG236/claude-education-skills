@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: competency-framework-translator
 description: "Translate an external competency framework like DigComp, GreenComp, or ISTE into classroom-ready activities. Use when implementing framework standards in specific teaching contexts."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/competency-framework-translator"
-skill_name: "Competency Framework Translator"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Wiggins & McTighe (2005) — Understanding by Design: translating standards into classroom practice"
-  - "Marzano & Kendall (2007) — The New Taxonomy of Educational Objectives: operationalising competencies"
-  - "European Commission (2022) — DigComp 2.2: the Digital Competence Framework for Citizens"
-  - "Bianchi, Pisiotis & Cabrera (2022) — GreenComp: the European sustainability competence framework"
-  - "UNESCO (2023) — Guidance for generative AI in education and research"
-input_schema:
-  required:
-    - field: "framework_reference"
-      type: "string"
-      description: "The external competency framework to translate — name, specific competency area, and level/descriptor to work with"
-    - field: "target_context"
-      type: "string"
-      description: "The teaching context — subject, year group, and what the teacher wants students to DO with this competency"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "framework_text"
-      type: "string"
-      description: "The actual text of the competency descriptor to translate — paste the official wording"
-    - field: "integration_approach"
-      type: "string"
-      description: "Whether the competency will be taught standalone, embedded in subject content, or assessed as a cross-curricular outcome"
-    - field: "assessment_needs"
-      type: "string"
-      description: "How the teacher needs to assess the competency — formative, summative, portfolio, observation"
-output_schema:
-  type: "object"
-  fields:
-    - field: "translated_competency"
-      type: "object"
-      description: "The competency rewritten as specific, observable indicators appropriate for the target context"
-    - field: "progression_levels"
-      type: "array"
-      description: "3–4 levels showing what the competency looks like at developing, competent, and advanced stages"
-    - field: "classroom_tasks"
-      type: "array"
-      description: "Specific tasks or activities that require students to demonstrate the competency"
-    - field: "assessment_criteria"
-      type: "object"
-      description: "How to assess whether a student has developed the competency — observable indicators at each level"
-chains_well_with:
-  - "competency-unpacker"
-  - "criterion-referenced-rubric-generator"
-  - "backwards-design-unit-planner"
-  - "project-brief-designer"
-  - "curriculum-knowledge-architecture-designer"
-  - "scope-and-sequence-designer"
-teacher_time: "4 minutes"
-tags: ["competency-frameworks", "DigComp", "GreenComp", "ISTE", "UNESCO-AI", "translation", "observable-indicators"]
 ---
 
 # Competency Framework Translator
@@ -261,3 +195,93 @@ The translation is faithful to the DigComp intent but specific to the History cl
 3. **Competency frameworks are not curricula.** A competency framework describes what students should be able to do but not how to teach it, when to teach it, or how to assess it. The translation provides these elements, but they are pedagogical decisions informed by the framework, not dictated by it. Teachers should adapt the tasks and criteria to fit their specific curriculum and students.
 
 4. **Not all frameworks are equally well-evidenced.** DigComp and GreenComp are policy frameworks developed through stakeholder consultation, not through educational research trials. The competencies they describe are reasonable and important, but their specific descriptors and proficiency levels are not empirically validated in the way that, say, Hattie's effect sizes are. Teachers should treat framework descriptors as useful organising structures, not as scientifically established learning progressions.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/competency-framework-translator
+skill_name: Competency Framework Translator
+domain: professional-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Wiggins & McTighe (2005) — Understanding by Design: translating standards into
+  classroom practice'
+- 'Marzano & Kendall (2007) — The New Taxonomy of Educational Objectives: operationalising
+  competencies'
+- 'European Commission (2022) — DigComp 2.2: the Digital Competence Framework for
+  Citizens'
+- 'Bianchi, Pisiotis & Cabrera (2022) — GreenComp: the European sustainability competence
+  framework'
+- UNESCO (2023) — Guidance for generative AI in education and research
+input_schema:
+  required:
+  - field: framework_reference
+    type: string
+    description: The external competency framework to translate — name, specific competency
+      area, and level/descriptor to work with
+  - field: target_context
+    type: string
+    description: The teaching context — subject, year group, and what the teacher
+      wants students to DO with this competency
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: framework_text
+    type: string
+    description: The actual text of the competency descriptor to translate — paste
+      the official wording
+  - field: integration_approach
+    type: string
+    description: Whether the competency will be taught standalone, embedded in subject
+      content, or assessed as a cross-curricular outcome
+  - field: assessment_needs
+    type: string
+    description: How the teacher needs to assess the competency — formative, summative,
+      portfolio, observation
+output_schema:
+  type: object
+  fields:
+  - field: translated_competency
+    type: object
+    description: The competency rewritten as specific, observable indicators appropriate
+      for the target context
+  - field: progression_levels
+    type: array
+    description: 3–4 levels showing what the competency looks like at developing,
+      competent, and advanced stages
+  - field: classroom_tasks
+    type: array
+    description: Specific tasks or activities that require students to demonstrate
+      the competency
+  - field: assessment_criteria
+    type: object
+    description: How to assess whether a student has developed the competency — observable
+      indicators at each level
+chains_well_with:
+- competency-unpacker
+- criterion-referenced-rubric-generator
+- backwards-design-unit-planner
+- project-brief-designer
+- curriculum-knowledge-architecture-designer
+- scope-and-sequence-designer
+teacher_time: 4 minutes
+tags:
+- competency-frameworks
+- DigComp
+- GreenComp
+- ISTE
+- UNESCO-AI
+- translation
+- observable-indicators
+```

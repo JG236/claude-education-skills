@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: ruler-emotional-literacy-sequence
 description: "Design a RULER emotional literacy sequence for recognising, understanding, labelling, expressing, and regulating emotions. Use when students struggle with emotional regulation, conflict, or anxiety."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/ruler-emotional-literacy-sequence"
-skill_name: "RULER Emotional Literacy Sequence"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Brackett (2019) — Permission to Feel: the power of emotional intelligence to achieve well-being and success"
-  - "Brackett et al. (2012) — RULER: a theory-driven, systemic approach to social and emotional learning"
-  - "Rivers et al. (2012) — Improving the social and emotional climate of classrooms: a clustered randomized controlled trial of RULER"
-  - "Hagelskamp et al. (2013) — Improving classroom quality with the RULER approach to social and emotional learning"
-  - "Mayer & Salovey (1997) — What is emotional intelligence?"
-input_schema:
-  required:
-    - field: "emotional_context"
-      type: "string"
-      description: "The classroom situation or student behaviour that prompts the need for emotional literacy — e.g. conflict, anxiety before assessments, difficulty collaborating, emotional outbursts"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject — for integration of RULER into academic content"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class emotional climate data, specific student needs"
-    - field: "time_available"
-      type: "string"
-      description: "How much time can be allocated — embedded in lesson, tutor time, or dedicated session"
-    - field: "ruler_familiarity"
-      type: "string"
-      description: "Whether students have previous experience with RULER tools — Mood Meter, Meta-Moment, Blueprint"
-output_schema:
-  type: "object"
-  fields:
-    - field: "ruler_sequence"
-      type: "object"
-      description: "A structured sequence using RULER skills — Recognising, Understanding, Labelling, Expressing, Regulating"
-    - field: "tool_selection"
-      type: "string"
-      description: "Which RULER tool(s) are most appropriate — Mood Meter, Meta-Moment, Blueprint, or Charter"
-    - field: "integration_plan"
-      type: "object"
-      description: "How to embed the RULER sequence into academic content or classroom routines"
-    - field: "teacher_modelling"
-      type: "string"
-      description: "How the teacher should model the RULER skills — emotional literacy starts with the teacher"
-chains_well_with:
-  - "belonging-classroom-culture-designer"
-  - "trauma-informed-practice-designer"
-  - "restorative-practice-protocol-designer"
-  - "perma-based-lesson-designer"
-teacher_time: "3 minutes"
-tags: ["RULER", "emotional-intelligence", "Brackett", "Yale", "SEL", "emotional-literacy", "mood-meter"]
 ---
 
 # RULER Emotional Literacy Sequence
@@ -241,3 +180,88 @@ Before introducing the tools to students, the teacher models their own emotional
 2. **Emotional literacy does not replace clinical support.** Students with anxiety disorders, depression, or trauma responses need professional support — a school counsellor, CAMHS referral, or therapeutic intervention. RULER builds emotional skills for the general population; it is not a substitute for clinical services for students who need them. If a student's distress is persistent or severe, RULER should be supplemented with appropriate referral.
 
 3. **The teacher must genuinely model.** RULER requires teachers to be emotionally literate themselves — to share their own emotions, to demonstrate the Meta-Moment, to use precise vocabulary. Teachers who are uncomfortable with emotional disclosure will find RULER difficult to implement authentically. Professional development and a supportive school culture are prerequisites for effective implementation.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/ruler-emotional-literacy-sequence
+skill_name: RULER Emotional Literacy Sequence
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Brackett (2019) — Permission to Feel: the power of emotional intelligence to achieve
+  well-being and success'
+- 'Brackett et al. (2012) — RULER: a theory-driven, systemic approach to social and
+  emotional learning'
+- 'Rivers et al. (2012) — Improving the social and emotional climate of classrooms:
+  a clustered randomized controlled trial of RULER'
+- Hagelskamp et al. (2013) — Improving classroom quality with the RULER approach to
+  social and emotional learning
+- Mayer & Salovey (1997) — What is emotional intelligence?
+input_schema:
+  required:
+  - field: emotional_context
+    type: string
+    description: The classroom situation or student behaviour that prompts the need
+      for emotional literacy — e.g. conflict, anxiety before assessments, difficulty
+      collaborating, emotional outbursts
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject — for integration of RULER into academic content
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class emotional climate data, specific student
+      needs'
+  - field: time_available
+    type: string
+    description: How much time can be allocated — embedded in lesson, tutor time,
+      or dedicated session
+  - field: ruler_familiarity
+    type: string
+    description: Whether students have previous experience with RULER tools — Mood
+      Meter, Meta-Moment, Blueprint
+output_schema:
+  type: object
+  fields:
+  - field: ruler_sequence
+    type: object
+    description: A structured sequence using RULER skills — Recognising, Understanding,
+      Labelling, Expressing, Regulating
+  - field: tool_selection
+    type: string
+    description: Which RULER tool(s) are most appropriate — Mood Meter, Meta-Moment,
+      Blueprint, or Charter
+  - field: integration_plan
+    type: object
+    description: How to embed the RULER sequence into academic content or classroom
+      routines
+  - field: teacher_modelling
+    type: string
+    description: How the teacher should model the RULER skills — emotional literacy
+      starts with the teacher
+chains_well_with:
+- belonging-classroom-culture-designer
+- trauma-informed-practice-designer
+- restorative-practice-protocol-designer
+- perma-based-lesson-designer
+teacher_time: 3 minutes
+tags:
+- RULER
+- emotional-intelligence
+- Brackett
+- Yale
+- SEL
+- emotional-literacy
+- mood-meter
+```

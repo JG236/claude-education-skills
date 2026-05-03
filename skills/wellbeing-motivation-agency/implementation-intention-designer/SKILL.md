@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: implementation-intention-designer
 description: "Create if-then implementation intentions and WOOP plans for specific student behaviour change goals. Use when students know what to do but struggle to follow through on habits or routines."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/implementation-intention-designer"
-skill_name: "Implementation Intention Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Gollwitzer (1999) — Implementation intentions: strong effects of simple plans"
-  - "Gollwitzer & Sheeran (2006) — Implementation intentions and goal attainment: a meta-analysis"
-  - "Duckworth et al. (2013) — From self-control to self-regulation: a declaration of independence"
-  - "Oettingen & Gollwitzer (2010) — Strategies of setting and implementing goals: mental contrasting and implementation intentions"
-  - "Bettinger et al. (2012) — The role of application assistance and information in college decisions"
-input_schema:
-  required:
-    - field: "target_behaviour"
-      type: "string"
-      description: "The specific behaviour or habit the student needs to develop — what they should START doing or STOP doing"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "current_barrier"
-      type: "string"
-      description: "What currently prevents the student from doing the target behaviour — the specific obstacle"
-    - field: "context"
-      type: "string"
-      description: "Whether this is for an individual student, a small group, or a whole class"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: prior behaviour patterns, goals, self-regulation capacity"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject, if the implementation intention is academic"
-    - field: "time_horizon"
-      type: "string"
-      description: "How long the behaviour change needs to be maintained — one lesson, one week, one term"
-output_schema:
-  type: "object"
-  fields:
-    - field: "implementation_intention"
-      type: "object"
-      description: "The specific if-then plan — the trigger, the behaviour, and the context"
-    - field: "mental_contrasting"
-      type: "object"
-      description: "The WOOP framework — Wish, Outcome, Obstacle, Plan"
-    - field: "student_script"
-      type: "string"
-      description: "The exact wording for the student to write, say, or rehearse"
-    - field: "monitoring_plan"
-      type: "object"
-      description: "How to track whether the implementation intention is being used and whether it's working"
-chains_well_with:
-  - "self-efficacy-builder-sequence"
-  - "agency-scaffold-generator"
-  - "self-regulated-learning-strategy-selector"
-  - "metacognitive-prompt-generator"
-teacher_time: "2 minutes"
-tags: ["implementation-intentions", "Gollwitzer", "if-then-plans", "WOOP", "habits", "self-regulation", "behaviour-change"]
 ---
 
 # Implementation Intention Designer
@@ -247,3 +183,88 @@ This feeling means it's working. Re-reading is a comfort blanket. Retrieval prac
 2. **Implementation intentions are most effective for simple, discrete behaviours.** "Start revision with retrieval practice" is a clear, discrete action. "Become a better student" is too complex for a single implementation intention. Complex behaviour change requires multiple implementation intentions targeting different specific actions.
 
 3. **External obstacles override implementation intentions.** If the student's home environment prevents revision (no quiet space, caring responsibilities, family disruption), the most perfectly designed implementation intention will not help. The teacher must understand the student's context and address environmental barriers before expecting behaviour change from planning alone.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/implementation-intention-designer
+skill_name: Implementation Intention Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Gollwitzer (1999) — Implementation intentions: strong effects of simple plans'
+- 'Gollwitzer & Sheeran (2006) — Implementation intentions and goal attainment: a
+  meta-analysis'
+- 'Duckworth et al. (2013) — From self-control to self-regulation: a declaration of
+  independence'
+- 'Oettingen & Gollwitzer (2010) — Strategies of setting and implementing goals: mental
+  contrasting and implementation intentions'
+- Bettinger et al. (2012) — The role of application assistance and information in
+  college decisions
+input_schema:
+  required:
+  - field: target_behaviour
+    type: string
+    description: The specific behaviour or habit the student needs to develop — what
+      they should START doing or STOP doing
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: current_barrier
+    type: string
+    description: What currently prevents the student from doing the target behaviour
+      — the specific obstacle
+  - field: context
+    type: string
+    description: Whether this is for an individual student, a small group, or a whole
+      class
+  - field: student_profiles
+    type: array
+    description: 'From context engine: prior behaviour patterns, goals, self-regulation
+      capacity'
+  - field: subject_area
+    type: string
+    description: The curriculum subject, if the implementation intention is academic
+  - field: time_horizon
+    type: string
+    description: How long the behaviour change needs to be maintained — one lesson,
+      one week, one term
+output_schema:
+  type: object
+  fields:
+  - field: implementation_intention
+    type: object
+    description: The specific if-then plan — the trigger, the behaviour, and the context
+  - field: mental_contrasting
+    type: object
+    description: The WOOP framework — Wish, Outcome, Obstacle, Plan
+  - field: student_script
+    type: string
+    description: The exact wording for the student to write, say, or rehearse
+  - field: monitoring_plan
+    type: object
+    description: How to track whether the implementation intention is being used and
+      whether it's working
+chains_well_with:
+- self-efficacy-builder-sequence
+- agency-scaffold-generator
+- self-regulated-learning-strategy-selector
+- metacognitive-prompt-generator
+teacher_time: 2 minutes
+tags:
+- implementation-intentions
+- Gollwitzer
+- if-then-plans
+- WOOP
+- habits
+- self-regulation
+- behaviour-change
+```

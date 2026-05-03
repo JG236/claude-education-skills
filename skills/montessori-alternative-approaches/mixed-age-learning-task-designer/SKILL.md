@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: mixed-age-learning-task-designer
 description: "Design a learning task where mixed-age students work together with mutual benefit for all age groups. Use when planning cross-age tutoring, vertical grouping, or multi-year group activities."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "montessori-alternative-approaches/mixed-age-learning-task-designer"
-skill_name: "Mixed-Age Learning Task Designer"
-domain: "montessori-alternative-approaches"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Lillard & Else-Quest (2006) — Evaluating Montessori education (Science)"
-  - "Hattie (2009) — Visible learning: peer tutoring effect size 0.55"
-  - "Topping (2005) — Trends in peer learning (meta-analysis of peer tutoring effects)"
-  - "Vygotsky (1978) — Mind in society: the development of higher psychological processes (ZPD)"
-  - "Lillard (2005) — Montessori: The Science Behind the Genius (chapter on mixed-age grouping)"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The specific learning objective that the mixed-age task should address — what BOTH older and younger students should learn"
-    - field: "age_range"
-      type: "string"
-      description: "The ages or year groups that will work together — the specific gap between the oldest and youngest"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "group_composition"
-      type: "string"
-      description: "How many students of each age, and any known dynamics"
-    - field: "time_available"
-      type: "string"
-      description: "How long the mixed-age session will last"
-    - field: "space_and_materials"
-      type: "string"
-      description: "What space and materials are available"
-    - field: "frequency"
-      type: "string"
-      description: "Whether this is a one-off activity or a regular mixed-age session"
-output_schema:
-  type: "object"
-  fields:
-    - field: "task_design"
-      type: "object"
-      description: "The complete mixed-age task — what students do, how roles are structured, and how genuine interdependence is created"
-    - field: "older_student_learning"
-      type: "object"
-      description: "What the older students learn from the experience — not just 'helping' but genuine cognitive benefit"
-    - field: "younger_student_learning"
-      type: "object"
-      description: "What the younger students learn — how the older students' involvement creates ZPD scaffolding"
-    - field: "role_structure"
-      type: "object"
-      description: "The specific roles for older and younger students — designed to create genuine interdependence, not one-directional helping"
-chains_well_with:
-  - "three-part-lesson-designer"
-  - "prepared-environment-designer"
-  - "uninterrupted-work-cycle-designer"
-  - "peer-tutoring-protocol-designer"
-teacher_time: "5 minutes"
-tags: ["mixed-age", "Montessori", "peer-tutoring", "Vygotsky", "ZPD", "Hattie", "Lillard", "cross-age", "interdependence"]
 ---
 
 # Mixed-Age Learning Task Designer
@@ -284,3 +220,88 @@ Teach the Year 4 students four tutoring principles:
 3. **Social dynamics can undermine the learning.** Some older students may be condescending ("That's easy, you should know this"); some younger students may be anxious or intimidated; some pairs may simply not get along. The tutor preparation session should address respect and patience explicitly, and the teacher should monitor pair dynamics, reassigning if necessary.
 
 4. **Mixed-age grouping requires timetable coordination.** In schools with rigid timetables and separate year-group classes, arranging cross-age sessions is a logistical challenge. The most common implementation is a weekly "buddy" session, but this requires agreement between at least two teachers and alignment of curriculum timing. The logistical barrier is often more significant than the pedagogical design challenge.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: montessori-alternative-approaches/mixed-age-learning-task-designer
+skill_name: Mixed-Age Learning Task Designer
+domain: montessori-alternative-approaches
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Lillard & Else-Quest (2006) — Evaluating Montessori education (Science)
+- 'Hattie (2009) — Visible learning: peer tutoring effect size 0.55'
+- Topping (2005) — Trends in peer learning (meta-analysis of peer tutoring effects)
+- 'Vygotsky (1978) — Mind in society: the development of higher psychological processes
+  (ZPD)'
+- 'Lillard (2005) — Montessori: The Science Behind the Genius (chapter on mixed-age
+  grouping)'
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The specific learning objective that the mixed-age task should address
+      — what BOTH older and younger students should learn
+  - field: age_range
+    type: string
+    description: The ages or year groups that will work together — the specific gap
+      between the oldest and youngest
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: group_composition
+    type: string
+    description: How many students of each age, and any known dynamics
+  - field: time_available
+    type: string
+    description: How long the mixed-age session will last
+  - field: space_and_materials
+    type: string
+    description: What space and materials are available
+  - field: frequency
+    type: string
+    description: Whether this is a one-off activity or a regular mixed-age session
+output_schema:
+  type: object
+  fields:
+  - field: task_design
+    type: object
+    description: The complete mixed-age task — what students do, how roles are structured,
+      and how genuine interdependence is created
+  - field: older_student_learning
+    type: object
+    description: What the older students learn from the experience — not just 'helping'
+      but genuine cognitive benefit
+  - field: younger_student_learning
+    type: object
+    description: What the younger students learn — how the older students' involvement
+      creates ZPD scaffolding
+  - field: role_structure
+    type: object
+    description: The specific roles for older and younger students — designed to create
+      genuine interdependence, not one-directional helping
+chains_well_with:
+- three-part-lesson-designer
+- prepared-environment-designer
+- uninterrupted-work-cycle-designer
+- peer-tutoring-protocol-designer
+teacher_time: 5 minutes
+tags:
+- mixed-age
+- Montessori
+- peer-tutoring
+- Vygotsky
+- ZPD
+- Hattie
+- Lillard
+- cross-age
+- interdependence
+```

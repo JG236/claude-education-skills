@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: text-complexity-analyser
 description: "Analyse text complexity across quantitative, qualitative, and reader-task dimensions with scaffolding recommendations. Use when selecting texts, assessing readability, or planning reading support."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "literacy-critical-thinking/text-complexity-analyser"
-skill_name: "Text Complexity Analyser & Scaffold Designer"
-domain: "literacy-critical-thinking"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Shanahan et al. (2012) — An analysis of text complexity progression in CCSS"
-  - "Hiebert (2012) — Seven actions that teachers can take right now: text complexity"
-  - "Fisher & Frey (2012) — Text complexity: raising rigour in reading"
-  - "Beck et al. (2013) — Bringing Words to Life: robust vocabulary instruction"
-  - "Graves & Graves (2003) — Scaffolding Reading Experiences: designs for student success"
-input_schema:
-  required:
-    - field: "text_description"
-      type: "string"
-      description: "A description of the text including genre, topic, approximate length, and source"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current reading level"
-    - field: "reading_purpose"
-      type: "string"
-      description: "Why students are reading this text — the task it supports"
-  optional:
-    - field: "text_extract"
-      type: "string"
-      description: "A short extract from the text for more precise analysis"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: reading levels, EAL status, background knowledge"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject context"
-    - field: "known_challenges"
-      type: "string"
-      description: "Specific challenges the teacher anticipates with this text"
-output_schema:
-  type: "object"
-  fields:
-    - field: "complexity_analysis"
-      type: "object"
-      description: "Analysis across quantitative, qualitative, and reader-task dimensions"
-    - field: "scaffold_plan"
-      type: "object"
-      description: "Before, during, and after reading scaffolds tailored to the identified complexity"
-    - field: "vocabulary_focus"
-      type: "array"
-      description: "Key vocabulary to pre-teach, tiered by priority"
-    - field: "differentiation"
-      type: "object"
-      description: "Modifications for different reader levels"
-chains_well_with:
-  - "reading-comprehension-strategy-selector"
-  - "vocabulary-tiering-tool"
-  - "scaffolded-task-modifier"
-  - "cognitive-load-analyser"
-teacher_time: "4 minutes"
-tags: ["text-complexity", "reading", "scaffolding", "vocabulary", "differentiation"]
 ---
 
 # Text Complexity Analyser & Scaffold Designer
@@ -295,3 +231,78 @@ Push toward the key historical insight: the letter tells us about the EXPERIENCE
 2. **The analysis identifies complexity but cannot measure individual students' reading levels.** The scaffold recommendations are designed for the stated student level, but individual students within the class will have different reading capabilities, background knowledge, and engagement levels. The teacher must differentiate within the scaffold plan based on their knowledge of specific students.
 
 3. **Text complexity is context-dependent.** The same text can be simple for one reading purpose and complex for another — reading a poem for enjoyment requires different comprehension demands than analysing its figurative language. The analysis is specific to the stated reading purpose; changing the purpose would change the complexity profile and scaffold recommendations.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: literacy-critical-thinking/text-complexity-analyser
+skill_name: Text Complexity Analyser & Scaffold Designer
+domain: literacy-critical-thinking
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Shanahan et al. (2012) — An analysis of text complexity progression in CCSS
+- 'Hiebert (2012) — Seven actions that teachers can take right now: text complexity'
+- 'Fisher & Frey (2012) — Text complexity: raising rigour in reading'
+- 'Beck et al. (2013) — Bringing Words to Life: robust vocabulary instruction'
+- 'Graves & Graves (2003) — Scaffolding Reading Experiences: designs for student success'
+input_schema:
+  required:
+  - field: text_description
+    type: string
+    description: A description of the text including genre, topic, approximate length,
+      and source
+  - field: student_level
+    type: string
+    description: Age/year group and current reading level
+  - field: reading_purpose
+    type: string
+    description: Why students are reading this text — the task it supports
+  optional:
+  - field: text_extract
+    type: string
+    description: A short extract from the text for more precise analysis
+  - field: student_profiles
+    type: array
+    description: 'From context engine: reading levels, EAL status, background knowledge'
+  - field: subject_area
+    type: string
+    description: The curriculum subject context
+  - field: known_challenges
+    type: string
+    description: Specific challenges the teacher anticipates with this text
+output_schema:
+  type: object
+  fields:
+  - field: complexity_analysis
+    type: object
+    description: Analysis across quantitative, qualitative, and reader-task dimensions
+  - field: scaffold_plan
+    type: object
+    description: Before, during, and after reading scaffolds tailored to the identified
+      complexity
+  - field: vocabulary_focus
+    type: array
+    description: Key vocabulary to pre-teach, tiered by priority
+  - field: differentiation
+    type: object
+    description: Modifications for different reader levels
+chains_well_with:
+- reading-comprehension-strategy-selector
+- vocabulary-tiering-tool
+- scaffolded-task-modifier
+- cognitive-load-analyser
+teacher_time: 4 minutes
+tags:
+- text-complexity
+- reading
+- scaffolding
+- vocabulary
+- differentiation
+```

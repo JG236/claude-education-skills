@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: sheltered-instruction-lesson-modifier
 description: "Modify a lesson plan using SIOP sheltered instruction principles to support language learners across all four skills. Use when planning lessons for classes that include EAL students."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "eal-language-development/sheltered-instruction-lesson-modifier"
-skill_name: "Sheltered Instruction Lesson Modifier"
-domain: "eal-language-development"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Echevarría, Vogt & Short (2008, 2017) — Making Content Comprehensible for English Learners: the SIOP Model"
-  - "Short, Fidelman & Louguit (2012) — Developing academic language in English language learners through sheltered instruction"
-  - "Cummins (2000) — Language, Power and Pedagogy"
-  - "Gibbons (2015) — Scaffolding Language, Scaffolding Learning"
-  - "Lyster (2007) — Learning and Teaching Languages Through Content: a counterbalanced approach"
-input_schema:
-  required:
-    - field: "lesson_plan"
-      type: "string"
-      description: "A description of the planned lesson — topic, activities, resources, and learning objective"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "eal_students"
-      type: "string"
-      description: "Number of EAL students and their approximate proficiency levels"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: first languages, time in English-medium schooling, specific needs"
-    - field: "lesson_duration"
-      type: "string"
-      description: "Length of the lesson"
-    - field: "resources_available"
-      type: "string"
-      description: "Technology, bilingual resources, teaching assistants, or other supports available"
-output_schema:
-  type: "object"
-  fields:
-    - field: "modified_lesson"
-      type: "object"
-      description: "The lesson plan modified with SIOP components — content objectives, language objectives, scaffolds for each phase"
-    - field: "language_objectives"
-      type: "array"
-      description: "Explicit language objectives aligned to the content being taught"
-    - field: "siop_component_checklist"
-      type: "object"
-      description: "How each SIOP component is addressed in the modified lesson"
-    - field: "teacher_adaptations"
-      type: "array"
-      description: "Specific changes to teacher talk, pacing, and interaction patterns"
-chains_well_with:
-  - "language-demand-analyser"
-  - "vocabulary-tiering-tool"
-  - "scaffolded-task-modifier"
-  - "academic-language-sentence-frame-generator"
-teacher_time: "5 minutes"
-tags: ["SIOP", "sheltered-instruction", "EAL", "lesson-planning", "content-language-integration"]
 ---
 
 # Sheltered Instruction Lesson Modifier
@@ -337,3 +273,83 @@ Listen for correct use of the frame. Identify students who still need support �
 2. **The modifications assume a typical classroom setup.** Schools with specialist EAL teachers, bilingual TAs, or access to first-language resources can implement additional supports that this modification doesn't include. The output provides a baseline modification that works with standard resources; additional specialist support should be layered on where available.
 
 3. **Sheltered instruction is one lesson at a time, but language development is longitudinal.** This skill modifies a single lesson, but EAL students need consistent, sustained support across all lessons. The language objective in one lesson should connect to language objectives in subsequent lessons, building a coherent programme of academic language development. Individual lesson modification is necessary but not sufficient — it must be part of a whole-school approach.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: eal-language-development/sheltered-instruction-lesson-modifier
+skill_name: Sheltered Instruction Lesson Modifier
+domain: eal-language-development
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Echevarría, Vogt & Short (2008, 2017) — Making Content Comprehensible for English
+  Learners: the SIOP Model'
+- Short, Fidelman & Louguit (2012) — Developing academic language in English language
+  learners through sheltered instruction
+- Cummins (2000) — Language, Power and Pedagogy
+- Gibbons (2015) — Scaffolding Language, Scaffolding Learning
+- 'Lyster (2007) — Learning and Teaching Languages Through Content: a counterbalanced
+  approach'
+input_schema:
+  required:
+  - field: lesson_plan
+    type: string
+    description: A description of the planned lesson — topic, activities, resources,
+      and learning objective
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: eal_students
+    type: string
+    description: Number of EAL students and their approximate proficiency levels
+  - field: student_profiles
+    type: array
+    description: 'From context engine: first languages, time in English-medium schooling,
+      specific needs'
+  - field: lesson_duration
+    type: string
+    description: Length of the lesson
+  - field: resources_available
+    type: string
+    description: Technology, bilingual resources, teaching assistants, or other supports
+      available
+output_schema:
+  type: object
+  fields:
+  - field: modified_lesson
+    type: object
+    description: The lesson plan modified with SIOP components — content objectives,
+      language objectives, scaffolds for each phase
+  - field: language_objectives
+    type: array
+    description: Explicit language objectives aligned to the content being taught
+  - field: siop_component_checklist
+    type: object
+    description: How each SIOP component is addressed in the modified lesson
+  - field: teacher_adaptations
+    type: array
+    description: Specific changes to teacher talk, pacing, and interaction patterns
+chains_well_with:
+- language-demand-analyser
+- vocabulary-tiering-tool
+- scaffolded-task-modifier
+- academic-language-sentence-frame-generator
+teacher_time: 5 minutes
+tags:
+- SIOP
+- sheltered-instruction
+- EAL
+- lesson-planning
+- content-language-integration
+```

@@ -1,81 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: seeds-regenerative-inquiry-cycle
 description: "Design a SEEDS regenerative inquiry cycle connecting place-based learning to ecological awareness for young learners. Use when building early childhood or primary inquiry around ecosystems and community."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/seeds-regenerative-inquiry-cycle"
-skill_name: "SEEDS Regenerative Inquiry Cycle"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Manning (2025) — SEEDS cycle, published in All Thoughts Subject to Change (Substack)"
-  - "Manning (2025) — Metabolising Regeneration (regenerative vs restorative vs sustainable spectrum)"
-  - "Kimmerer (2013) — Braiding Sweetgrass (bio-empathy, reciprocity)"
-  - "Vervaeke (2019) — Relevance realisation (philosophical underpinning for the Sense stage)"
-  - "Sobel (2004) — Place-based education (external validation of underlying principles)"
-  - "Reggio Emilia documentation pedagogy (aligned assessment approach)"
-input_schema:
-  required:
-    - field: "learning_group"
-      type: "string"
-      description: "Which age group — early childhood (5-8) or primary (8-12)"
-    - field: "place_context"
-      type: "string"
-      description: "The specific place, ecosystem, or community that anchors the inquiry — where learning happens and what it connects to"
-  optional:
-    - field: "existing_problem_or_potential"
-      type: "string"
-      description: "A known issue or opportunity, if identified — SEEDS may begin from problem or from possibility"
-    - field: "time_available"
-      type: "string"
-      description: "Term length, year-long, or shorter cycle"
-    - field: "community_connections"
-      type: "string"
-      description: "People, organisations, or ecosystems available to the inquiry"
-    - field: "documentation_approach"
-      type: "string"
-      description: "How learning will be made visible — learning stories, portfolios, observations"
-output_schema:
-  type: "object"
-  fields:
-    - field: "seeds_overview"
-      type: "object"
-      description: "Summary of the cycle, place anchor, and regenerative intent"
-    - field: "sense_stage"
-      type: "object"
-      description: "Attunement activities, bio-empathy practices, baseline data gathering, knowledge gap identification"
-    - field: "envision_stage"
-      type: "object"
-      description: "Ideation sequence, expert engagement plan, criteria-based reality testing, assessment checkpoints"
-    - field: "experiment_stage"
-      type: "object"
-      description: "Prototyping and action plan, adaptation mechanisms, formative assessment approach"
-    - field: "design_to_last_stage"
-      type: "object"
-      description: "Stewardship structure, care routines, handoff plan, named steward or successor"
-    - field: "share_stage"
-      type: "object"
-      description: "Impact assessment (honest — positive, negative, intended, unintended), storytelling approach, connection back to Sense"
-    - field: "documentation_plan"
-      type: "object"
-      description: "How learning is made visible throughout — portfolios, learning stories, observations"
-    - field: "known_limitations"
-      type: "object"
-      description: "Honest framing about evidence base, time requirements, tension with standard school timelines"
-chains_well_with:
-  - "place-based-inquiry-anchor"
-  - "reggio-documentation-protocol"
-  - "ecological-inquiry-anchor-designer"
-  - "ubuntu-collective-knowledge-task-designer"
-  - "critical-thinking-task-designer"
-teacher_time: "6 minutes"
-tags: ["SEEDS", "regenerative", "inquiry", "place-based", "Manning", "bio-empathy", "stewardship", "cyclical", "documentation"]
 ---
 
 # SEEDS Regenerative Inquiry Cycle
@@ -402,3 +327,103 @@ In the final session, students return to the courtyard and sit in silence for 15
 4. **Bio-empathy is philosophically grounded but methodologically imprecise.** Asking "What does the soil need?" is a generative prompt for inquiry, not a scientific method. It can produce genuine ecological insight (the soil needs organic matter, moisture, microbial life) or vague anthropomorphism (the soil is "sad"). The teacher's role is to guide students from empathic prompts toward scientific investigation — using the empathy as a doorway, not a destination.
 
 5. **Stewardship depends on institutional continuity.** The Design to Last stage requires that the school sustain the stewardship structure — the Courtyard Committee, the care routines, the seasonal calendar — beyond the original group of students. If the school doesn't commit to this continuity, the courtyard will revert to neglect, and students will learn that their work doesn't matter. The teacher must have institutional support before committing to the stewardship promise.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: original-frameworks/seeds-regenerative-inquiry-cycle
+skill_name: SEEDS Regenerative Inquiry Cycle
+domain: original-frameworks
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Manning (2025) — SEEDS cycle, published in All Thoughts Subject to Change (Substack)
+- Manning (2025) — Metabolising Regeneration (regenerative vs restorative vs sustainable
+  spectrum)
+- Kimmerer (2013) — Braiding Sweetgrass (bio-empathy, reciprocity)
+- Vervaeke (2019) — Relevance realisation (philosophical underpinning for the Sense
+  stage)
+- Sobel (2004) — Place-based education (external validation of underlying principles)
+- Reggio Emilia documentation pedagogy (aligned assessment approach)
+input_schema:
+  required:
+  - field: learning_group
+    type: string
+    description: Which age group — early childhood (5-8) or primary (8-12)
+  - field: place_context
+    type: string
+    description: The specific place, ecosystem, or community that anchors the inquiry
+      — where learning happens and what it connects to
+  optional:
+  - field: existing_problem_or_potential
+    type: string
+    description: A known issue or opportunity, if identified — SEEDS may begin from
+      problem or from possibility
+  - field: time_available
+    type: string
+    description: Term length, year-long, or shorter cycle
+  - field: community_connections
+    type: string
+    description: People, organisations, or ecosystems available to the inquiry
+  - field: documentation_approach
+    type: string
+    description: How learning will be made visible — learning stories, portfolios,
+      observations
+output_schema:
+  type: object
+  fields:
+  - field: seeds_overview
+    type: object
+    description: Summary of the cycle, place anchor, and regenerative intent
+  - field: sense_stage
+    type: object
+    description: Attunement activities, bio-empathy practices, baseline data gathering,
+      knowledge gap identification
+  - field: envision_stage
+    type: object
+    description: Ideation sequence, expert engagement plan, criteria-based reality
+      testing, assessment checkpoints
+  - field: experiment_stage
+    type: object
+    description: Prototyping and action plan, adaptation mechanisms, formative assessment
+      approach
+  - field: design_to_last_stage
+    type: object
+    description: Stewardship structure, care routines, handoff plan, named steward
+      or successor
+  - field: share_stage
+    type: object
+    description: Impact assessment (honest — positive, negative, intended, unintended),
+      storytelling approach, connection back to Sense
+  - field: documentation_plan
+    type: object
+    description: How learning is made visible throughout — portfolios, learning stories,
+      observations
+  - field: known_limitations
+    type: object
+    description: Honest framing about evidence base, time requirements, tension with
+      standard school timelines
+chains_well_with:
+- place-based-inquiry-anchor
+- reggio-documentation-protocol
+- ecological-inquiry-anchor-designer
+- ubuntu-collective-knowledge-task-designer
+- critical-thinking-task-designer
+teacher_time: 6 minutes
+tags:
+- SEEDS
+- regenerative
+- inquiry
+- place-based
+- Manning
+- bio-empathy
+- stewardship
+- cyclical
+- documentation
+```

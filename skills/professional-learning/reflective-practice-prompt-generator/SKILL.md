@@ -1,68 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: reflective-practice-prompt-generator
 description: "Generate structured reflection prompts for a specific teaching experience or professional learning challenge. Use when debriefing lessons, journaling, or preparing for coaching conversations."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/reflective-practice-prompt-generator"
-skill_name: "Reflective Practice Prompt Generator"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Schön (1983) — The Reflective Practitioner: how professionals think in action"
-  - "Timperley (2011) — Realizing the Power of Professional Learning"
-  - "Dewey (1933) — How We Think: a restatement of the relation of reflective thinking to the educative process"
-  - "Brookfield (2017) — Becoming a Critically Reflective Teacher"
-  - "Kolb (1984) — Experiential Learning: experience as the source of learning and development"
-input_schema:
-  required:
-    - field: "teaching_experience"
-      type: "string"
-      description: "The specific lesson, interaction, or event to reflect on — what happened"
-    - field: "reflection_purpose"
-      type: "string"
-      description: "What the teacher wants to learn from this reflection — problem-solving, understanding, growth"
-  optional:
-    - field: "teacher_context"
-      type: "string"
-      description: "Experience level, subject, current professional learning goals"
-    - field: "emotional_response"
-      type: "string"
-      description: "How the teacher felt about the experience — frustrated, surprised, uncertain, proud"
-    - field: "reflection_depth"
-      type: "string"
-      description: "Surface (what happened?), analytical (why did it happen?), or critical (what assumptions am I making?)"
-    - field: "time_available"
-      type: "string"
-      description: "How much time for reflection — 5 minutes, 15 minutes, extended journal entry"
-output_schema:
-  type: "object"
-  fields:
-    - field: "reflection_prompts"
-      type: "array"
-      description: "A sequence of prompts that guide the teacher from description through analysis to action"
-    - field: "lens_analysis"
-      type: "object"
-      description: "Prompts that encourage the teacher to examine the experience from multiple perspectives — student, colleague, theory, autobiography"
-    - field: "action_prompts"
-      type: "array"
-      description: "Questions that move reflection toward concrete next steps"
-    - field: "journaling_scaffold"
-      type: "string"
-      description: "A structured format for written reflection, if the teacher prefers to write"
-chains_well_with:
-  - "instructional-coaching-conversation-guide"
-  - "lesson-observation-protocol-designer"
-  - "teacher-inquiry-cycle-designer"
-  - "lesson-study-cycle-designer"
-  - "pedagogical-content-knowledge-developer"
-teacher_time: "2 minutes"
-tags: ["reflection", "Schön", "Timperley", "reflective-practice", "professional-learning", "journaling"]
 ---
 
 # Reflective Practice Prompt Generator
@@ -219,3 +157,83 @@ If time is limited, answer these three questions:
 2. **Written reflection is not the only form.** Some teachers reflect more effectively through conversation (with a colleague, coach, or mentor) than through writing. The prompts can be used in dialogue as well as journaling — the medium matters less than the structure.
 
 3. **Reflection without action is rumination.** If the teacher reflects deeply but changes nothing about their practice, the reflection was intellectually interesting but professionally useless. The action layer is non-negotiable — every reflection must end with a concrete next step.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/reflective-practice-prompt-generator
+skill_name: Reflective Practice Prompt Generator
+domain: professional-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Schön (1983) — The Reflective Practitioner: how professionals think in action'
+- Timperley (2011) — Realizing the Power of Professional Learning
+- 'Dewey (1933) — How We Think: a restatement of the relation of reflective thinking
+  to the educative process'
+- Brookfield (2017) — Becoming a Critically Reflective Teacher
+- 'Kolb (1984) — Experiential Learning: experience as the source of learning and development'
+input_schema:
+  required:
+  - field: teaching_experience
+    type: string
+    description: The specific lesson, interaction, or event to reflect on — what happened
+  - field: reflection_purpose
+    type: string
+    description: What the teacher wants to learn from this reflection — problem-solving,
+      understanding, growth
+  optional:
+  - field: teacher_context
+    type: string
+    description: Experience level, subject, current professional learning goals
+  - field: emotional_response
+    type: string
+    description: How the teacher felt about the experience — frustrated, surprised,
+      uncertain, proud
+  - field: reflection_depth
+    type: string
+    description: Surface (what happened?), analytical (why did it happen?), or critical
+      (what assumptions am I making?)
+  - field: time_available
+    type: string
+    description: How much time for reflection — 5 minutes, 15 minutes, extended journal
+      entry
+output_schema:
+  type: object
+  fields:
+  - field: reflection_prompts
+    type: array
+    description: A sequence of prompts that guide the teacher from description through
+      analysis to action
+  - field: lens_analysis
+    type: object
+    description: Prompts that encourage the teacher to examine the experience from
+      multiple perspectives — student, colleague, theory, autobiography
+  - field: action_prompts
+    type: array
+    description: Questions that move reflection toward concrete next steps
+  - field: journaling_scaffold
+    type: string
+    description: A structured format for written reflection, if the teacher prefers
+      to write
+chains_well_with:
+- instructional-coaching-conversation-guide
+- lesson-observation-protocol-designer
+- teacher-inquiry-cycle-designer
+- lesson-study-cycle-designer
+- pedagogical-content-knowledge-developer
+teacher_time: 2 minutes
+tags:
+- reflection
+- Schön
+- Timperley
+- reflective-practice
+- professional-learning
+- journaling
+```

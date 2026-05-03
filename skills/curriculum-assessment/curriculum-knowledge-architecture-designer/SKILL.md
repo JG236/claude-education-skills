@@ -1,82 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: curriculum-knowledge-architecture-designer
 description: "Map the epistemic structure of a subject to determine knowledge types and inform curriculum sequencing. Use when designing courses, restructuring programmes, or analysing knowledge architecture."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/curriculum-knowledge-architecture-designer"
-skill_name: "Curriculum Knowledge Architecture Designer"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Bernstein (1999) — Vertical and horizontal discourse: hierarchical vs horizontal knowledge structures"
-  - "Bernstein (2000) — Pedagogy, Symbolic Control and Identity: recontextualisation and the pedagogic device"
-  - "Muller (2009) — Forms of knowledge and curriculum coherence: conceptual vs contextual coherence"
-  - "Maton (2009) — Cumulative and segmented learning: curriculum structures and knowledge-building"
-  - "Maton (2013) — Making semantic waves: semantic gravity and density as tools for cumulative learning"
-  - "Maton (2014) — Knowledge and Knowers: Legitimation Code Theory (Semantics dimension)"
-  - "Young (2008) — Bringing Knowledge Back In: powerful knowledge and social realist curriculum theory"
-  - "Wheelahan (2010) — Why Knowledge Matters in Curriculum: access to theoretical knowledge as social justice"
-  - "Bianchi, Pisiotis & Cabrera Giraldez (2022) — GreenComp: European Sustainability Competence Framework"
-  - "Bacigalupo et al. (2016) — EntreComp: Entrepreneurship Competence Framework"
-  - "Sala et al. (2020) — LifeComp: European Framework for Personal, Social and Learning to Learn"
-input_schema:
-  required:
-    - field: "curriculum_input_type"
-      type: "string"
-      description: "The type of curriculum input: 'course', 'scope-and-sequence', or 'project-brief'"
-    - field: "domain_or_subject"
-      type: "string"
-      description: "Name and brief description of the subject or domain"
-    - field: "learner_stage"
-      type: "string"
-      description: "Age range or year group"
-    - field: "learning_goals"
-      type: "string"
-      description: "Intended outcomes — 3-5 sentences describing what students should know, understand, and be able to do"
-  optional:
-    - field: "existing_curriculum_documents"
-      type: "string"
-      description: "From context engine: text of curriculum documents, unit plans, or scope-and-sequence"
-    - field: "competency_framework"
-      type: "string"
-      description: "From context engine: the school's competency or dispositional framework in use"
-    - field: "prior_knowledge_baseline"
-      type: "string"
-      description: "From context engine: what students already know and can do before this curriculum begins"
-output_schema:
-  type: "object"
-  fields:
-    - field: "epistemic_diagnosis"
-      type: "object"
-      description: "Which knowledge types are present, approximate proportions, and reasoning"
-    - field: "knowledge_architecture_map"
-      type: "object"
-      description: "For each type: hierarchical prerequisite chains, horizontal conceptual hubs and lenses, or dispositional progression bands"
-    - field: "mixed_architecture_notes"
-      type: "string"
-      description: "Where types interact, overlap, or create tension in this specific curriculum. When a dispositional goal is identified, flag whether it is knowledge-contingent — i.e. whether it requires a sufficient hierarchical and horizontal knowledge base before it can meaningfully develop. Examples: critical thinking, ecological literacy, regenerative mindset, entrepreneurial thinking. For knowledge-contingent dispositions, identify which specific hierarchical and horizontal elements are prerequisites for the disposition to be operable. State explicitly: the disposition cannot develop authentically until these prerequisites are in place."
-    - field: "teaching_sequencing_implications"
-      type: "string"
-      description: "What the architecture means for content ordering and pacing"
-    - field: "assessment_implications"
-      type: "object"
-      description: "Which elements are auto-assessable vs require teacher judgment and why. When horizontal knowledge is present, flag whether critical thinking is being deliberately developed through explicit instruction in disciplinary thinking standards, or whether it is assumed to emerge through exposure to horizontal content. Research (Bailin et al. 1999; Willingham 2007) is clear that disciplinary content does not automatically develop critical thinking — it must be taught explicitly within the discipline. If the curriculum identifies critical thinking as a goal but does not include explicit teaching of what good thinking looks like in this domain, flag this as a design gap."
-    - field: "ai_tutoring_design_implications"
-      type: "string"
-      description: "How this architecture should inform an intelligent tutoring system or AI teacher assistant"
-chains_well_with:
-  - "learning-target-authoring-guide"
-  - "competency-framework-mapper"
-  - "scope-and-sequence-designer"
-  - "d2r-project-cycle-designer"
-teacher_time: "5 minutes"
-tags: ["knowledge-structure", "curriculum-architecture", "Bernstein", "epistemic-design", "hierarchical", "horizontal", "dispositional", "mixed-architecture", "AI-tutoring"]
 ---
 
 # Curriculum Knowledge Architecture Designer
@@ -423,3 +347,122 @@ The AI system must recognise that this project requires transitions between know
 5. **Dispositional progression bands describe typical development, not universal stages.** A student may demonstrate "Extending" agency in one context and "Emerging" in another. Dispositional development is context-sensitive and non-linear. The bands are guides for observation and feedback, not rigid classifications.
 
 6. **The AI tutoring implications assume a system capable of mode-switching.** Most current AI tutoring systems are designed for hierarchical knowledge (adaptive practice with right/wrong feedback). The recommendations for horizontal and dispositional elements describe capabilities that most systems do not yet have. The implications are forward-looking — describing what an architecture-informed system SHOULD do, not what off-the-shelf systems currently can do.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/curriculum-knowledge-architecture-designer
+skill_name: Curriculum Knowledge Architecture Designer
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Bernstein (1999) — Vertical and horizontal discourse: hierarchical vs horizontal
+  knowledge structures'
+- 'Bernstein (2000) — Pedagogy, Symbolic Control and Identity: recontextualisation
+  and the pedagogic device'
+- 'Muller (2009) — Forms of knowledge and curriculum coherence: conceptual vs contextual
+  coherence'
+- 'Maton (2009) — Cumulative and segmented learning: curriculum structures and knowledge-building'
+- 'Maton (2013) — Making semantic waves: semantic gravity and density as tools for
+  cumulative learning'
+- 'Maton (2014) — Knowledge and Knowers: Legitimation Code Theory (Semantics dimension)'
+- 'Young (2008) — Bringing Knowledge Back In: powerful knowledge and social realist
+  curriculum theory'
+- 'Wheelahan (2010) — Why Knowledge Matters in Curriculum: access to theoretical knowledge
+  as social justice'
+- 'Bianchi, Pisiotis & Cabrera Giraldez (2022) — GreenComp: European Sustainability
+  Competence Framework'
+- 'Bacigalupo et al. (2016) — EntreComp: Entrepreneurship Competence Framework'
+- 'Sala et al. (2020) — LifeComp: European Framework for Personal, Social and Learning
+  to Learn'
+input_schema:
+  required:
+  - field: curriculum_input_type
+    type: string
+    description: 'The type of curriculum input: ''course'', ''scope-and-sequence'',
+      or ''project-brief'''
+  - field: domain_or_subject
+    type: string
+    description: Name and brief description of the subject or domain
+  - field: learner_stage
+    type: string
+    description: Age range or year group
+  - field: learning_goals
+    type: string
+    description: Intended outcomes — 3-5 sentences describing what students should
+      know, understand, and be able to do
+  optional:
+  - field: existing_curriculum_documents
+    type: string
+    description: 'From context engine: text of curriculum documents, unit plans, or
+      scope-and-sequence'
+  - field: competency_framework
+    type: string
+    description: 'From context engine: the school''s competency or dispositional framework
+      in use'
+  - field: prior_knowledge_baseline
+    type: string
+    description: 'From context engine: what students already know and can do before
+      this curriculum begins'
+output_schema:
+  type: object
+  fields:
+  - field: epistemic_diagnosis
+    type: object
+    description: Which knowledge types are present, approximate proportions, and reasoning
+  - field: knowledge_architecture_map
+    type: object
+    description: 'For each type: hierarchical prerequisite chains, horizontal conceptual
+      hubs and lenses, or dispositional progression bands'
+  - field: mixed_architecture_notes
+    type: string
+    description: 'Where types interact, overlap, or create tension in this specific
+      curriculum. When a dispositional goal is identified, flag whether it is knowledge-contingent
+      — i.e. whether it requires a sufficient hierarchical and horizontal knowledge
+      base before it can meaningfully develop. Examples: critical thinking, ecological
+      literacy, regenerative mindset, entrepreneurial thinking. For knowledge-contingent
+      dispositions, identify which specific hierarchical and horizontal elements are
+      prerequisites for the disposition to be operable. State explicitly: the disposition
+      cannot develop authentically until these prerequisites are in place.'
+  - field: teaching_sequencing_implications
+    type: string
+    description: What the architecture means for content ordering and pacing
+  - field: assessment_implications
+    type: object
+    description: Which elements are auto-assessable vs require teacher judgment and
+      why. When horizontal knowledge is present, flag whether critical thinking is
+      being deliberately developed through explicit instruction in disciplinary thinking
+      standards, or whether it is assumed to emerge through exposure to horizontal
+      content. Research (Bailin et al. 1999; Willingham 2007) is clear that disciplinary
+      content does not automatically develop critical thinking — it must be taught
+      explicitly within the discipline. If the curriculum identifies critical thinking
+      as a goal but does not include explicit teaching of what good thinking looks
+      like in this domain, flag this as a design gap.
+  - field: ai_tutoring_design_implications
+    type: string
+    description: How this architecture should inform an intelligent tutoring system
+      or AI teacher assistant
+chains_well_with:
+- learning-target-authoring-guide
+- competency-framework-mapper
+- scope-and-sequence-designer
+- d2r-project-cycle-designer
+teacher_time: 5 minutes
+tags:
+- knowledge-structure
+- curriculum-architecture
+- Bernstein
+- epistemic-design
+- hierarchical
+- horizontal
+- dispositional
+- mixed-architecture
+- AI-tutoring
+```

@@ -1,75 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: developmental-band-system-designer
 description: "Design a developmental band system mapping student growth from early childhood through upper secondary. Use when building competency-based curriculum architecture for a school or programme."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/developmental-band-system-designer"
-skill_name: "Developmental Band System Designer"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Manning — Developmental band system (original, active implementation at REAL School Budapest)"
-  - "Piaget (1952) — The origins of intelligence in children (developmental stages as rationale)"
-  - "Vygotsky (1978) — Mind in society (ZPD applied to band-level specification)"
-  - "Wiggins & McTighe (2005) — Understanding by Design (backwards design, extended with upstream 'why' layer)"
-  - "Mixed-age grouping research (Lillard 2005, Montessori) — bands support rather than undermine mixed-age learning"
-input_schema:
-  required:
-    - field: "school_mission"
-      type: "string"
-      description: "The core purpose and values of the school or programme — what the curriculum must serve"
-    - field: "age_range"
-      type: "string"
-      description: "The full age range the band system needs to cover"
-    - field: "programme_context"
-      type: "string"
-      description: "What kind of learning — project-based, subject-based, hybrid, or other"
-  optional:
-    - field: "existing_competency_framework"
-      type: "string"
-      description: "Any existing framework being mapped — EU frameworks (GreenComp, EntreComp, LifeComp, DigComp), UNESCO, national curriculum, or other"
-    - field: "mixed_age_groupings"
-      type: "string"
-      description: "Whether the school uses mixed-age learning groups"
-    - field: "subject_exceptions"
-      type: "string"
-      description: "Subjects that require finer granularity than broad bands — typically maths and language acquisition"
-output_schema:
-  type: "object"
-  fields:
-    - field: "band_architecture"
-      type: "object"
-      description: "Number of bands, age/grade mapping, developmental rationale for each band break"
-    - field: "developmental_rationale"
-      type: "object"
-      description: "Why the bands are where they are — cognitive and social-emotional development reasoning"
-    - field: "competent_definition_logic"
-      type: "object"
-      description: "How to determine what competent means at each band — not a list of topics but a developmental description of capability"
-    - field: "exception_handling"
-      type: "object"
-      description: "Which subjects need finer granularity and why, with guidance on 9-level or similar precision systems"
-    - field: "mixed_age_implications"
-      type: "object"
-      description: "How the band system supports rather than undermines mixed-age learning"
-    - field: "known_limitations"
-      type: "object"
-      description: "Bands are broad — some students will be significantly ahead of or behind their band. How to handle this honestly"
-chains_well_with:
-  - "learning-target-authoring-guide"
-  - "coherent-rubric-logic-builder"
-  - "self-determined-project-design-protocol"
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-  - "scope-and-sequence-designer"
-teacher_time: "6 minutes"
-tags: ["developmental-bands", "competency", "Manning", "curriculum-design", "Piaget", "backwards-design", "mixed-age", "band-system"]
 ---
 
 # Developmental Band System Designer
@@ -269,3 +200,97 @@ Notice: the TOPIC does not change (systems thinking throughout). The CAPABILITY 
 3. **The purpose-driven backwards design sequence requires a clear mission.** If the school's mission is vague ("We believe in excellence and opportunity"), the entire design sequence is weakened — there is nothing specific to work backwards from. The band system is strongest in schools with clear, distinctive missions; it is weaker in schools with generic statements of purpose.
 
 4. **The band system is a DESIGN tool, not an assessment tool.** It specifies what competent looks like at each developmental stage, but it does not specify HOW to assess it. Assessment requires rubrics (see Skill 99: Coherent Rubric Logic Builder) and learning targets (see Skill 98: Learning Target Authoring Guide) built on top of the band architecture.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: original-frameworks/developmental-band-system-designer
+skill_name: Developmental Band System Designer
+domain: original-frameworks
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Manning — Developmental band system (original, active implementation at REAL School
+  Budapest)
+- Piaget (1952) — The origins of intelligence in children (developmental stages as
+  rationale)
+- Vygotsky (1978) — Mind in society (ZPD applied to band-level specification)
+- Wiggins & McTighe (2005) — Understanding by Design (backwards design, extended with
+  upstream 'why' layer)
+- Mixed-age grouping research (Lillard 2005, Montessori) — bands support rather than
+  undermine mixed-age learning
+input_schema:
+  required:
+  - field: school_mission
+    type: string
+    description: The core purpose and values of the school or programme — what the
+      curriculum must serve
+  - field: age_range
+    type: string
+    description: The full age range the band system needs to cover
+  - field: programme_context
+    type: string
+    description: What kind of learning — project-based, subject-based, hybrid, or
+      other
+  optional:
+  - field: existing_competency_framework
+    type: string
+    description: Any existing framework being mapped — EU frameworks (GreenComp, EntreComp,
+      LifeComp, DigComp), UNESCO, national curriculum, or other
+  - field: mixed_age_groupings
+    type: string
+    description: Whether the school uses mixed-age learning groups
+  - field: subject_exceptions
+    type: string
+    description: Subjects that require finer granularity than broad bands — typically
+      maths and language acquisition
+output_schema:
+  type: object
+  fields:
+  - field: band_architecture
+    type: object
+    description: Number of bands, age/grade mapping, developmental rationale for each
+      band break
+  - field: developmental_rationale
+    type: object
+    description: Why the bands are where they are — cognitive and social-emotional
+      development reasoning
+  - field: competent_definition_logic
+    type: object
+    description: How to determine what competent means at each band — not a list of
+      topics but a developmental description of capability
+  - field: exception_handling
+    type: object
+    description: Which subjects need finer granularity and why, with guidance on 9-level
+      or similar precision systems
+  - field: mixed_age_implications
+    type: object
+    description: How the band system supports rather than undermines mixed-age learning
+  - field: known_limitations
+    type: object
+    description: Bands are broad — some students will be significantly ahead of or
+      behind their band. How to handle this honestly
+chains_well_with:
+- learning-target-authoring-guide
+- coherent-rubric-logic-builder
+- self-determined-project-design-protocol
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+- scope-and-sequence-designer
+teacher_time: 6 minutes
+tags:
+- developmental-bands
+- competency
+- Manning
+- curriculum-design
+- Piaget
+- backwards-design
+- mixed-age
+- band-system
+```

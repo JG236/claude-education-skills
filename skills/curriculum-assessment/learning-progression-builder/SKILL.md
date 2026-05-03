@@ -1,69 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: learning-progression-builder
 description: "Build a learning progression showing prerequisite-to-mastery steps for a target skill or understanding. Use when sequencing content, designing diagnostics, or mapping prerequisite gaps."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/learning-progression-builder"
-skill_name: "Learning Progression Builder"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Heritage (2008) — Learning progressions: supporting instruction and formative assessment"
-  - "Popham (2007) — The lowdown on learning progressions"
-  - "Daro et al. (2011) — Learning trajectories in mathematics: a foundation for standards, curriculum, assessment, and instruction"
-  - "Wilson & Bertenthal (2005) — Systems for state science assessment"
-  - "Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model"
-input_schema:
-  required:
-    - field: "target_skill"
-      type: "string"
-      description: "The skill or understanding at the end of the progression — what students should be able to do"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group range the progression covers"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "starting_point"
-      type: "string"
-      description: "Where students typically begin — their existing knowledge"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class data showing where different students currently sit on the progression"
-    - field: "curriculum_framework"
-      type: "string"
-      description: "From context engine: relevant curriculum standards or progression documents"
-output_schema:
-  type: "object"
-  fields:
-    - field: "progression_map"
-      type: "array"
-      description: "Ordered sequence of stages from novice to target, with observable indicators at each stage"
-    - field: "prerequisite_relationships"
-      type: "object"
-      description: "Which stages depend on which — the prerequisite structure"
-    - field: "common_stuck_points"
-      type: "array"
-      description: "Where students commonly stall and why"
-    - field: "diagnostic_tasks"
-      type: "array"
-      description: "Quick tasks that reveal which stage a student is at"
-chains_well_with:
-  - "competency-unpacker"
-  - "formative-assessment-technique-selector"
-  - "practice-problem-sequence-designer"
-  - "backwards-design-unit-planner"
-  - "curriculum-knowledge-architecture-designer"
-  - "scope-and-sequence-designer"
-teacher_time: "4 minutes"
-tags: ["learning-progressions", "trajectories", "prerequisites", "diagnostic", "curriculum-mapping"]
 ---
 
 # Learning Progression Builder
@@ -273,3 +210,80 @@ Linear progression with lateral prerequisites at Stages 2, 5, and 6.
 2. **The progression describes skill development in ONE domain.** A student may be at Stage 5 for poetry analysis but Stage 3 for prose analysis, because the underlying texts present different challenges. Progressions are domain-specific — the teacher should assess each domain separately.
 
 3. **Diagnostic tasks provide a snapshot, not a comprehensive assessment.** A student who passes the Stage 4 diagnostic task on one occasion may not consistently perform at Stage 4. The diagnostic locates the student's approximate position — ongoing formative assessment provides the more complete picture.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/learning-progression-builder
+skill_name: Learning Progression Builder
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Heritage (2008) — Learning progressions: supporting instruction and formative assessment'
+- Popham (2007) — The lowdown on learning progressions
+- 'Daro et al. (2011) — Learning trajectories in mathematics: a foundation for standards,
+  curriculum, assessment, and instruction'
+- Wilson & Bertenthal (2005) — Systems for state science assessment
+- 'Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model'
+input_schema:
+  required:
+  - field: target_skill
+    type: string
+    description: The skill or understanding at the end of the progression — what students
+      should be able to do
+  - field: student_level
+    type: string
+    description: Age/year group range the progression covers
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: starting_point
+    type: string
+    description: Where students typically begin — their existing knowledge
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class data showing where different students
+      currently sit on the progression'
+  - field: curriculum_framework
+    type: string
+    description: 'From context engine: relevant curriculum standards or progression
+      documents'
+output_schema:
+  type: object
+  fields:
+  - field: progression_map
+    type: array
+    description: Ordered sequence of stages from novice to target, with observable
+      indicators at each stage
+  - field: prerequisite_relationships
+    type: object
+    description: Which stages depend on which — the prerequisite structure
+  - field: common_stuck_points
+    type: array
+    description: Where students commonly stall and why
+  - field: diagnostic_tasks
+    type: array
+    description: Quick tasks that reveal which stage a student is at
+chains_well_with:
+- competency-unpacker
+- formative-assessment-technique-selector
+- practice-problem-sequence-designer
+- backwards-design-unit-planner
+- curriculum-knowledge-architecture-designer
+- scope-and-sequence-designer
+teacher_time: 4 minutes
+tags:
+- learning-progressions
+- trajectories
+- prerequisites
+- diagnostic
+- curriculum-mapping
+```

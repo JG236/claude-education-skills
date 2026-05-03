@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: flow-state-condition-designer
 description: "Optimise a learning activity for flow by balancing challenge level, skill, clear goals, and immediate feedback. Use when students are bored, anxious, or disengaged during a task."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/flow-state-condition-designer"
-skill_name: "Flow State Condition Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Csikszentmihalyi (1990) — Flow: the psychology of optimal experience"
-  - "Csikszentmihalyi (1997) — Finding Flow: the psychology of engagement with everyday life"
-  - "Shernoff et al. (2003) — Student engagement in high school classrooms from the perspective of flow theory"
-  - "Nakamura & Csikszentmihalyi (2002) — The concept of flow: conditions and characteristics"
-  - "Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model"
-input_schema:
-  required:
-    - field: "lesson_activity"
-      type: "string"
-      description: "The learning activity to optimise for flow conditions"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "current_engagement"
-      type: "string"
-      description: "How engaged students currently are with this activity — bored, compliant, partially engaged, deeply engaged"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: ability range, engagement patterns, specific needs"
-    - field: "lesson_duration"
-      type: "string"
-      description: "Length of the lesson or activity"
-    - field: "practical_constraints"
-      type: "string"
-      description: "Space, resources, technology, time limitations"
-output_schema:
-  type: "object"
-  fields:
-    - field: "flow_analysis"
-      type: "object"
-      description: "Analysis of how well the current activity meets flow conditions — challenge-skill balance, clear goals, immediate feedback"
-    - field: "redesigned_activity"
-      type: "object"
-      description: "The activity redesigned to maximise flow conditions"
-    - field: "differentiated_challenge"
-      type: "object"
-      description: "How to calibrate challenge for different ability levels so all students can experience flow"
-    - field: "flow_killers"
-      type: "array"
-      description: "Common classroom practices that destroy flow and how to avoid them"
-chains_well_with:
-  - "motivation-diagnostic-task-redesign"
-  - "perma-based-lesson-designer"
-  - "practice-problem-sequence-designer"
-  - "self-efficacy-builder-sequence"
-teacher_time: "3 minutes"
-tags: ["flow", "Csikszentmihalyi", "engagement", "optimal-experience", "challenge-skill-balance"]
 ---
 
 # Flow State Condition Designer
@@ -251,3 +187,82 @@ Replace the 20 identical-difficulty questions with a structured sequence of 5 le
 2. **Not all learning activities can be designed for flow.** Some learning requires low-engagement activities — listening to an explanation, reading a dense text, practising boring-but-necessary procedures. Flow design is most applicable to practice tasks, creative tasks, and problem-solving tasks. It is less applicable to initial instruction or assessment.
 
 3. **Flow is individual.** A class of 30 students will not all be in flow simultaneously. The climbing structure maximises the probability that most students are in their flow channel for most of the time — but some students may still be bored (if Level 5 is too easy) or anxious (if Level 1 is too hard). The teacher must monitor and adjust.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/flow-state-condition-designer
+skill_name: Flow State Condition Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Csikszentmihalyi (1990) — Flow: the psychology of optimal experience'
+- 'Csikszentmihalyi (1997) — Finding Flow: the psychology of engagement with everyday
+  life'
+- Shernoff et al. (2003) — Student engagement in high school classrooms from the perspective
+  of flow theory
+- 'Nakamura & Csikszentmihalyi (2002) — The concept of flow: conditions and characteristics'
+- 'Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model'
+input_schema:
+  required:
+  - field: lesson_activity
+    type: string
+    description: The learning activity to optimise for flow conditions
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: current_engagement
+    type: string
+    description: How engaged students currently are with this activity — bored, compliant,
+      partially engaged, deeply engaged
+  - field: student_profiles
+    type: array
+    description: 'From context engine: ability range, engagement patterns, specific
+      needs'
+  - field: lesson_duration
+    type: string
+    description: Length of the lesson or activity
+  - field: practical_constraints
+    type: string
+    description: Space, resources, technology, time limitations
+output_schema:
+  type: object
+  fields:
+  - field: flow_analysis
+    type: object
+    description: Analysis of how well the current activity meets flow conditions —
+      challenge-skill balance, clear goals, immediate feedback
+  - field: redesigned_activity
+    type: object
+    description: The activity redesigned to maximise flow conditions
+  - field: differentiated_challenge
+    type: object
+    description: How to calibrate challenge for different ability levels so all students
+      can experience flow
+  - field: flow_killers
+    type: array
+    description: Common classroom practices that destroy flow and how to avoid them
+chains_well_with:
+- motivation-diagnostic-task-redesign
+- perma-based-lesson-designer
+- practice-problem-sequence-designer
+- self-efficacy-builder-sequence
+teacher_time: 3 minutes
+tags:
+- flow
+- Csikszentmihalyi
+- engagement
+- optimal-experience
+- challenge-skill-balance
+```

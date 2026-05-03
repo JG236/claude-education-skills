@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: trauma-informed-practice-designer
 description: "Design trauma-informed classroom practices that prioritise safety, predictability, connection, and regulation. Use when student behaviour may be trauma-related or the class needs a sensitive approach."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/trauma-informed-practice-designer"
-skill_name: "Trauma-Informed Practice Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "van der Kolk (2014) — The Body Keeps the Score: brain, mind, and body in the healing of trauma"
-  - "Perry (2006) — The Boy Who Was Raised as a Dog: neurosequential model of therapeutics"
-  - "Felitti et al. (1998) — Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults (ACE Study)"
-  - "Bergin & Bergin (2009) — Attachment in the classroom"
-  - "Craig (2016) — Trauma-Sensitive Schools: learning communities transforming children's lives"
-input_schema:
-  required:
-    - field: "classroom_situation"
-      type: "string"
-      description: "The situation or behaviour that may be trauma-related — what the teacher is observing"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "known_context"
-      type: "string"
-      description: "What the teacher knows about the student's background — only include what is relevant and shared appropriately"
-    - field: "current_responses"
-      type: "string"
-      description: "How the school currently responds to the behaviour"
-    - field: "available_support"
-      type: "string"
-      description: "Pastoral systems, counsellor, SENCO, external agencies available"
-    - field: "class_context"
-      type: "string"
-      description: "Other students in the class — how the behaviour affects the learning environment"
-output_schema:
-  type: "object"
-  fields:
-    - field: "trauma_lens_analysis"
-      type: "object"
-      description: "Reframing the behaviour through a trauma-informed lens — what the behaviour might be communicating"
-    - field: "classroom_adaptations"
-      type: "array"
-      description: "Specific modifications to classroom practice that create safety without lowering expectations"
-    - field: "response_protocols"
-      type: "object"
-      description: "What to do when trauma-related behaviour occurs — de-escalation, co-regulation, repair"
-    - field: "boundaries"
-      type: "string"
-      description: "Clear statement of what trauma-informed practice IS and IS NOT — maintaining boundaries while being compassionate"
-chains_well_with:
-  - "belonging-classroom-culture-designer"
-  - "restorative-practice-protocol-designer"
-  - "ruler-emotional-literacy-sequence"
-  - "differentiation-adapter"
-teacher_time: "4 minutes"
-tags: ["trauma-informed", "ACEs", "safety", "regulation", "attachment", "behaviour"]
 ---
 
 # Trauma-Informed Practice Designer
@@ -303,3 +239,87 @@ Given that this student has had 12 detentions with increasing frequency of outbu
 3. **Trauma-informed practice benefits ALL students.** Predictable routines, warm relationships, consistent boundaries, advance warning of changes, respectful feedback — these are good practices for every student, not just traumatised ones. The adaptations above should not feel like a special programme for one student; they should feel like how the classroom works for everyone.
 
 4. **There is a tension between one student's needs and the whole class.** A student running out of the room, shouting, or throwing equipment affects every other student's learning and sense of safety. Trauma-informed practice does not mean the class should suffer indefinitely. If the adaptations are insufficient and the behaviour remains disruptive, the school must provide additional support (in-class TA, reduced timetable, specialist provision) so that both the student's needs AND the class's needs are met.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/trauma-informed-practice-designer
+skill_name: Trauma-Informed Practice Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'van der Kolk (2014) — The Body Keeps the Score: brain, mind, and body in the healing
+  of trauma'
+- 'Perry (2006) — The Boy Who Was Raised as a Dog: neurosequential model of therapeutics'
+- Felitti et al. (1998) — Relationship of childhood abuse and household dysfunction
+  to many of the leading causes of death in adults (ACE Study)
+- Bergin & Bergin (2009) — Attachment in the classroom
+- 'Craig (2016) — Trauma-Sensitive Schools: learning communities transforming children''s
+  lives'
+input_schema:
+  required:
+  - field: classroom_situation
+    type: string
+    description: The situation or behaviour that may be trauma-related — what the
+      teacher is observing
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: known_context
+    type: string
+    description: What the teacher knows about the student's background — only include
+      what is relevant and shared appropriately
+  - field: current_responses
+    type: string
+    description: How the school currently responds to the behaviour
+  - field: available_support
+    type: string
+    description: Pastoral systems, counsellor, SENCO, external agencies available
+  - field: class_context
+    type: string
+    description: Other students in the class — how the behaviour affects the learning
+      environment
+output_schema:
+  type: object
+  fields:
+  - field: trauma_lens_analysis
+    type: object
+    description: Reframing the behaviour through a trauma-informed lens — what the
+      behaviour might be communicating
+  - field: classroom_adaptations
+    type: array
+    description: Specific modifications to classroom practice that create safety without
+      lowering expectations
+  - field: response_protocols
+    type: object
+    description: What to do when trauma-related behaviour occurs — de-escalation,
+      co-regulation, repair
+  - field: boundaries
+    type: string
+    description: Clear statement of what trauma-informed practice IS and IS NOT —
+      maintaining boundaries while being compassionate
+chains_well_with:
+- belonging-classroom-culture-designer
+- restorative-practice-protocol-designer
+- ruler-emotional-literacy-sequence
+- differentiation-adapter
+teacher_time: 4 minutes
+tags:
+- trauma-informed
+- ACEs
+- safety
+- regulation
+- attachment
+- behaviour
+```

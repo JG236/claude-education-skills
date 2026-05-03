@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: culturally-responsive-teaching-designer
 description: "Redesign a lesson to centre students' cultural backgrounds, community knowledge, and lived experience. Use when making curriculum relevant and inclusive for diverse student populations."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/culturally-responsive-teaching-designer"
-skill_name: "Culturally Responsive Teaching Designer"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Gay (2018) — Culturally Responsive Teaching: theory, research, and practice (3rd edition)"
-  - "Ladson-Billings (1995) — Toward a theory of culturally relevant pedagogy"
-  - "Hammond (2015) — Culturally Responsive Teaching and The Brain"
-  - "Paris & Alim (2017) — Culturally Sustaining Pedagogies: teaching and learning for justice in a changing world"
-  - "Aronson & Laughter (2016) — The theory and practice of culturally relevant education: a synthesis of research across content areas"
-input_schema:
-  required:
-    - field: "lesson_content"
-      type: "string"
-      description: "The curriculum content or learning objective to be taught"
-    - field: "student_community"
-      type: "string"
-      description: "The cultural backgrounds, community contexts, and lived experiences of the students in the class"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "current_approach"
-      type: "string"
-      description: "How the content is currently taught — what texts, examples, and perspectives are used"
-    - field: "school_context"
-      type: "string"
-      description: "Demographics, community, prior work on cultural responsiveness"
-    - field: "teacher_background"
-      type: "string"
-      description: "The teacher's own cultural background and experience with culturally responsive practice"
-output_schema:
-  type: "object"
-  fields:
-    - field: "crt_lesson_design"
-      type: "object"
-      description: "The redesigned lesson incorporating culturally responsive principles — same rigorous content, culturally connected pedagogy"
-    - field: "cultural_connections"
-      type: "array"
-      description: "Specific connections between the curriculum content and students' cultural knowledge, community practices, and lived experience"
-    - field: "critical_consciousness_element"
-      type: "object"
-      description: "How the lesson develops students' ability to identify and critique inequity — the sociopolitical dimension"
-    - field: "high_expectations_framework"
-      type: "object"
-      description: "How the lesson maintains rigorous academic expectations while being culturally responsive — not lowering the bar"
-chains_well_with:
-  - "ubuntu-collective-knowledge-task-designer"
-  - "place-based-inquiry-anchor"
-  - "belonging-classroom-culture-designer"
-  - "phenomenon-based-unit-anchor"
-teacher_time: "4 minutes"
-tags: ["culturally-responsive", "Gay", "Ladson-Billings", "equity", "culturally-sustaining", "Hammond", "inclusion"]
 ---
 
 # Culturally Responsive Teaching Designer
@@ -245,3 +181,88 @@ Students share their paired texts. Class discussion: "Which version is more pers
 2. **There is a risk of essentialism — treating cultural groups as monolithic.** Not all students from Caribbean backgrounds have strong oral traditions. Not all Bangladeshi students come from families with particular cooking practices. Culturally responsive teaching must engage with the SPECIFIC students in the room, not with assumptions about their cultural group. The design should invite students to share their own cultural knowledge rather than the teacher assuming what it is.
 
 3. **Culturally responsive teaching exists within systemic constraints.** A single teacher can redesign their lessons to be culturally responsive, but they cannot change the assessment system, the national curriculum, or the institutional culture alone. Students may still face standardised assessments that privilege particular cultural forms. CRT prepares students to succeed in these systems while developing critical awareness of their limitations — but it cannot single-handedly transform the system.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/culturally-responsive-teaching-designer
+skill_name: Culturally Responsive Teaching Designer
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Gay (2018) — Culturally Responsive Teaching: theory, research, and practice (3rd
+  edition)'
+- Ladson-Billings (1995) — Toward a theory of culturally relevant pedagogy
+- Hammond (2015) — Culturally Responsive Teaching and The Brain
+- 'Paris & Alim (2017) — Culturally Sustaining Pedagogies: teaching and learning for
+  justice in a changing world'
+- 'Aronson & Laughter (2016) — The theory and practice of culturally relevant education:
+  a synthesis of research across content areas'
+input_schema:
+  required:
+  - field: lesson_content
+    type: string
+    description: The curriculum content or learning objective to be taught
+  - field: student_community
+    type: string
+    description: The cultural backgrounds, community contexts, and lived experiences
+      of the students in the class
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: current_approach
+    type: string
+    description: How the content is currently taught — what texts, examples, and perspectives
+      are used
+  - field: school_context
+    type: string
+    description: Demographics, community, prior work on cultural responsiveness
+  - field: teacher_background
+    type: string
+    description: The teacher's own cultural background and experience with culturally
+      responsive practice
+output_schema:
+  type: object
+  fields:
+  - field: crt_lesson_design
+    type: object
+    description: The redesigned lesson incorporating culturally responsive principles
+      — same rigorous content, culturally connected pedagogy
+  - field: cultural_connections
+    type: array
+    description: Specific connections between the curriculum content and students'
+      cultural knowledge, community practices, and lived experience
+  - field: critical_consciousness_element
+    type: object
+    description: How the lesson develops students' ability to identify and critique
+      inequity — the sociopolitical dimension
+  - field: high_expectations_framework
+    type: object
+    description: How the lesson maintains rigorous academic expectations while being
+      culturally responsive — not lowering the bar
+chains_well_with:
+- ubuntu-collective-knowledge-task-designer
+- place-based-inquiry-anchor
+- belonging-classroom-culture-designer
+- phenomenon-based-unit-anchor
+teacher_time: 4 minutes
+tags:
+- culturally-responsive
+- Gay
+- Ladson-Billings
+- equity
+- culturally-sustaining
+- Hammond
+- inclusion
+```

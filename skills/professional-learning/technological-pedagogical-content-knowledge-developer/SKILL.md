@@ -1,81 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: technological-pedagogical-content-knowledge-developer
 description: "Develop TPACK for integrating a specific technology or AI tool into subject teaching with pedagogical alignment. Use when adopting new ed-tech, reviewing AI tools, or planning technology integration."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/technological-pedagogical-content-knowledge-developer"
-skill_name: "Technological Pedagogical Content Knowledge Developer"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Mishra & Koehler (2006) — Technological pedagogical content knowledge: A framework for teacher knowledge"
-  - "Koehler & Mishra (2009) — What is technological pedagogical content knowledge?"
-  - "Voogt et al. (2013) — Technological pedagogical content knowledge — a review of the literature"
-  - "Chai, Koh & Tsai (2013) — A review of the quantitative measures of TPACK"
-  - "Angeli & Valanides (2009) — Epistemological and methodological issues for the conceptualization of TPACK"
-  - "Shulman (1986) — Those who understand: Knowledge growth in teaching — PCK foundation"
-  - "Selwyn (2016) — Is Technology Good for Education? Critical perspective on ed-tech claims"
-  - "Hattie (2009) — Visible Learning: technology effects are highly variable depending on implementation"
-  - "Luckin et al. (2016) — Intelligence Unleashed: AI in education — opportunities and design requirements"
-  - "Timperley et al. (2007) — Teacher Professional Learning and Development: content-specific PD"
-input_schema:
-  required:
-    - field: "teaching_context"
-      type: "string"
-      description: "What the teacher is teaching: subject, topic, unit"
-    - field: "technology_in_use"
-      type: "string"
-      description: "The specific technology or AI tool the teacher is integrating or considering"
-    - field: "learner_stage"
-      type: "string"
-      description: "Age range or year group"
-    - field: "teacher_background"
-      type: "string"
-      description: "Subject training, teaching experience, and technology confidence"
-  optional:
-    - field: "pck_output"
-      type: "string"
-      description: "From pedagogical-content-knowledge-developer if already run; TPACK builds on PCK and is more useful when PCK gaps are already identified"
-    - field: "intended_learning_outcome"
-      type: "string"
-      description: "What the technology is supposed to help students achieve"
-    - field: "school_technology_context"
-      type: "string"
-      description: "Devices available, platform constraints, student data privacy requirements"
-output_schema:
-  type: "object"
-  fields:
-    - field: "tpack_diagnosis"
-      type: "object"
-      description: "Assessment of the teacher's TPACK gaps across the three intersections: technology-content (does the teacher understand how this technology represents or distorts this content?), technology-pedagogy (does the teacher know how to use this technology to support good teaching moves?), and the full TPACK intersection (can the teacher make real-time decisions about when to use, adapt, or abandon the technology based on what students are doing?)"
-    - field: "technology_content_knowledge"
-      type: "object"
-      description: "How this specific technology represents, models, or transforms this specific content: what it makes visible that is otherwise hard to see, what it obscures or distorts, and whether the representation is epistemically accurate for this domain"
-    - field: "technology_pedagogy_alignment"
-      type: "object"
-      description: "Which pedagogical moves this technology supports well, which it undermines, and which are neutral; includes specific guidance on when to use it, when to step back to non-technological approaches, and what the technology cannot do that the teacher must do"
-    - field: "ai_specific_guidance"
-      type: "object"
-      description: "If the technology is an AI tool: specific guidance on what the AI does well for this content and learner stage, where AI outputs require teacher verification, how to develop student critical evaluation of AI, and the autonomy-dependency risk for this topic"
-    - field: "tpack_development_plan"
-      type: "object"
-      description: "Sequenced development plan building from existing PCK; what the teacher needs to learn about the technology, practise with the technology, and observe in student responses to the technology"
-    - field: "ethical_and_equity_considerations"
-      type: "object"
-      description: "Data privacy implications for this learner stage, equity risks if technology access is uneven, and any content-specific ethical issues with this technology in this context"
-chains_well_with:
-  - "pedagogical-content-knowledge-developer"
-  - "curriculum-knowledge-architecture-designer"
-  - "critical-thinking-task-designer"
-  - "lesson-observation-protocol-designer"
-teacher_time: "10 minutes"
-tags: ["TPACK", "technology-integration", "AI-in-education", "pedagogical-content-knowledge", "Mishra-Koehler", "professional-learning", "ed-tech"]
 ---
 
 # Technological Pedagogical Content Knowledge Developer
@@ -415,3 +340,116 @@ The teacher needs to develop and maintain a continuous evaluative stance toward 
 4. **The equity and ethics section identifies risks but cannot resolve them.** Data privacy requirements vary by jurisdiction and are changing rapidly. For any technology collecting student data, the teacher and school must verify compliance with applicable law — this skill provides a checklist prompt, not legal advice.
 
 5. **TPACK development requires practice with real students.** Like PCK, TPACK is ultimately built through teaching with the technology, observing student responses, and refining. This skill accelerates development by identifying the right questions to ask and the right things to observe, but it cannot substitute for the experiential learning that comes from actually teaching with the technology and noticing what happens.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/technological-pedagogical-content-knowledge-developer
+skill_name: Technological Pedagogical Content Knowledge Developer
+domain: professional-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Mishra & Koehler (2006) — Technological pedagogical content knowledge: A framework
+  for teacher knowledge'
+- Koehler & Mishra (2009) — What is technological pedagogical content knowledge?
+- Voogt et al. (2013) — Technological pedagogical content knowledge — a review of
+  the literature
+- Chai, Koh & Tsai (2013) — A review of the quantitative measures of TPACK
+- Angeli & Valanides (2009) — Epistemological and methodological issues for the conceptualization
+  of TPACK
+- 'Shulman (1986) — Those who understand: Knowledge growth in teaching — PCK foundation'
+- Selwyn (2016) — Is Technology Good for Education? Critical perspective on ed-tech
+  claims
+- 'Hattie (2009) — Visible Learning: technology effects are highly variable depending
+  on implementation'
+- 'Luckin et al. (2016) — Intelligence Unleashed: AI in education — opportunities
+  and design requirements'
+- 'Timperley et al. (2007) — Teacher Professional Learning and Development: content-specific
+  PD'
+input_schema:
+  required:
+  - field: teaching_context
+    type: string
+    description: 'What the teacher is teaching: subject, topic, unit'
+  - field: technology_in_use
+    type: string
+    description: The specific technology or AI tool the teacher is integrating or
+      considering
+  - field: learner_stage
+    type: string
+    description: Age range or year group
+  - field: teacher_background
+    type: string
+    description: Subject training, teaching experience, and technology confidence
+  optional:
+  - field: pck_output
+    type: string
+    description: From pedagogical-content-knowledge-developer if already run; TPACK
+      builds on PCK and is more useful when PCK gaps are already identified
+  - field: intended_learning_outcome
+    type: string
+    description: What the technology is supposed to help students achieve
+  - field: school_technology_context
+    type: string
+    description: Devices available, platform constraints, student data privacy requirements
+output_schema:
+  type: object
+  fields:
+  - field: tpack_diagnosis
+    type: object
+    description: 'Assessment of the teacher''s TPACK gaps across the three intersections:
+      technology-content (does the teacher understand how this technology represents
+      or distorts this content?), technology-pedagogy (does the teacher know how to
+      use this technology to support good teaching moves?), and the full TPACK intersection
+      (can the teacher make real-time decisions about when to use, adapt, or abandon
+      the technology based on what students are doing?)'
+  - field: technology_content_knowledge
+    type: object
+    description: 'How this specific technology represents, models, or transforms this
+      specific content: what it makes visible that is otherwise hard to see, what
+      it obscures or distorts, and whether the representation is epistemically accurate
+      for this domain'
+  - field: technology_pedagogy_alignment
+    type: object
+    description: Which pedagogical moves this technology supports well, which it undermines,
+      and which are neutral; includes specific guidance on when to use it, when to
+      step back to non-technological approaches, and what the technology cannot do
+      that the teacher must do
+  - field: ai_specific_guidance
+    type: object
+    description: 'If the technology is an AI tool: specific guidance on what the AI
+      does well for this content and learner stage, where AI outputs require teacher
+      verification, how to develop student critical evaluation of AI, and the autonomy-dependency
+      risk for this topic'
+  - field: tpack_development_plan
+    type: object
+    description: Sequenced development plan building from existing PCK; what the teacher
+      needs to learn about the technology, practise with the technology, and observe
+      in student responses to the technology
+  - field: ethical_and_equity_considerations
+    type: object
+    description: Data privacy implications for this learner stage, equity risks if
+      technology access is uneven, and any content-specific ethical issues with this
+      technology in this context
+chains_well_with:
+- pedagogical-content-knowledge-developer
+- curriculum-knowledge-architecture-designer
+- critical-thinking-task-designer
+- lesson-observation-protocol-designer
+teacher_time: 10 minutes
+tags:
+- TPACK
+- technology-integration
+- AI-in-education
+- pedagogical-content-knowledge
+- Mishra-Koehler
+- professional-learning
+- ed-tech
+```

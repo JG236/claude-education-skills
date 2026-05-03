@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: perma-based-lesson-designer
 description: "Design a lesson that embeds PERMA wellbeing elements alongside academic learning objectives. Use when planning lessons that intentionally support both content mastery and student flourishing."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/perma-based-lesson-designer"
-skill_name: "PERMA-Based Lesson Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Seligman (2011) — Flourish: a visionary new understanding of happiness and well-being"
-  - "Kern et al. (2015) — A multidimensional approach to measuring well-being in students: EPOCH"
-  - "Norrish et al. (2013) — An applied framework for Positive Education at Geelong Grammar School"
-  - "White & Kern (2018) — Positive Education: learning and teaching for wellbeing and academic mastery"
-  - "Waters (2011) — A review of school-based positive psychology interventions"
-input_schema:
-  required:
-    - field: "lesson_content"
-      type: "string"
-      description: "The subject content and learning objectives for the lesson"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "perma_focus"
-      type: "string"
-      description: "Which PERMA element(s) to prioritise — or 'all' for a balanced lesson"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class wellbeing data, engagement patterns, particular needs"
-    - field: "lesson_duration"
-      type: "string"
-      description: "Length of the lesson"
-    - field: "current_wellbeing_concerns"
-      type: "string"
-      description: "Specific wellbeing issues in the class — anxiety, low engagement, poor relationships"
-output_schema:
-  type: "object"
-  fields:
-    - field: "perma_lesson_plan"
-      type: "object"
-      description: "A lesson plan that integrates PERMA elements into the academic content — not separate wellbeing activities but wellbeing through learning"
-    - field: "perma_mapping"
-      type: "object"
-      description: "How each PERMA element is addressed in the lesson and through which activity"
-    - field: "teacher_moves"
-      type: "array"
-      description: "Specific teacher actions that activate each PERMA element"
-    - field: "reflection_prompts"
-      type: "array"
-      description: "Prompts for students to connect their learning experience to their wellbeing"
-chains_well_with:
-  - "wellbeing-learning-connection-mapper"
-  - "motivation-diagnostic-task-redesign"
-  - "belonging-classroom-culture-designer"
-  - "flow-state-condition-designer"
-teacher_time: "4 minutes"
-tags: ["PERMA", "positive-education", "Seligman", "flourishing", "wellbeing", "lesson-design"]
 ---
 
 # PERMA-Based Lesson Designer
@@ -260,3 +196,85 @@ Collect both. The closing argument assesses the learning objective; the reflecti
 2. **PERMA is a framework, not a recipe.** The elements interact and overlap: genuine engagement often produces positive emotion, accomplishment builds relationships (shared success), and meaning deepens engagement. The mapping is a design tool, not a checklist — the goal is a lesson that feels coherent, not one that ticks five boxes.
 
 3. **Positive Education research is primarily from privileged school contexts.** The Geelong Grammar implementation (Norrish et al., 2013) occurred in an independent school with significant resources. The principles transfer to all contexts, but the practical constraints differ. A teacher in a high-deprivation school with limited resources may need to adapt the practices — the underlying framework is sound, but the implementation must be context-sensitive.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/perma-based-lesson-designer
+skill_name: PERMA-Based Lesson Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Seligman (2011) — Flourish: a visionary new understanding of happiness and well-being'
+- 'Kern et al. (2015) — A multidimensional approach to measuring well-being in students:
+  EPOCH'
+- Norrish et al. (2013) — An applied framework for Positive Education at Geelong Grammar
+  School
+- 'White & Kern (2018) — Positive Education: learning and teaching for wellbeing and
+  academic mastery'
+- Waters (2011) — A review of school-based positive psychology interventions
+input_schema:
+  required:
+  - field: lesson_content
+    type: string
+    description: The subject content and learning objectives for the lesson
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: perma_focus
+    type: string
+    description: Which PERMA element(s) to prioritise — or 'all' for a balanced lesson
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class wellbeing data, engagement patterns,
+      particular needs'
+  - field: lesson_duration
+    type: string
+    description: Length of the lesson
+  - field: current_wellbeing_concerns
+    type: string
+    description: Specific wellbeing issues in the class — anxiety, low engagement,
+      poor relationships
+output_schema:
+  type: object
+  fields:
+  - field: perma_lesson_plan
+    type: object
+    description: A lesson plan that integrates PERMA elements into the academic content
+      — not separate wellbeing activities but wellbeing through learning
+  - field: perma_mapping
+    type: object
+    description: How each PERMA element is addressed in the lesson and through which
+      activity
+  - field: teacher_moves
+    type: array
+    description: Specific teacher actions that activate each PERMA element
+  - field: reflection_prompts
+    type: array
+    description: Prompts for students to connect their learning experience to their
+      wellbeing
+chains_well_with:
+- wellbeing-learning-connection-mapper
+- motivation-diagnostic-task-redesign
+- belonging-classroom-culture-designer
+- flow-state-condition-designer
+teacher_time: 4 minutes
+tags:
+- PERMA
+- positive-education
+- Seligman
+- flourishing
+- wellbeing
+- lesson-design
+```

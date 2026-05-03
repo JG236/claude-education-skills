@@ -1,79 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: pedagogical-content-knowledge-developer
 description: "Develop pedagogical content knowledge for a topic by surfacing common misconceptions and effective representations. Use when preparing to teach unfamiliar content or improving teaching of hard topics."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/pedagogical-content-knowledge-developer"
-skill_name: "Pedagogical Content Knowledge Developer"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Shulman (1986) — Those who understand: Knowledge growth in teaching — original PCK framework"
-  - "Shulman (1987) — Knowledge and teaching: Foundations of the new reform"
-  - "Ball, Thames & Phelps (2008) — Content knowledge for teaching: What makes it special?"
-  - "Magnusson, Krajcik & Borko (1999) — Nature, sources and development of PCK for science teaching"
-  - "Cochran, DeRuiter & King (1993) — Pedagogical content knowing: An integrative model"
-  - "Hattie (2009) — Visible Learning: teacher content knowledge and PCK as distinct predictors"
-  - "Depaepe, Verschaffel & Kelchtermans (2013) — Pedagogical content knowledge: A systematic review"
-  - "Bernstein (1999) — Vertical and horizontal discourse: knowledge structures and recontextualisation"
-  - "Willingham (2009) — Why Don't Students Like School: content knowledge as prerequisite for teaching"
-  - "Timperley et al. (2007) — Teacher Professional Learning and Development: content-specific PD effectiveness"
-input_schema:
-  required:
-    - field: "teaching_context"
-      type: "string"
-      description: "What the teacher is about to teach: subject, topic, unit, or programme"
-    - field: "learner_stage"
-      type: "string"
-      description: "Age range or year group"
-    - field: "teacher_background"
-      type: "string"
-      description: "Brief description of the teacher's subject training and experience with this topic"
-  optional:
-    - field: "known_student_misconceptions"
-      type: "string"
-      description: "Any misconceptions the teacher is already aware of"
-    - field: "curriculum_framework"
-      type: "string"
-      description: "The school's curriculum or competency framework in use"
-    - field: "knowledge_architecture_output"
-      type: "string"
-      description: "From curriculum-knowledge-architecture-designer if already run"
-output_schema:
-  type: "object"
-  fields:
-    - field: "pck_diagnosis"
-      type: "object"
-      description: "Assessment of the teacher's likely PCK strengths and gaps for this specific topic, based on their background; identifies which of the three knowledge types (hierarchical, horizontal, dispositional) their PCK is weakest in"
-    - field: "content_knowledge_foundations"
-      type: "object"
-      description: "The hierarchical knowledge the teacher must have secure before teaching: key concepts, prerequisite chains, and the most commonly misunderstood content at this level"
-    - field: "common_student_misconceptions"
-      type: "object"
-      description: "The most well-documented misconceptions students hold about this topic at this learner stage, with explanation of why each misconception forms and what it takes to shift it"
-    - field: "pedagogical_representations"
-      type: "object"
-      description: "The most effective representations, analogies, models, and examples for teaching this content: what works, what misleads, and why; organised by knowledge type"
-    - field: "disciplinary_thinking_standards"
-      type: "object"
-      description: "What expert thinking looks like in this domain and how to make it visible to students; the horizontal knowledge dimension of PCK"
-    - field: "developmental_action_plan"
-      type: "object"
-      description: "A sequenced plan for the teacher to develop their PCK: what to read or learn first, what to observe, what to practise, and how to know when their PCK is sufficient"
-chains_well_with:
-  - "curriculum-knowledge-architecture-designer"
-  - "critical-thinking-task-designer"
-  - "lesson-observation-protocol-designer"
-  - "reflective-practice-prompt-generator"
-  - "technological-pedagogical-content-knowledge-developer"
-teacher_time: "10 minutes"
-tags: ["PCK", "pedagogical-content-knowledge", "teacher-development", "content-knowledge", "misconceptions", "Shulman", "professional-learning", "knowledge-contingent"]
 ---
 
 # Pedagogical Content Knowledge Developer
@@ -404,3 +331,107 @@ Calming techniques and their physiological basis: how breathing, grounding, and 
 4. **The three-type framework maps onto PCK but does not capture all of PCK's complexity.** Ball et al.'s (2008) six-domain model includes specialised content knowledge, knowledge of content and students, knowledge of content and teaching, knowledge of content and curriculum, and horizon content knowledge — each of which has distinct development pathways. This skill uses the three-type framework for accessibility and consistency with the rest of the skills library, which means some PCK nuance is lost.
 
 5. **This skill diagnoses and develops individual teacher PCK.** It does not address collective or institutional PCK — the shared understanding a department or team develops about how to teach a subject well in a specific context with specific students. For ambitious new programmes involving multiple teachers, the lesson-study-cycle-designer is the more appropriate tool for building collective PCK.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/pedagogical-content-knowledge-developer
+skill_name: Pedagogical Content Knowledge Developer
+domain: professional-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Shulman (1986) — Those who understand: Knowledge growth in teaching — original
+  PCK framework'
+- 'Shulman (1987) — Knowledge and teaching: Foundations of the new reform'
+- 'Ball, Thames & Phelps (2008) — Content knowledge for teaching: What makes it special?'
+- Magnusson, Krajcik & Borko (1999) — Nature, sources and development of PCK for science
+  teaching
+- 'Cochran, DeRuiter & King (1993) — Pedagogical content knowing: An integrative model'
+- 'Hattie (2009) — Visible Learning: teacher content knowledge and PCK as distinct
+  predictors'
+- 'Depaepe, Verschaffel & Kelchtermans (2013) — Pedagogical content knowledge: A systematic
+  review'
+- 'Bernstein (1999) — Vertical and horizontal discourse: knowledge structures and
+  recontextualisation'
+- 'Willingham (2009) — Why Don''t Students Like School: content knowledge as prerequisite
+  for teaching'
+- 'Timperley et al. (2007) — Teacher Professional Learning and Development: content-specific
+  PD effectiveness'
+input_schema:
+  required:
+  - field: teaching_context
+    type: string
+    description: 'What the teacher is about to teach: subject, topic, unit, or programme'
+  - field: learner_stage
+    type: string
+    description: Age range or year group
+  - field: teacher_background
+    type: string
+    description: Brief description of the teacher's subject training and experience
+      with this topic
+  optional:
+  - field: known_student_misconceptions
+    type: string
+    description: Any misconceptions the teacher is already aware of
+  - field: curriculum_framework
+    type: string
+    description: The school's curriculum or competency framework in use
+  - field: knowledge_architecture_output
+    type: string
+    description: From curriculum-knowledge-architecture-designer if already run
+output_schema:
+  type: object
+  fields:
+  - field: pck_diagnosis
+    type: object
+    description: Assessment of the teacher's likely PCK strengths and gaps for this
+      specific topic, based on their background; identifies which of the three knowledge
+      types (hierarchical, horizontal, dispositional) their PCK is weakest in
+  - field: content_knowledge_foundations
+    type: object
+    description: 'The hierarchical knowledge the teacher must have secure before teaching:
+      key concepts, prerequisite chains, and the most commonly misunderstood content
+      at this level'
+  - field: common_student_misconceptions
+    type: object
+    description: The most well-documented misconceptions students hold about this
+      topic at this learner stage, with explanation of why each misconception forms
+      and what it takes to shift it
+  - field: pedagogical_representations
+    type: object
+    description: 'The most effective representations, analogies, models, and examples
+      for teaching this content: what works, what misleads, and why; organised by
+      knowledge type'
+  - field: disciplinary_thinking_standards
+    type: object
+    description: What expert thinking looks like in this domain and how to make it
+      visible to students; the horizontal knowledge dimension of PCK
+  - field: developmental_action_plan
+    type: object
+    description: 'A sequenced plan for the teacher to develop their PCK: what to read
+      or learn first, what to observe, what to practise, and how to know when their
+      PCK is sufficient'
+chains_well_with:
+- curriculum-knowledge-architecture-designer
+- critical-thinking-task-designer
+- lesson-observation-protocol-designer
+- reflective-practice-prompt-generator
+- technological-pedagogical-content-knowledge-developer
+teacher_time: 10 minutes
+tags:
+- PCK
+- pedagogical-content-knowledge
+- teacher-development
+- content-knowledge
+- misconceptions
+- Shulman
+- professional-learning
+- knowledge-contingent
+```

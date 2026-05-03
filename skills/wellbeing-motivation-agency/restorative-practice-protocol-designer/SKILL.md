@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: restorative-practice-protocol-designer
 description: "Design a restorative practice protocol for addressing harm, rebuilding trust, and restoring relationships. Use when managing conflict, behavioural incidents, or relationship breakdown between students."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/restorative-practice-protocol-designer"
-skill_name: "Restorative Practice Protocol Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Hopkins (2004) — Just Schools: a whole-school approach to restorative justice"
-  - "Morrison (2007) — Restoring Safe School Communities: a whole-school response to bullying, violence and alienation"
-  - "Zehr (2002) — The Little Book of Restorative Justice"
-  - "Thorsborne & Blood (2013) — Implementing Restorative Practices in Schools"
-  - "González (2015) — Restorative practices: from the evidence to whole-school implementation"
-input_schema:
-  required:
-    - field: "incident_description"
-      type: "string"
-      description: "What happened — the behaviour or conflict that needs addressing"
-    - field: "people_involved"
-      type: "string"
-      description: "Who was involved and in what roles — the person who caused harm, the person(s) affected, any witnesses"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "relationship_context"
-      type: "string"
-      description: "The relationship between those involved — friends, classmates, strangers, repeat pattern"
-    - field: "previous_incidents"
-      type: "string"
-      description: "Whether this is a first occurrence or part of a pattern"
-    - field: "severity"
-      type: "string"
-      description: "Low-level disruption, moderate conflict, serious harm"
-    - field: "available_time"
-      type: "string"
-      description: "How much time can be allocated for the restorative process"
-    - field: "school_policy"
-      type: "string"
-      description: "The school's behaviour policy context — is restorative practice embedded or being trialled?"
-output_schema:
-  type: "object"
-  fields:
-    - field: "restorative_protocol"
-      type: "object"
-      description: "The specific restorative process to use — restorative chat, restorative conference, or circle process"
-    - field: "question_sequence"
-      type: "array"
-      description: "The specific restorative questions in order, adapted for the situation"
-    - field: "preparation_guide"
-      type: "object"
-      description: "How to prepare participants before the restorative process"
-    - field: "agreement_framework"
-      type: "string"
-      description: "How to reach and record a restorative agreement — what the participants commit to"
-chains_well_with:
-  - "belonging-classroom-culture-designer"
-  - "trauma-informed-practice-designer"
-  - "ruler-emotional-literacy-sequence"
-  - "wellbeing-learning-connection-mapper"
-teacher_time: "3 minutes"
-tags: ["restorative-practice", "conflict-resolution", "relationships", "accountability", "repair"]
 ---
 
 # Restorative Practice Protocol Designer
@@ -301,3 +234,85 @@ If the agreement has been broken: reconvene. "We agreed on [specific terms] last
 2. **Restorative practice is not appropriate for all situations.** Situations involving significant power imbalances (persistent bullying, abuse, harassment) may not be suitable for a face-to-face restorative conference, as the affected person may feel unsafe speaking directly to the person who harmed them. In these cases, the facilitator can shuttle between the parties rather than bringing them together, or an alternative approach may be needed.
 
 3. **Restorative practice takes more time than punishment.** A detention takes zero preparation and zero facilitator skill. A restorative conference takes 30–40 minutes plus preparation. The investment pays off in reduced repeat incidents and improved relationships, but the initial time cost is significant and must be supported by school leadership.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/restorative-practice-protocol-designer
+skill_name: Restorative Practice Protocol Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Hopkins (2004) — Just Schools: a whole-school approach to restorative justice'
+- 'Morrison (2007) — Restoring Safe School Communities: a whole-school response to
+  bullying, violence and alienation'
+- Zehr (2002) — The Little Book of Restorative Justice
+- Thorsborne & Blood (2013) — Implementing Restorative Practices in Schools
+- 'González (2015) — Restorative practices: from the evidence to whole-school implementation'
+input_schema:
+  required:
+  - field: incident_description
+    type: string
+    description: What happened — the behaviour or conflict that needs addressing
+  - field: people_involved
+    type: string
+    description: Who was involved and in what roles — the person who caused harm,
+      the person(s) affected, any witnesses
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: relationship_context
+    type: string
+    description: The relationship between those involved — friends, classmates, strangers,
+      repeat pattern
+  - field: previous_incidents
+    type: string
+    description: Whether this is a first occurrence or part of a pattern
+  - field: severity
+    type: string
+    description: Low-level disruption, moderate conflict, serious harm
+  - field: available_time
+    type: string
+    description: How much time can be allocated for the restorative process
+  - field: school_policy
+    type: string
+    description: The school's behaviour policy context — is restorative practice embedded
+      or being trialled?
+output_schema:
+  type: object
+  fields:
+  - field: restorative_protocol
+    type: object
+    description: The specific restorative process to use — restorative chat, restorative
+      conference, or circle process
+  - field: question_sequence
+    type: array
+    description: The specific restorative questions in order, adapted for the situation
+  - field: preparation_guide
+    type: object
+    description: How to prepare participants before the restorative process
+  - field: agreement_framework
+    type: string
+    description: How to reach and record a restorative agreement — what the participants
+      commit to
+chains_well_with:
+- belonging-classroom-culture-designer
+- trauma-informed-practice-designer
+- ruler-emotional-literacy-sequence
+- wellbeing-learning-connection-mapper
+teacher_time: 3 minutes
+tags:
+- restorative-practice
+- conflict-resolution
+- relationships
+- accountability
+- repair
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: three-part-lesson-designer
 description: "Design a Montessori three-period lesson for introducing concepts through concrete materials and naming. Use when teaching vocabulary, classifications, or concepts through hands-on materials."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "montessori-alternative-approaches/three-part-lesson-designer"
-skill_name: "Three-Part Lesson Designer (Montessori)"
-domain: "montessori-alternative-approaches"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Lillard & Else-Quest (2006) — Evaluating Montessori education (Science, 313, 1893-1894)"
-  - "Lillard (2012) — Preschool children's development in classic Montessori, supplemented Montessori, and conventional programs"
-  - "Lillard (2005) — Montessori: The Science Behind the Genius"
-  - "Séguin (1866) — Idiocy: and its treatment by the physiological method (origin of the three-period lesson)"
-  - "Standing (1957) — Maria Montessori: Her Life and Work (detailed description of three-period lesson)"
-input_schema:
-  required:
-    - field: "concept_to_teach"
-      type: "string"
-      description: "The specific concept, vocabulary, or classification the lesson will introduce — what students need to learn to name, recognise, and recall"
-    - field: "concrete_materials"
-      type: "string"
-      description: "The physical materials or objects that will be used — what students will see and handle during the lesson"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and developmental stage"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "group_size"
-      type: "string"
-      description: "How many students — typically 1-3 in Montessori practice"
-    - field: "prior_knowledge"
-      type: "string"
-      description: "What students already know about this concept or related concepts"
-    - field: "language_considerations"
-      type: "string"
-      description: "Any language needs — EAL students, technical vocabulary, or multiple languages in the classroom"
-output_schema:
-  type: "object"
-  fields:
-    - field: "three_period_lesson"
-      type: "object"
-      description: "The complete lesson across all three periods — naming, recognition, and recall"
-    - field: "materials_preparation"
-      type: "object"
-      description: "How to prepare and present the materials — including isolation of the concept"
-    - field: "assessment_indicators"
-      type: "object"
-      description: "How to know when the student has mastered each period — the observable evidence of understanding"
-    - field: "extension_activities"
-      type: "array"
-      description: "Activities for students who master the lesson quickly and activities for students who need additional practice"
-chains_well_with:
-  - "prepared-environment-designer"
-  - "mixed-age-learning-task-designer"
-  - "uninterrupted-work-cycle-designer"
-  - "retrieval-practice-designer"
-teacher_time: "3 minutes"
-tags: ["Montessori", "three-period-lesson", "Lillard", "naming", "recognition", "recall", "vocabulary", "classification", "concrete"]
 ---
 
 # Three-Part Lesson Designer (Montessori)
@@ -294,3 +230,90 @@ After 2-3 more recognition prompts, try Period 3 again. If the student still can
 3. **The "three items maximum" rule limits scope.** Introducing only 2-3 items per lesson means that a classification system with 10 categories requires 3-4 separate lessons. This is pedagogically sound (it prevents overload) but time-consuming. In conventional classrooms with time pressure, teachers may be tempted to introduce more items per lesson, which reduces the method's effectiveness.
 
 4. **The lesson assumes a calm, focused environment.** The three-period lesson requires sustained attention from a small group over 10-15 minutes. In noisy, disrupted, or overstimulated environments, the quiet precision of the lesson may be difficult to maintain. The prepared environment (see Skill 93) is the Montessori solution to this, but it is not always available in conventional school settings.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: montessori-alternative-approaches/three-part-lesson-designer
+skill_name: Three-Part Lesson Designer (Montessori)
+domain: montessori-alternative-approaches
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- Lillard & Else-Quest (2006) — Evaluating Montessori education (Science, 313, 1893-1894)
+- Lillard (2012) — Preschool children's development in classic Montessori, supplemented
+  Montessori, and conventional programs
+- 'Lillard (2005) — Montessori: The Science Behind the Genius'
+- 'Séguin (1866) — Idiocy: and its treatment by the physiological method (origin of
+  the three-period lesson)'
+- 'Standing (1957) — Maria Montessori: Her Life and Work (detailed description of
+  three-period lesson)'
+input_schema:
+  required:
+  - field: concept_to_teach
+    type: string
+    description: The specific concept, vocabulary, or classification the lesson will
+      introduce — what students need to learn to name, recognise, and recall
+  - field: concrete_materials
+    type: string
+    description: The physical materials or objects that will be used — what students
+      will see and handle during the lesson
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and developmental stage
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: group_size
+    type: string
+    description: How many students — typically 1-3 in Montessori practice
+  - field: prior_knowledge
+    type: string
+    description: What students already know about this concept or related concepts
+  - field: language_considerations
+    type: string
+    description: Any language needs — EAL students, technical vocabulary, or multiple
+      languages in the classroom
+output_schema:
+  type: object
+  fields:
+  - field: three_period_lesson
+    type: object
+    description: The complete lesson across all three periods — naming, recognition,
+      and recall
+  - field: materials_preparation
+    type: object
+    description: How to prepare and present the materials — including isolation of
+      the concept
+  - field: assessment_indicators
+    type: object
+    description: How to know when the student has mastered each period — the observable
+      evidence of understanding
+  - field: extension_activities
+    type: array
+    description: Activities for students who master the lesson quickly and activities
+      for students who need additional practice
+chains_well_with:
+- prepared-environment-designer
+- mixed-age-learning-task-designer
+- uninterrupted-work-cycle-designer
+- retrieval-practice-designer
+teacher_time: 3 minutes
+tags:
+- Montessori
+- three-period-lesson
+- Lillard
+- naming
+- recognition
+- recall
+- vocabulary
+- classification
+- concrete
+```

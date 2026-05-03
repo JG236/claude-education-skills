@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: argument-structure-scaffold-generator
 description: "Generate argument structure scaffolds using Toulmin, PEEL, or CER frameworks for a specific claim or question. Use when teaching argumentative or analytical writing across any subject."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "literacy-critical-thinking/argument-structure-scaffold-generator"
-skill_name: "Argument Structure Scaffold Generator"
-domain: "literacy-critical-thinking"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Toulmin (1958) — The Uses of Argument: claim, data, warrant, backing, qualifier, rebuttal"
-  - "Graham & Perin (2007) — Writing Next: effective strategies to improve writing of adolescents"
-  - "Andrews (2010) — Argumentation in Higher Education: improving practice through theory and research"
-  - "Hillocks (2011) — Teaching Argument Writing, Grades 6–12"
-  - "Newell et al. (2011) — Teaching and Learning Argumentative Reading and Writing"
-input_schema:
-  required:
-    - field: "argument_topic"
-      type: "string"
-      description: "The claim, question, or proposition students are arguing about"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current writing competence"
-    - field: "scaffold_type"
-      type: "string"
-      description: "The argument framework to use — e.g. Toulmin, PEEL, claim-evidence-reasoning (CER), historical argument, balanced argument"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context — different disciplines argue differently"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: writing levels, language proficiency, specific needs"
-    - field: "text_type"
-      type: "string"
-      description: "The genre of the final text — e.g. essay, speech, letter, debate brief"
-    - field: "example_evidence"
-      type: "string"
-      description: "Evidence or sources students have access to for building their argument"
-output_schema:
-  type: "object"
-  fields:
-    - field: "scaffold"
-      type: "object"
-      description: "The structured argument scaffold with labelled sections, prompts for each section, and example sentence starters"
-    - field: "annotated_model"
-      type: "string"
-      description: "A brief annotated model showing the scaffold in use"
-    - field: "common_weaknesses"
-      type: "array"
-      description: "Typical weaknesses in student arguments at this level and how the scaffold addresses them"
-    - field: "differentiation"
-      type: "object"
-      description: "Support and extension modifications to the scaffold"
-chains_well_with:
-  - "disciplinary-writing-scaffold"
-  - "critical-thinking-task-designer"
-  - "feedback-quality-analyser"
-  - "worked-example-fading-designer"
-teacher_time: "3 minutes"
-tags: ["argument", "writing", "Toulmin", "PEEL", "scaffold", "critical-thinking"]
 ---
 
 # Argument Structure Scaffold Generator
@@ -286,3 +222,85 @@ Sentence starters:
 2. **Scaffolds can become crutches.** If students always write with sentence starters and labelled sections, they may struggle to write without them. The scaffold should be progressively faded — used explicitly for early attempts, then gradually removed as students internalise the structure. Chain with Worked Example Fading Designer to plan the scaffold reduction.
 
 3. **Argument conventions vary across disciplines more than the scaffold can fully capture.** A history essay, a science report, and a philosophical argument have fundamentally different evidence standards, reasoning patterns, and rhetorical conventions. This skill generates discipline-appropriate scaffolds, but teachers should review the output against their specific discipline's expectations and modify where needed.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: literacy-critical-thinking/argument-structure-scaffold-generator
+skill_name: Argument Structure Scaffold Generator
+domain: literacy-critical-thinking
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Toulmin (1958) — The Uses of Argument: claim, data, warrant, backing, qualifier,
+  rebuttal'
+- 'Graham & Perin (2007) — Writing Next: effective strategies to improve writing of
+  adolescents'
+- 'Andrews (2010) — Argumentation in Higher Education: improving practice through
+  theory and research'
+- Hillocks (2011) — Teaching Argument Writing, Grades 6–12
+- Newell et al. (2011) — Teaching and Learning Argumentative Reading and Writing
+input_schema:
+  required:
+  - field: argument_topic
+    type: string
+    description: The claim, question, or proposition students are arguing about
+  - field: student_level
+    type: string
+    description: Age/year group and current writing competence
+  - field: scaffold_type
+    type: string
+    description: The argument framework to use — e.g. Toulmin, PEEL, claim-evidence-reasoning
+      (CER), historical argument, balanced argument
+  optional:
+  - field: subject_area
+    type: string
+    description: Subject context — different disciplines argue differently
+  - field: student_profiles
+    type: array
+    description: 'From context engine: writing levels, language proficiency, specific
+      needs'
+  - field: text_type
+    type: string
+    description: The genre of the final text — e.g. essay, speech, letter, debate
+      brief
+  - field: example_evidence
+    type: string
+    description: Evidence or sources students have access to for building their argument
+output_schema:
+  type: object
+  fields:
+  - field: scaffold
+    type: object
+    description: The structured argument scaffold with labelled sections, prompts
+      for each section, and example sentence starters
+  - field: annotated_model
+    type: string
+    description: A brief annotated model showing the scaffold in use
+  - field: common_weaknesses
+    type: array
+    description: Typical weaknesses in student arguments at this level and how the
+      scaffold addresses them
+  - field: differentiation
+    type: object
+    description: Support and extension modifications to the scaffold
+chains_well_with:
+- disciplinary-writing-scaffold
+- critical-thinking-task-designer
+- feedback-quality-analyser
+- worked-example-fading-designer
+teacher_time: 3 minutes
+tags:
+- argument
+- writing
+- Toulmin
+- PEEL
+- scaffold
+- critical-thinking
+```

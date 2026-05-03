@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: vocabulary-tiering-tool
 description: "Tier vocabulary from a text or topic into everyday, academic, and technical categories with teaching priorities. Use when pre-teaching vocabulary or identifying language barriers in a text."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "eal-language-development/vocabulary-tiering-tool"
-skill_name: "Vocabulary Tiering Tool"
-domain: "eal-language-development"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Beck, McKeown & Kucan (2002, 2013) — Bringing Words to Life: robust vocabulary instruction"
-  - "Nation (2001) — Learning Vocabulary in Another Language"
-  - "Coxhead (2000) — The Academic Word List: a new look at academic vocabulary"
-  - "Stahl & Nagy (2006) — Teaching Word Meanings"
-  - "Graves (2006) — The Vocabulary Book: learning and instruction"
-input_schema:
-  required:
-    - field: "text_or_topic"
-      type: "string"
-      description: "The text extract or topic to analyse for vocabulary demands"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-  optional:
-    - field: "language_proficiency"
-      type: "string"
-      description: "EAL proficiency level of target students"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: first languages, vocabulary gaps identified in prior assessment"
-    - field: "lesson_focus"
-      type: "string"
-      description: "What the lesson is about — helps prioritise which vocabulary matters most"
-    - field: "word_count_limit"
-      type: "integer"
-      description: "Maximum number of words to pre-teach — helps the teacher focus"
-output_schema:
-  type: "object"
-  fields:
-    - field: "tiered_vocabulary"
-      type: "object"
-      description: "Complete vocabulary analysis with words categorised into Tier 1, 2, and 3"
-    - field: "teaching_sequence"
-      type: "array"
-      description: "Prioritised sequence of words to teach, with teaching method for each"
-    - field: "word_teaching_cards"
-      type: "array"
-      description: "For each priority word: definition, example in context, visual cue, common confusions"
-    - field: "quick_check"
-      type: "string"
-      description: "A brief activity to check vocabulary understanding"
-chains_well_with:
-  - "language-demand-analyser"
-  - "scaffolded-task-modifier"
-  - "text-complexity-analyser"
-  - "academic-language-sentence-frame-generator"
-teacher_time: "3 minutes"
-tags: ["vocabulary", "tiering", "Tier-2", "academic-language", "EAL", "word-teaching"]
 ---
 
 # Vocabulary Tiering Tool
@@ -291,3 +227,83 @@ Display six sentences on the board, each with a gap. Students choose the correct
 2. **Pre-teaching vocabulary is necessary but not sufficient.** Students need multiple exposures (Stahl & Nagy suggest 10–12) in varied contexts before a word is truly acquired. A single pre-teaching session introduces the word; it must be revisited throughout the lesson, the week, and the unit. The teaching cards provide the initial exposure; the teacher must plan for repetition.
 
 3. **The tool analyses vocabulary at the word level but academic language is also about phrases and structures.** "On the other hand," "as a result of," "in contrast to" are multi-word expressions that function as single vocabulary items. The tool identifies individual words but may not capture all the significant multi-word phrases that students need.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: eal-language-development/vocabulary-tiering-tool
+skill_name: Vocabulary Tiering Tool
+domain: eal-language-development
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Beck, McKeown & Kucan (2002, 2013) — Bringing Words to Life: robust vocabulary
+  instruction'
+- Nation (2001) — Learning Vocabulary in Another Language
+- 'Coxhead (2000) — The Academic Word List: a new look at academic vocabulary'
+- Stahl & Nagy (2006) — Teaching Word Meanings
+- 'Graves (2006) — The Vocabulary Book: learning and instruction'
+input_schema:
+  required:
+  - field: text_or_topic
+    type: string
+    description: The text extract or topic to analyse for vocabulary demands
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  optional:
+  - field: language_proficiency
+    type: string
+    description: EAL proficiency level of target students
+  - field: student_profiles
+    type: array
+    description: 'From context engine: first languages, vocabulary gaps identified
+      in prior assessment'
+  - field: lesson_focus
+    type: string
+    description: What the lesson is about — helps prioritise which vocabulary matters
+      most
+  - field: word_count_limit
+    type: integer
+    description: Maximum number of words to pre-teach — helps the teacher focus
+output_schema:
+  type: object
+  fields:
+  - field: tiered_vocabulary
+    type: object
+    description: Complete vocabulary analysis with words categorised into Tier 1,
+      2, and 3
+  - field: teaching_sequence
+    type: array
+    description: Prioritised sequence of words to teach, with teaching method for
+      each
+  - field: word_teaching_cards
+    type: array
+    description: 'For each priority word: definition, example in context, visual cue,
+      common confusions'
+  - field: quick_check
+    type: string
+    description: A brief activity to check vocabulary understanding
+chains_well_with:
+- language-demand-analyser
+- scaffolded-task-modifier
+- text-complexity-analyser
+- academic-language-sentence-frame-generator
+teacher_time: 3 minutes
+tags:
+- vocabulary
+- tiering
+- Tier-2
+- academic-language
+- EAL
+- word-teaching
+```

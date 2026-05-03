@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: elaborative-interrogation-generator
 description: "Generate elaborative interrogation prompts that deepen encoding through targeted why and how questions. Use when students memorise without understanding or need deeper processing of content."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/elaborative-interrogation-generator"
-skill_name: "Elaborative Interrogation Prompt Generator"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Pressley et al. (1992) — Elaborative interrogation facilitates acquisition of confusing facts"
-  - "Woloshyn et al. (1994) — Use of elaborative interrogation to help students acquire information consistent with prior knowledge"
-  - "Dunlosky et al. (2013) — Elaborative interrogation rated moderate-utility learning strategy"
-  - "McDaniel & Donnelly (1996) — Learning with analogy and elaborative interrogation"
-  - "Ozgungor & Guthrie (2004) — Interactions among elaborative interrogation, knowledge, and interest in the process of constructing knowledge from text"
-input_schema:
-  required:
-    - field: "topic"
-      type: "string"
-      description: "The concept, fact set, or content area students are learning"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and approximate prior knowledge level"
-    - field: "prompt_count"
-      type: "integer"
-      description: "Number of elaborative prompts to generate (recommended 5–8)"
-  optional:
-    - field: "content_text"
-      type: "string"
-      description: "The specific text or content students are engaging with"
-    - field: "prior_knowledge"
-      type: "string"
-      description: "What students already know that can be connected to this topic"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: language levels, prior knowledge data"
-    - field: "learning_objectives"
-      type: "string"
-      description: "Specific learning objectives the prompts should support"
-output_schema:
-  type: "object"
-  fields:
-    - field: "elaborative_prompts"
-      type: "array"
-      description: "Ordered list of why/how prompts with target knowledge and expected depth"
-    - field: "implementation_guide"
-      type: "string"
-      description: "How to use the prompts — timing, grouping, written vs verbal"
-    - field: "connection_prompts"
-      type: "array"
-      description: "Prompts that connect new learning to prior knowledge"
-chains_well_with:
-  - "retrieval-practice-generator"
-  - "self-regulation-scaffold-generator"
-  - "metacognitive-prompt-library"
-  - "reading-comprehension-strategy-selector"
-teacher_time: "3 minutes"
-tags: ["elaboration", "encoding", "comprehension", "deep-processing", "questioning"]
 ---
 
 # Elaborative Interrogation Prompt Generator
@@ -221,3 +160,78 @@ For each prompt:
 2. **The evidence base is strongest for factual/conceptual learning, not procedural skills.** Pressley et al. (1992) and most elaborative interrogation studies used factual materials. The strategy transfers less clearly to mathematical procedures, physical skills, or creative tasks where "why?" questions may not deepen encoding in the same way.
 
 3. **Elaborative interrogation is more effective than re-reading but less effective than retrieval practice.** Dunlosky et al. (2013) rated it as "moderate utility" rather than "high utility." It is best used as a complement to retrieval practice and spaced practice, not as a replacement. Use elaborative prompts during initial encoding, then switch to retrieval practice for consolidation.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/elaborative-interrogation-generator
+skill_name: Elaborative Interrogation Prompt Generator
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Pressley et al. (1992) — Elaborative interrogation facilitates acquisition of confusing
+  facts
+- Woloshyn et al. (1994) — Use of elaborative interrogation to help students acquire
+  information consistent with prior knowledge
+- Dunlosky et al. (2013) — Elaborative interrogation rated moderate-utility learning
+  strategy
+- McDaniel & Donnelly (1996) — Learning with analogy and elaborative interrogation
+- Ozgungor & Guthrie (2004) — Interactions among elaborative interrogation, knowledge,
+  and interest in the process of constructing knowledge from text
+input_schema:
+  required:
+  - field: topic
+    type: string
+    description: The concept, fact set, or content area students are learning
+  - field: student_level
+    type: string
+    description: Age/year group and approximate prior knowledge level
+  - field: prompt_count
+    type: integer
+    description: Number of elaborative prompts to generate (recommended 5–8)
+  optional:
+  - field: content_text
+    type: string
+    description: The specific text or content students are engaging with
+  - field: prior_knowledge
+    type: string
+    description: What students already know that can be connected to this topic
+  - field: student_profiles
+    type: array
+    description: 'From context engine: language levels, prior knowledge data'
+  - field: learning_objectives
+    type: string
+    description: Specific learning objectives the prompts should support
+output_schema:
+  type: object
+  fields:
+  - field: elaborative_prompts
+    type: array
+    description: Ordered list of why/how prompts with target knowledge and expected
+      depth
+  - field: implementation_guide
+    type: string
+    description: How to use the prompts — timing, grouping, written vs verbal
+  - field: connection_prompts
+    type: array
+    description: Prompts that connect new learning to prior knowledge
+chains_well_with:
+- retrieval-practice-generator
+- self-regulation-scaffold-generator
+- metacognitive-prompt-library
+- reading-comprehension-strategy-selector
+teacher_time: 3 minutes
+tags:
+- elaboration
+- encoding
+- comprehension
+- deep-processing
+- questioning
+```

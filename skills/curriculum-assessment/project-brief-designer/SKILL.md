@@ -1,82 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: project-brief-designer
 description: "Design a project-based learning brief with a driving question, milestones, and assessment criteria. Use when planning PBL units, inquiry projects, or extended investigations."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/project-brief-designer"
-skill_name: "Project Brief Designer (PBL)"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Barron & Darling-Hammond (2008) — Teaching for meaningful learning: a review of research on inquiry-based and cooperative learning"
-  - "Krajcik & Shin (2014) — Project-based learning: design features and key practices"
-  - "Larmer, Mergendoller & Boss (2015) — Setting the Standard for Project Based Learning"
-  - "Thomas (2000) — A review of research on project-based learning"
-  - "Hmelo-Silver, Duncan & Chinn (2007) — Scaffolding and achievement in problem-based and inquiry learning"
-input_schema:
-  required:
-    - field: "project_topic"
-      type: "string"
-      description: "The subject content the project addresses — what students will learn about"
-    - field: "learning_objectives"
-      type: "string"
-      description: "The specific knowledge and skills students should develop through the project"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "project_duration"
-      type: "string"
-      description: "How long the project runs — e.g. 2 weeks, 6 lessons, half a term"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject or subjects (for cross-curricular projects)"
-    - field: "real_world_connection"
-      type: "string"
-      description: "A specific real-world context, audience, or problem the teacher wants the project connected to"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class data including prior attainment, interests, specific needs"
-    - field: "available_resources"
-      type: "string"
-      description: "Technology, materials, community connections, specialist support available"
-    - field: "curriculum_framework"
-      type: "string"
-      description: "From context engine: relevant curriculum standards the project must address"
-output_schema:
-  type: "object"
-  fields:
-    - field: "driving_question"
-      type: "string"
-      description: "An open-ended, authentic question that drives inquiry throughout the project"
-    - field: "project_brief"
-      type: "object"
-      description: "The complete brief students receive — scenario, requirements, milestones, final product"
-    - field: "milestone_sequence"
-      type: "array"
-      description: "Structured checkpoints with explicit instruction points, ensuring learning happens through the project"
-    - field: "assessment_criteria"
-      type: "object"
-      description: "What will be assessed and how — including both process and product assessment"
-    - field: "explicit_instruction_map"
-      type: "array"
-      description: "Where in the project explicit teaching is needed — PBL works WITH direct instruction, not instead of it"
-chains_well_with:
-  - "backwards-design-unit-planner"
-  - "competency-unpacker"
-  - "criterion-referenced-rubric-generator"
-  - "differentiation-adapter"
-  - "scaffolded-task-modifier"
-  - "curriculum-knowledge-architecture-designer"
-  - "critical-thinking-task-designer"
-teacher_time: "5 minutes"
-tags: ["PBL", "project-based-learning", "inquiry", "driving-question", "authentic-assessment", "milestones"]
 ---
 
 # Project Brief Designer (PBL)
@@ -347,3 +271,102 @@ Your team has been commissioned to investigate. Your findings will be presented 
 3. **PBL is not appropriate for all learning objectives.** Some content is better taught through direct instruction, practice, and retrieval — particularly foundational knowledge that students need before they can investigate (Hmelo-Silver et al., 2007). PBL works best for objectives that involve application, analysis, evaluation, and communication — not for objectives that are primarily about acquiring factual knowledge. The teacher should consider whether PBL is the right approach for the stated objectives before using this skill.
 
 4. **The explicit instruction map is a guide, not a script.** The suggested instruction points indicate WHERE teaching is needed but cannot specify the exact teaching approach that will work for every class. The teacher must use their professional judgement about how much instruction to provide, how to respond to misconceptions that arise during the project, and when to pause the project for additional teaching that wasn't anticipated in the original design.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/project-brief-designer
+skill_name: Project Brief Designer (PBL)
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Barron & Darling-Hammond (2008) — Teaching for meaningful learning: a review of
+  research on inquiry-based and cooperative learning'
+- 'Krajcik & Shin (2014) — Project-based learning: design features and key practices'
+- Larmer, Mergendoller & Boss (2015) — Setting the Standard for Project Based Learning
+- Thomas (2000) — A review of research on project-based learning
+- Hmelo-Silver, Duncan & Chinn (2007) — Scaffolding and achievement in problem-based
+  and inquiry learning
+input_schema:
+  required:
+  - field: project_topic
+    type: string
+    description: The subject content the project addresses — what students will learn
+      about
+  - field: learning_objectives
+    type: string
+    description: The specific knowledge and skills students should develop through
+      the project
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: project_duration
+    type: string
+    description: How long the project runs — e.g. 2 weeks, 6 lessons, half a term
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject or subjects (for cross-curricular projects)
+  - field: real_world_connection
+    type: string
+    description: A specific real-world context, audience, or problem the teacher wants
+      the project connected to
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class data including prior attainment, interests,
+      specific needs'
+  - field: available_resources
+    type: string
+    description: Technology, materials, community connections, specialist support
+      available
+  - field: curriculum_framework
+    type: string
+    description: 'From context engine: relevant curriculum standards the project must
+      address'
+output_schema:
+  type: object
+  fields:
+  - field: driving_question
+    type: string
+    description: An open-ended, authentic question that drives inquiry throughout
+      the project
+  - field: project_brief
+    type: object
+    description: The complete brief students receive — scenario, requirements, milestones,
+      final product
+  - field: milestone_sequence
+    type: array
+    description: Structured checkpoints with explicit instruction points, ensuring
+      learning happens through the project
+  - field: assessment_criteria
+    type: object
+    description: What will be assessed and how — including both process and product
+      assessment
+  - field: explicit_instruction_map
+    type: array
+    description: Where in the project explicit teaching is needed — PBL works WITH
+      direct instruction, not instead of it
+chains_well_with:
+- backwards-design-unit-planner
+- competency-unpacker
+- criterion-referenced-rubric-generator
+- differentiation-adapter
+- scaffolded-task-modifier
+- curriculum-knowledge-architecture-designer
+- critical-thinking-task-designer
+teacher_time: 5 minutes
+tags:
+- PBL
+- project-based-learning
+- inquiry
+- driving-question
+- authentic-assessment
+- milestones
+```

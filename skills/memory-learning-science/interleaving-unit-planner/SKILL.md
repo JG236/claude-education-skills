@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: interleaving-unit-planner
 description: "Redesign a blocked topic sequence into an interleaved plan with mixed practice across related topics. Use when planning units, homework schedules, or revision programmes."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/interleaving-unit-planner"
-skill_name: "Interleaving Unit Planner"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Kornell & Bjork (2008) — Learning concepts and categories: is spacing the enemy of induction?"
-  - "Rohrer et al. (2015) — Interleaved practice improves mathematics learning in a classroom setting"
-  - "Taylor & Rohrer (2010) — The effects of interleaved practice on learning"
-  - "Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: creating desirable difficulties"
-  - "Pan (2015) — The interleaving effect: mixing it up boosts learning"
-input_schema:
-  required:
-    - field: "topics"
-      type: "array"
-      description: "The sequence of topics currently planned in blocked order"
-    - field: "subject"
-      type: "string"
-      description: "The subject area and year group"
-    - field: "unit_length"
-      type: "string"
-      description: "How many lessons or weeks the unit covers"
-  optional:
-    - field: "prerequisite_dependencies"
-      type: "array"
-      description: "Topics that must be taught before others (hard constraints)"
-    - field: "curriculum_sequence"
-      type: "string"
-      description: "From context engine: mandated curriculum order"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class ability profile, prior knowledge levels"
-output_schema:
-  type: "object"
-  fields:
-    - field: "interleaved_sequence"
-      type: "array"
-      description: "Restructured lesson sequence with interleaving applied"
-    - field: "interleaving_rationale"
-      type: "string"
-      description: "Why these specific topics benefit from interleaving"
-    - field: "teacher_briefing"
-      type: "string"
-      description: "How to explain the approach to students who will find it harder"
-    - field: "blocked_vs_interleaved"
-      type: "string"
-      description: "Side-by-side comparison of original and interleaved sequence"
-chains_well_with:
-  - "spaced-practice-scheduler"
-  - "retrieval-practice-generator"
-  - "practice-problem-sequence-designer"
-  - "cognitive-load-analyser"
-teacher_time: "5 minutes"
-tags: ["interleaving", "desirable-difficulty", "planning", "memory", "practice"]
 ---
 
 # Interleaving Unit Planner
@@ -222,3 +161,76 @@ These four topics are ideal for interleaving because they share a surface struct
 2. **The evidence base is strongest for mathematics and category-learning tasks.** Rohrer et al. (2015) and Taylor & Rohrer (2010) used mathematical and perceptual classification tasks. Transfer to humanities subjects (e.g., interleaving essay types, historical periods) is theoretically supported but has less direct experimental evidence. Use with appropriate caution outside mathematics and science.
 
 3. **Students and sometimes colleagues will resist.** Kornell & Bjork (2008) consistently found that learners rated blocked practice as more effective. Teachers may face pushback from students ("this is confusing"), parents ("they're jumping around"), and colleagues ("they need to master one topic before moving on"). The student briefing script is essential, not optional.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/interleaving-unit-planner
+skill_name: Interleaving Unit Planner
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Kornell & Bjork (2008) — Learning concepts and categories: is spacing the enemy
+  of induction?'
+- Rohrer et al. (2015) — Interleaved practice improves mathematics learning in a classroom
+  setting
+- Taylor & Rohrer (2010) — The effects of interleaved practice on learning
+- 'Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: creating
+  desirable difficulties'
+- 'Pan (2015) — The interleaving effect: mixing it up boosts learning'
+input_schema:
+  required:
+  - field: topics
+    type: array
+    description: The sequence of topics currently planned in blocked order
+  - field: subject
+    type: string
+    description: The subject area and year group
+  - field: unit_length
+    type: string
+    description: How many lessons or weeks the unit covers
+  optional:
+  - field: prerequisite_dependencies
+    type: array
+    description: Topics that must be taught before others (hard constraints)
+  - field: curriculum_sequence
+    type: string
+    description: 'From context engine: mandated curriculum order'
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class ability profile, prior knowledge levels'
+output_schema:
+  type: object
+  fields:
+  - field: interleaved_sequence
+    type: array
+    description: Restructured lesson sequence with interleaving applied
+  - field: interleaving_rationale
+    type: string
+    description: Why these specific topics benefit from interleaving
+  - field: teacher_briefing
+    type: string
+    description: How to explain the approach to students who will find it harder
+  - field: blocked_vs_interleaved
+    type: string
+    description: Side-by-side comparison of original and interleaved sequence
+chains_well_with:
+- spaced-practice-scheduler
+- retrieval-practice-generator
+- practice-problem-sequence-designer
+- cognitive-load-analyser
+teacher_time: 5 minutes
+tags:
+- interleaving
+- desirable-difficulty
+- planning
+- memory
+- practice
+```

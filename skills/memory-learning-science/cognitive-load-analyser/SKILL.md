@@ -1,64 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: cognitive-load-analyser
 description: "Analyse a learning task for cognitive load problems and recommend specific design improvements. Use when tasks overwhelm students, instructions feel complex, or materials need simplifying."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/cognitive-load-analyser"
-skill_name: "Cognitive Load Analyser"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Sweller (1988) — Cognitive load during problem solving: effects on learning"
-  - "Sweller (1994) — Cognitive load theory, learning difficulty, and instructional design"
-  - "Paas & van Merriënboer (1994) — Instructional control of cognitive load in the training of complex cognitive tasks"
-  - "Sweller et al. (2019) — Cognitive Architecture and Instructional Design: 20 Years Later (updated CLT)"
-  - "Kalyuga et al. (2003) — The expertise reversal effect"
-input_schema:
-  required:
-    - field: "task_description"
-      type: "string"
-      description: "The learning task, instruction, or resource to analyse"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and expertise level (novice/intermediate/advanced)"
-  optional:
-    - field: "task_materials"
-      type: "string"
-      description: "Description or text of worksheets, slides, or instructions used"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: working memory profiles, prior knowledge data"
-    - field: "lesson_context"
-      type: "string"
-      description: "What comes before and after this task in the lesson"
-output_schema:
-  type: "object"
-  fields:
-    - field: "load_analysis"
-      type: "object"
-      description: "Breakdown of intrinsic, extraneous, and germane load with ratings"
-    - field: "problem_areas"
-      type: "array"
-      description: "Specific elements creating unnecessary cognitive load"
-    - field: "modification_suggestions"
-      type: "array"
-      description: "Concrete changes to reduce extraneous load and optimise germane load"
-    - field: "expertise_reversal_check"
-      type: "string"
-      description: "Whether scaffolds may be counterproductive for advanced learners"
-chains_well_with:
-  - "worked-example-fading-designer"
-  - "explicit-instruction-sequence-builder"
-  - "scaffolded-task-modifier"
-  - "text-complexity-analyser"
-teacher_time: "4 minutes"
-tags: ["cognitive-load", "task-design", "scaffolding", "instructional-design", "working-memory"]
 ---
 
 # Cognitive Load Analyser
@@ -226,3 +168,72 @@ This task is designed for novice learners, and the modifications above are appro
 2. **Intrinsic load cannot be reduced without changing the content.** If the content itself is inherently complex (high element interactivity), this analysis can only reduce extraneous load and optimise sequencing — it cannot make complex content simple. For high-intrinsic-load content, the answer is often to break the content into sub-elements taught across multiple lessons, not to simplify it within one lesson.
 
 3. **The expertise reversal effect means recommendations are expertise-dependent.** What helps a novice hinders an expert and vice versa. If the student level is inaccurate (e.g., described as "novice" but students actually have substantial prior knowledge), the modifications may be counterproductive. Teachers must calibrate based on actual student knowledge, not assumed knowledge.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/cognitive-load-analyser
+skill_name: Cognitive Load Analyser
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Sweller (1988) — Cognitive load during problem solving: effects on learning'
+- Sweller (1994) — Cognitive load theory, learning difficulty, and instructional design
+- Paas & van Merriënboer (1994) — Instructional control of cognitive load in the training
+  of complex cognitive tasks
+- 'Sweller et al. (2019) — Cognitive Architecture and Instructional Design: 20 Years
+  Later (updated CLT)'
+- Kalyuga et al. (2003) — The expertise reversal effect
+input_schema:
+  required:
+  - field: task_description
+    type: string
+    description: The learning task, instruction, or resource to analyse
+  - field: student_level
+    type: string
+    description: Age/year group and expertise level (novice/intermediate/advanced)
+  optional:
+  - field: task_materials
+    type: string
+    description: Description or text of worksheets, slides, or instructions used
+  - field: student_profiles
+    type: array
+    description: 'From context engine: working memory profiles, prior knowledge data'
+  - field: lesson_context
+    type: string
+    description: What comes before and after this task in the lesson
+output_schema:
+  type: object
+  fields:
+  - field: load_analysis
+    type: object
+    description: Breakdown of intrinsic, extraneous, and germane load with ratings
+  - field: problem_areas
+    type: array
+    description: Specific elements creating unnecessary cognitive load
+  - field: modification_suggestions
+    type: array
+    description: Concrete changes to reduce extraneous load and optimise germane load
+  - field: expertise_reversal_check
+    type: string
+    description: Whether scaffolds may be counterproductive for advanced learners
+chains_well_with:
+- worked-example-fading-designer
+- explicit-instruction-sequence-builder
+- scaffolded-task-modifier
+- text-complexity-analyser
+teacher_time: 4 minutes
+tags:
+- cognitive-load
+- task-design
+- scaffolding
+- instructional-design
+- working-memory
+```

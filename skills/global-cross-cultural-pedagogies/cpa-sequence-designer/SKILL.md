@@ -1,71 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: cpa-sequence-designer
 description: "Design a Concrete-Pictorial-Abstract learning sequence for a mathematical concept using manipulatives. Use when teaching maths through Singapore method or when students struggle with abstraction."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/cpa-sequence-designer"
-skill_name: "Concrete-Pictorial-Abstract Sequence Designer"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Bruner (1966) — Toward a Theory of Instruction (enactive, iconic, symbolic)"
-  - "Ministry of Education Singapore (2012) — Mathematics Syllabus: Primary and Secondary"
-  - "Leong, Ho & Cheng (2015) — Concrete-Pictorial-Abstract: surveying its origins and charting its future"
-  - "Fyfe, McNeil, Son & Goldstone (2014) — Concreteness fading in mathematics and science instruction"
-  - "Kaur (2019) — The what, why and how of the 'Model' method in Singapore mathematics"
-input_schema:
-  required:
-    - field: "mathematical_concept"
-      type: "string"
-      description: "The concept students need to understand — what they should grasp at abstract level by the end"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current mathematical understanding"
-  optional:
-    - field: "current_approach"
-      type: "string"
-      description: "How the teacher currently teaches this concept — what they do now"
-    - field: "common_errors"
-      type: "string"
-      description: "Typical mistakes students make with this concept"
-    - field: "available_manipulatives"
-      type: "string"
-      description: "Physical resources available — cubes, counters, base-ten blocks, fraction pieces"
-    - field: "lesson_time"
-      type: "string"
-      description: "How much lesson time is available for the CPA sequence"
-output_schema:
-  type: "object"
-  fields:
-    - field: "cpa_sequence"
-      type: "object"
-      description: "The complete C→P→A sequence — what students do at each stage, with explicit bridging between stages"
-    - field: "concrete_stage"
-      type: "object"
-      description: "Manipulative-based activities — what students physically handle and what understanding this builds"
-    - field: "pictorial_stage"
-      type: "object"
-      description: "Visual representation activities — bar models, diagrams, number lines — bridging concrete to abstract"
-    - field: "abstract_stage"
-      type: "object"
-      description: "Symbolic/numerical work — connecting to the formal mathematical notation"
-    - field: "bridging_questions"
-      type: "array"
-      description: "Questions that help students connect each stage to the next"
-chains_well_with:
-  - "variation-theory-task-designer"
-  - "worked-example-fading-designer"
-  - "explicit-instruction-sequence-builder"
-  - "diagnostic-question-generator"
-  - "pedagogical-content-knowledge-developer"
-teacher_time: "4 minutes"
-tags: ["CPA", "Singapore-maths", "Bruner", "manipulatives", "bar-model", "concreteness-fading", "mathematics"]
 ---
 
 # Concrete-Pictorial-Abstract Sequence Designer
@@ -268,3 +203,86 @@ If students can answer all three, they understand adding fractions at all three 
 2. **The concrete stage requires quality manipulatives and teacher skill.** Poorly designed manipulatives (counters used for fractions, for example) can create misconceptions rather than prevent them. The manipulative must embody the mathematical structure. Teachers need training in which manipulatives represent which concepts — using the wrong concrete material is worse than no concrete material.
 
 3. **CPA does not mean every lesson must start from concrete.** Once students have solid concrete and pictorial understanding of a concept, they can work at the abstract level without going through all three stages every time. CPA is a learning progression for NEW concepts, not a ritual for every lesson. The stages should be revisited when students encounter a new application or get confused, not repeated when students are already fluent.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/cpa-sequence-designer
+skill_name: Concrete-Pictorial-Abstract Sequence Designer
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Bruner (1966) — Toward a Theory of Instruction (enactive, iconic, symbolic)
+- 'Ministry of Education Singapore (2012) — Mathematics Syllabus: Primary and Secondary'
+- 'Leong, Ho & Cheng (2015) — Concrete-Pictorial-Abstract: surveying its origins and
+  charting its future'
+- Fyfe, McNeil, Son & Goldstone (2014) — Concreteness fading in mathematics and science
+  instruction
+- Kaur (2019) — The what, why and how of the 'Model' method in Singapore mathematics
+input_schema:
+  required:
+  - field: mathematical_concept
+    type: string
+    description: The concept students need to understand — what they should grasp
+      at abstract level by the end
+  - field: student_level
+    type: string
+    description: Age/year group and current mathematical understanding
+  optional:
+  - field: current_approach
+    type: string
+    description: How the teacher currently teaches this concept — what they do now
+  - field: common_errors
+    type: string
+    description: Typical mistakes students make with this concept
+  - field: available_manipulatives
+    type: string
+    description: Physical resources available — cubes, counters, base-ten blocks,
+      fraction pieces
+  - field: lesson_time
+    type: string
+    description: How much lesson time is available for the CPA sequence
+output_schema:
+  type: object
+  fields:
+  - field: cpa_sequence
+    type: object
+    description: The complete C→P→A sequence — what students do at each stage, with
+      explicit bridging between stages
+  - field: concrete_stage
+    type: object
+    description: Manipulative-based activities — what students physically handle and
+      what understanding this builds
+  - field: pictorial_stage
+    type: object
+    description: Visual representation activities — bar models, diagrams, number lines
+      — bridging concrete to abstract
+  - field: abstract_stage
+    type: object
+    description: Symbolic/numerical work — connecting to the formal mathematical notation
+  - field: bridging_questions
+    type: array
+    description: Questions that help students connect each stage to the next
+chains_well_with:
+- variation-theory-task-designer
+- worked-example-fading-designer
+- explicit-instruction-sequence-builder
+- diagnostic-question-generator
+- pedagogical-content-knowledge-developer
+teacher_time: 4 minutes
+tags:
+- CPA
+- Singapore-maths
+- Bruner
+- manipulatives
+- bar-model
+- concreteness-fading
+- mathematics
+```

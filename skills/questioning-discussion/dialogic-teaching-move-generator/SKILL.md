@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: dialogic-teaching-move-generator
 description: "Generate follow-up teaching moves that extend student thinking after a specific classroom response. Use when a student says something worth exploring and the teacher wants to deepen the dialogue."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "questioning-discussion/dialogic-teaching-move-generator"
-skill_name: "Dialogic Teaching Move Generator"
-domain: "questioning-discussion"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Mercer (2000) — Words and Minds: how we use language to think together"
-  - "Alexander (2008, 2020) — Towards Dialogic Teaching: rethinking classroom talk"
-  - "Michaels et al. (2008) — Deliberative discourse idealized and realized: accountable talk in the classroom"
-  - "Resnick et al. (2015) — Accountable talk: instructional dialogue that builds the mind"
-  - "Cazden (2001) — Classroom Discourse: the language of teaching and learning"
-input_schema:
-  required:
-    - field: "student_response"
-      type: "string"
-      description: "The specific student response the teacher needs to follow up on"
-    - field: "learning_goal"
-      type: "string"
-      description: "What the teacher wants students to understand or be able to do"
-    - field: "subject_context"
-      type: "string"
-      description: "Subject area and topic being discussed"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and verbal confidence level"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: language levels, confidence with discussion, cultural factors"
-    - field: "response_quality"
-      type: "string"
-      description: "Teacher's assessment of the response — correct, partially correct, incorrect, unclear, or superficial"
-    - field: "classroom_context"
-      type: "string"
-      description: "Whole class, small group, or one-to-one; stage of the lesson"
-output_schema:
-  type: "object"
-  fields:
-    - field: "move_options"
-      type: "array"
-      description: "3-5 specific teacher follow-up moves with exact wording, move type label, and rationale"
-    - field: "move_selection_guidance"
-      type: "string"
-      description: "When to choose each move depending on context and goals"
-    - field: "dialogue_extension"
-      type: "object"
-      description: "How to extend the dialogue further after each move — likely student responses and second-turn follow-ups"
-    - field: "common_pitfalls"
-      type: "string"
-      description: "Moves to avoid in this situation and why"
-chains_well_with:
-  - "socratic-questioning-sequence-generator"
-  - "discussion-protocol-selector"
-  - "checking-for-understanding-protocol-designer"
-  - "think-aloud-script-generator"
-teacher_time: "2 minutes"
-tags: ["dialogic-teaching", "teacher-moves", "revoicing", "classroom-talk", "accountable-talk"]
 ---
 
 # Dialogic Teaching Move Generator
@@ -235,3 +171,82 @@ For each move (generate 4–5):
 2. **Dialogic moves require a classroom culture that supports them.** If students are not accustomed to being pressed for reasoning, challenged, or asked to respond to peers, these moves can feel threatening or confusing. Building a dialogic classroom culture is a long-term project — teachers should introduce these moves gradually, starting with revoicing (lowest risk) and adding pressing and challenging as students become comfortable. This skill generates the moves but cannot build the culture.
 
 3. **The generator cannot read the room.** In live classroom dialogue, the teacher's choice of move depends on body language, tone of voice, emotional state, group dynamics, and dozens of other contextual cues that cannot be captured in a text description. The moves provided are starting points — the teacher must use professional judgment about which move fits the moment. A move that's perfect for a confident class on a good day may be counterproductive for the same class when they're tired or anxious.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: questioning-discussion/dialogic-teaching-move-generator
+skill_name: Dialogic Teaching Move Generator
+domain: questioning-discussion
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Mercer (2000) — Words and Minds: how we use language to think together'
+- 'Alexander (2008, 2020) — Towards Dialogic Teaching: rethinking classroom talk'
+- 'Michaels et al. (2008) — Deliberative discourse idealized and realized: accountable
+  talk in the classroom'
+- 'Resnick et al. (2015) — Accountable talk: instructional dialogue that builds the
+  mind'
+- 'Cazden (2001) — Classroom Discourse: the language of teaching and learning'
+input_schema:
+  required:
+  - field: student_response
+    type: string
+    description: The specific student response the teacher needs to follow up on
+  - field: learning_goal
+    type: string
+    description: What the teacher wants students to understand or be able to do
+  - field: subject_context
+    type: string
+    description: Subject area and topic being discussed
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and verbal confidence level
+  - field: student_profiles
+    type: array
+    description: 'From context engine: language levels, confidence with discussion,
+      cultural factors'
+  - field: response_quality
+    type: string
+    description: Teacher's assessment of the response — correct, partially correct,
+      incorrect, unclear, or superficial
+  - field: classroom_context
+    type: string
+    description: Whole class, small group, or one-to-one; stage of the lesson
+output_schema:
+  type: object
+  fields:
+  - field: move_options
+    type: array
+    description: 3-5 specific teacher follow-up moves with exact wording, move type
+      label, and rationale
+  - field: move_selection_guidance
+    type: string
+    description: When to choose each move depending on context and goals
+  - field: dialogue_extension
+    type: object
+    description: How to extend the dialogue further after each move — likely student
+      responses and second-turn follow-ups
+  - field: common_pitfalls
+    type: string
+    description: Moves to avoid in this situation and why
+chains_well_with:
+- socratic-questioning-sequence-generator
+- discussion-protocol-selector
+- checking-for-understanding-protocol-designer
+- think-aloud-script-generator
+teacher_time: 2 minutes
+tags:
+- dialogic-teaching
+- teacher-moves
+- revoicing
+- classroom-talk
+- accountable-talk
+```

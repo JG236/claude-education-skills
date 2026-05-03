@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: ubuntu-collective-knowledge-task-designer
 description: "Design learning tasks built on Ubuntu philosophy emphasising collective knowledge-building and mutual responsibility. Use when fostering collaboration that values community over individual competition."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/ubuntu-collective-knowledge-task-designer"
-skill_name: "Ubuntu Collective Knowledge Task Designer"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Mkabela (2005) — Using the Afrocentric method in researching indigenous African culture"
-  - "Letseka (2012) — In defence of Ubuntu"
-  - "Ramose (2002) — The philosophy of Ubuntu and Ubuntu as a philosophy"
-  - "Venter (2004) — What is African philosophy of education?"
-  - "Msila (2008) — Ubuntu and school leadership"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The curriculum content or skill students need to learn"
-    - field: "class_context"
-      type: "string"
-      description: "The class composition, community context, and how students currently relate to collaborative learning"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "current_task"
-      type: "string"
-      description: "The existing task that could be redesigned through an Ubuntu lens"
-    - field: "community_connection"
-      type: "string"
-      description: "How the learning connects to or could involve the wider community"
-    - field: "assessment_constraints"
-      type: "string"
-      description: "Whether the curriculum requires individual assessment, and how to balance this with collective learning"
-output_schema:
-  type: "object"
-  fields:
-    - field: "ubuntu_task_design"
-      type: "object"
-      description: "The redesigned task using Ubuntu principles — collective knowledge building, shared responsibility, community benefit"
-    - field: "collective_knowledge_structure"
-      type: "object"
-      description: "How the task structures collective rather than individual knowledge building — each person's contribution is necessary for the whole"
-    - field: "community_dimension"
-      type: "object"
-      description: "How the learning connects to or serves the wider community — not just individual achievement"
-    - field: "individual_within_collective"
-      type: "object"
-      description: "How individual growth and accountability exist within the collective structure — not erased but reframed"
-chains_well_with:
-  - "culturally-responsive-teaching-designer"
-  - "belonging-classroom-culture-designer"
-  - "place-based-inquiry-anchor"
-  - "agency-scaffold-generator"
-teacher_time: "4 minutes"
-tags: ["Ubuntu", "Mkabela", "African-philosophy", "collective-knowledge", "communalism", "community", "collaboration"]
 ---
 
 # Ubuntu Collective Knowledge Task Designer
@@ -242,3 +178,85 @@ The teacher in an Ubuntu task is not a "facilitator of group work" — they are 
 3. **Collective knowledge building takes more time than individual learning.** The archive task above takes significantly longer than a standard local history unit. The depth and community engagement it produces are worth the time, but teachers working within tight curriculum schedules may need to adjust. Not every task needs to be collective — Ubuntu principles can inform SOME tasks while others remain individual.
 
 4. **Individual assessment systems can conflict with collective learning.** If the school requires individual grades for every piece of work, the collective dimension may be undermined. The assessment framework above attempts to honour both individual and collective contribution, but in systems that ultimately reduce everything to individual marks, the collective dimension may be devalued. This is a systemic limitation, not a design limitation.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/ubuntu-collective-knowledge-task-designer
+skill_name: Ubuntu Collective Knowledge Task Designer
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Mkabela (2005) — Using the Afrocentric method in researching indigenous African
+  culture
+- Letseka (2012) — In defence of Ubuntu
+- Ramose (2002) — The philosophy of Ubuntu and Ubuntu as a philosophy
+- Venter (2004) — What is African philosophy of education?
+- Msila (2008) — Ubuntu and school leadership
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The curriculum content or skill students need to learn
+  - field: class_context
+    type: string
+    description: The class composition, community context, and how students currently
+      relate to collaborative learning
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: current_task
+    type: string
+    description: The existing task that could be redesigned through an Ubuntu lens
+  - field: community_connection
+    type: string
+    description: How the learning connects to or could involve the wider community
+  - field: assessment_constraints
+    type: string
+    description: Whether the curriculum requires individual assessment, and how to
+      balance this with collective learning
+output_schema:
+  type: object
+  fields:
+  - field: ubuntu_task_design
+    type: object
+    description: The redesigned task using Ubuntu principles — collective knowledge
+      building, shared responsibility, community benefit
+  - field: collective_knowledge_structure
+    type: object
+    description: How the task structures collective rather than individual knowledge
+      building — each person's contribution is necessary for the whole
+  - field: community_dimension
+    type: object
+    description: How the learning connects to or serves the wider community — not
+      just individual achievement
+  - field: individual_within_collective
+    type: object
+    description: How individual growth and accountability exist within the collective
+      structure — not erased but reframed
+chains_well_with:
+- culturally-responsive-teaching-designer
+- belonging-classroom-culture-designer
+- place-based-inquiry-anchor
+- agency-scaffold-generator
+teacher_time: 4 minutes
+tags:
+- Ubuntu
+- Mkabela
+- African-philosophy
+- collective-knowledge
+- communalism
+- community
+- collaboration
+```

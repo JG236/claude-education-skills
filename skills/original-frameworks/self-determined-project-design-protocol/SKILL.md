@@ -1,81 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: self-determined-project-design-protocol
 description: "Structure a student's self-determined project with mentoring checkpoints, competency alignment, and reflection. Use when guiding student-led projects within a competency-based framework."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/self-determined-project-design-protocol"
-skill_name: "Self-Determined Project Design Protocol"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Manning — Personal project mentoring methodology (original, developed through capstone mentoring and international teaching)"
-  - "Zimmerman (2000, 2002) — Self-regulated learning: forethought, performance, self-reflection phases"
-  - "Bandura (1997) — Self-efficacy: the exercise of control (feasibility calibration as self-efficacy assessment)"
-  - "Ericsson & Pool (2016) — Peak: secrets from the new science of expertise (knowledge/skill acquisition as deliberate practice)"
-  - "Black & Wiliam (1998) — Assessment and classroom learning (milestone checkpoints as formative assessment)"
-  - "Manning — LT authoring methodology and rubric logic (Domain 14 Skills 98 and 99)"
-input_schema:
-  required:
-    - field: "student_idea"
-      type: "string"
-      description: "The student's initial project idea — however rough"
-    - field: "student_level"
-      type: "string"
-      description: "Developmental band and age"
-    - field: "available_time"
-      type: "string"
-      description: "Total duration and weekly time commitment"
-  optional:
-    - field: "existing_curriculum_LTs"
-      type: "string"
-      description: "Whether curriculum LTs exist for this domain or need to be created"
-    - field: "mentor_expertise"
-      type: "string"
-      description: "How much the educator knows about the project domain"
-    - field: "prior_experience"
-      type: "string"
-      description: "What the student has already done in this area"
-output_schema:
-  type: "object"
-  fields:
-    - field: "phase_1_ideation_and_feasibility"
-      type: "object"
-      description: "Student actions + educator actions — idea articulation, feasibility reality-check, possibility expansion if needed"
-    - field: "phase_2_knowledge_gap_analysis"
-      type: "object"
-      description: "Parallel research by student AND educator — what's required, what the student knows, what they don't, honest readiness assessment"
-    - field: "phase_3_planning"
-      type: "object"
-      description: "LT selection or creation, exemplar analysis, rubric development, knowledge/skill acquisition plan, timeline with milestones, resource and mentor identification, tracking system setup"
-    - field: "phase_4_execution_and_monitoring"
-      type: "object"
-      description: "Weekly rhythm, self-monitoring protocol, milestone check-ins, adaptive replanning"
-    - field: "phase_5_completion_and_defence"
-      type: "object"
-      description: "Final self-assessment against rubric, presentation or defence, honest impact assessment"
-    - field: "tracking_system"
-      type: "object"
-      description: "Specification for the shared visible artefact — document, board, or spreadsheet — that both student and mentor can see at all times. Must show: the plan, the timeline, current status against milestones, and evidence of progress. Tool-agnostic but functional requirements are non-negotiable"
-    - field: "educator_feasibility_calibration_guide"
-      type: "object"
-      description: "Specific questions to determine genuine readiness — what students should be able to explain, what to do when they're not ready"
-    - field: "known_limitations"
-      type: "object"
-      description: "Where the protocol requires the educator to reach outside their expertise; when to bring in external mentors"
-chains_well_with:
-  - "learning-target-authoring-guide"
-  - "coherent-rubric-logic-builder"
-  - "developmental-band-system-designer"
-  - "self-regulated-learning-designer"
-  - "curriculum-knowledge-architecture-designer"
-teacher_time: "6 minutes"
-tags: ["self-determined", "project", "Manning", "mentoring", "SRL", "Zimmerman", "Bandura", "feasibility", "deliberate-practice", "tracking"]
 ---
 
 # Self-Determined Project Design Protocol
@@ -423,3 +348,108 @@ Do NOT say "This project is too hard for you." DO say: "You have a great idea an
 4. **Self-determined projects require more mentoring time than structured assignments.** Each student's project is unique, which means each mentoring conversation is unique. A teacher mentoring 15 self-determined projects simultaneously needs substantial time — 20 minutes per student per fortnight is a minimum, which is 2.5 hours per cycle. Schools must allocate this time deliberately or the mentoring becomes superficial.
 
 5. **The defence is only as valuable as its audience.** A defence presented to a panel that asks easy questions and praises everything teaches the student that presentation equals success. A defence with genuine, respectful challenge teaches the student that their work must withstand scrutiny. The quality of the panel matters.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: original-frameworks/self-determined-project-design-protocol
+skill_name: Self-Determined Project Design Protocol
+domain: original-frameworks
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Manning — Personal project mentoring methodology (original, developed through capstone
+  mentoring and international teaching)
+- 'Zimmerman (2000, 2002) — Self-regulated learning: forethought, performance, self-reflection
+  phases'
+- 'Bandura (1997) — Self-efficacy: the exercise of control (feasibility calibration
+  as self-efficacy assessment)'
+- 'Ericsson & Pool (2016) — Peak: secrets from the new science of expertise (knowledge/skill
+  acquisition as deliberate practice)'
+- Black & Wiliam (1998) — Assessment and classroom learning (milestone checkpoints
+  as formative assessment)
+- Manning — LT authoring methodology and rubric logic (Domain 14 Skills 98 and 99)
+input_schema:
+  required:
+  - field: student_idea
+    type: string
+    description: The student's initial project idea — however rough
+  - field: student_level
+    type: string
+    description: Developmental band and age
+  - field: available_time
+    type: string
+    description: Total duration and weekly time commitment
+  optional:
+  - field: existing_curriculum_LTs
+    type: string
+    description: Whether curriculum LTs exist for this domain or need to be created
+  - field: mentor_expertise
+    type: string
+    description: How much the educator knows about the project domain
+  - field: prior_experience
+    type: string
+    description: What the student has already done in this area
+output_schema:
+  type: object
+  fields:
+  - field: phase_1_ideation_and_feasibility
+    type: object
+    description: Student actions + educator actions — idea articulation, feasibility
+      reality-check, possibility expansion if needed
+  - field: phase_2_knowledge_gap_analysis
+    type: object
+    description: Parallel research by student AND educator — what's required, what
+      the student knows, what they don't, honest readiness assessment
+  - field: phase_3_planning
+    type: object
+    description: LT selection or creation, exemplar analysis, rubric development,
+      knowledge/skill acquisition plan, timeline with milestones, resource and mentor
+      identification, tracking system setup
+  - field: phase_4_execution_and_monitoring
+    type: object
+    description: Weekly rhythm, self-monitoring protocol, milestone check-ins, adaptive
+      replanning
+  - field: phase_5_completion_and_defence
+    type: object
+    description: Final self-assessment against rubric, presentation or defence, honest
+      impact assessment
+  - field: tracking_system
+    type: object
+    description: 'Specification for the shared visible artefact — document, board,
+      or spreadsheet — that both student and mentor can see at all times. Must show:
+      the plan, the timeline, current status against milestones, and evidence of progress.
+      Tool-agnostic but functional requirements are non-negotiable'
+  - field: educator_feasibility_calibration_guide
+    type: object
+    description: Specific questions to determine genuine readiness — what students
+      should be able to explain, what to do when they're not ready
+  - field: known_limitations
+    type: object
+    description: Where the protocol requires the educator to reach outside their expertise;
+      when to bring in external mentors
+chains_well_with:
+- learning-target-authoring-guide
+- coherent-rubric-logic-builder
+- developmental-band-system-designer
+- self-regulated-learning-designer
+- curriculum-knowledge-architecture-designer
+teacher_time: 6 minutes
+tags:
+- self-determined
+- project
+- Manning
+- mentoring
+- SRL
+- Zimmerman
+- Bandura
+- feasibility
+- deliberate-practice
+- tracking
+```

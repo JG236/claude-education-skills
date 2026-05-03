@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: service-learning-project-designer
 description: "Design a service-learning project connecting genuine community need with embedded curriculum learning. Use when planning community projects, civic engagement, or social action units."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "environmental-experiential-learning/service-learning-project-designer"
-skill_name: "Service Learning Project Designer"
-domain: "environmental-experiential-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Billig (2000) — Research on K-12 school-based service learning: the evidence builds"
-  - "Billig (2004) — Heads, hearts, and hands: the research on K-12 service learning"
-  - "RMC Research Corporation (2007) — Impacts of Service Learning on Participating K-12 Students"
-  - "Furco (2002) — Is service learning really better than community service?"
-  - "Celio, Durlak & Dymnicki (2011) — A meta-analysis of the impact of service learning on students"
-input_schema:
-  required:
-    - field: "community_need"
-      type: "string"
-      description: "The genuine community need or problem the project addresses — identified with or by the community, not assumed by the school"
-    - field: "curriculum_connection"
-      type: "string"
-      description: "The specific curriculum content that connects to the service — what academic learning is embedded in the project"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "community_partner"
-      type: "string"
-      description: "The community organisation, group, or individuals the school is working with"
-    - field: "project_duration"
-      type: "string"
-      description: "How long the project runs — a day, a week, a term, ongoing"
-    - field: "school_context"
-      type: "string"
-      description: "Whether the school has a service learning tradition or this is new"
-    - field: "student_voice"
-      type: "string"
-      description: "Whether students have a role in choosing the project or it's been decided"
-output_schema:
-  type: "object"
-  fields:
-    - field: "project_design"
-      type: "object"
-      description: "The complete service learning project — community need, curriculum connection, service activities, reflection structure, assessment"
-    - field: "community_partnership"
-      type: "object"
-      description: "How the school and community partner collaborate — genuine partnership, not charity"
-    - field: "curriculum_integration"
-      type: "object"
-      description: "How the academic learning is embedded in the service — what students learn THROUGH serving, not separately from it"
-    - field: "reflection_structure"
-      type: "object"
-      description: "How students reflect on the experience — before, during, and after the service"
-    - field: "assessment_plan"
-      type: "object"
-      description: "How to assess both the academic learning and the civic development"
-chains_well_with:
-  - "experiential-learning-cycle-designer"
-  - "interdisciplinary-real-world-connection-mapper"
-  - "ubuntu-collective-knowledge-task-designer"
-  - "agency-scaffold-generator"
-teacher_time: "4 minutes"
-tags: ["service-learning", "Billig", "community", "civic-engagement", "experiential", "reflection", "social-responsibility"]
 ---
 
 # Service Learning Project Designer
@@ -273,3 +206,91 @@ The food bank manager provides written feedback: Was the analysis accurate? Was 
 2. **The meta-analytic effect size for service learning on academic outcomes is modest (d=0.27 — Celio et al., 2011).** Service learning is not a high-impact academic strategy in the way that retrieval practice or feedback are. Its primary value is in integrating academic learning with civic development, authentic context, and motivation — not in raising test scores. Teachers should use service learning because it develops citizens AND teaches curriculum, not because it is the most efficient way to improve academic attainment.
 
 3. **The distinction between service learning and charity is crucial and easy to get wrong.** If students feel sorry for food bank users and "help" them from a position of privilege, the project reinforces social hierarchies rather than challenging them. The reflection structure is designed to prevent this — but the teacher must be vigilant. The framing should be partnership, not pity: "We are providing data analysis skills that the food bank needs. They are providing us with real data and authentic purpose that we need. Both sides contribute, both sides benefit."
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: environmental-experiential-learning/service-learning-project-designer
+skill_name: Service Learning Project Designer
+domain: environmental-experiential-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Billig (2000) — Research on K-12 school-based service learning: the evidence builds'
+- 'Billig (2004) — Heads, hearts, and hands: the research on K-12 service learning'
+- RMC Research Corporation (2007) — Impacts of Service Learning on Participating K-12
+  Students
+- Furco (2002) — Is service learning really better than community service?
+- Celio, Durlak & Dymnicki (2011) — A meta-analysis of the impact of service learning
+  on students
+input_schema:
+  required:
+  - field: community_need
+    type: string
+    description: The genuine community need or problem the project addresses — identified
+      with or by the community, not assumed by the school
+  - field: curriculum_connection
+    type: string
+    description: The specific curriculum content that connects to the service — what
+      academic learning is embedded in the project
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: community_partner
+    type: string
+    description: The community organisation, group, or individuals the school is working
+      with
+  - field: project_duration
+    type: string
+    description: How long the project runs — a day, a week, a term, ongoing
+  - field: school_context
+    type: string
+    description: Whether the school has a service learning tradition or this is new
+  - field: student_voice
+    type: string
+    description: Whether students have a role in choosing the project or it's been
+      decided
+output_schema:
+  type: object
+  fields:
+  - field: project_design
+    type: object
+    description: The complete service learning project — community need, curriculum
+      connection, service activities, reflection structure, assessment
+  - field: community_partnership
+    type: object
+    description: How the school and community partner collaborate — genuine partnership,
+      not charity
+  - field: curriculum_integration
+    type: object
+    description: How the academic learning is embedded in the service — what students
+      learn THROUGH serving, not separately from it
+  - field: reflection_structure
+    type: object
+    description: How students reflect on the experience — before, during, and after
+      the service
+  - field: assessment_plan
+    type: object
+    description: How to assess both the academic learning and the civic development
+chains_well_with:
+- experiential-learning-cycle-designer
+- interdisciplinary-real-world-connection-mapper
+- ubuntu-collective-knowledge-task-designer
+- agency-scaffold-generator
+teacher_time: 4 minutes
+tags:
+- service-learning
+- Billig
+- community
+- civic-engagement
+- experiential
+- reflection
+- social-responsibility
+```

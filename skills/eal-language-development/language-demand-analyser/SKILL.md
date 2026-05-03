@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: language-demand-analyser
 description: "Analyse the language demands of a classroom task to identify barriers for EAL and multilingual learners. Use when adapting tasks, planning support, or assessing linguistic accessibility."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "eal-language-development/language-demand-analyser"
-skill_name: "Language Demand Analyser"
-domain: "eal-language-development"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Cummins (1981, 2000) — BICS/CALP framework: Basic Interpersonal Communication Skills vs. Cognitive Academic Language Proficiency"
-  - "Gibbons (2002, 2015) — Scaffolding Language, Scaffolding Learning: teaching English language learners in the mainstream classroom"
-  - "Schleppegrell (2004) — The Language of Schooling: a functional linguistics perspective"
-  - "Zwiers (2014) — Building Academic Language: meeting Common Core standards across disciplines"
-  - "Bailey & Heritage (2008) — Formative Assessment for Literacy: building reading and academic language skills across the curriculum"
-input_schema:
-  required:
-    - field: "task_description"
-      type: "string"
-      description: "The specific classroom task students must complete"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-  optional:
-    - field: "language_proficiency"
-      type: "string"
-      description: "EAL proficiency level of target students — e.g. New to English, Early Acquisition, Developing, Consolidating, Competent"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: first languages, time in English-medium schooling, specific language needs"
-    - field: "task_materials"
-      type: "string"
-      description: "Description of texts, worksheets, or resources used in the task"
-    - field: "prior_language_instruction"
-      type: "string"
-      description: "Language features already explicitly taught to these students"
-output_schema:
-  type: "object"
-  fields:
-    - field: "language_demand_profile"
-      type: "object"
-      description: "Analysis across four dimensions: vocabulary, grammar, discourse, and genre"
-    - field: "scaffold_recommendations"
-      type: "object"
-      description: "Specific scaffolds for each language demand dimension"
-    - field: "priority_actions"
-      type: "array"
-      description: "The 2–3 highest-impact scaffolds to implement if time is limited"
-    - field: "teacher_language_notes"
-      type: "string"
-      description: "How the teacher's own language use during the task can support access"
-chains_well_with:
-  - "vocabulary-tiering-tool"
-  - "scaffolded-task-modifier"
-  - "academic-language-sentence-frame-generator"
-  - "cognitive-load-analyser"
-teacher_time: "3 minutes"
-tags: ["EAL", "language-demands", "BICS-CALP", "scaffolding", "academic-language"]
 ---
 
 # Language Demand Analyser
@@ -269,3 +205,83 @@ Return your output in this exact format:
 2. **Language demands interact with cognitive demands, and the analysis treats them separately for clarity.** In practice, a student struggling with both the science concepts AND the language to express them faces a compounded challenge. The scaffolds help with language, but if the student doesn't understand the science, language scaffolds alone are insufficient. Ensure conceptual understanding is secure before focusing on language production.
 
 3. **The analysis assumes the teacher will use the scaffolds temporarily.** Scaffolds should be progressively removed as students develop proficiency. If sentence frames are provided permanently, students may become dependent on them rather than developing independent academic language. The goal is to build capacity, not create permanent supports.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: eal-language-development/language-demand-analyser
+skill_name: Language Demand Analyser
+domain: eal-language-development
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Cummins (1981, 2000) — BICS/CALP framework: Basic Interpersonal Communication Skills
+  vs. Cognitive Academic Language Proficiency'
+- 'Gibbons (2002, 2015) — Scaffolding Language, Scaffolding Learning: teaching English
+  language learners in the mainstream classroom'
+- 'Schleppegrell (2004) — The Language of Schooling: a functional linguistics perspective'
+- 'Zwiers (2014) — Building Academic Language: meeting Common Core standards across
+  disciplines'
+- 'Bailey & Heritage (2008) — Formative Assessment for Literacy: building reading
+  and academic language skills across the curriculum'
+input_schema:
+  required:
+  - field: task_description
+    type: string
+    description: The specific classroom task students must complete
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  optional:
+  - field: language_proficiency
+    type: string
+    description: EAL proficiency level of target students — e.g. New to English, Early
+      Acquisition, Developing, Consolidating, Competent
+  - field: student_profiles
+    type: array
+    description: 'From context engine: first languages, time in English-medium schooling,
+      specific language needs'
+  - field: task_materials
+    type: string
+    description: Description of texts, worksheets, or resources used in the task
+  - field: prior_language_instruction
+    type: string
+    description: Language features already explicitly taught to these students
+output_schema:
+  type: object
+  fields:
+  - field: language_demand_profile
+    type: object
+    description: 'Analysis across four dimensions: vocabulary, grammar, discourse,
+      and genre'
+  - field: scaffold_recommendations
+    type: object
+    description: Specific scaffolds for each language demand dimension
+  - field: priority_actions
+    type: array
+    description: The 2–3 highest-impact scaffolds to implement if time is limited
+  - field: teacher_language_notes
+    type: string
+    description: How the teacher's own language use during the task can support access
+chains_well_with:
+- vocabulary-tiering-tool
+- scaffolded-task-modifier
+- academic-language-sentence-frame-generator
+- cognitive-load-analyser
+teacher_time: 3 minutes
+tags:
+- EAL
+- language-demands
+- BICS-CALP
+- scaffolding
+- academic-language
+```

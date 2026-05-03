@@ -1,71 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: cognitive-tutoring-architecture-designer
 description: "Map knowledge components and skill hierarchies for a cognitive tutoring system or adaptive learning platform. Use when designing intelligent tutoring software or skill-based mastery systems."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/cognitive-tutoring-architecture-designer"
-skill_name: "Cognitive Tutoring Architecture Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Anderson et al. (1995) — Cognitive tutors: lessons learned (ACT-R theory applied to education)"
-  - "Corbett & Anderson (1995) — Knowledge tracing: modeling the acquisition of procedural knowledge"
-  - "Koedinger & Aleven (2007) — Exploring the assistance dilemma in experiments with cognitive tutors"
-  - "Ritter et al. (2007) — Cognitive Tutor: applied research in mathematics education"
-  - "Pane et al. (2014) — Effectiveness of cognitive tutor algebra I at scale (RAND evaluation)"
-input_schema:
-  required:
-    - field: "skill_domain"
-      type: "string"
-      description: "The specific domain of knowledge or skill to be tutored — what students need to learn to do"
-    - field: "knowledge_components"
-      type: "string"
-      description: "The specific pieces of knowledge or subskills that make up competence in this domain — the building blocks of mastery"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "common_errors"
-      type: "string"
-      description: "The most frequent errors students make and the misconceptions that produce them"
-    - field: "mastery_threshold"
-      type: "string"
-      description: "What counts as mastery — how many consecutive correct applications before a knowledge component is considered learned"
-    - field: "system_context"
-      type: "string"
-      description: "Whether this is for an AI tutoring system, a teacher-delivered model, or a hybrid"
-output_schema:
-  type: "object"
-  fields:
-    - field: "cognitive_model"
-      type: "object"
-      description: "The knowledge component map — what students need to know and how the components relate"
-    - field: "knowledge_tracing_design"
-      type: "object"
-      description: "How to track student mastery of each knowledge component — the tracing algorithm and mastery criteria"
-    - field: "problem_selection_logic"
-      type: "object"
-      description: "How to choose which problem to present next based on the student's current knowledge state"
-    - field: "feedback_architecture"
-      type: "object"
-      description: "What feedback to provide at each step, linked to specific knowledge components and error types"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "intelligent-tutoring-dialogue-designer"
-  - "formative-assessment-loop-designer"
-  - "worked-example-to-problem-solving-transition-designer"
-  - "technological-pedagogical-content-knowledge-developer"
-teacher_time: "6 minutes"
-tags: ["cognitive-tutor", "ACT-R", "Anderson", "knowledge-tracing", "Corbett", "mastery", "ITS", "adaptive"]
 ---
 
 # Cognitive Tutoring Architecture Designer
@@ -291,3 +226,92 @@ A student begins with P(L₀) = 0.10 for all components.
 3. **The RAND evaluation showed modest effect sizes.** Pane et al. (2014) found that Cognitive Tutor Algebra I improved outcomes, but the effect size was relatively small (0.22 in the second year of implementation). The practical significance depends on context: a small average effect may mask larger effects for specific student subgroups. Implementation fidelity was a major moderator.
 
 4. **Cognitive tutors work best for well-structured domains.** Linear equations, chemical formula balancing, and other procedural domains decompose cleanly into knowledge components. Ill-structured domains (essay writing, historical analysis, creative tasks) resist this decomposition. The cognitive tutor architecture is powerful but domain-limited.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/cognitive-tutoring-architecture-designer
+skill_name: Cognitive Tutoring Architecture Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Anderson et al. (1995) — Cognitive tutors: lessons learned (ACT-R theory applied
+  to education)'
+- 'Corbett & Anderson (1995) — Knowledge tracing: modeling the acquisition of procedural
+  knowledge'
+- Koedinger & Aleven (2007) — Exploring the assistance dilemma in experiments with
+  cognitive tutors
+- 'Ritter et al. (2007) — Cognitive Tutor: applied research in mathematics education'
+- Pane et al. (2014) — Effectiveness of cognitive tutor algebra I at scale (RAND evaluation)
+input_schema:
+  required:
+  - field: skill_domain
+    type: string
+    description: The specific domain of knowledge or skill to be tutored — what students
+      need to learn to do
+  - field: knowledge_components
+    type: string
+    description: The specific pieces of knowledge or subskills that make up competence
+      in this domain — the building blocks of mastery
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: common_errors
+    type: string
+    description: The most frequent errors students make and the misconceptions that
+      produce them
+  - field: mastery_threshold
+    type: string
+    description: What counts as mastery — how many consecutive correct applications
+      before a knowledge component is considered learned
+  - field: system_context
+    type: string
+    description: Whether this is for an AI tutoring system, a teacher-delivered model,
+      or a hybrid
+output_schema:
+  type: object
+  fields:
+  - field: cognitive_model
+    type: object
+    description: The knowledge component map — what students need to know and how
+      the components relate
+  - field: knowledge_tracing_design
+    type: object
+    description: How to track student mastery of each knowledge component — the tracing
+      algorithm and mastery criteria
+  - field: problem_selection_logic
+    type: object
+    description: How to choose which problem to present next based on the student's
+      current knowledge state
+  - field: feedback_architecture
+    type: object
+    description: What feedback to provide at each step, linked to specific knowledge
+      components and error types
+chains_well_with:
+- adaptive-hint-sequence-designer
+- intelligent-tutoring-dialogue-designer
+- formative-assessment-loop-designer
+- worked-example-to-problem-solving-transition-designer
+- technological-pedagogical-content-knowledge-developer
+teacher_time: 6 minutes
+tags:
+- cognitive-tutor
+- ACT-R
+- Anderson
+- knowledge-tracing
+- Corbett
+- mastery
+- ITS
+- adaptive
+```

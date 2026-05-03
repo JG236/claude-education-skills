@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: hinge-question-designer
 description: "Design a diagnostic hinge question that reveals whether students understand enough to move on. Use when planning key checkpoints mid-lesson during explicit or direct instruction."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "questioning-discussion/hinge-question-designer"
-skill_name: "Hinge Question Designer"
-domain: "questioning-discussion"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Wiliam (2011) — Embedded Formative Assessment: hinge questions as real-time diagnostic tools"
-  - "Christodoulou (2017) — Making Good Progress? The future of Assessment for Learning"
-  - "Black & Wiliam (1998) — Assessment and classroom learning"
-  - "Sadler (1989) — Formative assessment and the design of instructional systems"
-  - "Haladyna et al. (2002) — A review of multiple-choice item-writing guidelines for classroom assessment"
-input_schema:
-  required:
-    - field: "concept_being_taught"
-      type: "string"
-      description: "The specific concept or skill the hinge question should diagnose understanding of"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "lesson_context"
-      type: "string"
-      description: "What has been taught so far in this lesson — the hinge question checks whether students understood this before moving on"
-  optional:
-    - field: "known_misconceptions"
-      type: "array"
-      description: "Specific misconceptions the teacher wants the distractors to target"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: prior assessment data, common gaps"
-    - field: "response_method"
-      type: "string"
-      description: "How students will respond — e.g. mini-whiteboards, fingers (A/B/C/D), clickers, hands up"
-    - field: "time_constraint"
-      type: "string"
-      description: "Maximum time for students to answer — hinge questions should be answerable in under 2 minutes"
-output_schema:
-  type: "object"
-  fields:
-    - field: "hinge_question"
-      type: "object"
-      description: "The question stem, answer options, and correct answer"
-    - field: "diagnostic_key"
-      type: "object"
-      description: "What each answer choice reveals about student understanding — the misconception each distractor targets"
-    - field: "decision_guide"
-      type: "string"
-      description: "What to do based on class response patterns — when to proceed, re-teach, or differentiate"
-    - field: "design_rationale"
-      type: "string"
-      description: "Why the question and distractors are designed this way"
-chains_well_with:
-  - "checking-for-understanding-protocol-designer"
-  - "explicit-instruction-sequence-builder"
-  - "practice-problem-sequence-designer"
-  - "retrieval-practice-generator"
-teacher_time: "3 minutes"
-tags: ["hinge-question", "formative-assessment", "misconceptions", "diagnostic", "checking-understanding"]
 ---
 
 # Hinge Question Designer
@@ -281,3 +217,84 @@ This question works as a hinge question because:
 2. **Multiple-choice format limits what can be tested.** Hinge questions work best for concepts where understanding can be revealed through a single choice — typically factual knowledge, procedural understanding, or conceptual distinctions. They are less effective for testing complex reasoning, extended argument, or creative application, where the interesting information is in the student's process, not their final answer. For these skills, other checking-for-understanding methods (mini-whiteboards with working shown, think-pair-share) are more appropriate.
 
 3. **Distractor design requires deep knowledge of student misconceptions.** The quality of a hinge question depends entirely on whether the distractors target REAL misconceptions that ACTUAL students hold — not just plausible-looking wrong answers. The generator uses common misconceptions from the research literature and teaching experience, but specific student populations may hold different misconceptions. Teachers should review the distractors and modify them based on their knowledge of their own students' typical errors. If a distractor doesn't match a real misconception in the class, it provides no diagnostic information — it's just "a wrong answer."
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: questioning-discussion/hinge-question-designer
+skill_name: Hinge Question Designer
+domain: questioning-discussion
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Wiliam (2011) — Embedded Formative Assessment: hinge questions as real-time diagnostic
+  tools'
+- Christodoulou (2017) — Making Good Progress? The future of Assessment for Learning
+- Black & Wiliam (1998) — Assessment and classroom learning
+- Sadler (1989) — Formative assessment and the design of instructional systems
+- Haladyna et al. (2002) — A review of multiple-choice item-writing guidelines for
+  classroom assessment
+input_schema:
+  required:
+  - field: concept_being_taught
+    type: string
+    description: The specific concept or skill the hinge question should diagnose
+      understanding of
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: lesson_context
+    type: string
+    description: What has been taught so far in this lesson — the hinge question checks
+      whether students understood this before moving on
+  optional:
+  - field: known_misconceptions
+    type: array
+    description: Specific misconceptions the teacher wants the distractors to target
+  - field: student_profiles
+    type: array
+    description: 'From context engine: prior assessment data, common gaps'
+  - field: response_method
+    type: string
+    description: How students will respond — e.g. mini-whiteboards, fingers (A/B/C/D),
+      clickers, hands up
+  - field: time_constraint
+    type: string
+    description: Maximum time for students to answer — hinge questions should be answerable
+      in under 2 minutes
+output_schema:
+  type: object
+  fields:
+  - field: hinge_question
+    type: object
+    description: The question stem, answer options, and correct answer
+  - field: diagnostic_key
+    type: object
+    description: What each answer choice reveals about student understanding — the
+      misconception each distractor targets
+  - field: decision_guide
+    type: string
+    description: What to do based on class response patterns — when to proceed, re-teach,
+      or differentiate
+  - field: design_rationale
+    type: string
+    description: Why the question and distractors are designed this way
+chains_well_with:
+- checking-for-understanding-protocol-designer
+- explicit-instruction-sequence-builder
+- practice-problem-sequence-designer
+- retrieval-practice-generator
+teacher_time: 3 minutes
+tags:
+- hinge-question
+- formative-assessment
+- misconceptions
+- diagnostic
+- checking-understanding
+```

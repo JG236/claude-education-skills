@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: emergent-project-design-scaffold
 description: "Scaffold an emergent project from observed children's interests using Reggio-inspired approaches. Use when following children's fascinations into deeper inquiry in early years or primary settings."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/emergent-project-design-scaffold"
-skill_name: "Emergent Project Design Scaffold"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Rinaldi (2006) — In Dialogue with Reggio Emilia: listening, researching and learning"
-  - "Malaguzzi (1993) — For an education based on relationships"
-  - "Helm & Katz (2016) — Young Investigators: the project approach in the early years (3rd edition)"
-  - "Wien (2008) — Emergent Curriculum in the Primary Classroom: interpreting the Reggio Emilia approach in schools"
-  - "Edwards, Gandini & Forman (2012) — The Hundred Languages of Children (3rd edition)"
-input_schema:
-  required:
-    - field: "children_interest"
-      type: "string"
-      description: "The emerging interest, question, or fascination observed in the children — what has captured their attention"
-    - field: "teacher_observations"
-      type: "string"
-      description: "What the teacher has noticed — children's questions, theories, experiments, and representations related to the interest"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age group"
-    - field: "curriculum_connections"
-      type: "string"
-      description: "Curriculum areas the interest naturally connects to"
-    - field: "available_resources"
-      type: "string"
-      description: "Materials, spaces, and community resources that could support the investigation"
-    - field: "project_duration"
-      type: "string"
-      description: "How long the project might run — a week, several weeks, a term"
-    - field: "team_context"
-      type: "string"
-      description: "Whether the teacher is working alone or in a team"
-output_schema:
-  type: "object"
-  fields:
-    - field: "project_scaffold"
-      type: "object"
-      description: "The emergent project design — not a fixed plan but a flexible scaffold that responds to children's developing inquiry"
-    - field: "provocations"
-      type: "array"
-      description: "Experiences, materials, and questions designed to deepen and extend children's inquiry"
-    - field: "curriculum_mapping"
-      type: "object"
-      description: "How the emerging project connects to curriculum objectives — natural connections, not forced ones"
-    - field: "documentation_plan"
-      type: "object"
-      description: "How to document the project's evolution — capturing children's learning journey"
-    - field: "decision_points"
-      type: "array"
-      description: "Moments where the teacher will observe and decide: extend this direction, introduce a new provocation, or allow the project to wind down"
-chains_well_with:
-  - "reggio-documentation-protocol"
-  - "awe-wonder-experience-designer"
-  - "agency-scaffold-generator"
-  - "place-based-inquiry-anchor"
-teacher_time: "4 minutes"
-tags: ["Reggio-Emilia", "emergent-curriculum", "project-approach", "Rinaldi", "Malaguzzi", "provocations", "early-years", "primary"]
 ---
 
 # Emergent Project Design Scaffold
@@ -281,3 +214,92 @@ Document throughout using the Reggio Documentation Protocol:
 2. **Accountability systems can conflict with emergent approaches.** Schools that require detailed medium-term plans submitted in advance cannot easily accommodate emergent curriculum. The curriculum connections identified above show that emergent projects DO address curriculum objectives — but not in a predictable, plannable sequence. Teachers may need to advocate for flexibility within their school's planning requirements.
 
 3. **Not all interests sustain a project.** Some children's fascinations are momentary — intense for a day and then gone. The teacher's skill lies in distinguishing a momentary fascination from a sustained interest that can sustain an investigation. The decision points above help — if interest wanes after Week 1, the project is concluded rather than artificially extended.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/emergent-project-design-scaffold
+skill_name: Emergent Project Design Scaffold
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Rinaldi (2006) — In Dialogue with Reggio Emilia: listening, researching and learning'
+- Malaguzzi (1993) — For an education based on relationships
+- 'Helm & Katz (2016) — Young Investigators: the project approach in the early years
+  (3rd edition)'
+- 'Wien (2008) — Emergent Curriculum in the Primary Classroom: interpreting the Reggio
+  Emilia approach in schools'
+- Edwards, Gandini & Forman (2012) — The Hundred Languages of Children (3rd edition)
+input_schema:
+  required:
+  - field: children_interest
+    type: string
+    description: The emerging interest, question, or fascination observed in the children
+      — what has captured their attention
+  - field: teacher_observations
+    type: string
+    description: What the teacher has noticed — children's questions, theories, experiments,
+      and representations related to the interest
+  optional:
+  - field: student_level
+    type: string
+    description: Age group
+  - field: curriculum_connections
+    type: string
+    description: Curriculum areas the interest naturally connects to
+  - field: available_resources
+    type: string
+    description: Materials, spaces, and community resources that could support the
+      investigation
+  - field: project_duration
+    type: string
+    description: How long the project might run — a week, several weeks, a term
+  - field: team_context
+    type: string
+    description: Whether the teacher is working alone or in a team
+output_schema:
+  type: object
+  fields:
+  - field: project_scaffold
+    type: object
+    description: The emergent project design — not a fixed plan but a flexible scaffold
+      that responds to children's developing inquiry
+  - field: provocations
+    type: array
+    description: Experiences, materials, and questions designed to deepen and extend
+      children's inquiry
+  - field: curriculum_mapping
+    type: object
+    description: How the emerging project connects to curriculum objectives — natural
+      connections, not forced ones
+  - field: documentation_plan
+    type: object
+    description: How to document the project's evolution — capturing children's learning
+      journey
+  - field: decision_points
+    type: array
+    description: 'Moments where the teacher will observe and decide: extend this direction,
+      introduce a new provocation, or allow the project to wind down'
+chains_well_with:
+- reggio-documentation-protocol
+- awe-wonder-experience-designer
+- agency-scaffold-generator
+- place-based-inquiry-anchor
+teacher_time: 4 minutes
+tags:
+- Reggio-Emilia
+- emergent-curriculum
+- project-approach
+- Rinaldi
+- Malaguzzi
+- provocations
+- early-years
+- primary
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: checking-for-understanding-protocol-designer
 description: "Design a checking-for-understanding protocol with specific techniques for each lesson stage. Use when planning systematic comprehension checks during explicit or direct instruction."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "explicit-instruction/checking-for-understanding-protocol-designer"
-skill_name: "Checking for Understanding Protocol Designer"
-domain: "explicit-instruction"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Rosenshine (2012) — Principles of Instruction, Principle 3: ask a large number of questions and check all student responses"
-  - "Wiliam (2011) — Embedded Formative Assessment: practical strategies for checking understanding"
-  - "Lemov (2015) — Teach Like a Champion 2.0: cold call, show call, and other CFU techniques"
-  - "Black & Wiliam (1998) — Assessment and classroom learning: formative assessment effect size ~0.66"
-  - "Christodoulou (2017) — Making Good Progress?: hinge questions and diagnostic assessment"
-input_schema:
-  required:
-    - field: "lesson_content"
-      type: "string"
-      description: "What is being taught in the lesson"
-    - field: "lesson_stage"
-      type: "string"
-      description: "When CFU is needed: during instruction, after guided practice, end of lesson, or all stages"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and class characteristics"
-  optional:
-    - field: "class_size"
-      type: "integer"
-      description: "Number of students — affects technique selection"
-    - field: "common_misconceptions"
-      type: "array"
-      description: "Known misconceptions to probe for"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: specific students to monitor, confidence patterns"
-    - field: "available_resources"
-      type: "string"
-      description: "Mini-whiteboards, devices, response cards — what's available in the room"
-output_schema:
-  type: "object"
-  fields:
-    - field: "cfu_techniques"
-      type: "array"
-      description: "Selected techniques with implementation scripts for each lesson stage"
-    - field: "hinge_question"
-      type: "object"
-      description: "A diagnostic hinge question with distractor analysis"
-    - field: "cold_call_plan"
-      type: "object"
-      description: "Structured cold-calling sequence with question stems"
-    - field: "response_decision_tree"
-      type: "string"
-      description: "What to do based on CFU results: proceed, re-teach, or adjust"
-chains_well_with:
-  - "explicit-instruction-sequence-builder"
-  - "hinge-question-designer"
-  - "formative-assessment-technique-selector"
-  - "retrieval-practice-generator"
-teacher_time: "3 minutes"
-tags: ["formative-assessment", "checking-understanding", "questioning", "cold-calling", "feedback"]
 ---
 
 # Checking for Understanding Protocol Designer
@@ -287,3 +223,81 @@ Exit ticket (reviewed after lesson):
 2. **Mini-whiteboards and finger votes can be gamed.** Students can copy from neighbours, wait to see others' answers before showing theirs, or hold boards at angles. Lemov (2015) recommends "boards up on my count — 3, 2, 1, show" to reduce copying, but no technique eliminates it entirely. Cold calling individuals is the strongest complement because it cannot be gamed.
 
 3. **The response decision tree requires teacher judgment in real time.** The tree provides guidance, but the teacher must make rapid decisions about whether to re-teach, how long to spend, and when to move on. This is a professional skill that improves with practice — the protocol supports it but cannot replace it.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: explicit-instruction/checking-for-understanding-protocol-designer
+skill_name: Checking for Understanding Protocol Designer
+domain: explicit-instruction
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Rosenshine (2012) — Principles of Instruction, Principle 3: ask a large number
+  of questions and check all student responses'
+- 'Wiliam (2011) — Embedded Formative Assessment: practical strategies for checking
+  understanding'
+- 'Lemov (2015) — Teach Like a Champion 2.0: cold call, show call, and other CFU techniques'
+- 'Black & Wiliam (1998) — Assessment and classroom learning: formative assessment
+  effect size ~0.66'
+- 'Christodoulou (2017) — Making Good Progress?: hinge questions and diagnostic assessment'
+input_schema:
+  required:
+  - field: lesson_content
+    type: string
+    description: What is being taught in the lesson
+  - field: lesson_stage
+    type: string
+    description: 'When CFU is needed: during instruction, after guided practice, end
+      of lesson, or all stages'
+  - field: student_level
+    type: string
+    description: Age/year group and class characteristics
+  optional:
+  - field: class_size
+    type: integer
+    description: Number of students — affects technique selection
+  - field: common_misconceptions
+    type: array
+    description: Known misconceptions to probe for
+  - field: student_profiles
+    type: array
+    description: 'From context engine: specific students to monitor, confidence patterns'
+  - field: available_resources
+    type: string
+    description: Mini-whiteboards, devices, response cards — what's available in the
+      room
+output_schema:
+  type: object
+  fields:
+  - field: cfu_techniques
+    type: array
+    description: Selected techniques with implementation scripts for each lesson stage
+  - field: hinge_question
+    type: object
+    description: A diagnostic hinge question with distractor analysis
+  - field: cold_call_plan
+    type: object
+    description: Structured cold-calling sequence with question stems
+  - field: response_decision_tree
+    type: string
+    description: 'What to do based on CFU results: proceed, re-teach, or adjust'
+chains_well_with:
+- explicit-instruction-sequence-builder
+- hinge-question-designer
+- formative-assessment-technique-selector
+- retrieval-practice-generator
+teacher_time: 3 minutes
+tags:
+- formative-assessment
+- checking-understanding
+- questioning
+- cold-calling
+- feedback
+```

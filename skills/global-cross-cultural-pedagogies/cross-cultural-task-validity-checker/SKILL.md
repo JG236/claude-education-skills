@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: cross-cultural-task-validity-checker
 description: "Check an educational practice or task for cultural bias, WEIRD assumptions, and cross-cultural validity. Use when adapting resources for diverse contexts or questioning universal claims."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "global-cross-cultural-pedagogies/cross-cultural-task-validity-checker"
-skill_name: "Cross-Cultural Task Validity Checker"
-domain: "global-cross-cultural-pedagogies"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Henrich, Heine & Norenzayan (2010) — The weirdest people in the world? (WEIRD bias in behavioural science)"
-  - "Tobin, Wu & Davidson (1989) — Preschool in Three Cultures: Japan, China, and the United States"
-  - "Alexander (2001) — Culture and Pedagogy: international comparisons in primary education"
-  - "Stigler & Hiebert (1999) — The Teaching Gap: best ideas from the world's teachers for improving education in the classroom"
-  - "Nsamenang (2006) — Human ontogenesis: an indigenous African view on development and intelligence"
-input_schema:
-  required:
-    - field: "task_or_practice"
-      type: "string"
-      description: "The educational task, practice, strategy, or research finding to be checked for cross-cultural validity"
-    - field: "intended_context"
-      type: "string"
-      description: "Where and with whom this task or practice will be used — the specific cultural context of the students"
-  optional:
-    - field: "source_context"
-      type: "string"
-      description: "Where the task or practice was developed or researched — the cultural context of origin"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "specific_concerns"
-      type: "string"
-      description: "Any particular concerns the teacher has about cultural fit"
-output_schema:
-  type: "object"
-  fields:
-    - field: "validity_analysis"
-      type: "object"
-      description: "Analysis of the task's cross-cultural validity — what assumptions it carries, where it might not transfer"
-    - field: "cultural_assumptions"
-      type: "array"
-      description: "Specific cultural assumptions embedded in the task — about individualism, communication styles, knowledge, authority, or values"
-    - field: "adaptation_suggestions"
-      type: "array"
-      description: "How to adapt the task for the intended context — specific, practical modifications"
-    - field: "alternative_approaches"
-      type: "array"
-      description: "Alternative approaches from other cultural traditions that achieve the same learning objective differently"
-chains_well_with:
-  - "culturally-responsive-teaching-designer"
-  - "ubuntu-collective-knowledge-task-designer"
-  - "belonging-classroom-culture-designer"
-  - "phenomenon-based-unit-anchor"
-teacher_time: "3 minutes"
-tags: ["WEIRD-bias", "Henrich", "cross-cultural", "cultural-assumptions", "validity", "decolonising", "global-pedagogy"]
 ---
 
 # Cross-Cultural Task Validity Checker
@@ -248,3 +187,86 @@ The CORE PRINCIPLE of think-pair-share transfers very well across cultures:
 2. **Cross-cultural analysis requires more than WEIRD research.** The evidence base for this skill draws on cross-cultural research, but most educational research remains WEIRD-centric. The alternative approaches from other traditions (neriage, Ubuntu circle, silent discussion) are described based on available literature, but teachers working in specific cultural contexts should seek out LOCAL educational expertise, not just Western academic research about those contexts.
 
 3. **There is a tension between cultural adaptation and cultural change.** If a student from a high-power-distance culture is uncomfortable with peer discussion, should the teacher adapt the task (respecting the cultural norm) or persist with the task (deliberately exposing students to a different cultural norm)? This is a genuine pedagogical dilemma with no universal answer. The skill provides adaptations but does not resolve this tension — the teacher must make a professional judgement about their specific context, ideally in dialogue with families and community.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: global-cross-cultural-pedagogies/cross-cultural-task-validity-checker
+skill_name: Cross-Cultural Task Validity Checker
+domain: global-cross-cultural-pedagogies
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Henrich, Heine & Norenzayan (2010) — The weirdest people in the world? (WEIRD bias
+  in behavioural science)
+- 'Tobin, Wu & Davidson (1989) — Preschool in Three Cultures: Japan, China, and the
+  United States'
+- 'Alexander (2001) — Culture and Pedagogy: international comparisons in primary education'
+- 'Stigler & Hiebert (1999) — The Teaching Gap: best ideas from the world''s teachers
+  for improving education in the classroom'
+- 'Nsamenang (2006) — Human ontogenesis: an indigenous African view on development
+  and intelligence'
+input_schema:
+  required:
+  - field: task_or_practice
+    type: string
+    description: The educational task, practice, strategy, or research finding to
+      be checked for cross-cultural validity
+  - field: intended_context
+    type: string
+    description: Where and with whom this task or practice will be used — the specific
+      cultural context of the students
+  optional:
+  - field: source_context
+    type: string
+    description: Where the task or practice was developed or researched — the cultural
+      context of origin
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: specific_concerns
+    type: string
+    description: Any particular concerns the teacher has about cultural fit
+output_schema:
+  type: object
+  fields:
+  - field: validity_analysis
+    type: object
+    description: Analysis of the task's cross-cultural validity — what assumptions
+      it carries, where it might not transfer
+  - field: cultural_assumptions
+    type: array
+    description: Specific cultural assumptions embedded in the task — about individualism,
+      communication styles, knowledge, authority, or values
+  - field: adaptation_suggestions
+    type: array
+    description: How to adapt the task for the intended context — specific, practical
+      modifications
+  - field: alternative_approaches
+    type: array
+    description: Alternative approaches from other cultural traditions that achieve
+      the same learning objective differently
+chains_well_with:
+- culturally-responsive-teaching-designer
+- ubuntu-collective-knowledge-task-designer
+- belonging-classroom-culture-designer
+- phenomenon-based-unit-anchor
+teacher_time: 3 minutes
+tags:
+- WEIRD-bias
+- Henrich
+- cross-cultural
+- cultural-assumptions
+- validity
+- decolonising
+- global-pedagogy
+```

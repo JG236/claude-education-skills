@@ -1,89 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: dispositional-knowledge-assessment-designer
 description: "Design multi-informant assessment approaches for dispositional competencies like curiosity or resilience. Use when assessing character strengths or competencies that written tests cannot capture."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/dispositional-knowledge-assessment-designer"
-skill_name: "Dispositional Knowledge Assessment Designer"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Domitrovich, Durlak, Staley & Weissberg (2017) — Social-emotional competence: multi-informant assessment across contexts"
-  - "Greenberg, Domitrovich, Weissberg & Durlak (2017) — SEL as a public health approach: triangulation of teacher, parent, and student report"
-  - "CASEL (2013) — CASEL Guide: five-domain SEL framework and multi-informant assessment architecture"
-  - "Zimmerman (2000) — Attaining self-regulation: developmental readiness for self-assessment and feedback"
-  - "Zimmerman (2002) — Becoming a self-regulated learner: dispositions as assessable and teachable"
-  - "Hattie & Timperley (2007) — The power of feedback: self-level feedback least effective; self-regulation feedback most powerful"
-  - "Deci & Ryan (1985, 2000) — Self-Determination Theory: autonomy-supportive assessment preserves intrinsic motivation"
-  - "Amabile (1979, 1993) — Evaluation expectation suppresses authentic expression; informational feedback synergises with intrinsic motivation"
-  - "Krechevsky, Mardell, Rivard & Wilson (2013) — Visible Learners: documentation as assessment of dispositional qualities"
-  - "Kluger & DeNisi (1996) — Feedback Intervention Theory: self-directed feedback decreases performance; task/process-directed feedback improves it"
-  - "Boud & Molloy (2013) — Feedback as developmental dialogue, not transmission"
-input_schema:
-  required:
-    - field: "competency_name"
-      type: "string"
-      description: "The dispositional competency being assessed"
-    - field: "competency_definition"
-      type: "string"
-      description: "One sentence beginning 'The ability to...'"
-    - field: "band"
-      type: "string"
-      description: "Which developmental band — A, B, C, D, E, or F"
-    - field: "band_descriptors"
-      type: "string"
-      description: "The observation indicator set for this LT from the LT authoring guide. Provide the band-level observation indicators (what the teacher notices), not an 'I can...' band statement."
-    - field: "assessment_context"
-      type: "string"
-      description: "When and how assessment happens — e.g. end of term, ongoing, tied to a specific project"
-  optional:
-    - field: "existing_observation_data"
-      type: "string"
-      description: "From context engine: any observation notes already collected on this student or group"
-    - field: "student_self_assessment_data"
-      type: "string"
-      description: "From context engine: any self-reflection already gathered from the student"
-    - field: "parent_input"
-      type: "string"
-      description: "From context engine: any caregiver observations if collected"
-    - field: "school_feedback_structure"
-      type: "string"
-      description: "Any existing feedback structure to integrate with — e.g. 'end-of-term developmental review', 'student-led conferences', 'portfolio reviews'"
-output_schema:
-  type: "object"
-  fields:
-    - field: "observation_protocol"
-      type: "object"
-      description: "What the teacher looks for and records — prompts for noticing, not a checklist. Includes frequency and format guidance."
-    - field: "student_self_reflection_tool"
-      type: "object"
-      description: "Age-appropriate open questions calibrated to the band level that generate evidence of dispositional development"
-    - field: "parent_caregiver_input_guide"
-      type: "object"
-      description: "3-5 jargon-free questions for caregivers, framed as noticing rather than assessment"
-    - field: "synthesis_guide"
-      type: "object"
-      description: "How to bring together multi-informant evidence, handle contradictions, and identify sufficient evidence for developmental shifts"
-    - field: "developmental_conversation_guide"
-      type: "object"
-      description: "How to talk with the student about dispositional development — what to share at each band, coaching questions, goal-setting"
-    - field: "feedback_structure_integration"
-      type: "object"
-      description: "How to integrate dispositional evidence into existing school feedback structures"
-chains_well_with:
-  - "learning-target-authoring-guide"
-  - "coherent-rubric-logic-builder"
-  - "developmental-band-system-designer"
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-teacher_time: "5 minutes"
-tags: ["dispositional-knowledge", "assessment", "multi-informant", "coaching-feedback", "developmental-bands", "agency", "collaboration", "self-regulation", "observation", "self-reflection"]
 ---
 
 # Dispositional Knowledge Assessment Designer
@@ -639,3 +556,122 @@ This is an inherent feature of all observation, not a failure of professionalism
 4. **The developmental conversation requires significant skill from the teacher.** The conversation guide scaffolds the structure and provides coaching questions, but the quality of the conversation depends on the teacher's ability to listen, to respond authentically, to hold space for the student's self-assessment without correcting or evaluating, and to maintain relational trust. A teacher who reads the coaching questions mechanically will produce a worse outcome than a teacher who has no guide but has strong relational instincts. The guide is a scaffold, not a substitute for professional judgment and relational competence. Schools should consider providing professional development on coaching conversations before implementing this approach at scale.
 
 5. **When two teachers reach different conclusions about the same student, this is information about contextual variation, not an interrater reliability failure.** Both observers may be accurate: they have seen different aspects of the disposition in different contexts. The response is a moderation conversation exploring what the variation reveals about the student's dispositional development across contexts — not averaging the observations, not deciding who is right. The pattern of variation across contexts is itself the most informative piece of evidence. This hermeneutic approach to moderation — treating divergent observations as a prompt for professional inquiry rather than a scoring problem to resolve — is a fundamental difference from psychometric reliability frameworks, which assume a single true score that reliable raters converge on. Dispositional development does not have a single true score; it has a pattern of enacted behaviour across contexts, and divergent teacher observations may both be faithfully representing real parts of that pattern.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: original-frameworks/dispositional-knowledge-assessment-designer
+skill_name: Dispositional Knowledge Assessment Designer
+domain: original-frameworks
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Domitrovich, Durlak, Staley & Weissberg (2017) — Social-emotional competence: multi-informant
+  assessment across contexts'
+- 'Greenberg, Domitrovich, Weissberg & Durlak (2017) — SEL as a public health approach:
+  triangulation of teacher, parent, and student report'
+- 'CASEL (2013) — CASEL Guide: five-domain SEL framework and multi-informant assessment
+  architecture'
+- 'Zimmerman (2000) — Attaining self-regulation: developmental readiness for self-assessment
+  and feedback'
+- 'Zimmerman (2002) — Becoming a self-regulated learner: dispositions as assessable
+  and teachable'
+- 'Hattie & Timperley (2007) — The power of feedback: self-level feedback least effective;
+  self-regulation feedback most powerful'
+- 'Deci & Ryan (1985, 2000) — Self-Determination Theory: autonomy-supportive assessment
+  preserves intrinsic motivation'
+- Amabile (1979, 1993) — Evaluation expectation suppresses authentic expression; informational
+  feedback synergises with intrinsic motivation
+- 'Krechevsky, Mardell, Rivard & Wilson (2013) — Visible Learners: documentation as
+  assessment of dispositional qualities'
+- 'Kluger & DeNisi (1996) — Feedback Intervention Theory: self-directed feedback decreases
+  performance; task/process-directed feedback improves it'
+- Boud & Molloy (2013) — Feedback as developmental dialogue, not transmission
+input_schema:
+  required:
+  - field: competency_name
+    type: string
+    description: The dispositional competency being assessed
+  - field: competency_definition
+    type: string
+    description: One sentence beginning 'The ability to...'
+  - field: band
+    type: string
+    description: Which developmental band — A, B, C, D, E, or F
+  - field: band_descriptors
+    type: string
+    description: The observation indicator set for this LT from the LT authoring guide.
+      Provide the band-level observation indicators (what the teacher notices), not
+      an 'I can...' band statement.
+  - field: assessment_context
+    type: string
+    description: When and how assessment happens — e.g. end of term, ongoing, tied
+      to a specific project
+  optional:
+  - field: existing_observation_data
+    type: string
+    description: 'From context engine: any observation notes already collected on
+      this student or group'
+  - field: student_self_assessment_data
+    type: string
+    description: 'From context engine: any self-reflection already gathered from the
+      student'
+  - field: parent_input
+    type: string
+    description: 'From context engine: any caregiver observations if collected'
+  - field: school_feedback_structure
+    type: string
+    description: Any existing feedback structure to integrate with — e.g. 'end-of-term
+      developmental review', 'student-led conferences', 'portfolio reviews'
+output_schema:
+  type: object
+  fields:
+  - field: observation_protocol
+    type: object
+    description: What the teacher looks for and records — prompts for noticing, not
+      a checklist. Includes frequency and format guidance.
+  - field: student_self_reflection_tool
+    type: object
+    description: Age-appropriate open questions calibrated to the band level that
+      generate evidence of dispositional development
+  - field: parent_caregiver_input_guide
+    type: object
+    description: 3-5 jargon-free questions for caregivers, framed as noticing rather
+      than assessment
+  - field: synthesis_guide
+    type: object
+    description: How to bring together multi-informant evidence, handle contradictions,
+      and identify sufficient evidence for developmental shifts
+  - field: developmental_conversation_guide
+    type: object
+    description: How to talk with the student about dispositional development — what
+      to share at each band, coaching questions, goal-setting
+  - field: feedback_structure_integration
+    type: object
+    description: How to integrate dispositional evidence into existing school feedback
+      structures
+chains_well_with:
+- learning-target-authoring-guide
+- coherent-rubric-logic-builder
+- developmental-band-system-designer
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+teacher_time: 5 minutes
+tags:
+- dispositional-knowledge
+- assessment
+- multi-informant
+- coaching-feedback
+- developmental-bands
+- agency
+- collaboration
+- self-regulation
+- observation
+- self-reflection
+```

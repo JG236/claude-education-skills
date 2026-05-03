@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: think-aloud-script-generator
 description: "Script a teacher think-aloud demonstrating expert reasoning processes for a specific task. Use when modelling problem-solving, writing, reading comprehension, or analytical processes."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "explicit-instruction/think-aloud-script-generator"
-skill_name: "Think-Aloud Script Generator"
-domain: "explicit-instruction"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Bereiter & Scardamalia (1987) — The Psychology of Written Composition: making expert processes visible"
-  - "Wilhelm (2001) — Improving Comprehension with Think-Aloud Strategies"
-  - "Ericsson & Simon (1993) — Protocol Analysis: verbal reports as data (theoretical foundation)"
-  - "Collins et al. (1989) — Cognitive Apprenticeship: teaching the crafts of reading, writing, and mathematics"
-  - "Rosenshine (2012) — Principles of Instruction, Principle 4: provide models of worked-out problems"
-input_schema:
-  required:
-    - field: "task_to_model"
-      type: "string"
-      description: "The specific task the teacher will think aloud through"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and expertise level"
-    - field: "subject_area"
-      type: "string"
-      description: "Subject context"
-  optional:
-    - field: "expert_strategies"
-      type: "array"
-      description: "Specific strategies or decision points the teacher wants to make visible"
-    - field: "common_student_errors"
-      type: "array"
-      description: "Errors students typically make that the think-aloud should inoculate against"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: comprehension levels, EAL needs"
-    - field: "think_aloud_duration"
-      type: "string"
-      description: "Target duration in minutes"
-output_schema:
-  type: "object"
-  fields:
-    - field: "script"
-      type: "string"
-      description: "Complete think-aloud script with decision points, self-monitoring, and error awareness"
-    - field: "visible_strategies"
-      type: "array"
-      description: "List of expert strategies made visible in the script"
-    - field: "pause_points"
-      type: "array"
-      description: "Moments to pause and check student following"
-    - field: "delivery_notes"
-      type: "string"
-      description: "How to deliver the think-aloud effectively"
-chains_well_with:
-  - "explicit-instruction-sequence-builder"
-  - "worked-example-fading-designer"
-  - "metacognitive-prompt-library"
-  - "reading-comprehension-strategy-selector"
-  - "pedagogical-content-knowledge-developer"
-  - "critical-thinking-task-designer"
-teacher_time: "4 minutes"
-tags: ["think-aloud", "modelling", "expert-thinking", "cognitive-apprenticeship", "comprehension"]
 ---
 
 # Think-Aloud Script Generator
@@ -267,3 +201,85 @@ But here's the thing — I got there by reading THREE times, writing in the marg
 2. **Think-alouds only work when students are watching and listening attentively.** If the think-aloud becomes background noise while students disengage, no learning occurs. Keep think-alouds short (8–12 minutes maximum), include interactive pause points, and follow immediately with guided practice where students apply the same strategies.
 
 3. **The expert blind spot is real and recurrent.** Even with this script, the teacher may unconsciously skip steps that feel obvious to them but are invisible to novices. After the think-aloud, ask students: "Was there any point where I jumped ahead and you lost me?" Their answers reveal the expert blind spots the script missed.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: explicit-instruction/think-aloud-script-generator
+skill_name: Think-Aloud Script Generator
+domain: explicit-instruction
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Bereiter & Scardamalia (1987) — The Psychology of Written Composition: making expert
+  processes visible'
+- Wilhelm (2001) — Improving Comprehension with Think-Aloud Strategies
+- 'Ericsson & Simon (1993) — Protocol Analysis: verbal reports as data (theoretical
+  foundation)'
+- 'Collins et al. (1989) — Cognitive Apprenticeship: teaching the crafts of reading,
+  writing, and mathematics'
+- 'Rosenshine (2012) — Principles of Instruction, Principle 4: provide models of worked-out
+  problems'
+input_schema:
+  required:
+  - field: task_to_model
+    type: string
+    description: The specific task the teacher will think aloud through
+  - field: student_level
+    type: string
+    description: Age/year group and expertise level
+  - field: subject_area
+    type: string
+    description: Subject context
+  optional:
+  - field: expert_strategies
+    type: array
+    description: Specific strategies or decision points the teacher wants to make
+      visible
+  - field: common_student_errors
+    type: array
+    description: Errors students typically make that the think-aloud should inoculate
+      against
+  - field: student_profiles
+    type: array
+    description: 'From context engine: comprehension levels, EAL needs'
+  - field: think_aloud_duration
+    type: string
+    description: Target duration in minutes
+output_schema:
+  type: object
+  fields:
+  - field: script
+    type: string
+    description: Complete think-aloud script with decision points, self-monitoring,
+      and error awareness
+  - field: visible_strategies
+    type: array
+    description: List of expert strategies made visible in the script
+  - field: pause_points
+    type: array
+    description: Moments to pause and check student following
+  - field: delivery_notes
+    type: string
+    description: How to deliver the think-aloud effectively
+chains_well_with:
+- explicit-instruction-sequence-builder
+- worked-example-fading-designer
+- metacognitive-prompt-library
+- reading-comprehension-strategy-selector
+- pedagogical-content-knowledge-developer
+- critical-thinking-task-designer
+teacher_time: 4 minutes
+tags:
+- think-aloud
+- modelling
+- expert-thinking
+- cognitive-apprenticeship
+- comprehension
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: reading-comprehension-strategy-selector
 description: "Select and sequence reading comprehension strategies matched to a specific text's challenges and demands. Use when students struggle with a text or need targeted reading support."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "literacy-critical-thinking/reading-comprehension-strategy-selector"
-skill_name: "Reading Comprehension Strategy Selector"
-domain: "literacy-critical-thinking"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Duke & Pearson (2002) — Effective practices for developing reading comprehension"
-  - "Pressley (2002) — Metacognition and self-regulated comprehension"
-  - "National Reading Panel (2000) — Teaching children to read: an evidence-based assessment"
-  - "Palincsar & Brown (1984) — Reciprocal teaching of comprehension-fostering and comprehension-monitoring activities"
-  - "Shanahan et al. (2010) — Improving reading comprehension in kindergarten through 3rd grade: IES practice guide"
-input_schema:
-  required:
-    - field: "text_description"
-      type: "string"
-      description: "A description of the text students will read — genre, topic, length, and key challenges"
-    - field: "reader_challenge"
-      type: "string"
-      description: "The specific comprehension difficulty students are likely to face with this text"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current reading competence"
-  optional:
-    - field: "reading_purpose"
-      type: "string"
-      description: "Why students are reading this text — e.g. to extract information, to analyse, to enjoy, to compare"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: reading levels, decoding ability, EAL status"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject — strategy selection varies by discipline"
-    - field: "text_extract"
-      type: "string"
-      description: "A short extract from the actual text to enable more precise strategy recommendations"
-output_schema:
-  type: "object"
-  fields:
-    - field: "recommended_strategies"
-      type: "array"
-      description: "2–3 strategies selected for this text and reader challenge, with rationale"
-    - field: "implementation_guide"
-      type: "object"
-      description: "Step-by-step guide for teaching each strategy with this text — before, during, and after reading"
-    - field: "teacher_modelling_script"
-      type: "string"
-      description: "A brief think-aloud script showing the teacher modelling the primary strategy"
-    - field: "strategy_pitfalls"
-      type: "string"
-      description: "What can go wrong with strategy instruction and how to avoid it"
-chains_well_with:
-  - "text-complexity-analyser"
-  - "think-aloud-script-generator"
-  - "vocabulary-tiering-tool"
-  - "scaffolded-task-modifier"
-teacher_time: "3 minutes"
-tags: ["reading", "comprehension", "strategy-instruction", "reciprocal-teaching", "metacognition"]
 ---
 
 # Reading Comprehension Strategy Selector
@@ -265,3 +201,85 @@ See what I did? I didn't just say 'trade routes — that's a cause.' I asked HOW
 2. **The strategy recommendations depend on the accuracy of the text description and reader challenge.** If the teacher describes the challenge as "students can't understand the vocabulary" but the real challenge is "students don't have the background knowledge to make sense of the content," the recommended strategies will miss the mark. Strategy selection is diagnostic — it requires accurate identification of what's going wrong.
 
 3. **Strategy instruction can become formulaic if overused.** If every text is preceded by "Today we're going to use predicting and questioning," students stop engaging with the strategies and start performing them mechanically. Strategies should be taught when they're needed, not used as a routine for every reading task. The best outcome is students who select strategies themselves when they notice their comprehension breaking down.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: literacy-critical-thinking/reading-comprehension-strategy-selector
+skill_name: Reading Comprehension Strategy Selector
+domain: literacy-critical-thinking
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Duke & Pearson (2002) — Effective practices for developing reading comprehension
+- Pressley (2002) — Metacognition and self-regulated comprehension
+- 'National Reading Panel (2000) — Teaching children to read: an evidence-based assessment'
+- Palincsar & Brown (1984) — Reciprocal teaching of comprehension-fostering and comprehension-monitoring
+  activities
+- 'Shanahan et al. (2010) — Improving reading comprehension in kindergarten through
+  3rd grade: IES practice guide'
+input_schema:
+  required:
+  - field: text_description
+    type: string
+    description: A description of the text students will read — genre, topic, length,
+      and key challenges
+  - field: reader_challenge
+    type: string
+    description: The specific comprehension difficulty students are likely to face
+      with this text
+  - field: student_level
+    type: string
+    description: Age/year group and current reading competence
+  optional:
+  - field: reading_purpose
+    type: string
+    description: Why students are reading this text — e.g. to extract information,
+      to analyse, to enjoy, to compare
+  - field: student_profiles
+    type: array
+    description: 'From context engine: reading levels, decoding ability, EAL status'
+  - field: subject_area
+    type: string
+    description: The curriculum subject — strategy selection varies by discipline
+  - field: text_extract
+    type: string
+    description: A short extract from the actual text to enable more precise strategy
+      recommendations
+output_schema:
+  type: object
+  fields:
+  - field: recommended_strategies
+    type: array
+    description: 2–3 strategies selected for this text and reader challenge, with
+      rationale
+  - field: implementation_guide
+    type: object
+    description: Step-by-step guide for teaching each strategy with this text — before,
+      during, and after reading
+  - field: teacher_modelling_script
+    type: string
+    description: A brief think-aloud script showing the teacher modelling the primary
+      strategy
+  - field: strategy_pitfalls
+    type: string
+    description: What can go wrong with strategy instruction and how to avoid it
+chains_well_with:
+- text-complexity-analyser
+- think-aloud-script-generator
+- vocabulary-tiering-tool
+- scaffolded-task-modifier
+teacher_time: 3 minutes
+tags:
+- reading
+- comprehension
+- strategy-instruction
+- reciprocal-teaching
+- metacognition
+```

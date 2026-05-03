@@ -1,93 +1,6 @@
 ---
 name: kud-chart-author
-description: Authors or reviews Know/Understand/Do charts for competency-based learning targets across developmental bands. Handles seven input types from raw curriculum documents to existing LT sets. Routes to upstream skills when stronger inputs are available.
-disable-model-invocation: false
-user-invocable: true
-effort: high
-skill_id: curriculum-alignment/kud-chart-author
-skill_name: KUD Chart Author
-domain: curriculum-alignment
-version: "1.0"
-evidence_strength: moderate
-evidence_sources:
-  - "Wiggins, G. & McTighe, J. (2005) — Understanding by Design (2nd ed.), ASCD: KUD (Know/Understand/Do) as the canonical unit-level planning architecture; backward design from desired results."
-  - "Wiggins, G. & McTighe, J. (2011) — The Understanding by Design Guide to Creating High-Quality Units, ASCD: KUD as the bridge from standards to assessment; distinction between teaching layer and assessment layer."
-  - "Black, P. & Wiliam, D. (1998) — Inside the Black Box: Raising Standards Through Classroom Assessment, Phi Delta Kappan 80(2): formative assessment and the critical distinction between content students need to hold (Know), conceptual understanding they carry forward (Understand), and demonstrated capability (Do)."
-  - "Anderson, L. W. & Krathwohl, D. R. (2001) — A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy, Longman: the Know/Understand distinction maps directly onto the remembering/understanding levels of the revised taxonomy."
-  - "Bandura, A. (1997) — Self-Efficacy: The Exercise of Control, Freeman: dispositional capabilities develop through enactment over time and cannot be adequately evidenced in a single performance occasion — the theoretical basis for the performance vs disposition distinction in Do cells."
-  - "Heritage, M. (2008) — Learning Progressions: Supporting Instruction and Formative Assessment, CCSSO: progressions are developmental trajectories, not content calendars; progression levers must describe what learners can do with content, not just harder content."
-input_schema:
-  required:
-    - field: input_type
-      type: string
-      description: "One of: existing_lt_with_do, competency_only, harness_output, crosswalk_data, unit_plan, existing_kud_upgrade, raw_curriculum_document. Determines routing check and authoring approach."
-    - field: primary_input
-      type: string
-      description: The main input content. For existing_lt_with_do — the existing Do statements/observation indicators. For competency_only — the competency definition and programme purpose. For harness_output — the structured KUD/LT JSON or markdown from the harness pipeline. For crosswalk_data — the relevant rows from a framework-neutral matrix. For unit_plan — the unit plan document. For existing_kud_upgrade — the existing KUD chart. For raw_curriculum_document — the source curriculum text.
-  optional:
-    - field: lt_name
-      type: string
-      description: LT name if known. e.g. "Self-Awareness & Regulation"
-    - field: lt_definition
-      type: string
-      description: LT definition if known. One sentence beginning "I can..."
-    - field: knowledge_type
-      type: string
-      description: T1, T2, or T3 if already classified. If not supplied, the skill classifies it.
-    - field: band_scope
-      type: string
-      description: Which bands to author. Default A-F. Use N/A notation for developmentally inappropriate bands. e.g. "A-F" or "B-F (Band A N/A — content inappropriate before age 8)"
-    - field: competency_context
-      type: string
-      description: Which competency this LT belongs to, and whether Know content lives in a designated knowledge competency by design rather than in this LT. e.g. "Competency 1 — Emotional Intelligence. Know content lives in Competency 6 by design — cross-reference, do not duplicate."
-    - field: crosswalk_data
-      type: string
-      description: Relevant rows from a framework-neutral crosswalk matrix for this theme. Used to inform band-level progression against field consensus. Paste the relevant CSV rows or table excerpt.
-    - field: prerequisite_lts
-      type: string
-      description: Known prerequisite LTs by ID and suspected type. e.g. "LT 6.1 — suspected soft enabler"
-    - field: programme_purpose
-      type: string
-      description: Why this competency matters for this school or programme's mission. Informs the Understand layer.
-    - field: mode
-      type: string
-      description: "author (default) — produce a new KUD chart. review — assess an existing KUD chart against quality checks and propose specific cell-level improvements."
-output_schema:
-  type: object
-  fields:
-    - field: routing_note
-      type: string
-      description: If a better upstream skill would produce stronger inputs, states which skill and why, and what the current draft's likely limitations are as a result. Null if proceeding directly is appropriate. Always produced alongside the draft output — never blocks execution.
-    - field: kud_chart
-      type: object
-      description: Full KUD chart per band in the standard table format with Know, Understand, Do, Progression lever, and Disciplinary warrant columns.
-    - field: prerequisite_map
-      type: array
-      description: Prerequisite relationships typed as hard, soft enabler, or conceptual accelerator. Per LT at header level and per band where specific K/U items have band-level dependencies.
-    - field: quality_check_results
-      type: object
-      description: Results of all six quality checks with specific cell-level flags. Each check reports PASS or FLAG with the specific cell and the required fix.
-    - field: authoring_notes
-      type: string
-      description: Decisions made during authoring that the teacher should review — ambiguous classification calls, cells where the warrant is thin, bands where the progression logic is uncertain.
-chains_well_with:
-  - learning-target-authoring-guide
-  - developmental-band-translator
-  - curriculum-crosswalk
-  - coherent-rubric-logic-builder
-  - criterion-referenced-rubric-generator
-  - learning-progression-builder
-  - competency-unpacker
-teacher_time: 15 minutes
-tags:
-  - KUD
-  - curriculum-design
-  - learning-targets
-  - Wiggins-McTighe
-  - backward-design
-  - progression
-  - assessment-design
-  - competency-based
+description: "Authors or reviews Know/Understand/Do charts for competency-based learning targets across developmental bands. Handles seven input types from raw curriculum documents to existing LT sets. Routes to upstream skills when stronger inputs are available."
 ---
 
 # What This Skill Does
@@ -407,3 +320,140 @@ The routing check produces a note but never blocks execution. This means a skill
 Prerequisite typing is based on the logical structure of the content as the skill can assess it from the inputs supplied. The teacher who knows the student population and has observed prerequisite gaps in practice will have more accurate information than the skill about whether a given relationship is functioning as a hard gate or a soft enabler in their specific context.
 
 The performance vs disposition distinction for some T3 LTs with performed expressions (e.g. presentation skill developed over multiple occasions) requires teacher judgement about whether the capability being developed is primarily a skill that can be evidenced in a single well-prepared performance, or a disposition that requires accumulated evidence across unprepared real-world occasions. The skill will flag this ambiguity in authoring notes when it arises.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: high
+skill_id: curriculum-alignment/kud-chart-author
+skill_name: KUD Chart Author
+domain: curriculum-alignment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Wiggins, G. & McTighe, J. (2005) — Understanding by Design (2nd ed.), ASCD: KUD
+  (Know/Understand/Do) as the canonical unit-level planning architecture; backward
+  design from desired results.'
+- 'Wiggins, G. & McTighe, J. (2011) — The Understanding by Design Guide to Creating
+  High-Quality Units, ASCD: KUD as the bridge from standards to assessment; distinction
+  between teaching layer and assessment layer.'
+- 'Black, P. & Wiliam, D. (1998) — Inside the Black Box: Raising Standards Through
+  Classroom Assessment, Phi Delta Kappan 80(2): formative assessment and the critical
+  distinction between content students need to hold (Know), conceptual understanding
+  they carry forward (Understand), and demonstrated capability (Do).'
+- 'Anderson, L. W. & Krathwohl, D. R. (2001) — A Taxonomy for Learning, Teaching,
+  and Assessing: A Revision of Bloom''s Taxonomy, Longman: the Know/Understand distinction
+  maps directly onto the remembering/understanding levels of the revised taxonomy.'
+- 'Bandura, A. (1997) — Self-Efficacy: The Exercise of Control, Freeman: dispositional
+  capabilities develop through enactment over time and cannot be adequately evidenced
+  in a single performance occasion — the theoretical basis for the performance vs
+  disposition distinction in Do cells.'
+- 'Heritage, M. (2008) — Learning Progressions: Supporting Instruction and Formative
+  Assessment, CCSSO: progressions are developmental trajectories, not content calendars;
+  progression levers must describe what learners can do with content, not just harder
+  content.'
+input_schema:
+  required:
+  - field: input_type
+    type: string
+    description: 'One of: existing_lt_with_do, competency_only, harness_output, crosswalk_data,
+      unit_plan, existing_kud_upgrade, raw_curriculum_document. Determines routing
+      check and authoring approach.'
+  - field: primary_input
+    type: string
+    description: The main input content. For existing_lt_with_do — the existing Do
+      statements/observation indicators. For competency_only — the competency definition
+      and programme purpose. For harness_output — the structured KUD/LT JSON or markdown
+      from the harness pipeline. For crosswalk_data — the relevant rows from a framework-neutral
+      matrix. For unit_plan — the unit plan document. For existing_kud_upgrade — the
+      existing KUD chart. For raw_curriculum_document — the source curriculum text.
+  optional:
+  - field: lt_name
+    type: string
+    description: LT name if known. e.g. "Self-Awareness & Regulation"
+  - field: lt_definition
+    type: string
+    description: LT definition if known. One sentence beginning "I can..."
+  - field: knowledge_type
+    type: string
+    description: T1, T2, or T3 if already classified. If not supplied, the skill classifies
+      it.
+  - field: band_scope
+    type: string
+    description: Which bands to author. Default A-F. Use N/A notation for developmentally
+      inappropriate bands. e.g. "A-F" or "B-F (Band A N/A — content inappropriate
+      before age 8)"
+  - field: competency_context
+    type: string
+    description: Which competency this LT belongs to, and whether Know content lives
+      in a designated knowledge competency by design rather than in this LT. e.g.
+      "Competency 1 — Emotional Intelligence. Know content lives in Competency 6 by
+      design — cross-reference, do not duplicate."
+  - field: crosswalk_data
+    type: string
+    description: Relevant rows from a framework-neutral crosswalk matrix for this
+      theme. Used to inform band-level progression against field consensus. Paste
+      the relevant CSV rows or table excerpt.
+  - field: prerequisite_lts
+    type: string
+    description: Known prerequisite LTs by ID and suspected type. e.g. "LT 6.1 — suspected
+      soft enabler"
+  - field: programme_purpose
+    type: string
+    description: Why this competency matters for this school or programme's mission.
+      Informs the Understand layer.
+  - field: mode
+    type: string
+    description: author (default) — produce a new KUD chart. review — assess an existing
+      KUD chart against quality checks and propose specific cell-level improvements.
+output_schema:
+  type: object
+  fields:
+  - field: routing_note
+    type: string
+    description: If a better upstream skill would produce stronger inputs, states
+      which skill and why, and what the current draft's likely limitations are as
+      a result. Null if proceeding directly is appropriate. Always produced alongside
+      the draft output — never blocks execution.
+  - field: kud_chart
+    type: object
+    description: Full KUD chart per band in the standard table format with Know, Understand,
+      Do, Progression lever, and Disciplinary warrant columns.
+  - field: prerequisite_map
+    type: array
+    description: Prerequisite relationships typed as hard, soft enabler, or conceptual
+      accelerator. Per LT at header level and per band where specific K/U items have
+      band-level dependencies.
+  - field: quality_check_results
+    type: object
+    description: Results of all six quality checks with specific cell-level flags.
+      Each check reports PASS or FLAG with the specific cell and the required fix.
+  - field: authoring_notes
+    type: string
+    description: Decisions made during authoring that the teacher should review —
+      ambiguous classification calls, cells where the warrant is thin, bands where
+      the progression logic is uncertain.
+chains_well_with:
+- learning-target-authoring-guide
+- developmental-band-translator
+- curriculum-crosswalk
+- coherent-rubric-logic-builder
+- criterion-referenced-rubric-generator
+- learning-progression-builder
+- competency-unpacker
+teacher_time: 15 minutes
+tags:
+- KUD
+- curriculum-design
+- learning-targets
+- Wiggins-McTighe
+- backward-design
+- progression
+- assessment-design
+- competency-based
+```

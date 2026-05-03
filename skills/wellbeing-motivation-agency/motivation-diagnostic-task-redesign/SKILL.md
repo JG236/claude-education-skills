@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: motivation-diagnostic-task-redesign
 description: "Diagnose motivation problems in a task using self-determination theory and redesign for autonomy, competence, and relatedness. Use when students are disengaged, resistant, or going through the motions."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/motivation-diagnostic-task-redesign"
-skill_name: "Motivation Diagnostic & Task Redesign"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Deci & Ryan (1985, 2000) — Self-Determination Theory: autonomy, competence, relatedness"
-  - "Ryan & Deci (2017) — Self-Determination Theory: basic psychological needs in development, wellness, and behaviour"
-  - "Reeve (2009) — Why teachers adopt a controlling motivating style toward students and how they can become more autonomy supportive"
-  - "Jang, Reeve & Deci (2010) — Engaging students in learning activities: it is not autonomy support or structure but autonomy support AND structure"
-  - "Niemiec & Ryan (2009) — Autonomy, competence, and relatedness in the classroom"
-input_schema:
-  required:
-    - field: "task_description"
-      type: "string"
-      description: "The learning task as currently designed — what students are asked to do"
-    - field: "learning_objective"
-      type: "string"
-      description: "What students should learn or be able to do"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "motivation_concern"
-      type: "string"
-      description: "The specific motivation issue the teacher has observed — e.g. disengagement, task avoidance, compliance without effort"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class data including engagement patterns, interests, prior attainment"
-    - field: "classroom_constraints"
-      type: "string"
-      description: "Practical constraints — time, resources, curriculum requirements"
-output_schema:
-  type: "object"
-  fields:
-    - field: "sdt_diagnostic"
-      type: "object"
-      description: "Analysis of the task against SDT's three basic needs: autonomy, competence, relatedness"
-    - field: "motivation_profile"
-      type: "string"
-      description: "Classification of current motivation type — amotivation, external, introjected, identified, integrated, intrinsic"
-    - field: "redesigned_task"
-      type: "object"
-      description: "Modified version of the task with specific changes to enhance autonomy, competence, and relatedness"
-    - field: "implementation_notes"
-      type: "string"
-      description: "How to introduce the redesigned task and what to watch for"
-chains_well_with:
-  - "self-efficacy-builder-sequence"
-  - "agency-scaffold-generator"
-  - "flow-state-condition-designer"
-  - "differentiation-adapter"
-teacher_time: "3 minutes"
-tags: ["motivation", "SDT", "self-determination", "autonomy", "engagement", "task-design"]
 ---
 
 # Motivation Diagnostic & Task Redesign
@@ -259,3 +195,86 @@ Two pairs join to form a group of four. Each pair explains their 3-term connecti
 2. **SDT is a framework for understanding motivation, not a guarantee of engagement.** A task that satisfies autonomy, competence, and relatedness needs creates the CONDITIONS for intrinsic motivation — but individual students may still be disengaged due to factors outside the task: tiredness, social difficulties, trauma, prior negative experiences with the subject. SDT addresses the environmental conditions; it does not address all individual barriers.
 
 3. **Redesigned tasks typically take more time than the original.** A 10-minute copying task replaced by a 35-minute investigation may seem impractical. The trade-off is learning: if students copy definitions and forget them by next lesson, the 10 minutes were wasted. If students spend 35 minutes generating, discussing, and applying definitions and remember them, the time is better invested. The teacher must judge whether the time trade-off is feasible within their curriculum.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/motivation-diagnostic-task-redesign
+skill_name: Motivation Diagnostic & Task Redesign
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Deci & Ryan (1985, 2000) — Self-Determination Theory: autonomy, competence, relatedness'
+- 'Ryan & Deci (2017) — Self-Determination Theory: basic psychological needs in development,
+  wellness, and behaviour'
+- Reeve (2009) — Why teachers adopt a controlling motivating style toward students
+  and how they can become more autonomy supportive
+- 'Jang, Reeve & Deci (2010) — Engaging students in learning activities: it is not
+  autonomy support or structure but autonomy support AND structure'
+- Niemiec & Ryan (2009) — Autonomy, competence, and relatedness in the classroom
+input_schema:
+  required:
+  - field: task_description
+    type: string
+    description: The learning task as currently designed — what students are asked
+      to do
+  - field: learning_objective
+    type: string
+    description: What students should learn or be able to do
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: motivation_concern
+    type: string
+    description: The specific motivation issue the teacher has observed — e.g. disengagement,
+      task avoidance, compliance without effort
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class data including engagement patterns, interests,
+      prior attainment'
+  - field: classroom_constraints
+    type: string
+    description: Practical constraints — time, resources, curriculum requirements
+output_schema:
+  type: object
+  fields:
+  - field: sdt_diagnostic
+    type: object
+    description: 'Analysis of the task against SDT''s three basic needs: autonomy,
+      competence, relatedness'
+  - field: motivation_profile
+    type: string
+    description: Classification of current motivation type — amotivation, external,
+      introjected, identified, integrated, intrinsic
+  - field: redesigned_task
+    type: object
+    description: Modified version of the task with specific changes to enhance autonomy,
+      competence, and relatedness
+  - field: implementation_notes
+    type: string
+    description: How to introduce the redesigned task and what to watch for
+chains_well_with:
+- self-efficacy-builder-sequence
+- agency-scaffold-generator
+- flow-state-condition-designer
+- differentiation-adapter
+teacher_time: 3 minutes
+tags:
+- motivation
+- SDT
+- self-determination
+- autonomy
+- engagement
+- task-design
+```

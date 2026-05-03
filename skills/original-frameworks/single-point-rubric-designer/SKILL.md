@@ -1,74 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: single-point-rubric-designer
 description: "Design a single-point rubric with one criterion and open columns for evidence. Use for student self-assessment, peer feedback, teacher formative feedback, or pre-task planning. Works with any learning target, with or without a band system."
-disable-model-invocation: true
-user-invocable: true
-effort: low
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/single-point-rubric-designer"
-skill_name: "Single-Point Rubric Designer"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Fluckiger (2010) — Single point rubric: A tool for responsible student self-assessment"
-  - "Sadler (1989) — Formative assessment and the design of instructional systems (evaluative expertise; students must understand quality before they can self-assess)"
-  - "Andrade (2000, 2013) — Using rubrics to promote thinking and learning (student self-assessment improves learning when students help generate criteria)"
-  - "Boud (1995) — Enhancing Learning Through Self-Assessment (self-assessment as a core academic skill)"
-  - "Panadero & Jonsson (2013) — The use of scoring rubrics for formative assessment purposes revisited"
-input_schema:
-  required:
-    - field: "learning_target"
-      type: "string"
-      description: "The learning target, goal, or assessment focus the rubric is for — an 'I can...' statement, a competency description, or any clear statement of what the student is working toward"
-    - field: "purpose"
-      type: "string"
-      description: "Who will use this rubric and for what — e.g. 'student self-assessment before submission', 'peer feedback during drafting', 'teacher formative feedback', 'pre-task planning to clarify quality'"
-  optional:
-    - field: "band"
-      type: "string"
-      description: "Developmental band (A–F) if using a band-based progression system. Defaults to three-column format and calibrates language to student_level if supplied. Two-column format only applies when band A or B is explicitly specified."
-    - field: "format"
-      type: "string"
-      description: "'three-column' or 'two-column' — overrides the band-based default if provided"
-    - field: "student_generated"
-      type: "string"
-      description: "If 'yes', produces a prompt for the student to write their own criterion statement rather than providing one"
-    - field: "task_description"
-      type: "string"
-      description: "What the student will produce or do — helps calibrate the criterion statement"
-    - field: "student_level"
-      type: "string"
-      description: "Age or year group for language calibration — used when band is not provided"
-output_schema:
-  type: "object"
-  fields:
-    - field: "rubric"
-      type: "object"
-      description: "The single-point rubric in the appropriate format with a precise criterion statement"
-    - field: "criterion_design_notes"
-      type: "object"
-      description: "Why the criterion was written this way; what it captures and what it deliberately excludes"
-    - field: "usage_guidance"
-      type: "object"
-      description: "How to use this rubric for the specified purpose; what the teacher or student does with the completed columns"
-    - field: "student_generated_prompt"
-      type: "object"
-      description: "Only when student_generated is 'yes' — a prompt and scaffolding for the student to write their own criterion"
-    - field: "known_limitations"
-      type: "object"
-      description: "Where professional judgment is still needed"
-chains_well_with:
-  - "learning-target-authoring-guide"
-  - "coherent-rubric-logic-builder"
-  - "criterion-referenced-rubric-generator"
-  - "dispositional-knowledge-assessment-designer"
-  - "kud-chart-author"
-teacher_time: "3 minutes"
-tags: ["single-point-rubric", "self-assessment", "peer-assessment", "formative-assessment", "criterion", "reflection", "Manning", "Sadler", "Fluckiger"]
 ---
 
 # Single-Point Rubric Designer
@@ -382,3 +314,102 @@ The student-generated criterion is personal and specific to this student. Do not
 4. **This skill does not produce grades or summative levels.** The completed rubric columns are evidence for conversation, reflection, and next-step planning. If a summative judgment is required at the end of a unit or project, use the coherent-rubric-logic-builder or criterion-referenced-rubric-generator instead.
 
 5. **The three-column format assumes students can hold two directions simultaneously** — evidence of growth AND evidence of strength. Some students, particularly those with perfectionist tendencies or low self-efficacy, will struggle to populate the strength column honestly, or will use the growth column as a self-punishment mechanism. When distributing this rubric to students with known self-efficacy challenges, brief them explicitly: "The right column is not boasting. It is evidence. Your job is to find it."
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: low
+skill_id: original-frameworks/single-point-rubric-designer
+skill_name: Single-Point Rubric Designer
+domain: original-frameworks
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Fluckiger (2010) — Single point rubric: A tool for responsible student self-assessment'
+- Sadler (1989) — Formative assessment and the design of instructional systems (evaluative
+  expertise; students must understand quality before they can self-assess)
+- Andrade (2000, 2013) — Using rubrics to promote thinking and learning (student self-assessment
+  improves learning when students help generate criteria)
+- Boud (1995) — Enhancing Learning Through Self-Assessment (self-assessment as a core
+  academic skill)
+- Panadero & Jonsson (2013) — The use of scoring rubrics for formative assessment
+  purposes revisited
+input_schema:
+  required:
+  - field: learning_target
+    type: string
+    description: The learning target, goal, or assessment focus the rubric is for
+      — an 'I can...' statement, a competency description, or any clear statement
+      of what the student is working toward
+  - field: purpose
+    type: string
+    description: Who will use this rubric and for what — e.g. 'student self-assessment
+      before submission', 'peer feedback during drafting', 'teacher formative feedback',
+      'pre-task planning to clarify quality'
+  optional:
+  - field: band
+    type: string
+    description: Developmental band (A–F) if using a band-based progression system.
+      Defaults to three-column format and calibrates language to student_level if
+      supplied. Two-column format only applies when band A or B is explicitly specified.
+  - field: format
+    type: string
+    description: '''three-column'' or ''two-column'' — overrides the band-based default
+      if provided'
+  - field: student_generated
+    type: string
+    description: If 'yes', produces a prompt for the student to write their own criterion
+      statement rather than providing one
+  - field: task_description
+    type: string
+    description: What the student will produce or do — helps calibrate the criterion
+      statement
+  - field: student_level
+    type: string
+    description: Age or year group for language calibration — used when band is not
+      provided
+output_schema:
+  type: object
+  fields:
+  - field: rubric
+    type: object
+    description: The single-point rubric in the appropriate format with a precise
+      criterion statement
+  - field: criterion_design_notes
+    type: object
+    description: Why the criterion was written this way; what it captures and what
+      it deliberately excludes
+  - field: usage_guidance
+    type: object
+    description: How to use this rubric for the specified purpose; what the teacher
+      or student does with the completed columns
+  - field: student_generated_prompt
+    type: object
+    description: Only when student_generated is 'yes' — a prompt and scaffolding for
+      the student to write their own criterion
+  - field: known_limitations
+    type: object
+    description: Where professional judgment is still needed
+chains_well_with:
+- learning-target-authoring-guide
+- coherent-rubric-logic-builder
+- criterion-referenced-rubric-generator
+- dispositional-knowledge-assessment-designer
+- kud-chart-author
+teacher_time: 3 minutes
+tags:
+- single-point-rubric
+- self-assessment
+- peer-assessment
+- formative-assessment
+- criterion
+- reflection
+- Manning
+- Sadler
+- Fluckiger
+```

@@ -1,61 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: developmental-progression-synthesis
 description: "Synthesise completed KUD charts into a developmental progression matrix and per-competency narrative sections. Use when you need a programme-level view of how knowledge, understanding, and performance develop across bands."
-disable-model-invocation: true
-user-invocable: true
-effort: high
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/developmental-progression-synthesis"
-skill_name: "Developmental Progression Synthesis"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Wiggins & McTighe (2005) — Understanding by Design (backward design; desired results as the basis for programme coherence)"
-  - "Vygotsky (1978) — Mind in society (ZPD; band statements describe the upper edge of capability with support)"
-  - "Bruner (1960) — The Process of Education (spiral curriculum; concepts revisited with increasing sophistication across developmental stages)"
-  - "Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model (surface to deep to transfer as a developmental progression model)"
-  - "Biggs & Collis (1982) — Evaluating the Quality of Learning: the SOLO Taxonomy (structural complexity as a developmental progression lever)"
-input_schema:
-  required:
-    - field: "kud_charts"
-      type: "string"
-      description: "The full set of KUD charts to synthesise. Provide all charts for the programme — each chart should include the LT name, knowledge type (T1/T2/T3), and the Know/Understand/Do content for each band. Paste all charts as a single input."
-    - field: "competency_structure"
-      type: "string"
-      description: "The competency framework — list of competency names, their LT members, and the band range (e.g. \"Bands A–F, ages 5–17\"). Used to organise the matrix by competency grouping."
-  optional:
-    - field: "output_focus"
-      type: "string"
-      description: "\"matrix\" for Output 1 only, \"chapters\" for Output 2 only, or \"both\" (default). Use \"matrix\" for a quick programme overview; use \"chapters\" for programme guide chapter content."
-    - field: "knowledge_type_filter"
-      type: "string"
-      description: "\"T1\", \"T2\", \"T3\", or \"all\" (default). Filter the synthesis to a specific knowledge type — e.g. \"T3\" to produce a disposition-only developmental view."
-    - field: "audience"
-      type: "string"
-      description: "\"teachers\", \"parents\", \"researchers\", or \"AI-systems\". Adjusts the register and depth of the narrative synthesis. Default is \"teachers\"."
-output_schema:
-  type: "object"
-  fields:
-    - field: "developmental_matrix"
-      type: "object"
-      description: "Output 1 — a competency × band matrix showing the key developmental milestone per cell. Type 2 and Type 3 cells are visually distinguished. Suitable for a programme overview page."
-    - field: "competency_chapters"
-      type: "object"
-      description: "Output 2 — per-competency narrative sections showing K/U/Do progression across bands. Structured for use as programme guide chapter content."
-    - field: "design_notes"
-      type: "object"
-      description: "Flags, gaps, and coherence observations surfaced during synthesis — progression weaknesses, discontinuities, Type 3 underdifferentiation, and input gaps."
-chains_well_with:
-  - "kud-chart-author"
-  - "learning-target-authoring-guide"
-  - "scope-and-sequence-designer"
-  - "coherent-rubric-logic-builder"
-  - "dispositional-knowledge-assessment-designer"
-tags: ["developmental-progression", "KUD", "programme-guide", "scope-and-sequence", "matrix", "competency", "bands", "synthesis", "curriculum-design"]
 ---
 
 # Developmental Progression Synthesis
@@ -369,3 +314,91 @@ LT-AR1 Band A: the Know and Understand elements are present but minimal. A fulle
 4. **Type 3 observation distinctions at adjacent bands require longitudinal evidence.** The design notes flag where adjacent-band Type 3 indicators are closely spaced. This is not a design failure — developmental progression in dispositions is genuinely incremental. It does require that observation notes be stored over time and compared, rather than drawn from single-event impressions.
 
 5. **Audience register is applied globally across both outputs.** The audience parameter applies uniformly to the matrix and to all chapter sections. If a programme guide requires different registers for different audiences (e.g. teacher-facing chapters alongside a parent-facing summary), run the skill twice with different audience settings and combine the outputs manually.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: high
+skill_id: original-frameworks/developmental-progression-synthesis
+skill_name: Developmental Progression Synthesis
+domain: original-frameworks
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Wiggins & McTighe (2005) — Understanding by Design (backward design; desired results
+  as the basis for programme coherence)
+- Vygotsky (1978) — Mind in society (ZPD; band statements describe the upper edge
+  of capability with support)
+- Bruner (1960) — The Process of Education (spiral curriculum; concepts revisited
+  with increasing sophistication across developmental stages)
+- 'Hattie & Donoghue (2016) — Learning strategies: a synthesis and conceptual model
+  (surface to deep to transfer as a developmental progression model)'
+- 'Biggs & Collis (1982) — Evaluating the Quality of Learning: the SOLO Taxonomy (structural
+  complexity as a developmental progression lever)'
+input_schema:
+  required:
+  - field: kud_charts
+    type: string
+    description: The full set of KUD charts to synthesise. Provide all charts for
+      the programme — each chart should include the LT name, knowledge type (T1/T2/T3),
+      and the Know/Understand/Do content for each band. Paste all charts as a single
+      input.
+  - field: competency_structure
+    type: string
+    description: The competency framework — list of competency names, their LT members,
+      and the band range (e.g. "Bands A–F, ages 5–17"). Used to organise the matrix
+      by competency grouping.
+  optional:
+  - field: output_focus
+    type: string
+    description: '"matrix" for Output 1 only, "chapters" for Output 2 only, or "both"
+      (default). Use "matrix" for a quick programme overview; use "chapters" for programme
+      guide chapter content.'
+  - field: knowledge_type_filter
+    type: string
+    description: '"T1", "T2", "T3", or "all" (default). Filter the synthesis to a
+      specific knowledge type — e.g. "T3" to produce a disposition-only developmental
+      view.'
+  - field: audience
+    type: string
+    description: '"teachers", "parents", "researchers", or "AI-systems". Adjusts the
+      register and depth of the narrative synthesis. Default is "teachers".'
+output_schema:
+  type: object
+  fields:
+  - field: developmental_matrix
+    type: object
+    description: Output 1 — a competency × band matrix showing the key developmental
+      milestone per cell. Type 2 and Type 3 cells are visually distinguished. Suitable
+      for a programme overview page.
+  - field: competency_chapters
+    type: object
+    description: Output 2 — per-competency narrative sections showing K/U/Do progression
+      across bands. Structured for use as programme guide chapter content.
+  - field: design_notes
+    type: object
+    description: Flags, gaps, and coherence observations surfaced during synthesis
+      — progression weaknesses, discontinuities, Type 3 underdifferentiation, and
+      input gaps.
+chains_well_with:
+- kud-chart-author
+- learning-target-authoring-guide
+- scope-and-sequence-designer
+- coherent-rubric-logic-builder
+- dispositional-knowledge-assessment-designer
+tags:
+- developmental-progression
+- KUD
+- programme-guide
+- scope-and-sequence
+- matrix
+- competency
+- bands
+- synthesis
+- curriculum-design
+```

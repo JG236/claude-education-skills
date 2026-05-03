@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: coherent-rubric-logic-builder
 description: "Build a five-level rubric with coherent logic for a learning target within a developmental band. Use for Manning methodology programmes where Competent = success. For general curriculum rubrics, use criterion-referenced-rubric-generator instead."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/coherent-rubric-logic-builder"
-skill_name: "Coherent Rubric Logic Builder"
-domain: "original-frameworks"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Manning — REAL School Rubric Logic Guide v2.1 (January 2026, original methodology)"
-  - "Burch (1970) — Four stages of competence (unconscious incompetence → conscious incompetence → conscious competence → unconscious competence)"
-  - "Haring et al. (1978) — The instructional hierarchy: acquisition, fluency, retention, generalisation, adaptation"
-  - "Black & Wiliam (1998) — Assessment and classroom learning (rubrics are only useful if they change decisions)"
-  - "Sadler (1989) — Formative assessment and the design of instructional systems (students must understand quality before they can self-assess)"
-input_schema:
-  required:
-    - field: "learning_target"
-      type: "string"
-      description: "The exact LT band statement being assessed — a specific 'I can...' statement from one band"
-    - field: "band"
-      type: "string"
-      description: "Which developmental band this rubric is for — A, B, C, D, E, or F"
-    - field: "product_or_performance"
-      type: "string"
-      description: "What students will produce or do to demonstrate the LT — the specific assessment task"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group for language calibration"
-    - field: "formative_or_summative"
-      type: "string"
-      description: "Whether this is a checkpoint rubric or a final assessment rubric"
-    - field: "compound_lt"
-      type: "string"
-      description: "Whether the LT contains distinct sub-skills that warrant splitting into separate rubric rows"
-output_schema:
-  type: "object"
-  fields:
-    - field: "teacher_rubric"
-      type: "object"
-      description: "Full five-level table (No Evidence / Emerging / Developing / Competent / Extending) with precise descriptors"
-    - field: "co_construction_plan"
-      type: "object"
-      description: "How to work with students to generate student-friendly criteria language through exemplar analysis"
-    - field: "student_rubric_template"
-      type: "object"
-      description: "The student-facing version with accessible language"
-    - field: "written_feedback_guide"
-      type: "object"
-      description: "How to write specific, actionable feedback for each level"
-    - field: "known_limitations"
-      type: "object"
-      description: "Where professional judgment is still needed; what the rubric can't do"
-chains_well_with:
-  - "learning-target-authoring-guide"
-  - "developmental-band-system-designer"
-  - "self-determined-project-design-protocol"
-  - "ai-feedback-design-principles"
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-teacher_time: "5 minutes"
-tags: ["rubric", "Manning", "competency", "five-level", "co-construction", "Sadler", "formative", "Competent", "assessment"]
 ---
 
 # Coherent Rubric Logic Builder
@@ -300,3 +234,92 @@ Publish both versions — teacher rubric for formal assessment, student rubric f
 3. **The student rubric language ("Not yet / Getting there / Got it! / Wow!") is age-dependent.** These labels work well for primary and early secondary students. Older students (14+) may find them patronising. Adapt the language to the audience: "Beginning / Progressing / Achieved / Distinguished" may work for older learners.
 
 **This rubric approach is not appropriate for dispositional knowledge.** The five-level scale works for hierarchical and horizontal knowledge — where criteria-referencing is legitimate and where a student can demonstrate competency through a specific task or performance. It does not work for dispositional knowledge (agency, collaboration, self-regulation, creative confidence, regenerative mindset), where the "knowledge" exists only in enactment across time and context. Applying a summative rubric to dispositional development risks reducing a complex developmental trajectory to a label, and can undermine the intrinsic motivation and psychological safety that dispositional development requires. For dispositional knowledge, use the Dispositional Knowledge Assessment Designer skill instead.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: original-frameworks/coherent-rubric-logic-builder
+skill_name: Coherent Rubric Logic Builder
+domain: original-frameworks
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Manning — REAL School Rubric Logic Guide v2.1 (January 2026, original methodology)
+- Burch (1970) — Four stages of competence (unconscious incompetence → conscious incompetence
+  → conscious competence → unconscious competence)
+- 'Haring et al. (1978) — The instructional hierarchy: acquisition, fluency, retention,
+  generalisation, adaptation'
+- Black & Wiliam (1998) — Assessment and classroom learning (rubrics are only useful
+  if they change decisions)
+- Sadler (1989) — Formative assessment and the design of instructional systems (students
+  must understand quality before they can self-assess)
+input_schema:
+  required:
+  - field: learning_target
+    type: string
+    description: The exact LT band statement being assessed — a specific 'I can...'
+      statement from one band
+  - field: band
+    type: string
+    description: Which developmental band this rubric is for — A, B, C, D, E, or F
+  - field: product_or_performance
+    type: string
+    description: What students will produce or do to demonstrate the LT — the specific
+      assessment task
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group for language calibration
+  - field: formative_or_summative
+    type: string
+    description: Whether this is a checkpoint rubric or a final assessment rubric
+  - field: compound_lt
+    type: string
+    description: Whether the LT contains distinct sub-skills that warrant splitting
+      into separate rubric rows
+output_schema:
+  type: object
+  fields:
+  - field: teacher_rubric
+    type: object
+    description: Full five-level table (No Evidence / Emerging / Developing / Competent
+      / Extending) with precise descriptors
+  - field: co_construction_plan
+    type: object
+    description: How to work with students to generate student-friendly criteria language
+      through exemplar analysis
+  - field: student_rubric_template
+    type: object
+    description: The student-facing version with accessible language
+  - field: written_feedback_guide
+    type: object
+    description: How to write specific, actionable feedback for each level
+  - field: known_limitations
+    type: object
+    description: Where professional judgment is still needed; what the rubric can't
+      do
+chains_well_with:
+- learning-target-authoring-guide
+- developmental-band-system-designer
+- self-determined-project-design-protocol
+- ai-feedback-design-principles
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+teacher_time: 5 minutes
+tags:
+- rubric
+- Manning
+- competency
+- five-level
+- co-construction
+- Sadler
+- formative
+- Competent
+- assessment
+```

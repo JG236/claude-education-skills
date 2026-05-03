@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: adaptive-hint-sequence-designer
 description: "Generate a cascading hint sequence for a problem type, revealing progressively without giving answers. Use when designing tutoring dialogues or scaffolded worksheets."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/adaptive-hint-sequence-designer"
-skill_name: "Adaptive Hint Sequence Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "VanLehn (2011) — The relative effectiveness of human tutoring, intelligent tutoring systems, and other tutoring systems (meta-analysis, effect size 0.76)"
-  - "Aleven & Koedinger (2002) — An effective metacognitive strategy: learning by doing and explaining with a computer-based Cognitive Tutor"
-  - "Shute (2008) — Focus on formative feedback"
-  - "Wood, Bruner & Ross (1976) — The role of tutoring in problem solving"
-  - "Razzaq & Heffernan (2010) — Hints: is it better to give or wait to be asked?"
-input_schema:
-  required:
-    - field: "problem_type"
-      type: "string"
-      description: "The specific problem or task type students are working on — what they're trying to solve or produce"
-    - field: "common_sticking_points"
-      type: "string"
-      description: "Where students typically get stuck — the specific misconceptions, procedural errors, or conceptual gaps that prevent progress"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "delivery_context"
-      type: "string"
-      description: "Whether hints will be delivered by an AI system, a teacher, or embedded in materials"
-    - field: "number_of_hint_levels"
-      type: "integer"
-      description: "How many levels of progressive hints to design — typically 3-5"
-    - field: "final_hint_policy"
-      type: "string"
-      description: "What happens at the end of the hint sequence — give the answer, refer to a teacher, or provide a different task"
-output_schema:
-  type: "object"
-  fields:
-    - field: "hint_sequence"
-      type: "array"
-      description: "The cascading hint sequence — from most general to most specific, each revealing more without giving the answer"
-    - field: "hint_design_rationale"
-      type: "object"
-      description: "Why each hint level is designed this way — what cognitive function it serves"
-    - field: "trigger_conditions"
-      type: "object"
-      description: "When to deliver each hint — time-based, error-based, request-based, or behaviour-based triggers"
-    - field: "bottom_out_design"
-      type: "object"
-      description: "What happens when all hints are exhausted — the 'bottom-out' strategy"
-chains_well_with:
-  - "intelligent-tutoring-dialogue-designer"
-  - "productive-failure-desirable-difficulty-designer"
-  - "worked-example-fading-designer"
-  - "formative-assessment-loop-designer"
-teacher_time: "4 minutes"
-tags: ["hints", "scaffolding", "ITS", "VanLehn", "Aleven", "adaptive", "tutoring", "cognitive-tutor"]
 ---
 
 # Adaptive Hint Sequence Designer
@@ -241,3 +177,88 @@ If the student's self-explanation is accurate, proceed to the next problem (a si
 2. **The optimal hint trigger is still an open research question.** Razzaq & Heffernan (2010) found that proactive hints help weaker students and reactive hints help stronger students, but the field has not converged on a definitive trigger model. The trigger conditions above are reasonable defaults, not empirically optimised thresholds. In a real ITS, these would need to be calibrated through A/B testing with the actual student population.
 
 3. **Hint quality depends on accurate diagnosis of the error.** The hint sequence above assumes specific error patterns (wrong operation order, one-sided operation, inverse confusion). If the student's actual error is different (e.g., an arithmetic mistake on 22 - 7), the hints will miss the mark. Effective hint systems need error-specific branching, not just linear cascades — which is significantly more complex to design.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/adaptive-hint-sequence-designer
+skill_name: Adaptive Hint Sequence Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- VanLehn (2011) — The relative effectiveness of human tutoring, intelligent tutoring
+  systems, and other tutoring systems (meta-analysis, effect size 0.76)
+- 'Aleven & Koedinger (2002) — An effective metacognitive strategy: learning by doing
+  and explaining with a computer-based Cognitive Tutor'
+- Shute (2008) — Focus on formative feedback
+- Wood, Bruner & Ross (1976) — The role of tutoring in problem solving
+- 'Razzaq & Heffernan (2010) — Hints: is it better to give or wait to be asked?'
+input_schema:
+  required:
+  - field: problem_type
+    type: string
+    description: The specific problem or task type students are working on — what
+      they're trying to solve or produce
+  - field: common_sticking_points
+    type: string
+    description: Where students typically get stuck — the specific misconceptions,
+      procedural errors, or conceptual gaps that prevent progress
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: delivery_context
+    type: string
+    description: Whether hints will be delivered by an AI system, a teacher, or embedded
+      in materials
+  - field: number_of_hint_levels
+    type: integer
+    description: How many levels of progressive hints to design — typically 3-5
+  - field: final_hint_policy
+    type: string
+    description: What happens at the end of the hint sequence — give the answer, refer
+      to a teacher, or provide a different task
+output_schema:
+  type: object
+  fields:
+  - field: hint_sequence
+    type: array
+    description: The cascading hint sequence — from most general to most specific,
+      each revealing more without giving the answer
+  - field: hint_design_rationale
+    type: object
+    description: Why each hint level is designed this way — what cognitive function
+      it serves
+  - field: trigger_conditions
+    type: object
+    description: When to deliver each hint — time-based, error-based, request-based,
+      or behaviour-based triggers
+  - field: bottom_out_design
+    type: object
+    description: What happens when all hints are exhausted — the 'bottom-out' strategy
+chains_well_with:
+- intelligent-tutoring-dialogue-designer
+- productive-failure-desirable-difficulty-designer
+- worked-example-fading-designer
+- formative-assessment-loop-designer
+teacher_time: 4 minutes
+tags:
+- hints
+- scaffolding
+- ITS
+- VanLehn
+- Aleven
+- adaptive
+- tutoring
+- cognitive-tutor
+```

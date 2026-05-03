@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: self-explanation-prompt-designer
 description: "Create self-explanation prompts that deepen understanding of worked examples, texts, or diagrams. Use when students read material passively without engaging with underlying principles."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/self-explanation-prompt-designer"
-skill_name: "Self-Explanation Prompt Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Chi et al. (1989) — Self-explanations: how students study and use examples in learning to solve problems"
-  - "Chi et al. (1994) — Eliciting self-explanations improves understanding"
-  - "Hausmann & VanLehn (2007) — Explaining self-explaining: a contrast between content and generation"
-  - "Wylie & Chi (2014) — The self-explanation principle in multimedia learning"
-  - "Rittle-Johnson (2006) — Promoting transfer: effects of self-explanation and direct instruction"
-input_schema:
-  required:
-    - field: "learning_material"
-      type: "string"
-      description: "The specific content students are studying — a worked example, a text passage, a diagram, or a demonstration that students need to deeply understand"
-    - field: "target_understanding"
-      type: "string"
-      description: "What students should understand DEEPLY after engaging with this material — the conceptual insight, not just the surface content"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "delivery_mode"
-      type: "string"
-      description: "How the self-explanation prompts will be delivered — embedded in text, AI-generated during study, teacher-led, or integrated in a tutoring system"
-    - field: "known_misconceptions"
-      type: "string"
-      description: "Specific misconceptions students commonly hold about this content"
-output_schema:
-  type: "object"
-  fields:
-    - field: "self_explanation_prompts"
-      type: "array"
-      description: "The specific prompts placed at key points in the material — what to ask and where to ask it"
-    - field: "prompt_rationale"
-      type: "object"
-      description: "Why each prompt is placed where it is and what understanding it is designed to elicit"
-    - field: "quality_indicators"
-      type: "object"
-      description: "What a good self-explanation looks like versus a poor one — so the teacher or AI can evaluate student responses"
-    - field: "scaffolding_sequence"
-      type: "object"
-      description: "How to support students who struggle to self-explain — from open prompts to more structured scaffolds"
-chains_well_with:
-  - "digital-worked-example-sequence"
-  - "adaptive-hint-sequence-designer"
-  - "intelligent-tutoring-dialogue-designer"
-  - "metacognitive-monitoring-ai-contexts"
-teacher_time: "4 minutes"
-tags: ["self-explanation", "Chi", "metacognition", "worked-examples", "comprehension", "deep-learning", "generation"]
 ---
 
 # Self-Explanation Prompt Designer
@@ -228,3 +167,85 @@ The sequence moves from maximum generation (Level 1) to maximum scaffolding (Lev
 3. **Self-explanation works best with conceptually rich material.** Procedural content with minimal conceptual depth (e.g., formatting a spreadsheet, conjugating regular verbs) benefits less from self-explanation prompts because there is less to EXPLAIN. Self-explanation is most powerful when the material contains non-obvious reasoning, hidden connections, or common misconceptions.
 
 4. **Students may need training to self-explain.** Chi et al. (1994) found that prompting alone was effective, but other studies suggest that students benefit from initial training in what a good self-explanation looks like. The scaffolding sequence above addresses this, but in the first session using self-explanation prompts, the teacher may need to model the process explicitly.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/self-explanation-prompt-designer
+skill_name: Self-Explanation Prompt Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Chi et al. (1989) — Self-explanations: how students study and use examples in learning
+  to solve problems'
+- Chi et al. (1994) — Eliciting self-explanations improves understanding
+- 'Hausmann & VanLehn (2007) — Explaining self-explaining: a contrast between content
+  and generation'
+- Wylie & Chi (2014) — The self-explanation principle in multimedia learning
+- 'Rittle-Johnson (2006) — Promoting transfer: effects of self-explanation and direct
+  instruction'
+input_schema:
+  required:
+  - field: learning_material
+    type: string
+    description: The specific content students are studying — a worked example, a
+      text passage, a diagram, or a demonstration that students need to deeply understand
+  - field: target_understanding
+    type: string
+    description: What students should understand DEEPLY after engaging with this material
+      — the conceptual insight, not just the surface content
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: delivery_mode
+    type: string
+    description: How the self-explanation prompts will be delivered — embedded in
+      text, AI-generated during study, teacher-led, or integrated in a tutoring system
+  - field: known_misconceptions
+    type: string
+    description: Specific misconceptions students commonly hold about this content
+output_schema:
+  type: object
+  fields:
+  - field: self_explanation_prompts
+    type: array
+    description: The specific prompts placed at key points in the material — what
+      to ask and where to ask it
+  - field: prompt_rationale
+    type: object
+    description: Why each prompt is placed where it is and what understanding it is
+      designed to elicit
+  - field: quality_indicators
+    type: object
+    description: What a good self-explanation looks like versus a poor one — so the
+      teacher or AI can evaluate student responses
+  - field: scaffolding_sequence
+    type: object
+    description: How to support students who struggle to self-explain — from open
+      prompts to more structured scaffolds
+chains_well_with:
+- digital-worked-example-sequence
+- adaptive-hint-sequence-designer
+- intelligent-tutoring-dialogue-designer
+- metacognitive-monitoring-ai-contexts
+teacher_time: 4 minutes
+tags:
+- self-explanation
+- Chi
+- metacognition
+- worked-examples
+- comprehension
+- deep-learning
+- generation
+```

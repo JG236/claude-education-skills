@@ -1,72 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: teacher-inquiry-cycle-designer
 description: "Design a practitioner inquiry cycle from research question through data collection to evidence-informed action. Use when starting action research, teacher-led investigation, or professional inquiry."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "professional-learning/teacher-inquiry-cycle-designer"
-skill_name: "Teacher Inquiry Cycle Designer"
-domain: "professional-learning"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Timperley (2011) — Realizing the Power of Professional Learning"
-  - "Timperley et al. (2007) — Teacher Professional Learning and Development: Best Evidence Synthesis"
-  - "Cochran-Smith & Lytle (2009) — Inquiry as Stance: practitioner research for the next generation"
-  - "Dana & Yendol-Hoppey (2014) — The Reflective Educator's Guide to Classroom Research"
-  - "Earl & Katz (2006) — Leading Schools in a Data-Rich World"
-input_schema:
-  required:
-    - field: "inquiry_question"
-      type: "string"
-      description: "The question the teacher wants to investigate — about their practice and its impact on student learning"
-    - field: "teacher_context"
-      type: "string"
-      description: "The teacher's situation — subject, year group, professional learning goal"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "available_time"
-      type: "string"
-      description: "How much time the teacher can dedicate to the inquiry — one term, one year"
-    - field: "data_available"
-      type: "string"
-      description: "What data the teacher already has or can collect — test scores, student work, surveys, observations"
-    - field: "collaboration"
-      type: "string"
-      description: "Whether the teacher is working alone or with a team"
-    - field: "school_support"
-      type: "string"
-      description: "Whether the school has a structured inquiry programme or the teacher is working independently"
-output_schema:
-  type: "object"
-  fields:
-    - field: "inquiry_design"
-      type: "object"
-      description: "The complete inquiry cycle — question, baseline, intervention, evidence collection, analysis, conclusions"
-    - field: "data_plan"
-      type: "object"
-      description: "What data to collect, when, and how — practical and manageable"
-    - field: "analysis_framework"
-      type: "object"
-      description: "How to analyse the data — what patterns to look for, how to draw conclusions"
-    - field: "sharing_plan"
-      type: "string"
-      description: "How to share findings with colleagues — spreading the learning beyond the individual teacher"
-chains_well_with:
-  - "reflective-practice-prompt-generator"
-  - "lesson-study-cycle-designer"
-  - "instructional-coaching-conversation-guide"
-  - "professional-development-session-designer"
-  - "pedagogical-content-knowledge-developer"
-  - "technological-pedagogical-content-knowledge-developer"
-teacher_time: "4 minutes"
-tags: ["inquiry", "Timperley", "practitioner-research", "action-research", "data-informed", "professional-learning"]
 ---
 
 # Teacher Inquiry Cycle Designer
@@ -255,3 +189,89 @@ Answer the inquiry question honestly:
 2. **Inquiry requires a genuine question.** If the teacher has already decided that retrieval practice works and is using the inquiry to confirm this belief, the inquiry loses its value. Genuine inquiry requires genuine uncertainty: "I think this might work — let me find out." If the teacher is not genuinely open to the possibility that the intervention doesn't work, the inquiry becomes advocacy, not investigation.
 
 3. **Data collection must not harm teaching.** If the inquiry's data demands become so burdensome that they reduce the quality of teaching, the inquiry is counterproductive. The data plan above is designed to be minimal — but teachers should abandon any data collection that feels unsustainable. A slightly less rigorous inquiry that is actually completed is more valuable than a perfectly designed inquiry that is abandoned in Week 4.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: professional-learning/teacher-inquiry-cycle-designer
+skill_name: Teacher Inquiry Cycle Designer
+domain: professional-learning
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Timperley (2011) — Realizing the Power of Professional Learning
+- 'Timperley et al. (2007) — Teacher Professional Learning and Development: Best Evidence
+  Synthesis'
+- 'Cochran-Smith & Lytle (2009) — Inquiry as Stance: practitioner research for the
+  next generation'
+- Dana & Yendol-Hoppey (2014) — The Reflective Educator's Guide to Classroom Research
+- Earl & Katz (2006) — Leading Schools in a Data-Rich World
+input_schema:
+  required:
+  - field: inquiry_question
+    type: string
+    description: The question the teacher wants to investigate — about their practice
+      and its impact on student learning
+  - field: teacher_context
+    type: string
+    description: The teacher's situation — subject, year group, professional learning
+      goal
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: available_time
+    type: string
+    description: How much time the teacher can dedicate to the inquiry — one term,
+      one year
+  - field: data_available
+    type: string
+    description: What data the teacher already has or can collect — test scores, student
+      work, surveys, observations
+  - field: collaboration
+    type: string
+    description: Whether the teacher is working alone or with a team
+  - field: school_support
+    type: string
+    description: Whether the school has a structured inquiry programme or the teacher
+      is working independently
+output_schema:
+  type: object
+  fields:
+  - field: inquiry_design
+    type: object
+    description: The complete inquiry cycle — question, baseline, intervention, evidence
+      collection, analysis, conclusions
+  - field: data_plan
+    type: object
+    description: What data to collect, when, and how — practical and manageable
+  - field: analysis_framework
+    type: object
+    description: How to analyse the data — what patterns to look for, how to draw
+      conclusions
+  - field: sharing_plan
+    type: string
+    description: How to share findings with colleagues — spreading the learning beyond
+      the individual teacher
+chains_well_with:
+- reflective-practice-prompt-generator
+- lesson-study-cycle-designer
+- instructional-coaching-conversation-guide
+- professional-development-session-designer
+- pedagogical-content-knowledge-developer
+- technological-pedagogical-content-knowledge-developer
+teacher_time: 4 minutes
+tags:
+- inquiry
+- Timperley
+- practitioner-research
+- action-research
+- data-informed
+- professional-learning
+```

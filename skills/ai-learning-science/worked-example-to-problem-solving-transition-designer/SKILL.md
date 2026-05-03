@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: worked-example-to-problem-solving-transition-designer
 description: "Design the transition from worked examples to independent problem-solving using expertise-reversal principles. Use when students follow examples but cannot solve problems alone."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/worked-example-to-problem-solving-transition-designer"
-skill_name: "Worked Example to Problem Solving Transition Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Kalyuga et al. (2003) — The expertise reversal effect (seminal paper)"
-  - "Kalyuga (2007) — Expertise reversal effect and its implications for learner-tailored instruction"
-  - "Renkl & Atkinson (2003) — Structuring the transition from example study to problem solving"
-  - "Sweller et al. (2011) — Cognitive load theory (chapter on expertise reversal)"
-  - "Van Merriënboer & Kirschner (2018) — Ten steps to complex learning (4C/ID model)"
-input_schema:
-  required:
-    - field: "skill_being_taught"
-      type: "string"
-      description: "The specific skill or procedure students are learning — what they need to be able to do independently by the end of the sequence"
-    - field: "current_student_state"
-      type: "string"
-      description: "Where students are now — what they already know and what evidence you have of their current competence"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "number_of_practice_problems"
-      type: "integer"
-      description: "How many practice problems are available or practical"
-    - field: "time_available"
-      type: "string"
-      description: "How much time is available for the transition sequence"
-    - field: "assessment_format"
-      type: "string"
-      description: "How competence will be assessed — timed test, project, practical, or other"
-output_schema:
-  type: "object"
-  fields:
-    - field: "transition_sequence"
-      type: "object"
-      description: "The complete sequence from worked examples to independent problem solving — with the fading stages, transition triggers, and problem selection"
-    - field: "expertise_reversal_checkpoints"
-      type: "array"
-      description: "The specific points where the system checks whether continued scaffolding is helping or hindering"
-    - field: "fading_schedule"
-      type: "object"
-      description: "How scaffolding is gradually removed — which elements fade first and why"
-    - field: "independent_practice_design"
-      type: "object"
-      description: "The design of the independent practice phase — problem types, difficulty progression, and what to do when students get stuck"
-chains_well_with:
-  - "digital-worked-example-sequence"
-  - "adaptive-hint-sequence-designer"
-  - "cognitive-tutoring-architecture-designer"
-  - "productive-failure-desirable-difficulty-designer"
-teacher_time: "5 minutes"
-tags: ["expertise-reversal", "Kalyuga", "fading", "worked-examples", "Renkl", "transition", "scaffolding", "cognitive-load"]
 ---
 
 # Worked Example to Problem Solving Transition Designer
@@ -274,3 +210,88 @@ The procedure has 4 key steps:
 3. **Backward fading is not always optimal.** Renkl & Atkinson (2003) found backward fading effective for procedural skills with clear step sequences. For tasks with less linear structure (e.g., planning an experiment, structuring an argument), the "last step" may not be clearly defined. In these cases, the fading order needs to be adapted to the specific task structure.
 
 4. **The assessment must match the target.** If the end-of-unit test includes scaffolding (formula sheets, step prompts), the expertise reversal effect is less relevant — the scaffolding is provided in the assessment. The transition design above assumes an UNSCAFFOLDED assessment where students must perform the complete procedure independently.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/worked-example-to-problem-solving-transition-designer
+skill_name: Worked Example to Problem Solving Transition Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Kalyuga et al. (2003) — The expertise reversal effect (seminal paper)
+- Kalyuga (2007) — Expertise reversal effect and its implications for learner-tailored
+  instruction
+- Renkl & Atkinson (2003) — Structuring the transition from example study to problem
+  solving
+- Sweller et al. (2011) — Cognitive load theory (chapter on expertise reversal)
+- Van Merriënboer & Kirschner (2018) — Ten steps to complex learning (4C/ID model)
+input_schema:
+  required:
+  - field: skill_being_taught
+    type: string
+    description: The specific skill or procedure students are learning — what they
+      need to be able to do independently by the end of the sequence
+  - field: current_student_state
+    type: string
+    description: Where students are now — what they already know and what evidence
+      you have of their current competence
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: number_of_practice_problems
+    type: integer
+    description: How many practice problems are available or practical
+  - field: time_available
+    type: string
+    description: How much time is available for the transition sequence
+  - field: assessment_format
+    type: string
+    description: How competence will be assessed — timed test, project, practical,
+      or other
+output_schema:
+  type: object
+  fields:
+  - field: transition_sequence
+    type: object
+    description: The complete sequence from worked examples to independent problem
+      solving — with the fading stages, transition triggers, and problem selection
+  - field: expertise_reversal_checkpoints
+    type: array
+    description: The specific points where the system checks whether continued scaffolding
+      is helping or hindering
+  - field: fading_schedule
+    type: object
+    description: How scaffolding is gradually removed — which elements fade first
+      and why
+  - field: independent_practice_design
+    type: object
+    description: The design of the independent practice phase — problem types, difficulty
+      progression, and what to do when students get stuck
+chains_well_with:
+- digital-worked-example-sequence
+- adaptive-hint-sequence-designer
+- cognitive-tutoring-architecture-designer
+- productive-failure-desirable-difficulty-designer
+teacher_time: 5 minutes
+tags:
+- expertise-reversal
+- Kalyuga
+- fading
+- worked-examples
+- Renkl
+- transition
+- scaffolding
+- cognitive-load
+```

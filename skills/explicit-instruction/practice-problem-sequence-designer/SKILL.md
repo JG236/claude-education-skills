@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: practice-problem-sequence-designer
 description: "Generate a scaffolded sequence of practice problems with graduated difficulty and strategic variability. Use when creating worksheets, homework sets, or independent practice materials."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "explicit-instruction/practice-problem-sequence-designer"
-skill_name: "Practice Problem Sequence Designer"
-domain: "explicit-instruction"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Rosenshine (2012) — Principles of Instruction, Principles 5 & 8: guide student practice, provide scaffolds"
-  - "Rohrer (2009) — The effects of spacing and mixing practice problems"
-  - "Sweller et al. (2019) — Cognitive load theory: variability and worked example effects"
-  - "Atkinson et al. (2000) — Learning from examples: varied practice promotes transfer"
-  - "Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: desirable difficulties"
-input_schema:
-  required:
-    - field: "skill_to_practise"
-      type: "string"
-      description: "The specific skill students are practising"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current competence level"
-    - field: "problem_count"
-      type: "integer"
-      description: "Number of practice problems to generate"
-  optional:
-    - field: "common_errors"
-      type: "array"
-      description: "Known errors to design problems around"
-    - field: "prior_examples"
-      type: "string"
-      description: "The worked example or model students have already seen"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: ability range, specific needs"
-    - field: "assessment_format"
-      type: "string"
-      description: "How students will be assessed — informs problem format variation"
-output_schema:
-  type: "object"
-  fields:
-    - field: "problem_sequence"
-      type: "array"
-      description: "Ordered sequence of problems with difficulty progression and design rationale"
-    - field: "scaffold_reduction_plan"
-      type: "string"
-      description: "How scaffolding is reduced across the sequence"
-    - field: "differentiation_options"
-      type: "object"
-      description: "Support and extension modifications"
-    - field: "monitoring_guide"
-      type: "string"
-      description: "What to look for as students work and when to intervene"
-chains_well_with:
-  - "explicit-instruction-sequence-builder"
-  - "worked-example-fading-designer"
-  - "interleaving-unit-planner"
-  - "cognitive-load-analyser"
-teacher_time: "4 minutes"
-tags: ["practice", "problem-design", "scaffolding", "variability", "desirable-difficulty"]
 ---
 
 # Practice Problem Sequence Designer
@@ -268,3 +204,79 @@ For each problem:
 2. **Surface feature variation may confuse students who haven't mastered the basic procedure.** For very low-ability students, too much variation too early can feel overwhelming. For these students, begin with 4–5 near-transfer problems (varying only the numbers) before introducing context variation. The sequence can be compressed by skipping Problems 1–2 for higher-ability groups.
 
 3. **The monitoring guide requires the teacher to circulate effectively.** Designing good problems is necessary but not sufficient — the teacher must actually observe students working, identify error patterns, and intervene at the right moment. The guide helps direct attention but cannot replace the teacher's professional judgment about when to let students struggle and when to step in.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: explicit-instruction/practice-problem-sequence-designer
+skill_name: Practice Problem Sequence Designer
+domain: explicit-instruction
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Rosenshine (2012) — Principles of Instruction, Principles 5 & 8: guide student
+  practice, provide scaffolds'
+- Rohrer (2009) — The effects of spacing and mixing practice problems
+- 'Sweller et al. (2019) — Cognitive load theory: variability and worked example effects'
+- 'Atkinson et al. (2000) — Learning from examples: varied practice promotes transfer'
+- 'Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: desirable
+  difficulties'
+input_schema:
+  required:
+  - field: skill_to_practise
+    type: string
+    description: The specific skill students are practising
+  - field: student_level
+    type: string
+    description: Age/year group and current competence level
+  - field: problem_count
+    type: integer
+    description: Number of practice problems to generate
+  optional:
+  - field: common_errors
+    type: array
+    description: Known errors to design problems around
+  - field: prior_examples
+    type: string
+    description: The worked example or model students have already seen
+  - field: student_profiles
+    type: array
+    description: 'From context engine: ability range, specific needs'
+  - field: assessment_format
+    type: string
+    description: How students will be assessed — informs problem format variation
+output_schema:
+  type: object
+  fields:
+  - field: problem_sequence
+    type: array
+    description: Ordered sequence of problems with difficulty progression and design
+      rationale
+  - field: scaffold_reduction_plan
+    type: string
+    description: How scaffolding is reduced across the sequence
+  - field: differentiation_options
+    type: object
+    description: Support and extension modifications
+  - field: monitoring_guide
+    type: string
+    description: What to look for as students work and when to intervene
+chains_well_with:
+- explicit-instruction-sequence-builder
+- worked-example-fading-designer
+- interleaving-unit-planner
+- cognitive-load-analyser
+teacher_time: 4 minutes
+tags:
+- practice
+- problem-design
+- scaffolding
+- variability
+- desirable-difficulty
+```

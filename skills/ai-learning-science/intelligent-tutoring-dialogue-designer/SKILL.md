@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: intelligent-tutoring-dialogue-designer
 description: "Script a multi-turn tutoring dialogue with branching responses for anticipated student difficulties. Use when designing AI tutors, chatbot interactions, or structured one-to-one support scripts."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/intelligent-tutoring-dialogue-designer"
-skill_name: "Intelligent Tutoring Dialogue Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "VanLehn (2011) — The relative effectiveness of human tutoring, intelligent tutoring systems, and other tutoring systems (meta-analysis)"
-  - "Chi et al. (2001) — Learning from human tutoring (analysis of effective tutoring dialogues)"
-  - "Graesser et al. (2005) — AutoTutor: An intelligent tutoring system with mixed-initiative dialogue"
-  - "Chi & Wylie (2014) — The ICAP framework: linking cognitive engagement to active learning outcomes"
-  - "Koedinger & Aleven (2007) — Exploring the assistance dilemma in experiments with cognitive tutors"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The specific concept or skill the tutoring interaction should help the student master"
-    - field: "anticipated_difficulties"
-      type: "string"
-      description: "The specific points where students typically struggle with this content — misconceptions, procedural errors, or conceptual gaps"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "interaction_length"
-      type: "string"
-      description: "How long the tutoring interaction should last"
-    - field: "student_model"
-      type: "string"
-      description: "What is known about the specific student's current knowledge state — prior performance, known misconceptions, or learning preferences"
-    - field: "system_capabilities"
-      type: "string"
-      description: "What the AI system can do — text only, text + images, voice, worked examples, interactive problems"
-output_schema:
-  type: "object"
-  fields:
-    - field: "dialogue_architecture"
-      type: "object"
-      description: "The overall structure of the tutoring interaction — phases, decision points, and branching logic"
-    - field: "dialogue_moves"
-      type: "array"
-      description: "The specific moves available to the tutor at each point — questions, hints, explanations, prompts, and silence"
-    - field: "decision_rules"
-      type: "object"
-      description: "When to use each move — the rules that govern tutor behaviour based on student responses"
-    - field: "example_dialogue"
-      type: "object"
-      description: "A complete example dialogue showing the system in action with a realistic student"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "self-explanation-prompt-designer"
-  - "ai-feedback-design-principles"
-  - "cognitive-tutoring-architecture-designer"
-teacher_time: "5 minutes"
-tags: ["tutoring", "dialogue", "ITS", "VanLehn", "AutoTutor", "Graesser", "Chi", "ICAP", "mixed-initiative"]
 ---
 
 # Intelligent Tutoring Dialogue Designer
@@ -297,3 +233,93 @@ The dialogue follows a deliberate three-phase structure based on conceptual chan
 4. **The evidence base is primarily from STEM domains.** VanLehn (2011), Graesser et al. (2005), and Koedinger & Aleven (2007) conducted their research primarily in mathematics and science. The dialogue principles transfer to other domains (the "elicit before explain" pattern works in humanities too), but the specific patterns of misconception and conflict may differ. Tutoring dialogue in essay writing or historical analysis looks different from tutoring dialogue in physics, even though the underlying principles are the same.
 
 5. **Silence is difficult in text-based AI interactions.** The dialogue prescribes deliberate silence as a tutoring move, but in a text-based interface, silence can be indistinguishable from system failure. Implementing "productive silence" in a chatbot requires explicit design — a visible timer, a "Take your time" message, or a deliberate delay before the next prompt.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/intelligent-tutoring-dialogue-designer
+skill_name: Intelligent Tutoring Dialogue Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- VanLehn (2011) — The relative effectiveness of human tutoring, intelligent tutoring
+  systems, and other tutoring systems (meta-analysis)
+- Chi et al. (2001) — Learning from human tutoring (analysis of effective tutoring
+  dialogues)
+- 'Graesser et al. (2005) — AutoTutor: An intelligent tutoring system with mixed-initiative
+  dialogue'
+- 'Chi & Wylie (2014) — The ICAP framework: linking cognitive engagement to active
+  learning outcomes'
+- Koedinger & Aleven (2007) — Exploring the assistance dilemma in experiments with
+  cognitive tutors
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The specific concept or skill the tutoring interaction should help
+      the student master
+  - field: anticipated_difficulties
+    type: string
+    description: The specific points where students typically struggle with this content
+      — misconceptions, procedural errors, or conceptual gaps
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: interaction_length
+    type: string
+    description: How long the tutoring interaction should last
+  - field: student_model
+    type: string
+    description: What is known about the specific student's current knowledge state
+      — prior performance, known misconceptions, or learning preferences
+  - field: system_capabilities
+    type: string
+    description: What the AI system can do — text only, text + images, voice, worked
+      examples, interactive problems
+output_schema:
+  type: object
+  fields:
+  - field: dialogue_architecture
+    type: object
+    description: The overall structure of the tutoring interaction — phases, decision
+      points, and branching logic
+  - field: dialogue_moves
+    type: array
+    description: The specific moves available to the tutor at each point — questions,
+      hints, explanations, prompts, and silence
+  - field: decision_rules
+    type: object
+    description: When to use each move — the rules that govern tutor behaviour based
+      on student responses
+  - field: example_dialogue
+    type: object
+    description: A complete example dialogue showing the system in action with a realistic
+      student
+chains_well_with:
+- adaptive-hint-sequence-designer
+- self-explanation-prompt-designer
+- ai-feedback-design-principles
+- cognitive-tutoring-architecture-designer
+teacher_time: 5 minutes
+tags:
+- tutoring
+- dialogue
+- ITS
+- VanLehn
+- AutoTutor
+- Graesser
+- Chi
+- ICAP
+- mixed-initiative
+```

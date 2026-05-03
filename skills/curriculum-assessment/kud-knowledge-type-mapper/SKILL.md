@@ -1,79 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: kud-knowledge-type-mapper
 description: "Classify curriculum content into Know, Understand, and Do categories to align teaching and assessment approaches. Use when planning units, writing objectives, or selecting assessment methods."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/kud-knowledge-type-mapper"
-skill_name: "KUD Knowledge Type Mapper"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Wiggins & McTighe (2005) — Understanding by Design: Know/Understand/Do as the unit-level planning architecture"
-  - "Wiggins & McTighe (2011) — The Understanding by Design Guide to Creating High-Quality Units: KUD as the bridge from standards to assessment"
-  - "Bernstein (1999) — Vertical and horizontal discourse: hierarchical vs horizontal knowledge structures"
-  - "Bernstein (2000) — Pedagogy, Symbolic Control and Identity: recontextualisation and knowledge type"
-  - "Hattie (2009) — Visible Learning: surface, deep, and transfer as learning phases with distinct assessment needs"
-  - "Hattie & Timperley (2007) — The power of feedback: feedback must be calibrated to the type of learning"
-  - "Wiliam (2011) — Embedded Formative Assessment: assessability as a design constraint, not an afterthought"
-  - "Deci & Ryan (1985, 2000) — Self-Determination Theory: autonomy-supportive assessment for dispositional development"
-  - "Muller (2009) — Forms of knowledge and curriculum coherence: conceptual vs contextual coherence"
-  - "Maton (2014) — Knowledge and Knowers: Legitimation Code Theory (Semantics dimension)"
-input_schema:
-  required:
-    - field: "curriculum_input"
-      type: "string"
-      description: "Description of the unit, competency, or project — what students will learn and do"
-    - field: "learner_stage"
-      type: "string"
-      description: "Age range, year group, or developmental band"
-  optional:
-    - field: "knowledge_architecture_output"
-      type: "string"
-      description: "From context engine or prior run: the epistemic diagnosis output from Curriculum Knowledge Architecture Designer"
-    - field: "existing_learning_targets"
-      type: "string"
-      description: "Any existing LTs, competency statements, or curriculum standards already written for this unit"
-    - field: "competency_framework"
-      type: "string"
-      description: "The school's competency or dispositional framework in use"
-    - field: "programme_purpose"
-      type: "string"
-      description: "Why this unit or competency matters for the school's mission — the upstream 'why'"
-output_schema:
-  type: "object"
-  fields:
-    - field: "kud_chart"
-      type: "object"
-      description: "Complete Know/Understand/Do chart with every element labelled by knowledge type (Hierarchical, Horizontal, or Dispositional)"
-    - field: "do_split"
-      type: "object"
-      description: "Explicit separation of Do into Skills (assessable by rubric on task) and Dispositions (assessable by multi-informant observation over time)"
-    - field: "assessment_routing_plan"
-      type: "object"
-      description: "For each KUD element: which assessment skill to invoke next and why"
-    - field: "sequencing_notes"
-      type: "object"
-      description: "Prerequisite dependencies, flexible-order elements, and continuous-thread dispositions"
-    - field: "gap_analysis"
-      type: "object"
-      description: "If existing LTs provided: mapping of KUD elements to existing LTs, identification of gaps and mismatches"
-    - field: "design_flags"
-      type: "object"
-      description: "Compound elements, misclassified elements, unassessable elements, and routing conflicts"
-chains_well_with:
-  - "curriculum-knowledge-architecture-designer"
-  - "learning-target-authoring-guide"
-  - "coherent-rubric-logic-builder"
-  - "dispositional-knowledge-assessment-designer"
-  - "developmental-band-system-designer"
-teacher_time: "5 minutes"
-tags: ["KUD", "knowledge-type", "assessment-routing", "Wiggins-McTighe", "Bernstein", "curriculum-mapping", "hierarchical", "horizontal", "dispositional", "backwards-design"]
 ---
 
 # KUD Knowledge Type Mapper
@@ -417,3 +344,109 @@ Return your output in this exact format:
 4. **Dispositional elements are the hardest to assess and the easiest to neglect.** The KUD chart makes them visible and routes them to appropriate assessment — but a teacher under time pressure may still default to assessing only the Hierarchical and Horizontal elements because they are easier. The chart cannot solve this problem; it can only make the choice visible.
 
 5. **The KUD chart is a planning tool, not a teaching sequence.** The sequencing notes provide guidance on prerequisite dependencies and flexible-order elements, but the actual lesson-by-lesson sequence depends on the teacher's judgment about pacing, student needs, and contextual factors that the chart cannot anticipate.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/kud-knowledge-type-mapper
+skill_name: KUD Knowledge Type Mapper
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Wiggins & McTighe (2005) — Understanding by Design: Know/Understand/Do as the unit-level
+  planning architecture'
+- 'Wiggins & McTighe (2011) — The Understanding by Design Guide to Creating High-Quality
+  Units: KUD as the bridge from standards to assessment'
+- 'Bernstein (1999) — Vertical and horizontal discourse: hierarchical vs horizontal
+  knowledge structures'
+- 'Bernstein (2000) — Pedagogy, Symbolic Control and Identity: recontextualisation
+  and knowledge type'
+- 'Hattie (2009) — Visible Learning: surface, deep, and transfer as learning phases
+  with distinct assessment needs'
+- 'Hattie & Timperley (2007) — The power of feedback: feedback must be calibrated
+  to the type of learning'
+- 'Wiliam (2011) — Embedded Formative Assessment: assessability as a design constraint,
+  not an afterthought'
+- 'Deci & Ryan (1985, 2000) — Self-Determination Theory: autonomy-supportive assessment
+  for dispositional development'
+- 'Muller (2009) — Forms of knowledge and curriculum coherence: conceptual vs contextual
+  coherence'
+- 'Maton (2014) — Knowledge and Knowers: Legitimation Code Theory (Semantics dimension)'
+input_schema:
+  required:
+  - field: curriculum_input
+    type: string
+    description: Description of the unit, competency, or project — what students will
+      learn and do
+  - field: learner_stage
+    type: string
+    description: Age range, year group, or developmental band
+  optional:
+  - field: knowledge_architecture_output
+    type: string
+    description: 'From context engine or prior run: the epistemic diagnosis output
+      from Curriculum Knowledge Architecture Designer'
+  - field: existing_learning_targets
+    type: string
+    description: Any existing LTs, competency statements, or curriculum standards
+      already written for this unit
+  - field: competency_framework
+    type: string
+    description: The school's competency or dispositional framework in use
+  - field: programme_purpose
+    type: string
+    description: Why this unit or competency matters for the school's mission — the
+      upstream 'why'
+output_schema:
+  type: object
+  fields:
+  - field: kud_chart
+    type: object
+    description: Complete Know/Understand/Do chart with every element labelled by
+      knowledge type (Hierarchical, Horizontal, or Dispositional)
+  - field: do_split
+    type: object
+    description: Explicit separation of Do into Skills (assessable by rubric on task)
+      and Dispositions (assessable by multi-informant observation over time)
+  - field: assessment_routing_plan
+    type: object
+    description: 'For each KUD element: which assessment skill to invoke next and
+      why'
+  - field: sequencing_notes
+    type: object
+    description: Prerequisite dependencies, flexible-order elements, and continuous-thread
+      dispositions
+  - field: gap_analysis
+    type: object
+    description: 'If existing LTs provided: mapping of KUD elements to existing LTs,
+      identification of gaps and mismatches'
+  - field: design_flags
+    type: object
+    description: Compound elements, misclassified elements, unassessable elements,
+      and routing conflicts
+chains_well_with:
+- curriculum-knowledge-architecture-designer
+- learning-target-authoring-guide
+- coherent-rubric-logic-builder
+- dispositional-knowledge-assessment-designer
+- developmental-band-system-designer
+teacher_time: 5 minutes
+tags:
+- KUD
+- knowledge-type
+- assessment-routing
+- Wiggins-McTighe
+- Bernstein
+- curriculum-mapping
+- hierarchical
+- horizontal
+- dispositional
+- backwards-design
+```

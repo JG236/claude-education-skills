@@ -1,67 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: wellbeing-learning-connection-mapper
 description: "Map evidence-based connections between a wellbeing initiative and specific academic learning outcomes. Use when justifying wellbeing programmes, integrating SEL, or linking pastoral and academic work."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/wellbeing-learning-connection-mapper"
-skill_name: "Wellbeing-Learning Connection Mapper"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Fredrickson (2001) — The role of positive emotions in positive psychology: the broaden-and-build theory"
-  - "Hattie (2009) — Visible Learning: student background factors affecting achievement"
-  - "Roffey (2012) — Pupil wellbeing — teacher wellbeing: two sides of the same coin?"
-  - "Durlak et al. (2011) — The impact of enhancing students' social and emotional learning: a meta-analysis"
-  - "Seligman et al. (2009) — Positive education: positive psychology and classroom interventions"
-input_schema:
-  required:
-    - field: "wellbeing_intervention"
-      type: "string"
-      description: "The wellbeing practice or initiative being considered or implemented"
-    - field: "school_context"
-      type: "string"
-      description: "Key features of the school — phase, demographics, current challenges"
-  optional:
-    - field: "target_outcomes"
-      type: "string"
-      description: "What the school hopes to achieve — e.g. reduced anxiety, improved attendance, better engagement"
-    - field: "current_data"
-      type: "string"
-      description: "From context engine: attendance data, behaviour data, survey results, academic outcomes"
-    - field: "stakeholder_audience"
-      type: "string"
-      description: "Who needs to see the rationale — governors, SLT, parents, Ofsted"
-    - field: "time_and_resources"
-      type: "string"
-      description: "Budget, staff time, training capacity available"
-output_schema:
-  type: "object"
-  fields:
-    - field: "evidence_map"
-      type: "object"
-      description: "The causal pathway from the wellbeing intervention to specific learning outcomes"
-    - field: "mechanism_analysis"
-      type: "string"
-      description: "HOW the intervention is expected to improve learning — the specific psychological mechanisms"
-    - field: "expected_outcomes"
-      type: "array"
-      description: "Predicted outcomes at student, classroom, and school levels with realistic timeframes"
-    - field: "leadership_rationale"
-      type: "string"
-      description: "A clear, evidence-based statement for school leaders connecting the wellbeing initiative to academic outcomes"
-chains_well_with:
-  - "perma-based-lesson-designer"
-  - "belonging-classroom-culture-designer"
-  - "trauma-informed-practice-designer"
-  - "ruler-emotional-literacy-sequence"
-teacher_time: "4 minutes"
-tags: ["wellbeing", "positive-psychology", "broaden-and-build", "SEL", "school-leadership", "evidence-rationale"]
 ---
 
 # Wellbeing-Learning Connection Mapper
@@ -273,3 +212,83 @@ We expect to see a reduction in exclusions within the first term, improvements i
 2. **The tool generates rationale, not implementation.** Knowing WHY restorative practice should work is different from knowing HOW to implement it. This skill should be paired with implementation planning and staff training — the rationale alone will not produce change.
 
 3. **Some wellbeing interventions have weaker evidence than others.** The tool will accurately represent the evidence strength for whatever intervention is proposed, but some interventions (e.g., mindfulness in schools) have more contested evidence than others (e.g., SEL programmes). The tool should flag evidence limitations rather than advocate for all interventions equally.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/wellbeing-learning-connection-mapper
+skill_name: Wellbeing-Learning Connection Mapper
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Fredrickson (2001) — The role of positive emotions in positive psychology: the
+  broaden-and-build theory'
+- 'Hattie (2009) — Visible Learning: student background factors affecting achievement'
+- 'Roffey (2012) — Pupil wellbeing — teacher wellbeing: two sides of the same coin?'
+- 'Durlak et al. (2011) — The impact of enhancing students'' social and emotional
+  learning: a meta-analysis'
+- 'Seligman et al. (2009) — Positive education: positive psychology and classroom
+  interventions'
+input_schema:
+  required:
+  - field: wellbeing_intervention
+    type: string
+    description: The wellbeing practice or initiative being considered or implemented
+  - field: school_context
+    type: string
+    description: Key features of the school — phase, demographics, current challenges
+  optional:
+  - field: target_outcomes
+    type: string
+    description: What the school hopes to achieve — e.g. reduced anxiety, improved
+      attendance, better engagement
+  - field: current_data
+    type: string
+    description: 'From context engine: attendance data, behaviour data, survey results,
+      academic outcomes'
+  - field: stakeholder_audience
+    type: string
+    description: Who needs to see the rationale — governors, SLT, parents, Ofsted
+  - field: time_and_resources
+    type: string
+    description: Budget, staff time, training capacity available
+output_schema:
+  type: object
+  fields:
+  - field: evidence_map
+    type: object
+    description: The causal pathway from the wellbeing intervention to specific learning
+      outcomes
+  - field: mechanism_analysis
+    type: string
+    description: HOW the intervention is expected to improve learning — the specific
+      psychological mechanisms
+  - field: expected_outcomes
+    type: array
+    description: Predicted outcomes at student, classroom, and school levels with
+      realistic timeframes
+  - field: leadership_rationale
+    type: string
+    description: A clear, evidence-based statement for school leaders connecting the
+      wellbeing initiative to academic outcomes
+chains_well_with:
+- perma-based-lesson-designer
+- belonging-classroom-culture-designer
+- trauma-informed-practice-designer
+- ruler-emotional-literacy-sequence
+teacher_time: 4 minutes
+tags:
+- wellbeing
+- positive-psychology
+- broaden-and-build
+- SEL
+- school-leadership
+- evidence-rationale
+```

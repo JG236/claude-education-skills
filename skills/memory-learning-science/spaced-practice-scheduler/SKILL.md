@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: spaced-practice-scheduler
 description: "Design a spaced retrieval schedule for any topic list and timeline. Use when planning units, term sequences, or revision programmes."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/spaced-practice-scheduler"
-skill_name: "Spaced Practice Schedule Builder"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Ebbinghaus (1885/1913) — The forgetting curve: exponential decay of memory without review"
-  - "Cepeda et al. (2006) — Meta-analysis of 254 studies on distributed practice: optimal spacing depends on retention interval"
-  - "Kornell & Bjork (2008) — Spacing and interleaving effects on learning"
-  - "Carpenter et al. (2012) — Using spacing to enhance diverse forms of learning"
-  - "Dunlosky et al. (2013) — Distributed practice rated high-utility learning strategy"
-input_schema:
-  required:
-    - field: "topics"
-      type: "array"
-      description: "List of topics or concepts to be spaced across the schedule"
-    - field: "timeline"
-      type: "string"
-      description: "Available teaching period (e.g. '6-week half-term' or 'Term 2: Jan 15 – Mar 28')"
-    - field: "lessons_per_week"
-      type: "integer"
-      description: "Number of lessons per week for this subject"
-  optional:
-    - field: "assessment_date"
-      type: "string"
-      description: "Date of summative assessment, if known — affects final spacing intervals"
-    - field: "topic_difficulty"
-      type: "array"
-      description: "Teacher's estimate of relative difficulty for each topic (high/medium/low)"
-    - field: "curriculum_sequence"
-      type: "array"
-      description: "From context engine: mandated teaching order or prerequisite dependencies"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class-level retention data from prior assessments"
-output_schema:
-  type: "object"
-  fields:
-    - field: "schedule"
-      type: "array"
-      description: "Week-by-week schedule showing new teaching and spaced review slots"
-    - field: "spacing_rationale"
-      type: "string"
-      description: "Explanation of why topics are spaced at these intervals"
-    - field: "review_activity_suggestions"
-      type: "array"
-      description: "Brief retrieval activities for each review slot"
-    - field: "teacher_guidance"
-      type: "string"
-      description: "How to implement the schedule and adjust based on student response"
-chains_well_with:
-  - "retrieval-practice-generator"
-  - "interleaving-unit-planner"
-  - "formative-assessment-technique-selector"
-  - "lesson-opening-designer"
-teacher_time: "5 minutes"
-tags: ["spacing", "memory", "planning", "forgetting-curve", "distributed-practice"]
 ---
 
 # Spaced Practice Schedule Builder
@@ -229,3 +165,79 @@ Topics are spaced at expanding intervals following Cepeda et al.'s (2006) findin
 2. **Optimal spacing intervals from Cepeda et al. (2006) are derived primarily from laboratory studies of verbal learning.** Transfer to complex procedural skills (e.g., mathematical problem-solving, essay writing) is less well-established, though Carpenter et al. (2012) provide supportive classroom evidence.
 
 3. **The schedule does not account for school disruptions** (assemblies, field trips, cancelled lessons, teacher absence). Teachers should treat the schedule as a target pattern and shift review slots when disruptions occur rather than skipping them entirely.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/spaced-practice-scheduler
+skill_name: Spaced Practice Schedule Builder
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Ebbinghaus (1885/1913) — The forgetting curve: exponential decay of memory without
+  review'
+- 'Cepeda et al. (2006) — Meta-analysis of 254 studies on distributed practice: optimal
+  spacing depends on retention interval'
+- Kornell & Bjork (2008) — Spacing and interleaving effects on learning
+- Carpenter et al. (2012) — Using spacing to enhance diverse forms of learning
+- Dunlosky et al. (2013) — Distributed practice rated high-utility learning strategy
+input_schema:
+  required:
+  - field: topics
+    type: array
+    description: List of topics or concepts to be spaced across the schedule
+  - field: timeline
+    type: string
+    description: 'Available teaching period (e.g. ''6-week half-term'' or ''Term 2:
+      Jan 15 – Mar 28'')'
+  - field: lessons_per_week
+    type: integer
+    description: Number of lessons per week for this subject
+  optional:
+  - field: assessment_date
+    type: string
+    description: Date of summative assessment, if known — affects final spacing intervals
+  - field: topic_difficulty
+    type: array
+    description: Teacher's estimate of relative difficulty for each topic (high/medium/low)
+  - field: curriculum_sequence
+    type: array
+    description: 'From context engine: mandated teaching order or prerequisite dependencies'
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class-level retention data from prior assessments'
+output_schema:
+  type: object
+  fields:
+  - field: schedule
+    type: array
+    description: Week-by-week schedule showing new teaching and spaced review slots
+  - field: spacing_rationale
+    type: string
+    description: Explanation of why topics are spaced at these intervals
+  - field: review_activity_suggestions
+    type: array
+    description: Brief retrieval activities for each review slot
+  - field: teacher_guidance
+    type: string
+    description: How to implement the schedule and adjust based on student response
+chains_well_with:
+- retrieval-practice-generator
+- interleaving-unit-planner
+- formative-assessment-technique-selector
+- lesson-opening-designer
+teacher_time: 5 minutes
+tags:
+- spacing
+- memory
+- planning
+- forgetting-curve
+- distributed-practice
+```

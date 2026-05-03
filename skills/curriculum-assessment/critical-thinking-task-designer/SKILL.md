@@ -1,78 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: critical-thinking-task-designer
 description: "Design discipline-specific critical thinking tasks grounded in knowledge-contingent reasoning rather than generic skills. Use when embedding higher-order thinking into subject content."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "curriculum-assessment/critical-thinking-task-designer"
-skill_name: "Critical Thinking Task Designer"
-domain: "curriculum-assessment"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Bailin, Case, Coombs & Daniels (1999) — Common misconceptions of critical thinking: the intellectual resources framework"
-  - "Bailin & Siegel (2003) — Critical thinking in philosophy of education"
-  - "Willingham (2007) — Critical thinking: why is it so hard to teach?"
-  - "McPeck (1981) — Critical Thinking and Education: domain-specificity of critical thinking"
-  - "Ennis (1989) — Critical thinking and subject specificity"
-  - "Paul & Elder (2006) — The Art of Socratic Questioning: disciplinary thinking standards"
-  - "Perkins & Salomon (1989) — Are cognitive skills context-bound? Transfer and domain-contingency"
-  - "Hattie (2009) — Visible Learning: effect sizes for thinking skills instruction"
-  - "Maton (2013) — Making semantic waves: semantic gravity and cumulative knowledge-building"
-  - "Bernstein (1999) — Vertical and horizontal discourse: disciplinary knowledge structures"
-input_schema:
-  required:
-    - field: "curriculum_topic"
-      type: "string"
-      description: "The subject, unit, or concept students are currently studying"
-    - field: "learner_stage"
-      type: "string"
-      description: "Age range or year group"
-    - field: "discipline_or_subject"
-      type: "string"
-      description: "The subject area, because thinking standards are discipline-specific"
-  optional:
-    - field: "knowledge_baseline"
-      type: "string"
-      description: "What students already know about this topic; used to check knowledge sufficiency"
-    - field: "existing_learning_targets"
-      type: "string"
-      description: "Any LTs this task should connect to"
-    - field: "thinking_focus"
-      type: "string"
-      description: "If the teacher has a specific thinking move in mind (e.g. evaluating evidence, identifying assumptions, considering perspective)"
-output_schema:
-  type: "object"
-  fields:
-    - field: "knowledge_prerequisite_check"
-      type: "object"
-      description: "Assessment of whether students have sufficient domain knowledge for the critical thinking to be meaningful; flags if the knowledge base is insufficient and recommends what to establish first"
-    - field: "disciplinary_thinking_standards"
-      type: "object"
-      description: "What good thinking looks like specifically in this discipline for this topic; not generic ('think carefully') but substantive ('in history, good thinking requires evaluating source provenance and corroborating claims across sources')"
-    - field: "critical_thinking_task"
-      type: "object"
-      description: "The structured task itself: context/scenario, the thinking demand, and the specific question or prompt students respond to"
-    - field: "intellectual_resources"
-      type: "object"
-      description: "The scaffolded support students need to do the thinking: background knowledge to activate or provide, key concepts to clarify, thinking heuristics to offer, and habits of mind to cultivate"
-    - field: "assessment_guidance"
-      type: "object"
-      description: "Criteria for what quality thinking looks like in student responses; this is horizontal knowledge (better and worse reasoning, not right/wrong answers); rubric should assess quality of reasoning process, not correctness of conclusion"
-    - field: "teacher_development_notes"
-      type: "object"
-      description: "What designing and running this task reveals about disciplinary thinking in this subject; framed as professional learning, not just lesson delivery"
-chains_well_with:
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-  - "coherent-rubric-logic-builder"
-  - "learning-target-authoring-guide"
-teacher_time: "10 minutes"
-tags: ["critical-thinking", "disciplinary-thinking", "horizontal-knowledge", "knowledge-contingent", "task-design", "intellectual-resources", "Bailin", "Willingham", "domain-specific"]
 ---
 
 # Critical Thinking Task Designer
@@ -342,3 +270,103 @@ The "what would change my mind?" heuristic is worth noting as a transferable mov
 4. **The habits of mind component (intellectual humility, tolerance for ambiguity) is dispositional and cannot be developed through a single task or assessed through a rubric.** The task can cultivate these habits if the classroom culture supports them — but the classroom culture is outside the scope of this skill. If the assessment environment is controlling or high-stakes, students will perform reasoning for the rubric rather than engage in genuine thinking.
 
 5. **Transfer between domains should not be assumed.** Running this skill in history does not mean students will think critically in science. Each discipline requires its own thinking standards to be made explicit. The appropriate response is to use this skill consistently across multiple subjects, not to assume that critical thinking developed in one domain transfers automatically.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: curriculum-assessment/critical-thinking-task-designer
+skill_name: Critical Thinking Task Designer
+domain: curriculum-assessment
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Bailin, Case, Coombs & Daniels (1999) — Common misconceptions of critical thinking:
+  the intellectual resources framework'
+- Bailin & Siegel (2003) — Critical thinking in philosophy of education
+- 'Willingham (2007) — Critical thinking: why is it so hard to teach?'
+- 'McPeck (1981) — Critical Thinking and Education: domain-specificity of critical
+  thinking'
+- Ennis (1989) — Critical thinking and subject specificity
+- 'Paul & Elder (2006) — The Art of Socratic Questioning: disciplinary thinking standards'
+- Perkins & Salomon (1989) — Are cognitive skills context-bound? Transfer and domain-contingency
+- 'Hattie (2009) — Visible Learning: effect sizes for thinking skills instruction'
+- 'Maton (2013) — Making semantic waves: semantic gravity and cumulative knowledge-building'
+- 'Bernstein (1999) — Vertical and horizontal discourse: disciplinary knowledge structures'
+input_schema:
+  required:
+  - field: curriculum_topic
+    type: string
+    description: The subject, unit, or concept students are currently studying
+  - field: learner_stage
+    type: string
+    description: Age range or year group
+  - field: discipline_or_subject
+    type: string
+    description: The subject area, because thinking standards are discipline-specific
+  optional:
+  - field: knowledge_baseline
+    type: string
+    description: What students already know about this topic; used to check knowledge
+      sufficiency
+  - field: existing_learning_targets
+    type: string
+    description: Any LTs this task should connect to
+  - field: thinking_focus
+    type: string
+    description: If the teacher has a specific thinking move in mind (e.g. evaluating
+      evidence, identifying assumptions, considering perspective)
+output_schema:
+  type: object
+  fields:
+  - field: knowledge_prerequisite_check
+    type: object
+    description: Assessment of whether students have sufficient domain knowledge for
+      the critical thinking to be meaningful; flags if the knowledge base is insufficient
+      and recommends what to establish first
+  - field: disciplinary_thinking_standards
+    type: object
+    description: What good thinking looks like specifically in this discipline for
+      this topic; not generic ('think carefully') but substantive ('in history, good
+      thinking requires evaluating source provenance and corroborating claims across
+      sources')
+  - field: critical_thinking_task
+    type: object
+    description: 'The structured task itself: context/scenario, the thinking demand,
+      and the specific question or prompt students respond to'
+  - field: intellectual_resources
+    type: object
+    description: 'The scaffolded support students need to do the thinking: background
+      knowledge to activate or provide, key concepts to clarify, thinking heuristics
+      to offer, and habits of mind to cultivate'
+  - field: assessment_guidance
+    type: object
+    description: Criteria for what quality thinking looks like in student responses;
+      this is horizontal knowledge (better and worse reasoning, not right/wrong answers);
+      rubric should assess quality of reasoning process, not correctness of conclusion
+  - field: teacher_development_notes
+    type: object
+    description: What designing and running this task reveals about disciplinary thinking
+      in this subject; framed as professional learning, not just lesson delivery
+chains_well_with:
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+- coherent-rubric-logic-builder
+- learning-target-authoring-guide
+teacher_time: 10 minutes
+tags:
+- critical-thinking
+- disciplinary-thinking
+- horizontal-knowledge
+- knowledge-contingent
+- task-design
+- intellectual-resources
+- Bailin
+- Willingham
+- domain-specific
+```

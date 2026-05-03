@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: academic-language-sentence-frame-generator
 description: "Generate tiered sentence frames for academic tasks that scaffold language production across proficiency levels. Use when EAL students need structured language support for classroom discourse."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "eal-language-development/academic-language-sentence-frame-generator"
-skill_name: "Academic Language Sentence Frame Generator"
-domain: "eal-language-development"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Gibbons (2015) — Scaffolding Language, Scaffolding Learning"
-  - "Zwiers (2014) — Building Academic Language: meeting Common Core standards across disciplines"
-  - "Zwiers & Crawford (2011) — Academic Conversations: classroom talk that fosters critical thinking and content understandings"
-  - "Kinsella (2005) — Teaching academic vocabulary to English language learners"
-  - "Dutro & Moran (2003) — Rethinking English language instruction: an architectural approach"
-input_schema:
-  required:
-    - field: "task_type"
-      type: "string"
-      description: "The type of academic task — e.g. explaining, comparing, arguing, evaluating, hypothesising, summarising, describing a process"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "language_proficiency"
-      type: "string"
-      description: "EAL proficiency level — affects frame complexity"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: first languages, specific language needs"
-    - field: "specific_content"
-      type: "string"
-      description: "The specific topic or content students are working with"
-    - field: "output_mode"
-      type: "string"
-      description: "Whether students are writing or speaking — affects register and formality"
-output_schema:
-  type: "object"
-  fields:
-    - field: "sentence_frames"
-      type: "array"
-      description: "Graded set of sentence frames for the task type, from heavily scaffolded to lightly scaffolded"
-    - field: "discourse_markers"
-      type: "array"
-      description: "Connectives and transition words appropriate for this task type"
-    - field: "usage_guide"
-      type: "string"
-      description: "How to introduce and use the frames effectively — avoiding the 'fill-in-the-blank' trap"
-    - field: "progression"
-      type: "string"
-      description: "How to move students from frames to independent academic language production"
-chains_well_with:
-  - "language-demand-analyser"
-  - "scaffolded-task-modifier"
-  - "vocabulary-tiering-tool"
-  - "disciplinary-writing-scaffold"
-teacher_time: "2 minutes"
-tags: ["sentence-frames", "academic-language", "EAL", "discourse-markers", "scaffolding"]
 ---
 
 # Academic Language Sentence Frame Generator
@@ -294,3 +230,83 @@ Aim for: comparison that leads to analysis of Golding's purpose — don't just l
 2. **Frames provide the structure of academic language but not the content.** A student who doesn't understand the characters cannot write a meaningful comparison, no matter how good the frames are. Sentence frames support language production, not content understanding — both must be in place for the task to succeed.
 
 3. **The frames reflect standard academic English conventions, which may differ from the student's home language patterns.** Some students' first languages structure comparison, argumentation, or evaluation differently — for example, some languages prefer indirect evaluation over direct statements. The frames teach English academic conventions, which is the goal, but teachers should be aware that students are learning a new rhetorical pattern, not just new vocabulary.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: eal-language-development/academic-language-sentence-frame-generator
+skill_name: Academic Language Sentence Frame Generator
+domain: eal-language-development
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Gibbons (2015) — Scaffolding Language, Scaffolding Learning
+- 'Zwiers (2014) — Building Academic Language: meeting Common Core standards across
+  disciplines'
+- 'Zwiers & Crawford (2011) — Academic Conversations: classroom talk that fosters
+  critical thinking and content understandings'
+- Kinsella (2005) — Teaching academic vocabulary to English language learners
+- 'Dutro & Moran (2003) — Rethinking English language instruction: an architectural
+  approach'
+input_schema:
+  required:
+  - field: task_type
+    type: string
+    description: The type of academic task — e.g. explaining, comparing, arguing,
+      evaluating, hypothesising, summarising, describing a process
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: language_proficiency
+    type: string
+    description: EAL proficiency level — affects frame complexity
+  - field: student_profiles
+    type: array
+    description: 'From context engine: first languages, specific language needs'
+  - field: specific_content
+    type: string
+    description: The specific topic or content students are working with
+  - field: output_mode
+    type: string
+    description: Whether students are writing or speaking — affects register and formality
+output_schema:
+  type: object
+  fields:
+  - field: sentence_frames
+    type: array
+    description: Graded set of sentence frames for the task type, from heavily scaffolded
+      to lightly scaffolded
+  - field: discourse_markers
+    type: array
+    description: Connectives and transition words appropriate for this task type
+  - field: usage_guide
+    type: string
+    description: How to introduce and use the frames effectively — avoiding the 'fill-in-the-blank'
+      trap
+  - field: progression
+    type: string
+    description: How to move students from frames to independent academic language
+      production
+chains_well_with:
+- language-demand-analyser
+- scaffolded-task-modifier
+- vocabulary-tiering-tool
+- disciplinary-writing-scaffold
+teacher_time: 2 minutes
+tags:
+- sentence-frames
+- academic-language
+- EAL
+- discourse-markers
+- scaffolding
+```

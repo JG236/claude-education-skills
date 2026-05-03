@@ -1,64 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: dual-coding-designer
 description: "Design a visual complement to verbal content using dual coding principles for stronger encoding. Use when creating slides, diagrams, posters, or visual explanations of complex concepts."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "memory-learning-science/dual-coding-designer"
-skill_name: "Dual Coding Designer"
-domain: "memory-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Paivio (1986) — Mental Representations: A Dual Coding Approach"
-  - "Clark & Paivio (1991) — Dual coding theory and education"
-  - "Mayer (2009) — Multimedia learning: second edition (multimedia principle and related principles)"
-  - "Mayer & Moreno (2003) — Nine ways to reduce cognitive load in multimedia learning"
-  - "Caviglioli (2019) — Dual Coding with Teachers (practical application of the research)"
-input_schema:
-  required:
-    - field: "verbal_content"
-      type: "string"
-      description: "The explanation, concept, or text to create a visual complement for"
-    - field: "subject_and_level"
-      type: "string"
-      description: "Subject area and year group"
-  optional:
-    - field: "visual_constraints"
-      type: "string"
-      description: "Any constraints on visual format (e.g. 'must be reproducible on a whiteboard' / 'for a slide presentation')"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: language proficiency levels, visual processing needs"
-    - field: "existing_visuals"
-      type: "string"
-      description: "Visuals already in use for this topic that should be complemented, not duplicated"
-output_schema:
-  type: "object"
-  fields:
-    - field: "visual_design"
-      type: "object"
-      description: "Recommended diagram type, spatial layout, labelling strategy, and description"
-    - field: "integration_notes"
-      type: "string"
-      description: "How to present verbal and visual together to avoid split-attention"
-    - field: "annotation_strategy"
-      type: "string"
-      description: "What text to include on the visual and what to keep verbal"
-    - field: "common_pitfalls"
-      type: "array"
-      description: "Visual design mistakes that would increase rather than decrease cognitive load"
-chains_well_with:
-  - "cognitive-load-analyser"
-  - "worked-example-fading-designer"
-  - "text-complexity-analyser"
-  - "explicit-instruction-sequence-builder"
-teacher_time: "4 minutes"
-tags: ["dual-coding", "visual-representation", "multimedia", "cognitive-load", "diagrams"]
 ---
 
 # Dual Coding Designer
@@ -236,3 +178,76 @@ Process arrows connect the elements in a cycle:
 2. **Some concepts are inherently difficult to represent visually.** Abstract concepts (justice, irony, probability) and complex multi-variable relationships resist simple visual representation. The skill will recommend the best available approach, but for highly abstract content, the visual may add limited value beyond what verbal explanation provides. This is not a failure of dual coding — it reflects the genuine boundaries of visual representation.
 
 3. **The effectiveness of dual coding depends on integration, not just presence.** Simply showing a diagram alongside text does not automatically produce dual coding benefits. The teacher must actively integrate the two channels — narrating while pointing, building the diagram progressively while explaining, asking students to connect visual elements to verbal descriptions. A well-designed visual presented without integration is just a picture on a slide.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: memory-learning-science/dual-coding-designer
+skill_name: Dual Coding Designer
+domain: memory-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Paivio (1986) — Mental Representations: A Dual Coding Approach'
+- Clark & Paivio (1991) — Dual coding theory and education
+- 'Mayer (2009) — Multimedia learning: second edition (multimedia principle and related
+  principles)'
+- Mayer & Moreno (2003) — Nine ways to reduce cognitive load in multimedia learning
+- Caviglioli (2019) — Dual Coding with Teachers (practical application of the research)
+input_schema:
+  required:
+  - field: verbal_content
+    type: string
+    description: The explanation, concept, or text to create a visual complement for
+  - field: subject_and_level
+    type: string
+    description: Subject area and year group
+  optional:
+  - field: visual_constraints
+    type: string
+    description: Any constraints on visual format (e.g. 'must be reproducible on a
+      whiteboard' / 'for a slide presentation')
+  - field: student_profiles
+    type: array
+    description: 'From context engine: language proficiency levels, visual processing
+      needs'
+  - field: existing_visuals
+    type: string
+    description: Visuals already in use for this topic that should be complemented,
+      not duplicated
+output_schema:
+  type: object
+  fields:
+  - field: visual_design
+    type: object
+    description: Recommended diagram type, spatial layout, labelling strategy, and
+      description
+  - field: integration_notes
+    type: string
+    description: How to present verbal and visual together to avoid split-attention
+  - field: annotation_strategy
+    type: string
+    description: What text to include on the visual and what to keep verbal
+  - field: common_pitfalls
+    type: array
+    description: Visual design mistakes that would increase rather than decrease cognitive
+      load
+chains_well_with:
+- cognitive-load-analyser
+- worked-example-fading-designer
+- text-complexity-analyser
+- explicit-instruction-sequence-builder
+teacher_time: 4 minutes
+tags:
+- dual-coding
+- visual-representation
+- multimedia
+- cognitive-load
+- diagrams
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: formative-assessment-loop-designer
 description: "Design an adaptive assessment loop where each student response triggers the next instructional move. Use when building technology-enhanced formative assessment cycles."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/formative-assessment-loop-designer"
-skill_name: "Formative Assessment Loop Designer for AI Systems"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Black & Wiliam (1998) — Assessment and classroom learning (seminal meta-analysis)"
-  - "Black & Wiliam (2009) — Developing the theory of formative assessment"
-  - "Wiliam (2011) — Embedded formative assessment"
-  - "VanLehn (2006) — The behavior of tutoring systems (inner loop vs. outer loop)"
-  - "Shute & Zapata-Rivera (2012) — Adaptive educational systems"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The specific learning objective that the formative assessment loop should monitor — what students are trying to learn"
-    - field: "current_assessment_approach"
-      type: "string"
-      description: "How assessment currently works in this context — when teachers check understanding, what they check, and what they do with the information"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "ai_system_capabilities"
-      type: "string"
-      description: "What the AI system can do — real-time monitoring, adaptive questioning, dashboard reporting, or other"
-    - field: "class_size"
-      type: "string"
-      description: "How many students the system needs to support simultaneously"
-    - field: "assessment_frequency"
-      type: "string"
-      description: "How often assessment data should be collected — continuous, per-task, daily, weekly"
-output_schema:
-  type: "object"
-  fields:
-    - field: "assessment_loop_design"
-      type: "object"
-      description: "The complete formative assessment loop — what is assessed, how, when, and what happens with the results"
-    - field: "elicitation_strategies"
-      type: "array"
-      description: "How to surface student understanding — the specific questions, tasks, and probes that reveal thinking"
-    - field: "interpretation_framework"
-      type: "object"
-      description: "How to interpret student responses — what patterns indicate understanding, partial understanding, and misconceptions"
-    - field: "response_actions"
-      type: "object"
-      description: "What to do based on the assessment data — the specific teaching actions triggered by different assessment results"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "ai-feedback-design-principles"
-  - "learning-analytics-interpretation-guide"
-  - "cognitive-tutoring-architecture-designer"
-teacher_time: "5 minutes"
-tags: ["formative-assessment", "Black-Wiliam", "assessment-loop", "adaptive", "feedback", "VanLehn", "inner-loop", "outer-loop"]
 ---
 
 # Formative Assessment Loop Designer for AI Systems
@@ -296,3 +232,87 @@ How to check that the assessment loop is working:
 4. **Teacher dashboard data can be overwhelming.** The dashboard above provides detailed information about individual students and class-level patterns. In a class of 30, this is manageable. In a year group of 120 students, the data volume may be overwhelming. Dashboard design for larger scales requires more aggressive filtering and summarisation.
 
 5. **The assessment loop may inadvertently narrow the curriculum.** If the AI loop focuses exclusively on area vs. perimeter identification and calculation, students may develop competence in this specific skill but miss the broader mathematical understanding (measurement as a concept, connections to other topics). Wiliam (2011) warns that formative assessment should serve learning, not define it.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/formative-assessment-loop-designer
+skill_name: Formative Assessment Loop Designer for AI Systems
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Black & Wiliam (1998) — Assessment and classroom learning (seminal meta-analysis)
+- Black & Wiliam (2009) — Developing the theory of formative assessment
+- Wiliam (2011) — Embedded formative assessment
+- VanLehn (2006) — The behavior of tutoring systems (inner loop vs. outer loop)
+- Shute & Zapata-Rivera (2012) — Adaptive educational systems
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The specific learning objective that the formative assessment loop
+      should monitor — what students are trying to learn
+  - field: current_assessment_approach
+    type: string
+    description: How assessment currently works in this context — when teachers check
+      understanding, what they check, and what they do with the information
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: ai_system_capabilities
+    type: string
+    description: What the AI system can do — real-time monitoring, adaptive questioning,
+      dashboard reporting, or other
+  - field: class_size
+    type: string
+    description: How many students the system needs to support simultaneously
+  - field: assessment_frequency
+    type: string
+    description: How often assessment data should be collected — continuous, per-task,
+      daily, weekly
+output_schema:
+  type: object
+  fields:
+  - field: assessment_loop_design
+    type: object
+    description: The complete formative assessment loop — what is assessed, how, when,
+      and what happens with the results
+  - field: elicitation_strategies
+    type: array
+    description: How to surface student understanding — the specific questions, tasks,
+      and probes that reveal thinking
+  - field: interpretation_framework
+    type: object
+    description: How to interpret student responses — what patterns indicate understanding,
+      partial understanding, and misconceptions
+  - field: response_actions
+    type: object
+    description: What to do based on the assessment data — the specific teaching actions
+      triggered by different assessment results
+chains_well_with:
+- adaptive-hint-sequence-designer
+- ai-feedback-design-principles
+- learning-analytics-interpretation-guide
+- cognitive-tutoring-architecture-designer
+teacher_time: 5 minutes
+tags:
+- formative-assessment
+- Black-Wiliam
+- assessment-loop
+- adaptive
+- feedback
+- VanLehn
+- inner-loop
+- outer-loop
+```

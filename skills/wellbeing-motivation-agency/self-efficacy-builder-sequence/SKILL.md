@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: self-efficacy-builder-sequence
 description: "Design a mastery experience sequence that systematically builds student confidence in a skill they avoid. Use when students say 'I can't do this', avoid tasks, or show learned helplessness."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/self-efficacy-builder-sequence"
-skill_name: "Self-Efficacy Builder Sequence"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Bandura (1977, 1997) — Self-efficacy: toward a unifying theory of behavioural change"
-  - "Bandura (1986) — Social Foundations of Thought and Action: four sources of self-efficacy"
-  - "Schunk & Pajares (2009) — Self-efficacy theory in educational contexts"
-  - "Hattie (2009) — Visible Learning: self-efficacy as one of the strongest predictors of achievement"
-  - "Dweck (2006) — Mindset: the new psychology of success"
-input_schema:
-  required:
-    - field: "target_skill"
-      type: "string"
-      description: "The skill or area where the student lacks confidence — what they believe they cannot do"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "current_avoidance"
-      type: "string"
-      description: "What the student currently does to avoid the task — the observable behaviour that signals low self-efficacy"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "student_profile"
-      type: "string"
-      description: "From context engine: prior attainment, known strengths, history with this skill"
-    - field: "previous_attempts"
-      type: "string"
-      description: "What has been tried before to build confidence — what worked and what didn't"
-    - field: "student_strengths"
-      type: "string"
-      description: "What the student IS confident about — areas of existing self-efficacy"
-output_schema:
-  type: "object"
-  fields:
-    - field: "efficacy_diagnostic"
-      type: "object"
-      description: "Analysis of which source of self-efficacy is most accessible for this student"
-    - field: "task_sequence"
-      type: "array"
-      description: "A sequence of 4–6 tasks that progressively build self-efficacy from the student's current starting point"
-    - field: "attribution_coaching"
-      type: "string"
-      description: "Specific language for attributing success to effort and strategy rather than ability or luck"
-    - field: "teacher_scripts"
-      type: "array"
-      description: "Exact phrases the teacher can use at each stage to reinforce self-efficacy"
-chains_well_with:
-  - "motivation-diagnostic-task-redesign"
-  - "agency-scaffold-generator"
-  - "differentiation-adapter"
-  - "practice-problem-sequence-designer"
-teacher_time: "3 minutes"
-tags: ["self-efficacy", "confidence", "Bandura", "mastery-experiences", "attribution", "mindset"]
 ---
 
 # Self-Efficacy Builder Sequence
@@ -269,3 +205,85 @@ For each task (4–6 tasks):
 2. **The sequence assumes the student's difficulty is primarily motivational, not cognitive.** If the student genuinely cannot write at the expected level (not "believes they can't" but actually cannot due to a specific learning difficulty), the self-efficacy sequence alone will not be sufficient. It must be combined with skill-building instruction. The verbal articulation strength described in the example suggests the gap IS motivational — but the teacher must verify this.
 
 3. **Self-efficacy is domain-specific.** Building writing self-efficacy does not automatically improve self-efficacy in mathematics or science. Each domain requires its own sequence. However, meta-cognitive awareness ("I used a strategy and it worked") can transfer — the student may learn to apply the strategy-based approach to other areas of difficulty.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/self-efficacy-builder-sequence
+skill_name: Self-Efficacy Builder Sequence
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- 'Bandura (1977, 1997) — Self-efficacy: toward a unifying theory of behavioural change'
+- 'Bandura (1986) — Social Foundations of Thought and Action: four sources of self-efficacy'
+- Schunk & Pajares (2009) — Self-efficacy theory in educational contexts
+- 'Hattie (2009) — Visible Learning: self-efficacy as one of the strongest predictors
+  of achievement'
+- 'Dweck (2006) — Mindset: the new psychology of success'
+input_schema:
+  required:
+  - field: target_skill
+    type: string
+    description: The skill or area where the student lacks confidence — what they
+      believe they cannot do
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: current_avoidance
+    type: string
+    description: What the student currently does to avoid the task — the observable
+      behaviour that signals low self-efficacy
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: student_profile
+    type: string
+    description: 'From context engine: prior attainment, known strengths, history
+      with this skill'
+  - field: previous_attempts
+    type: string
+    description: What has been tried before to build confidence — what worked and
+      what didn't
+  - field: student_strengths
+    type: string
+    description: What the student IS confident about — areas of existing self-efficacy
+output_schema:
+  type: object
+  fields:
+  - field: efficacy_diagnostic
+    type: object
+    description: Analysis of which source of self-efficacy is most accessible for
+      this student
+  - field: task_sequence
+    type: array
+    description: A sequence of 4–6 tasks that progressively build self-efficacy from
+      the student's current starting point
+  - field: attribution_coaching
+    type: string
+    description: Specific language for attributing success to effort and strategy
+      rather than ability or luck
+  - field: teacher_scripts
+    type: array
+    description: Exact phrases the teacher can use at each stage to reinforce self-efficacy
+chains_well_with:
+- motivation-diagnostic-task-redesign
+- agency-scaffold-generator
+- differentiation-adapter
+- practice-problem-sequence-designer
+teacher_time: 3 minutes
+tags:
+- self-efficacy
+- confidence
+- Bandura
+- mastery-experiences
+- attribution
+- mindset
+```

@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: productive-failure-desirable-difficulty-designer
 description: "Redesign a direct instruction sequence to include productive struggle before the explanation phase. Use when teaching concepts that benefit from failure-first approaches."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/productive-failure-desirable-difficulty-designer"
-skill_name: "Productive Failure & Desirable Difficulty Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Kapur (2008) — Productive failure"
-  - "Kapur (2016) — Examining productive failure, productive success, unproductive failure, and unproductive success in learning"
-  - "Bjork (1994) — Memory and metamemory considerations in the training of human beings"
-  - "Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: creating desirable difficulties to enhance learning"
-  - "Soderstrom & Bjork (2015) — Learning versus performance: an integrative review"
-input_schema:
-  required:
-    - field: "target_concept"
-      type: "string"
-      description: "The specific concept or skill that students need to learn deeply — the content that benefits from productive failure rather than direct instruction"
-    - field: "current_approach"
-      type: "string"
-      description: "How this concept is currently taught — typically direct instruction followed by practice"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "time_available"
-      type: "string"
-      description: "How much lesson time is available for the productive failure sequence"
-    - field: "prerequisite_knowledge"
-      type: "string"
-      description: "What students already know that they can draw on during the generation phase"
-    - field: "risk_tolerance"
-      type: "string"
-      description: "How comfortable the teacher is with student struggle and initial failure — important for implementation"
-output_schema:
-  type: "object"
-  fields:
-    - field: "productive_failure_sequence"
-      type: "object"
-      description: "The complete sequence — generation phase, consolidation phase, and the critical transition between them"
-    - field: "desirable_difficulties"
-      type: "array"
-      description: "The specific difficulties embedded in the task and why each one enhances learning"
-    - field: "failure_safeguards"
-      type: "object"
-      description: "How to ensure failure is PRODUCTIVE rather than unproductive — the conditions that must be in place"
-    - field: "cognitive_offloading_risks"
-      type: "object"
-      description: "How AI tools might undermine the desirable difficulties and what to do about it"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "worked-example-to-problem-solving-transition-designer"
-  - "self-explanation-prompt-designer"
-  - "intelligent-tutoring-dialogue-designer"
-teacher_time: "5 minutes"
-tags: ["productive-failure", "desirable-difficulty", "Kapur", "Bjork", "struggle", "generation", "consolidation", "cognitive-offloading"]
 ---
 
 # Productive Failure & Desirable Difficulty Designer
@@ -285,3 +221,89 @@ Students will generate several approaches, most of which will be partially corre
 3. **Teacher skill is a binding constraint.** The consolidation phase requires a skilled teacher who can connect student-generated approaches to the canonical solution in real time. This is significantly harder than delivering a prepared lecture. Teachers attempting productive failure for the first time should start with a topic they know deeply.
 
 4. **The performance-learning distinction creates an assessment problem.** Students in productive failure conditions perform WORSE on immediate post-tests but BETTER on delayed and transfer tests (Soderstrom & Bjork, 2015). If the teacher assesses learning immediately after the lesson, productive failure will appear to have failed. The real benefits only appear days or weeks later.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/productive-failure-desirable-difficulty-designer
+skill_name: Productive Failure & Desirable Difficulty Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Kapur (2008) — Productive failure
+- Kapur (2016) — Examining productive failure, productive success, unproductive failure,
+  and unproductive success in learning
+- Bjork (1994) — Memory and metamemory considerations in the training of human beings
+- 'Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: creating
+  desirable difficulties to enhance learning'
+- 'Soderstrom & Bjork (2015) — Learning versus performance: an integrative review'
+input_schema:
+  required:
+  - field: target_concept
+    type: string
+    description: The specific concept or skill that students need to learn deeply
+      — the content that benefits from productive failure rather than direct instruction
+  - field: current_approach
+    type: string
+    description: How this concept is currently taught — typically direct instruction
+      followed by practice
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: time_available
+    type: string
+    description: How much lesson time is available for the productive failure sequence
+  - field: prerequisite_knowledge
+    type: string
+    description: What students already know that they can draw on during the generation
+      phase
+  - field: risk_tolerance
+    type: string
+    description: How comfortable the teacher is with student struggle and initial
+      failure — important for implementation
+output_schema:
+  type: object
+  fields:
+  - field: productive_failure_sequence
+    type: object
+    description: The complete sequence — generation phase, consolidation phase, and
+      the critical transition between them
+  - field: desirable_difficulties
+    type: array
+    description: The specific difficulties embedded in the task and why each one enhances
+      learning
+  - field: failure_safeguards
+    type: object
+    description: How to ensure failure is PRODUCTIVE rather than unproductive — the
+      conditions that must be in place
+  - field: cognitive_offloading_risks
+    type: object
+    description: How AI tools might undermine the desirable difficulties and what
+      to do about it
+chains_well_with:
+- adaptive-hint-sequence-designer
+- worked-example-to-problem-solving-transition-designer
+- self-explanation-prompt-designer
+- intelligent-tutoring-dialogue-designer
+teacher_time: 5 minutes
+tags:
+- productive-failure
+- desirable-difficulty
+- Kapur
+- Bjork
+- struggle
+- generation
+- consolidation
+- cognitive-offloading
+```

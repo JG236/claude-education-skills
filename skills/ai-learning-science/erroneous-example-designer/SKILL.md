@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: erroneous-example-designer
 description: "Design deliberately flawed examples that develop error-detection skills and deepen understanding. Use when students make characteristic errors and need practice spotting mistakes."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "ai-learning-science/erroneous-example-designer"
-skill_name: "Erroneous Example Designer"
-domain: "ai-learning-science"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "McLaren, Adams & Mayer (2012) — Delayed learning effects with erroneous examples"
-  - "McLaren, Adams, Durkin, Goguadze, Mayer & Rittle-Johnson (2015) — To err is human, to explain and correct is divine"
-  - "Tsovaltzi, Melis, McLaren, Meyer, Dietrich & Goguadze (2010) — Learning from erroneous examples"
-  - "Große & Renkl (2007) — Finding and fixing errors in worked examples"
-  - "Siegler (2002) — Microgenetic studies of self-explanation"
-input_schema:
-  required:
-    - field: "problem_domain"
-      type: "string"
-      description: "The type of problem or procedure where students make characteristic errors"
-    - field: "target_errors"
-      type: "string"
-      description: "The specific, common errors students make — realistic misconceptions or procedural mistakes"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and proficiency level"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "correct_examples_available"
-      type: "string"
-      description: "Whether students have already seen correct worked examples for this problem type"
-    - field: "number_of_examples"
-      type: "integer"
-      description: "How many erroneous examples to design"
-    - field: "delivery_context"
-      type: "string"
-      description: "Whether delivered digitally, on paper, or discussed in class"
-output_schema:
-  type: "object"
-  fields:
-    - field: "erroneous_examples"
-      type: "array"
-      description: "The set of erroneous worked examples — each containing a realistic, common error at a specific step"
-    - field: "error_analysis_scaffold"
-      type: "object"
-      description: "Prompts that guide students to find, explain, and correct each error"
-    - field: "learning_mechanism"
-      type: "object"
-      description: "Why each erroneous example produces learning — the cognitive mechanism of error detection"
-    - field: "correct_version"
-      type: "object"
-      description: "The corrected version of each example — for teacher reference and student self-checking"
-chains_well_with:
-  - "adaptive-hint-sequence-designer"
-  - "worked-example-fading-designer"
-  - "self-explanation-prompt-designer"
-  - "diagnostic-question-generator"
-teacher_time: "3 minutes"
-tags: ["erroneous-examples", "McLaren", "error-detection", "worked-examples", "misconceptions", "self-explanation"]
 ---
 
 # Erroneous Example Designer
@@ -266,3 +202,85 @@ By presenting all three, students develop a taxonomy of error types: "When I add
 2. **The learning effect is often DELAYED (McLaren et al., 2012).** Students who study erroneous examples may not outperform students who study correct examples on an immediate test — but they show superior retention and transfer on delayed tests (one week later). Teachers should be aware that the benefit may not be immediately visible, and should not conclude the approach has failed based on a same-day assessment.
 
 3. **The quality of the error-analysis scaffold determines the learning effect.** Simply showing students an error and saying "find the mistake" produces much weaker effects than providing structured prompts that require explanation and correction (Tsovaltzi et al., 2010). The scaffold above is designed to force self-explanation — but if students skip the explanation step and just identify the error without reasoning about it, the learning benefit is significantly reduced.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: ai-learning-science/erroneous-example-designer
+skill_name: Erroneous Example Designer
+domain: ai-learning-science
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- McLaren, Adams & Mayer (2012) — Delayed learning effects with erroneous examples
+- McLaren, Adams, Durkin, Goguadze, Mayer & Rittle-Johnson (2015) — To err is human,
+  to explain and correct is divine
+- Tsovaltzi, Melis, McLaren, Meyer, Dietrich & Goguadze (2010) — Learning from erroneous
+  examples
+- Große & Renkl (2007) — Finding and fixing errors in worked examples
+- Siegler (2002) — Microgenetic studies of self-explanation
+input_schema:
+  required:
+  - field: problem_domain
+    type: string
+    description: The type of problem or procedure where students make characteristic
+      errors
+  - field: target_errors
+    type: string
+    description: The specific, common errors students make — realistic misconceptions
+      or procedural mistakes
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group and proficiency level
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: correct_examples_available
+    type: string
+    description: Whether students have already seen correct worked examples for this
+      problem type
+  - field: number_of_examples
+    type: integer
+    description: How many erroneous examples to design
+  - field: delivery_context
+    type: string
+    description: Whether delivered digitally, on paper, or discussed in class
+output_schema:
+  type: object
+  fields:
+  - field: erroneous_examples
+    type: array
+    description: The set of erroneous worked examples — each containing a realistic,
+      common error at a specific step
+  - field: error_analysis_scaffold
+    type: object
+    description: Prompts that guide students to find, explain, and correct each error
+  - field: learning_mechanism
+    type: object
+    description: Why each erroneous example produces learning — the cognitive mechanism
+      of error detection
+  - field: correct_version
+    type: object
+    description: The corrected version of each example — for teacher reference and
+      student self-checking
+chains_well_with:
+- adaptive-hint-sequence-designer
+- worked-example-fading-designer
+- self-explanation-prompt-designer
+- diagnostic-question-generator
+teacher_time: 3 minutes
+tags:
+- erroneous-examples
+- McLaren
+- error-detection
+- worked-examples
+- misconceptions
+- self-explanation
+```

@@ -1,82 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: learning-target-authoring-guide
 description: "Author learning targets for a competency across developmental bands with precise, observable progression language. Use when writing 'I can' statements for competency-based programmes."
-disable-model-invocation: true
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "original-frameworks/learning-target-authoring-guide"
-skill_name: "Purpose-Driven Learning Target Authoring Guide"
-domain: "original-frameworks"
-version: "2.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Manning — Learning Target Authoring Guide v4.0 (2026, original methodology)"
-  - "Black & Wiliam (1998) — Assessment and classroom learning (clear learning intentions as prerequisite for formative assessment)"
-  - "Wiggins & McTighe (2005) — Understanding by Design (backwards design, extended with Manning's upstream 'why' layer)"
-  - "Bloom et al. (1956) — Taxonomy of educational objectives (observable verb hierarchy)"
-  - "Vygotsky (1978) — Mind in society (ZPD — band statements specify upper edge of capability with support)"
-input_schema:
-  required:
-    - field: "competency_name"
-      type: "string"
-      description: "The broad capability being decomposed into learning targets"
-    - field: "competency_definition"
-      type: "string"
-      description: "One sentence beginning 'The ability to...'"
-    - field: "band_range"
-      type: "string"
-      description: "Which developmental bands this LT set covers — e.g. Bands A-D or Bands A-F"
-    - field: "programme_purpose"
-      type: "string"
-      description: "Why this competency matters for this school's mission — the upstream 'why'"
-  optional:
-    - field: "existing_draft"
-      type: "string"
-      description: "Any existing LT wording to review and revise"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum domain"
-    - field: "assessment_context"
-      type: "string"
-      description: "How LTs will be used — reporting, project assessment, or both"
-output_schema:
-  type: "object"
-  fields:
-    - field: "competency_review"
-      type: "object"
-      description: "Is this competency right? Does it serve the mission? Is it genuinely a capability or a topic list in disguise?"
-    - field: "knowledge_type_classification"
-      type: "object"
-      description: "Step 0: classification of each emerging LT strand as Type 1 (hierarchical), Type 2 (horizontal/reasoning), or Type 3 (dispositional/enacted), with assessment route assignment and compound knowledge-type check"
-    - field: "lt_decomposition"
-      type: "object"
-      description: "The 2-3 LTs that make the competency actionable, with rationale for each — including knowledge-type splits where required"
-    - field: "lt_definitions"
-      type: "object"
-      description: "One-sentence 'I can...' definitions for each LT, with Knowledge Type, Assessment Route, and Prerequisites fields"
-    - field: "band_statements_or_observation_indicators"
-      type: "object"
-      description: "Type 1 and Type 2: full A-F band statement progression. Type 3: observation indicator sets per band (no rubric)"
-    - field: "quality_check"
-      type: "object"
-      description: "Full v4.0 checklist — single-construct, compound knowledge-type, no inline examples, observable verbs, vertical coherence, horizontal coherence, knowledge type checks, assessment route verification"
-    - field: "known_limitations"
-      type: "object"
-      description: "Where the LT set is strongest; where teacher judgment will still be needed"
-chains_well_with:
-  - "developmental-band-system-designer"
-  - "coherent-rubric-logic-builder"
-  - "self-determined-project-design-protocol"
-  - "curriculum-knowledge-architecture-designer"
-  - "kud-knowledge-type-mapper"
-  - "critical-thinking-task-designer"
-  - "dispositional-knowledge-assessment-designer"
-teacher_time: "5 minutes"
-tags: ["learning-targets", "Manning", "competency", "authoring", "backwards-design", "observable-verbs", "band-statements", "progression", "knowledge-type", "observation-indicators", "Type-3", "multi-informant"]
 ---
 
 # Purpose-Driven Learning Target Authoring Guide
@@ -773,3 +697,108 @@ Student self-reflection prompts:
 3. **The 2-LT default may not suit all competencies.** Some competencies decompose naturally into 2 strands; others resist clean decomposition. Knowledge-type splits may require 3 LTs where 2 seemed sufficient. The methodology provides the tests (coverage, distinctness, assessability, knowledge-type) but the designer must exercise judgment about when to follow the default and when to deviate.
 
 4. **Type 3 assessment is harder to implement than Type 1 or Type 2.** Multi-informant observation requires infrastructure (retrievable notes, self-reflection protocols, developmental conversation scheduling) that most schools do not yet have in place. This is a real constraint. The answer is not to route Type 3 LTs through rubrics for convenience — that produces the illusion of measurement. The answer is to build the infrastructure incrementally.
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: true
+user-invocable: true
+effort: medium
+skill_id: original-frameworks/learning-target-authoring-guide
+skill_name: Purpose-Driven Learning Target Authoring Guide
+domain: original-frameworks
+version: '2.0'
+evidence_strength: emerging
+evidence_sources:
+- Manning — Learning Target Authoring Guide v4.0 (2026, original methodology)
+- Black & Wiliam (1998) — Assessment and classroom learning (clear learning intentions
+  as prerequisite for formative assessment)
+- Wiggins & McTighe (2005) — Understanding by Design (backwards design, extended with
+  Manning's upstream 'why' layer)
+- Bloom et al. (1956) — Taxonomy of educational objectives (observable verb hierarchy)
+- Vygotsky (1978) — Mind in society (ZPD — band statements specify upper edge of capability
+  with support)
+input_schema:
+  required:
+  - field: competency_name
+    type: string
+    description: The broad capability being decomposed into learning targets
+  - field: competency_definition
+    type: string
+    description: One sentence beginning 'The ability to...'
+  - field: band_range
+    type: string
+    description: Which developmental bands this LT set covers — e.g. Bands A-D or
+      Bands A-F
+  - field: programme_purpose
+    type: string
+    description: Why this competency matters for this school's mission — the upstream
+      'why'
+  optional:
+  - field: existing_draft
+    type: string
+    description: Any existing LT wording to review and revise
+  - field: subject_area
+    type: string
+    description: The curriculum domain
+  - field: assessment_context
+    type: string
+    description: How LTs will be used — reporting, project assessment, or both
+output_schema:
+  type: object
+  fields:
+  - field: competency_review
+    type: object
+    description: Is this competency right? Does it serve the mission? Is it genuinely
+      a capability or a topic list in disguise?
+  - field: knowledge_type_classification
+    type: object
+    description: 'Step 0: classification of each emerging LT strand as Type 1 (hierarchical),
+      Type 2 (horizontal/reasoning), or Type 3 (dispositional/enacted), with assessment
+      route assignment and compound knowledge-type check'
+  - field: lt_decomposition
+    type: object
+    description: The 2-3 LTs that make the competency actionable, with rationale for
+      each — including knowledge-type splits where required
+  - field: lt_definitions
+    type: object
+    description: One-sentence 'I can...' definitions for each LT, with Knowledge Type,
+      Assessment Route, and Prerequisites fields
+  - field: band_statements_or_observation_indicators
+    type: object
+    description: 'Type 1 and Type 2: full A-F band statement progression. Type 3:
+      observation indicator sets per band (no rubric)'
+  - field: quality_check
+    type: object
+    description: Full v4.0 checklist — single-construct, compound knowledge-type,
+      no inline examples, observable verbs, vertical coherence, horizontal coherence,
+      knowledge type checks, assessment route verification
+  - field: known_limitations
+    type: object
+    description: Where the LT set is strongest; where teacher judgment will still
+      be needed
+chains_well_with:
+- developmental-band-system-designer
+- coherent-rubric-logic-builder
+- self-determined-project-design-protocol
+- curriculum-knowledge-architecture-designer
+- kud-knowledge-type-mapper
+- critical-thinking-task-designer
+- dispositional-knowledge-assessment-designer
+teacher_time: 5 minutes
+tags:
+- learning-targets
+- Manning
+- competency
+- authoring
+- backwards-design
+- observable-verbs
+- band-statements
+- progression
+- knowledge-type
+- observation-indicators
+- Type-3
+- multi-informant
+```

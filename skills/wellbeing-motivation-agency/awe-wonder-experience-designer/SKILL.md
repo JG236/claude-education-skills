@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: awe-wonder-experience-designer
 description: "Design a moment of awe or wonder that hooks curiosity and deepens emotional engagement with content. Use when opening units, introducing surprising material, or reigniting student interest."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "wellbeing-motivation-agency/awe-wonder-experience-designer"
-skill_name: "Awe & Wonder Experience Designer"
-domain: "wellbeing-motivation-agency"
-version: "1.0"
-evidence_strength: "emerging"
-evidence_sources:
-  - "Keltner & Haidt (2003) — Approaching awe, a moral, spiritual, and aesthetic emotion"
-  - "Keltner (2023) — Awe: the new science of everyday wonder and how it can transform your life"
-  - "Valdesolo & Graham (2014) — Awe, uncertainty, and agency detection"
-  - "Shiota, Keltner & Mossman (2007) — The nature of awe: elicitors, appraisals, and effects on self-concept"
-  - "Gottlieb, Keltner & Lombrozo (2018) — Awe as a scientific emotion"
-input_schema:
-  required:
-    - field: "lesson_content"
-      type: "string"
-      description: "The subject content and learning objectives for the lesson"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "awe_trigger"
-      type: "string"
-      description: "A specific element the teacher wants to build the awe moment around"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: class interests, engagement patterns, prior knowledge"
-    - field: "available_resources"
-      type: "string"
-      description: "Technology, space, materials available"
-    - field: "lesson_duration"
-      type: "string"
-      description: "Length of the lesson"
-output_schema:
-  type: "object"
-  fields:
-    - field: "awe_moment_design"
-      type: "object"
-      description: "The designed awe experience — what students encounter, how it is presented, where it sits in the lesson"
-    - field: "vastness_element"
-      type: "string"
-      description: "What creates the sense of vastness — physical, temporal, conceptual, or social"
-    - field: "accommodation_bridge"
-      type: "string"
-      description: "How the awe moment connects to the learning — the 'need to know' that awe creates"
-    - field: "teaching_sequence"
-      type: "object"
-      description: "How to sequence the lesson so the awe moment drives inquiry rather than just entertainment"
-chains_well_with:
-  - "perma-based-lesson-designer"
-  - "motivation-diagnostic-task-redesign"
-  - "lesson-opening-designer"
-  - "critical-thinking-task-designer"
-teacher_time: "3 minutes"
-tags: ["awe", "wonder", "curiosity", "Keltner", "engagement", "positive-emotion"]
 ---
 
 # Awe & Wonder Experience Designer
@@ -245,3 +181,84 @@ Use the questions to structure the learning: relative sizes (with data table —
 2. **Awe moments are rare by nature.** If every lesson starts with an "awe moment," the effect diminishes rapidly. Awe should be used strategically — perhaps once per unit or topic — at points where the content genuinely warrants it. Overuse turns awe into spectacle.
 
 3. **The evidence base for awe in education is emerging, not established.** Keltner's research is robust in psychology, but its application to classroom learning has limited controlled studies. The principles are sound (awe increases openness, curiosity, and tolerance for uncertainty — all valuable for learning), but the specific claim that "awe improves academic outcomes" requires more research. This skill is based on well-established emotion science applied to educational contexts, not on direct educational RCTs.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: wellbeing-motivation-agency/awe-wonder-experience-designer
+skill_name: Awe & Wonder Experience Designer
+domain: wellbeing-motivation-agency
+version: '1.0'
+evidence_strength: emerging
+evidence_sources:
+- Keltner & Haidt (2003) — Approaching awe, a moral, spiritual, and aesthetic emotion
+- 'Keltner (2023) — Awe: the new science of everyday wonder and how it can transform
+  your life'
+- Valdesolo & Graham (2014) — Awe, uncertainty, and agency detection
+- 'Shiota, Keltner & Mossman (2007) — The nature of awe: elicitors, appraisals, and
+  effects on self-concept'
+- Gottlieb, Keltner & Lombrozo (2018) — Awe as a scientific emotion
+input_schema:
+  required:
+  - field: lesson_content
+    type: string
+    description: The subject content and learning objectives for the lesson
+  - field: student_level
+    type: string
+    description: Age/year group
+  optional:
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: awe_trigger
+    type: string
+    description: A specific element the teacher wants to build the awe moment around
+  - field: student_profiles
+    type: array
+    description: 'From context engine: class interests, engagement patterns, prior
+      knowledge'
+  - field: available_resources
+    type: string
+    description: Technology, space, materials available
+  - field: lesson_duration
+    type: string
+    description: Length of the lesson
+output_schema:
+  type: object
+  fields:
+  - field: awe_moment_design
+    type: object
+    description: The designed awe experience — what students encounter, how it is
+      presented, where it sits in the lesson
+  - field: vastness_element
+    type: string
+    description: What creates the sense of vastness — physical, temporal, conceptual,
+      or social
+  - field: accommodation_bridge
+    type: string
+    description: How the awe moment connects to the learning — the 'need to know'
+      that awe creates
+  - field: teaching_sequence
+    type: object
+    description: How to sequence the lesson so the awe moment drives inquiry rather
+      than just entertainment
+chains_well_with:
+- perma-based-lesson-designer
+- motivation-diagnostic-task-redesign
+- lesson-opening-designer
+- critical-thinking-task-designer
+teacher_time: 3 minutes
+tags:
+- awe
+- wonder
+- curiosity
+- Keltner
+- engagement
+- positive-emotion
+```

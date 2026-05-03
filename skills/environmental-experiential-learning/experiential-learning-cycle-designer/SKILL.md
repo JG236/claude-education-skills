@@ -1,73 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: experiential-learning-cycle-designer
 description: "Structure a direct experience into a full learning cycle with concrete experience, reflection, and conceptual transfer. Use when planning field trips, simulations, or practical tasks."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "environmental-experiential-learning/experiential-learning-cycle-designer"
-skill_name: "Experiential Learning Cycle Designer"
-domain: "environmental-experiential-learning"
-version: "1.0"
-evidence_strength: "moderate"
-evidence_sources:
-  - "Hattie (2009) — Visible Learning: simulation and gaming effect size d=0.33"
-  - "Billig (2000) — Research on K-12 school-based service learning: the evidence builds"
-  - "Dewey (1938) — Experience and Education"
-  - "Boud, Keogh & Walker (1985) — Reflection: turning experience into learning"
-  - "Wurdinger & Carlson (2010) — Teaching for Experiential Learning: five approaches that work"
-input_schema:
-  required:
-    - field: "learning_objective"
-      type: "string"
-      description: "The specific knowledge, skill, or understanding students need to develop"
-    - field: "experience_type"
-      type: "string"
-      description: "The kind of direct experience available — simulation, role play, field trip, community project, practical task, experiment"
-  optional:
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group"
-    - field: "subject_area"
-      type: "string"
-      description: "The curriculum subject"
-    - field: "time_available"
-      type: "string"
-      description: "How much time for the full cycle — single lesson, multiple lessons, a week"
-    - field: "resources_available"
-      type: "string"
-      description: "What resources, materials, or settings are available for the experience"
-    - field: "prior_knowledge"
-      type: "string"
-      description: "What students already know — determines where in the cycle emphasis falls"
-output_schema:
-  type: "object"
-  fields:
-    - field: "experiential_cycle"
-      type: "object"
-      description: "The four-phase learning cycle: experience → reflection → conceptualisation → application"
-    - field: "experience_design"
-      type: "object"
-      description: "The direct experience — what students do, see, feel, encounter"
-    - field: "reflection_design"
-      type: "object"
-      description: "How students process the experience — structured reflection that extracts learning"
-    - field: "conceptualisation_design"
-      type: "object"
-      description: "How students connect their experience to theory, principles, or generalisable knowledge"
-    - field: "application_design"
-      type: "object"
-      description: "How students apply their learning to a new situation — testing understanding through action"
-chains_well_with:
-  - "service-learning-project-designer"
-  - "outdoor-learning-sequence-designer"
-  - "reflective-practice-prompt-generator"
-  - "agency-scaffold-generator"
-teacher_time: "4 minutes"
-tags: ["experiential-learning", "simulation", "service-learning", "Dewey", "reflection", "direct-experience"]
 ---
 
 # Experiential Learning Cycle Designer
@@ -250,3 +183,89 @@ The teacher introduces:
 2. **Simulations simplify reality.** The classroom marketplace is a simulation of supply and demand, not the real thing. Real markets involve information asymmetry, externalities, government regulation, monopoly power, behavioural biases, and historical context that a classroom simulation cannot replicate. The simulation teaches the BASIC mechanism — but students should be told explicitly: "The real economy is more complex than our simulation. What we've learned is the foundation — the principle that supply and demand affect prices. In the coming weeks, we'll add the complications."
 
 3. **The effect size for simulation-based learning is moderate (Hattie, d=0.33).** This is a positive effect but not a large one, and it depends heavily on the quality of the debriefing. Simulations without structured reflection consistently produce weaker learning outcomes than simulations WITH structured reflection. The reflection phase is not optional — it is where the learning happens. An engaging simulation followed by "OK, that was fun, now open your textbooks" wastes the experiential opportunity.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: environmental-experiential-learning/experiential-learning-cycle-designer
+skill_name: Experiential Learning Cycle Designer
+domain: environmental-experiential-learning
+version: '1.0'
+evidence_strength: moderate
+evidence_sources:
+- 'Hattie (2009) — Visible Learning: simulation and gaming effect size d=0.33'
+- 'Billig (2000) — Research on K-12 school-based service learning: the evidence builds'
+- Dewey (1938) — Experience and Education
+- 'Boud, Keogh & Walker (1985) — Reflection: turning experience into learning'
+- 'Wurdinger & Carlson (2010) — Teaching for Experiential Learning: five approaches
+  that work'
+input_schema:
+  required:
+  - field: learning_objective
+    type: string
+    description: The specific knowledge, skill, or understanding students need to
+      develop
+  - field: experience_type
+    type: string
+    description: The kind of direct experience available — simulation, role play,
+      field trip, community project, practical task, experiment
+  optional:
+  - field: student_level
+    type: string
+    description: Age/year group
+  - field: subject_area
+    type: string
+    description: The curriculum subject
+  - field: time_available
+    type: string
+    description: How much time for the full cycle — single lesson, multiple lessons,
+      a week
+  - field: resources_available
+    type: string
+    description: What resources, materials, or settings are available for the experience
+  - field: prior_knowledge
+    type: string
+    description: What students already know — determines where in the cycle emphasis
+      falls
+output_schema:
+  type: object
+  fields:
+  - field: experiential_cycle
+    type: object
+    description: 'The four-phase learning cycle: experience → reflection → conceptualisation
+      → application'
+  - field: experience_design
+    type: object
+    description: The direct experience — what students do, see, feel, encounter
+  - field: reflection_design
+    type: object
+    description: How students process the experience — structured reflection that
+      extracts learning
+  - field: conceptualisation_design
+    type: object
+    description: How students connect their experience to theory, principles, or generalisable
+      knowledge
+  - field: application_design
+    type: object
+    description: How students apply their learning to a new situation — testing understanding
+      through action
+chains_well_with:
+- service-learning-project-designer
+- outdoor-learning-sequence-designer
+- reflective-practice-prompt-generator
+- agency-scaffold-generator
+teacher_time: 4 minutes
+tags:
+- experiential-learning
+- simulation
+- service-learning
+- Dewey
+- reflection
+- direct-experience
+```

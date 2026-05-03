@@ -1,70 +1,6 @@
 ---
-# AGENT SKILLS STANDARD FIELDS (v2)
 name: critical-thinking-task-designer
 description: "Design a critical thinking task targeting specific skills like evaluating evidence, identifying bias, or analysing arguments. Use when embedding critical analysis into subject lessons."
-disable-model-invocation: false
-user-invocable: true
-effort: medium
-
-# EXISTING FIELDS
-
-skill_id: "literacy-critical-thinking/critical-thinking-task-designer"
-skill_name: "Critical Thinking Task Designer"
-domain: "literacy-critical-thinking"
-version: "1.0"
-evidence_strength: "strong"
-evidence_sources:
-  - "Paul & Elder (2008) — The Miniature Guide to Critical Thinking Concepts and Tools"
-  - "Facione (1990) — Critical Thinking: a statement of expert consensus for purposes of educational assessment and instruction (Delphi report)"
-  - "Willingham (2007) — Critical thinking: why is it so hard to teach?"
-  - "Abrami et al. (2008) — Instructional interventions affecting critical thinking skills and dispositions: a meta-analysis"
-  - "Ennis (1989) — Critical thinking and subject specificity: clarification and needed research"
-input_schema:
-  required:
-    - field: "topic"
-      type: "string"
-      description: "The subject content the critical thinking task will be embedded in"
-    - field: "student_level"
-      type: "string"
-      description: "Age/year group and current thinking level"
-    - field: "critical_thinking_focus"
-      type: "string"
-      description: "The specific critical thinking skill to develop — e.g. evaluating evidence, identifying assumptions, analysing arguments, comparing perspectives, detecting bias"
-  optional:
-    - field: "subject_area"
-      type: "string"
-      description: "The discipline context — critical thinking is domain-specific"
-    - field: "student_profiles"
-      type: "array"
-      description: "From context engine: prior experience with critical analysis, verbal confidence"
-    - field: "task_format"
-      type: "string"
-      description: "Preferred format — written, discussion-based, visual, or mixed"
-    - field: "time_available"
-      type: "string"
-      description: "Time available for the task"
-output_schema:
-  type: "object"
-  fields:
-    - field: "task"
-      type: "object"
-      description: "The critical thinking task with clear instructions, stimulus material, and guiding questions"
-    - field: "critical_vs_surface_guide"
-      type: "object"
-      description: "Criteria distinguishing critical from surface-level responses, with examples of each"
-    - field: "teacher_prompts"
-      type: "array"
-      description: "Follow-up prompts to push surface responses toward critical engagement"
-    - field: "assessment_indicators"
-      type: "string"
-      description: "What to look for in student responses that indicates genuine critical thinking"
-chains_well_with:
-  - "socratic-questioning-sequence-generator"
-  - "argument-structure-scaffold-generator"
-  - "source-credibility-evaluation-protocol"
-  - "discussion-protocol-selector"
-teacher_time: "4 minutes"
-tags: ["critical-thinking", "analysis", "evaluation", "domain-specific", "higher-order-thinking"]
 ---
 
 # Critical Thinking Task Designer
@@ -284,3 +220,85 @@ Look for these specific features in student responses:
 2. **The task requires sufficient domain knowledge.** A student who knows nothing about World War II cannot critically evaluate arguments about Hiroshima, no matter how strong their general reasoning skills. Critical thinking tasks must be set at the right point in a unit — after students have enough knowledge to evaluate, not before. Setting critical thinking tasks too early produces uninformed opinion, not critical analysis.
 
 3. **Students may confuse "being critical" with "being negative."** Critical thinking means evaluating the quality of reasoning — it doesn't mean attacking, dismissing, or being contrarian. Some students, when told to "think critically," will criticise everything without evaluating anything. The surface vs. critical response guide helps teachers identify this pattern, but it requires ongoing modelling of what genuine critical evaluation looks like: fair, evidence-based, and willing to acknowledge strength in opposing positions.
+
+
+---
+
+## Skill Metadata (preserved from source)
+
+```yaml
+disable-model-invocation: false
+user-invocable: true
+effort: medium
+skill_id: literacy-critical-thinking/critical-thinking-task-designer
+skill_name: Critical Thinking Task Designer
+domain: literacy-critical-thinking
+version: '1.0'
+evidence_strength: strong
+evidence_sources:
+- Paul & Elder (2008) — The Miniature Guide to Critical Thinking Concepts and Tools
+- 'Facione (1990) — Critical Thinking: a statement of expert consensus for purposes
+  of educational assessment and instruction (Delphi report)'
+- 'Willingham (2007) — Critical thinking: why is it so hard to teach?'
+- 'Abrami et al. (2008) — Instructional interventions affecting critical thinking
+  skills and dispositions: a meta-analysis'
+- 'Ennis (1989) — Critical thinking and subject specificity: clarification and needed
+  research'
+input_schema:
+  required:
+  - field: topic
+    type: string
+    description: The subject content the critical thinking task will be embedded in
+  - field: student_level
+    type: string
+    description: Age/year group and current thinking level
+  - field: critical_thinking_focus
+    type: string
+    description: The specific critical thinking skill to develop — e.g. evaluating
+      evidence, identifying assumptions, analysing arguments, comparing perspectives,
+      detecting bias
+  optional:
+  - field: subject_area
+    type: string
+    description: The discipline context — critical thinking is domain-specific
+  - field: student_profiles
+    type: array
+    description: 'From context engine: prior experience with critical analysis, verbal
+      confidence'
+  - field: task_format
+    type: string
+    description: Preferred format — written, discussion-based, visual, or mixed
+  - field: time_available
+    type: string
+    description: Time available for the task
+output_schema:
+  type: object
+  fields:
+  - field: task
+    type: object
+    description: The critical thinking task with clear instructions, stimulus material,
+      and guiding questions
+  - field: critical_vs_surface_guide
+    type: object
+    description: Criteria distinguishing critical from surface-level responses, with
+      examples of each
+  - field: teacher_prompts
+    type: array
+    description: Follow-up prompts to push surface responses toward critical engagement
+  - field: assessment_indicators
+    type: string
+    description: What to look for in student responses that indicates genuine critical
+      thinking
+chains_well_with:
+- socratic-questioning-sequence-generator
+- argument-structure-scaffold-generator
+- source-credibility-evaluation-protocol
+- discussion-protocol-selector
+teacher_time: 4 minutes
+tags:
+- critical-thinking
+- analysis
+- evaluation
+- domain-specific
+- higher-order-thinking
+```
